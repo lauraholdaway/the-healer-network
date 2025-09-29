@@ -9,7 +9,8 @@
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/x-icon" href="{{ asset('asset/favicon.png') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('asset/images/dark-logo.png') }}">
+
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

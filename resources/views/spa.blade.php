@@ -8,6 +8,7 @@
 
   <!-- ✅ Bootstrap CSS -->
   <link rel="stylesheet" href="{{ asset('asset/css/bootstrap.min.css') }}">
+    <link rel="icon" type="image/x-icon" href="{{ asset('asset/images/dark-logo.png') }}">
 
   <!-- ✅ Custom CSS (after bootstrap so overrides work) -->
   <link rel="stylesheet" href="{{ asset('asset/custome-css/style.css') }}">
