@@ -60,7 +60,7 @@ function logout() {
                         <input type="file" id="uploadImage" class="d-none" accept="image/*"
                             @change="handleImageUpload" />
 
-                        <h4 class="userdashboard-name">{{ auth.user?.name }}</h4>
+                        <h4 class="userdashboard-name">{{ auth.user?.name }} {{ auth.user?.last_name }}</h4>
                         <p class="userdashboard-joined">Joined since {{ auth.user?.created_at }}</p>
 
                         <div class="userdashboard-menu">

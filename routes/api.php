@@ -20,9 +20,10 @@ Route::middleware('auth:sanctum')->post('/profile/update-image', [AuthController
 Route::post('/practitioners/register', [PractitionerController::class, 'store']);
 
 
-
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/doctor/profile', [DoctorController::class, 'profile']);
     Route::post('/doctor/update', [DoctorController::class, 'update']);
     Route::post('/doctor/update-image', [DoctorController::class, 'updateImage']);
 });
+Route::post('/GetAllDoctor', [DoctorController::class,'GetAllDoctor']);
+

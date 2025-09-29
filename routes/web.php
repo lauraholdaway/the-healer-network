@@ -4,9 +4,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Api\DoctorController;
+use Illuminate\Support\Facades\Auth;
 
 
 Route::get('/superadmin', function () {
+    if (Auth::check() && Auth::user()->role == 1) {
+        return redirect()->route('dashboard'); // change to your route name
+    }
     return view('admin.auth.login');
 });
 

@@ -14,8 +14,10 @@ import Booksession from '../pages/Booksession.vue'
 
 
 import practitor_register from '../pages/practitor_register.vue';
-import Docterdashboard from '../pages/Docterdashboard.vue';
-import Doctorprofile from '../pages/Doctorprofile.vue';
+
+import Docterdashboard from '../pages/doctor/Docterdashboard.vue';
+import Doctorprofile from '../pages/doctor/Doctorprofile.vue';
+import UserView from '../pages/doctor/UserView.vue';
 
 
 // Update User
@@ -38,32 +40,44 @@ const routes = [
 
   { path: '/profile', name: 'Profile', component: Profile , meta: { requiresAuth: true },},
 
-  { path: '/practitor_register', name: 'practitor_register', component: practitor_register },
-  {
-  path: '/Docterdashboard',
-  name: 'Docterdashboard',
-  component: Docterdashboard,
-  meta: { hideNav: true, hideFooter: true ,requiresAuth: true } // ✅ custom flags
-},
+    { path: '/practitor_register', name: 'practitor_register', component: practitor_register },
 
-  {
-  path: '/Doctorprofile',
-  name: 'Doctorprofile',
-  component: Doctorprofile,
-  meta: { hideNav: true, hideFooter: true ,requiresAuth: true } // ✅ custom flags
-    },
+
+    //   {
+    //     //   path: '/Docterdashboard',
+    //     //   name: 'Docterdashboard',
+    //     //   component: Docterdashboard,
+    //     //   meta: { hideNav: true, hideFooter: true ,requiresAuth: true } // ✅ custom flags
+    //     // },
+
+    //     //   {
+    //     //   path: '/Doctorprofile',
+    //     //   name: 'Doctorprofile',
+    //     //   component: Doctorprofile,
+    //     //   meta: { hideNav: true, hideFooter: true ,requiresAuth: true } // ✅ custom flags
+    //     //     },
 
     // update User profile
     {
         path: '/Profile',
         component: Profile,
-        meta: { requiresAuth: true },
+        meta: { requiresAuth: true, },
         children: [
             { path: 'Chart', name: 'Chart', component: Chart }, // default
             { path: 'update-profile', name: 'update-profile', component: Updateprofile },
             // you can add more like:
             // { path: 'bookings', name: 'Bookings', component: Bookings },
             // { path: 'settings', name: 'Settings', component: Settings },
+        ]
+    },
+    {
+        path: '/Docterdashboard',
+        component: Docterdashboard,
+        meta: { requiresAuth: true, requiresAuth: true, meta: { hideNav: true, hideFooter: true, requiresAuth: true } },
+        children: [
+            { path: '', name: 'UserView', component: UserView, meta: { hideFooter: true, hideNav: true, requiresAuth: true } }, // default
+            { path: 'Doctorprofile', name: 'Doctorprofile', component: Doctorprofile, meta: { hideNav: true, hideFooter: true, requiresAuth: true } },
+
         ]
 }
 
