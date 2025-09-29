@@ -101,4 +101,40 @@ public function updateImage(Request $request)
     return response()->json($user);
 }
 
+    public function update(Request $request)
+    {
+        $user = $request->user(); // ✅ current authenticated user
+
+        // Validation
+        $validated = $request->validate([
+            'name'       => 'required|string|max:255',
+            'last_name'  => 'nullable|string|max:255',
+            'number'     => 'nullable|string|max:20',
+            'password'   => 'nullable|string|min:6',
+            'image'      => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+        ]);
+
+        // Update fields
+        $user->name = $validated['name'];
+        $user->last_name = $validated['last_name'] ?? $user->last_name;
+        $user->number = $validated['number'] ?? $user->number;
+
+        // Handle password
+        if (!empty($validated['password'])) {
+            $user->password = Hash::make($validated['password']);
+        }
+
+        // Handle image upload
+        if ($request->hasFile('image')) {
+            $path = $request->file('image')->store('users', 'public');
+            $user->image = $path;
+        }
+
+        $user->save();
+
+        return response()->json([
+            'message' => 'Profile updated successfully!',
+            'user' => $user
+        ]);
+    }
 }

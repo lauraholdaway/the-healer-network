@@ -12,11 +12,16 @@ import About from '../pages/About.vue'
 import Docter from '../pages/docter.vue'
 import Booksession from '../pages/Booksession.vue'
 
-import Profile from '../pages/Profile.vue'
 
 import practitor_register from '../pages/practitor_register.vue';
 import Docterdashboard from '../pages/Docterdashboard.vue';
 import Doctorprofile from '../pages/Doctorprofile.vue';
+
+
+// Update User
+import Profile from '../pages/user/Dashboard.vue'
+import Updateprofile from '../pages/user/Updateprofile.vue';
+import Chart from '../pages/user/Chart.vue';
 
 const routes = [
   { path: '/', name: 'Home', component: Home },
@@ -30,6 +35,7 @@ const routes = [
   { path: '/docter', name: 'Docter', component: Docter },
   { path: '/booksession', name: 'Booksession', component: Booksession },
 
+
   { path: '/profile', name: 'Profile', component: Profile , meta: { requiresAuth: true },},
 
   { path: '/practitor_register', name: 'practitor_register', component: practitor_register },
@@ -39,12 +45,28 @@ const routes = [
   component: Docterdashboard,
   meta: { hideNav: true, hideFooter: true ,requiresAuth: true } // ✅ custom flags
 },
+
   {
   path: '/Doctorprofile',
   name: 'Doctorprofile',
   component: Doctorprofile,
   meta: { hideNav: true, hideFooter: true ,requiresAuth: true } // ✅ custom flags
+    },
+
+    // update User profile
+    {
+        path: '/Profile',
+        component: Profile,
+        meta: { requiresAuth: true },
+        children: [
+            { path: 'Chart', name: 'Chart', component: Chart }, // default
+            { path: 'update-profile', name: 'update-profile', component: Updateprofile },
+            // you can add more like:
+            // { path: 'bookings', name: 'Bookings', component: Bookings },
+            // { path: 'settings', name: 'Settings', component: Settings },
+        ]
 }
+
 
 
 ]

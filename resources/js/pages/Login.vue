@@ -58,7 +58,7 @@ async function onSubmit() {
 
 
         if (auth.user.role === '2') {
-            await router.push('/profile')
+            await router.push('/profile/Chart')
         } else {
             await router.push('/Docterdashboard')
         }

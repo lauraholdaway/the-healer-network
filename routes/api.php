@@ -10,6 +10,7 @@ Route::post('/login', [AuthController::class,'login']);
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', [AuthController::class,'me']);
+    Route::post('/user/update', [AuthController::class, 'update']);
     Route::get('/docterdata', [DoctorController::class,'docterdata']);
     Route::post('/logout', [AuthController::class,'logout']);
     // other protected api routes
