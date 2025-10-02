@@ -23,11 +23,11 @@ class DoctorController extends Controller
 
     // ✅ Update doctor profile (except email)
     public function update(Request $request)
-{
+    {
         // dd($request->all());
         $user = User::find(Auth::id());
 
-    $validated = $request->validate([
+        $validated = $request->validate([
             // User fields
             'name' => 'required|string|max:100',
             'last_name' => 'required|string|max:100',
@@ -46,19 +46,18 @@ class DoctorController extends Controller
             'free_trial_sessions' => 'nullable|boolean',
             'happy_to_provide_free_session' => 'nullable|boolean',
             'referred_by' => 'nullable|string|max:255',
-    ]);
+        ]);
 
-    // ✅ Update User
-    $user->name = $validated['name'] . ' ' . $validated['last_name'];
+        // ✅ Update User
+        $user->name = $validated['name'] . ' ' . $validated['last_name'];
         $user->number = $validated['phone'] ?? $user->phone;
-        $user->status = 0;
-    $user->save();
+        $user->save();
 
-    // ✅ Update Practitioner
-    $practitioner = Practitioner::where('user_id', $user->id)->first();
+        // ✅ Update Practitioner
+        $practitioner = Practitioner::where('user_id', $user->id)->first();
 
-    if ($practitioner) {
-        $practitioner->practice_location = $validated['practice_location'] ?? $practitioner->practice_location;
+        if ($practitioner) {
+            $practitioner->practice_location = $validated['practice_location'] ?? $practitioner->practice_location;
             $practitioner->about = $validated['about'] ?? $practitioner->about;
             $practitioner->primary_contact_number = $validated['primary_contact_number'] ?? $practitioner->primary_contact_number;
             $practitioner->mobile_number = $validated['mobile_number'] ?? $practitioner->mobile_number;
@@ -71,8 +70,8 @@ class DoctorController extends Controller
             $practitioner->happy_to_provide_free_session = $validated['happy_to_provide_free_session'] ?? $practitioner->happy_to_provide_free_session;
             $practitioner->referred_by = $validated['referred_by'] ?? $practitioner->referred_by;
 
-        $practitioner->save();
-    }
+            $practitioner->save();
+        }
 
         return response()->json([
             'success' => true,
@@ -85,11 +84,12 @@ class DoctorController extends Controller
     // ✅ Update doctor profile image
     public function updateImage(Request $request)
     {
+
         $request->validate([
-            'profile_image' => 'required|image|mimes:jpg,jpeg,png|max:9048',
+            'profile_image' => 'required',
         ]);
 
-    $user = User::find(Auth::id());
+        $user = User::find(Auth::id());
 
         $path = $request->file('profile_image')->store('profiles', 'public');
 
@@ -105,7 +105,7 @@ class DoctorController extends Controller
     }
 
     // here local
-     public function index()
+    public function index()
     {
         $doctors = Practitioner::with('user')->get();
         return view('admin.doctors.index', compact('doctors'));

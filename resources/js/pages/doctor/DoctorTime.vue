@@ -3,9 +3,6 @@
     <div class="content flex-grow-1 p-4">
         <div class="card p-4 session-card">
             <h3 class="mb-4">💰 Doctor Packages</h3>
-
-
-
             <!-- Packages -->
             <div v-for="(pkg, index) in packages" :key="index" class="row mb-3 border p-2 rounded">
                 <div class="col-md-3">
@@ -25,11 +22,11 @@
                 </div>
             </div>
 
-            <button class="btn btn-outline-primary mb-4" @click="addPackage">+ Add Package</button>
+            <button class="btn btn-outline-primary mb-4 main-btn2" @click="addPackage">+ Add Package</button>
 
             <!-- Save -->
             <div class="text-end">
-                <button class="btn btn-success px-4" @click="savePackages">Save Packages</button>
+                <button class="btn btn-success px-4 main-btn" @click="savePackages">Save Packages</button>
             </div>
             <br>
             <hr>

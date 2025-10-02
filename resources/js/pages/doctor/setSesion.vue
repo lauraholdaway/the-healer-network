@@ -1,7 +1,7 @@
 ```vue
 <template>
-    <div class="content flex-grow-1 p-4">
-        <div class="card p-4 session-card">
+    <div class="content flex-grow-1 p-4 card">
+        <div class="p-4 session-card">
             <h3 class="mb-4">📅 Doctor Availability</h3>
             <!-- Add Date & Time -->
             <div class="row mb-3">
@@ -14,7 +14,7 @@
                     <input v-model="currentTime" type="time" class="form-control" />
                 </div>
                 <div class="col-md-4 mt-4">
-                    <button class="btn btn-outline-success w-100" @click="addSlot">+ Add Slot</button>
+                    <button class="btn btn-outline-success w-100 main-btn2" @click="addSlot">+ Add Slot</button>
                 </div>
             </div>
 
@@ -31,12 +31,13 @@
 
             <!-- Save -->
             <div class="text-end">
-                <button class="btn btn-primary px-4" @click="saveAvailability">Save Availability</button>
+                <button class="btn btn-primary px-4 main-btn" @click="saveAvailability">Save Availability</button>
             </div>
         </div>
 
+        <hr>
         <div>
- <table class="table table-bordered table-hover">
+            <table class="table table-bordered table-hover">
                 <thead class="table-light">
                     <tr>
                         <th scope="col">#</th>
@@ -50,8 +51,8 @@
                         <th scope="row">{{ index + 1 }}</th>
                         <td>{{ tm.date }}</td>
                         <td>
-                            <div v-for="(ontime , index ) in tm.times" :key ='indec'>
-                                    {{ formatTime(ontime) }}
+                            <div v-for="(ontime, index) in tm.times" :key='indec'>
+                                {{ formatTime(ontime) }}
                             </div>
 
                         </td>
@@ -68,7 +69,7 @@
 </template>
 
 <script setup>
-import { ref ,onMounted} from "vue";
+import { ref, onMounted } from "vue";
 import axios from "axios";
 
 import { useAuthStore } from "../../stores/auth";
@@ -130,10 +131,11 @@ async function getime() {
 async function deletePackage(id) {
     if (!confirm("Are you sure you want to delete this Date?"))
         return;
-    try { await axios.delete(`/api/availability/delete/${id}`);
-         timedata.value = timedata.value.filter((tm) => tm.id !== id);
+    try {
+        await axios.delete(`/api/availability/delete/${id}`);
+        timedata.value = timedata.value.filter((tm) => tm.id !== id);
         getime();
-        }
+    }
     catch (err) { console.error("Failed to delete package:", err); }
 }
 
@@ -144,11 +146,11 @@ onMounted(() => {
 
 
 function formatTime(time) {
-  const [hours, minutes] = time.split(":");
-  let h = parseInt(hours);
-  const ampm = h >= 12 ? "PM" : "AM";
-  h = h % 12 || 12; // convert 0 -> 12
-  return `${h}:${minutes} ${ampm}`;
+    const [hours, minutes] = time.split(":");
+    let h = parseInt(hours);
+    const ampm = h >= 12 ? "PM" : "AM";
+    h = h % 12 || 12; // convert 0 -> 12
+    return `${h}:${minutes} ${ampm}`;
 }
 </script>
 
