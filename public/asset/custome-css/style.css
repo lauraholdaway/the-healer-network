@@ -733,3 +733,6 @@ footer ul li a:hover {
         font-size: 20px;
     }
 }
+.form-control {
+    border: 1px solid #E5E5E5 !important;
+}
