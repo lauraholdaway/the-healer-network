@@ -136,124 +136,122 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="content flex-grow-1 p-4">
-    <div class="card p-4">
-      <h3 class="mb-4">Update Profile</h3>
+    <div class="content flex-grow-1 p-4">
+        <div class="card p-4">
+            <h3 class="mb-4">Update Profile</h3>
 
-      <!-- Profile Image -->
-      <div class="text-center mb-4">
-        <img
-          :src="preview || (user?.image ? '/storage/' + user.image : '/default-avatar.png')"
-          class="profile-pic mb-3"
-          alt="Doctor Image"
-        />
-        <div class="d-flex gap-2 justify-content-center">
-          <input type="file" @change="handleImageUpload" class="form-control w-50" />
-          <button class="btn btn-secondary" @click="updateImage">
-            Update Image
-          </button>
-        </div>
-      </div>
+            <!-- Profile Image -->
+            <div class="text-center mb-4">
+                <img :src="preview || (user?.image ? '/storage/' + user.image : '/default-avatar.png')"
+                    class="profile-pic mb-3" alt="Doctor Image" />
+                <div class="d-flex gap-2 justify-content-center">
+                    <input type="file" @change="handleImageUpload" class="form-control w-50" />
+                    <button class="btn btn-secondary" @click="updateImage">
+                        Update Image
+                    </button>
+                </div>
+            </div>
 
-      <!-- Update Form -->
-      <form @submit.prevent="updateProfile">
-        <div class="row mb-3">
-          <div class="col-md-6">
-            <label class="form-label">First Name</label>
-            <input v-model="name" type="text" class="form-control" />
-          </div>
-          <div class="col-md-6">
-            <label class="form-label">Last Name</label>
-            <input v-model="lastName" type="text" class="form-control" />
-          </div>
-        </div>
+            <!-- Update Form -->
+            <form @submit.prevent="updateProfile">
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label">First Name</label>
+                        <input v-model="name" type="text" class="form-control" />
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Last Name</label>
+                        <input v-model="lastName" type="text" class="form-control" />
+                    </div>
+                </div>
 
-        <!-- Email (not editable) -->
-        <div class="mb-3">
-          <label class="form-label">Email (not editable)</label>
-          <input :value="email" type="email" class="form-control" disabled />
-        </div>
+                <!-- Email (not editable) -->
+                <div class="mb-3">
+                    <label class="form-label">Email (not editable)</label>
+                    <input :value="email" type="email" class="form-control" disabled />
+                </div>
 
-        <div class="row mb-3">
-          <div class="col-md-6">
-            <label class="form-label">Phone</label>
-            <input v-model="phone" type="text" class="form-control" />
-          </div>
-          <div class="col-md-6">
-            <label class="form-label">Practice Location</label>
-            <input v-model="practiceLocation" type="text" class="form-control" />
-          </div>
-        </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Phone</label>
+                        <input v-model="phone" type="text" class="form-control" />
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Practice Location</label>
+                        <input v-model="practiceLocation" type="text" class="form-control" />
+                    </div>
+                </div>
 
-        <!-- More fields -->
-        <div class="row mb-3">
-          <div class="col-md-6">
-            <label class="form-label">Primary Contact Number</label>
-            <input v-model="primaryContactNumber" type="text" class="form-control" />
-          </div>
-          <div class="col-md-6">
-            <label class="form-label">Mobile Number</label>
-            <input v-model="mobileNumber" type="text" class="form-control" />
-          </div>
-        </div>
+                <!-- More fields -->
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Primary Contact Number</label>
+                        <input v-model="primaryContactNumber" type="text" class="form-control" />
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Mobile Number</label>
+                        <input v-model="mobileNumber" type="text" class="form-control" />
+                    </div>
+                </div>
 
-        <div class="mb-3">
-          <label class="form-label">Address</label>
-          <input v-model="address" type="text" class="form-control" />
-        </div>
+                <div class="mb-3">
+                    <label class="form-label">Address</label>
+                    <input v-model="address" type="text" class="form-control" />
+                </div>
 
-        <div class="mb-3">
-          <label class="form-label">Social Media Handle</label>
-          <input v-model="socialMediaHandle" type="text" class="form-control" />
-        </div>
+                <div class="mb-3">
+                    <label class="form-label">Social Media Handle</label>
+                    <input v-model="socialMediaHandle" type="text" class="form-control" />
+                </div>
 
-        <div class="mb-3">
-          <label class="form-label">Website</label>
-          <input v-model="website" type="text" class="form-control" />
-        </div>
+                <div class="mb-3">
+                    <label class="form-label">Website</label>
+                    <input v-model="website" type="text" class="form-control" />
+                </div>
 
-        <div class="mb-3">
-          <label class="form-label">Modalities (comma separated)</label>
-          <input v-model="modalities" type="text" class="form-control" />
-        </div>
+                <div class="mb-3">
+                    <label class="form-label">Modalities (comma separated)</label>
+                    <input v-model="modalities" type="text" class="form-control" />
+                </div>
 
-        <div class="mb-3">
-          <label class="form-label">About</label>
-          <textarea v-model="about" rows="3" class="form-control"></textarea>
-        </div>
+                <div class="mb-3">
+                    <label class="form-label">About</label>
+                    <textarea v-model="about" rows="3" class="form-control"></textarea>
+                </div>
 
-        <div class="row mb-3">
-          <div class="col-md-6">
-            <label class="form-label">Practicing Since</label>
-            <input v-model="practicingSince" type="text" class="form-control" />
-          </div>
-          <div class="col-md-6">
-            <label class="form-label">Clients Per Month</label>
-            <input v-model="clientsPerMonth" type="number" class="form-control" />
-          </div>
-        </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label class="form-label">Practicing Since</label>
+                        <input v-model="practicingSince" type="text" class="form-control" />
+                    </div>
+                    <div class="col-md-6">
+                        <label class="form-label">Clients Per Month</label>
+                        <input v-model="clientsPerMonth" type="number" class="form-control" />
+                    </div>
+                </div>
 
-        <div class="mb-3">
-          <label class="form-label">Free Trial Sessions</label>
-          <input v-model="freeTrialSessions" type="number" class="form-control" />
-        </div>
+                <div class="mb-3">
+                    <label class="form-label">Free Trial Sessions</label>
+                    <input v-model="freeTrialSessions" type="number" class="form-control" />
+                </div>
 
-        <div class="mb-3 form-check">
-          <input v-model="happyToProvideFreeSession" type="checkbox" class="form-check-input" id="freeSessionCheck" />
-          <label class="form-check-label" for="freeSessionCheck"> Happy to Provide Free Session </label>
-        </div>
+                <div class="mb-3 form-check">
+                    <input v-model="happyToProvideFreeSession" type="checkbox" class="form-check-input"
+                        id="freeSessionCheck" />
+                    <label class="form-check-label" for="freeSessionCheck"> Happy to Provide Free Session </label>
+                </div>
 
-        <div class="mb-3">
-          <label class="form-label">Referred By</label>
-          <input v-model="referredBy" type="text" class="form-control" />
-        </div>
+                <div class="mb-3">
+                    <label class="form-label">Referred By</label>
+                    <input v-model="referredBy" type="text" class="form-control" />
+                </div>
 
-        <div class="text-end">
-          <button type="submit" class="btn btn-primary px-4">Update Profile</button>
+                <div class="text-end">
+                    <button type="submit" class="btn btn-primary px-4 main-btn">Update Profile</button>
+                </div>
+            </form>
         </div>
-      </form>
     </div>
-  </div>
 </template>
 
 <style scoped>

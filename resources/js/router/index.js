@@ -8,6 +8,7 @@ import Login from '../pages/Login.vue'
 import Register from '../pages/Register.vue'
 import Dashboard from '../pages/Dashboard.vue'
 import About from '../pages/About.vue'
+import PractitionerIndex from '../pages/PractitionerIndex.vue';
 
 import Docter from '../pages/docter.vue'
 import Booksession from '../pages/Booksession.vue'
@@ -18,44 +19,34 @@ import practitor_register from '../pages/practitor_register.vue';
 import Docterdashboard from '../pages/doctor/Docterdashboard.vue';
 import Doctorprofile from '../pages/doctor/Doctorprofile.vue';
 import UserView from '../pages/doctor/UserView.vue';
+import setSesion from '../pages/doctor/setSesion.vue';
+import DoctorTime from '../pages/doctor/DoctorTime.vue';
+import UserBooking from '../pages/doctor/UserBooking.vue';
 
 
 // Update User
 import Profile from '../pages/user/Dashboard.vue'
 import Updateprofile from '../pages/user/Updateprofile.vue';
 import Chart from '../pages/user/Chart.vue';
+import bookings from '../pages/user/bookings.vue';
+import Settings from '../pages/user/Settings.vue';
 
 const routes = [
-  { path: '/', name: 'Home', component: Home },
-  { path: '/services', name: 'Services', component: Services },
-  { path: '/health-guide', name: 'HealthGuide', component: HealthGuide },
-  { path: '/login', name: 'Login', component: Login },
-  { path: '/register', name: 'Register', component: Register },
-  { path: '/dashboard', name: 'Dashboard', component: Dashboard },
-  { path: '/about', name: 'About', component: About },
-
-  { path: '/docter', name: 'Docter', component: Docter },
-  { path: '/booksession', name: 'Booksession', component: Booksession },
-
-
-  { path: '/profile', name: 'Profile', component: Profile , meta: { requiresAuth: true },},
-
+    { path: '/', name: 'Home', component: Home },
+    { path: '/services', name: 'Services', component: Services },
+    { path: '/health-guide', name: 'HealthGuide', component: HealthGuide },
+    { path: '/login', name: 'Login', component: Login },
+    { path: '/register', name: 'Register', component: Register },
+    { path: '/dashboard', name: 'Dashboard', component: Dashboard },
+    { path: '/about', name: 'About', component: About },
+    { path: '/docter/:id', name: 'Docter', component: Docter },
+    { path: '/booksession/:id', name: 'Booksession', component: Booksession, props: true },
+    { path: '/profile', name: 'Profile', component: Profile, meta: { requiresAuth: true }, },
     { path: '/practitor_register', name: 'practitor_register', component: practitor_register },
+    { path: '/PractitionerIndex', name: 'PractitionerIndex', component: PractitionerIndex },
 
 
-    //   {
-    //     //   path: '/Docterdashboard',
-    //     //   name: 'Docterdashboard',
-    //     //   component: Docterdashboard,
-    //     //   meta: { hideNav: true, hideFooter: true ,requiresAuth: true } // ✅ custom flags
-    //     // },
 
-    //     //   {
-    //     //   path: '/Doctorprofile',
-    //     //   name: 'Doctorprofile',
-    //     //   component: Doctorprofile,
-    //     //   meta: { hideNav: true, hideFooter: true ,requiresAuth: true } // ✅ custom flags
-    //     //     },
 
     // update User profile
     {
@@ -65,40 +56,43 @@ const routes = [
         children: [
             { path: 'Chart', name: 'Chart', component: Chart }, // default
             { path: 'update-profile', name: 'update-profile', component: Updateprofile },
-            // you can add more like:
-            // { path: 'bookings', name: 'Bookings', component: Bookings },
-            // { path: 'settings', name: 'Settings', component: Settings },
+            { path: 'bookings', name: 'bookings', component: bookings },
+            { path: 'Settings', name: 'Settings', component: Settings },
+
         ]
     },
     {
-        path: '/Docterdashboard',
+        path: '/Docterdashboard/',
         component: Docterdashboard,
         meta: { requiresAuth: true, requiresAuth: true, meta: { hideNav: true, hideFooter: true, requiresAuth: true } },
         children: [
             { path: '', name: 'UserView', component: UserView, meta: { hideFooter: true, hideNav: true, requiresAuth: true } }, // default
             { path: 'Doctorprofile', name: 'Doctorprofile', component: Doctorprofile, meta: { hideNav: true, hideFooter: true, requiresAuth: true } },
+            { path: 'setSesion', name: 'setSesion', component: setSesion, meta: { hideNav: true, hideFooter: true, requiresAuth: true } },
+            { path: 'DoctorTime', name: 'DoctorTime', component: DoctorTime, meta: { hideNav: true, hideFooter: true, requiresAuth: true } },
+            { path: 'UserBooking', name: 'UserBooking', component: UserBooking, meta: { hideNav: true, hideFooter: true, requiresAuth: true } },
 
         ]
-}
+    }
 
 
 
 ]
 
 const router = createRouter({
-  history: createWebHistory(),
-  routes,
+    history: createWebHistory(),
+    routes,
 })
 
 // ✅ Global Navigation Guard
 router.beforeEach((to, from, next) => {
-  const auth = useAuthStore();
+    const auth = useAuthStore();
 
-  if (to.meta.requiresAuth && !auth.user) {
-    // not logged in → redirect login
-    next({ name: "Login" });
-  } else {
-    next();
-  }
+    if (to.meta.requiresAuth && !auth.user) {
+        // not logged in → redirect login
+        next({ name: "Login" });
+    } else {
+        next();
+    }
 })
 export default router

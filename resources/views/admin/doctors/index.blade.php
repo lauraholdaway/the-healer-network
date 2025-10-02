@@ -41,6 +41,8 @@
                             <th>Free Trials</th>
                             <th>Provide Free?</th>
                             <th>Referred By</th>
+                            <th>status</th>
+                            <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -55,9 +57,9 @@
                                         <img src="https://via.placeholder.com/50" class="rounded-circle">
                                     @endif
                                 </td>
-                                <td>{{ $doctor->user->name ?? '' }} {{ $doctor->user->last_name ?? ''  }}</td>
-                                <td>{{ $doctor->user->email  ?? '' }}</td>
-                                <td>{{ $doctor->primary_contact_number  ?? '' }}</td>
+                                <td>{{ $doctor->user->name ?? '' }} {{ $doctor->user->last_name ?? '' }}</td>
+                                <td>{{ $doctor->user->email ?? '' }}</td>
+                                <td>{{ $doctor->primary_contact_number ?? '' }}</td>
                                 <td>{{ $doctor->mobile_number ?? '' }}</td>
                                 <td>{{ $doctor->address ?? '' }}</td>
                                 <td>{{ $doctor->practice_location ?? '' }}</td>
@@ -67,6 +69,20 @@
                                 <td>{{ $doctor->free_trial_sessions ?? '' }}</td>
                                 <td>{{ $doctor->happy_to_provide_free_session ? 'Yes' : 'No' }}</td>
                                 <td>{{ $doctor->referred_by ?? '' }}</td>
+                                <td>
+                                    <span id="status-{{ $doctor->user->id }}"
+                                        class="{{ $doctor->user->status ? 'text-success' : 'text-danger' }}">
+                                        {{ $doctor->user->status ? 'Active' : 'Inactive' }}
+                                    </span>
+                                </td>
+                                <td>
+
+                                    <button class="btn btn-sm btn-outline-danger toggle-status"
+                                        data-id="{{ $doctor->user->id }}">
+                                        {{ $doctor->user->status ? 'Deactivate' : 'Activate' }}
+                                    </button>
+                                </td>
+
                             </tr>
                         @endforeach
                     </tbody>
@@ -77,4 +93,28 @@
 
         </div>
     </section>
+
+<script>
+    $(document).on('click', '.toggle-status', function () {
+        let id = $(this).data('id');
+
+        $.ajax({
+            url: `/userstatus/${id}/toggle-status`,
+            type: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            success: function (res) {
+                let statusText = res.status == 1 ? 'Active' : 'Inactive';
+                let statusClass = res.status == 1 ? 'text-success' : 'text-danger';
+                $(`#status-${id}`).text(statusText).attr('class', statusClass);
+            },
+            error: function (xhr) {
+                console.error("Error:", xhr.responseText);
+                alert("Something went wrong! CSRF maybe?");
+            }
+        });
+    });
+</script>
+
 @endsection

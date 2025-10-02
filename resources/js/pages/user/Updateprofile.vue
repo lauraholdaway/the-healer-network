@@ -1,47 +1,75 @@
 <template>
-  <div class="container">
-    <div class="userdashboard-section">
-    <h3>Update Your Profile</h3>
+    <div class="container d-flex justify-content-center align-items-center py-5">
+        <div class="card shadow-sm border-0 rounded-4 p-4 user-profile-card w-100" style="max-width: 900px;">
+            <h5 class="mb-4 fw-bold">Basic Information</h5>
 
-    <form @submit.prevent="updateProfile" enctype="multipart/form-data">
-      <!-- Name -->
-      <div class="mb-3">
-        <label class="form-label">First Name</label>
-        <input type="text" v-model="form.name" class="form-control" placeholder="Enter first name" />
-      </div>
+            <form @submit.prevent="updateProfile" enctype="multipart/form-data">
+                <div class="row g-4">
+                    <!-- Left Column (Inputs) -->
+                    <div class="col-md-8">
+                        <div class="row g-3">
+                            <!-- First Name -->
+                            <div class="col-md-6">
+                                <label class="form-label">First Name</label>
+                                <input type="text" v-model="form.name" class="form-control rounded-3"
+                                    placeholder="John" />
+                            </div>
 
-      <!-- Last Name -->
-      <div class="mb-3">
-        <label class="form-label">Last Name</label>
-        <input type="text" v-model="form.last_name" class="form-control" placeholder="Enter last name" />
-      </div>
+                            <!-- Last Name -->
+                            <div class="col-md-6">
+                                <label class="form-label">Second Name</label>
+                                <input type="text" v-model="form.last_name" class="form-control rounded-3"
+                                    placeholder="Doe" />
+                            </div>
 
-      <!-- Phone Number -->
-      <div class="mb-3">
-        <label class="form-label">Phone Number</label>
-        <input type="text" v-model="form.number" class="form-control" placeholder="Enter phone number" />
-      </div>
+                            <!-- Phone Number -->
+                            <div class="col-md-12">
+                                <label class="form-label">Phone Number</label>
+                                <input type="text" v-model="form.number" class="form-control rounded-3"
+                                    placeholder="+92 321 586 97 378" />
+                            </div>
 
-      <!-- Profile Image -->
-      <div class="mb-3">
-        <label class="form-label">Profile Image</label>
-        <input type="file" @change="handleImageUpload" class="form-control" />
-        <div v-if="preview" class="mt-2">
-          <img :src="preview" alt="Preview" class="img-thumbnail" width="120" />
+                            <!-- Location -->
+                            <div class="col-md-12">
+                                <label class="form-label">Location</label>
+                                <select v-model="form.location" class="form-select rounded-3">
+                                    <option value="Perth, Australia">Perth, Australia</option>
+                                    <option value="Sydney, Australia">Sydney, Australia</option>
+                                    <option value="Karachi, Pakistan">Karachi, Pakistan</option>
+                                    <option value="New York, USA">New York, USA</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="mt-4 d-flex gap-3">
+                            <button type="submit" class="btn btn-custom main-btn px-4 py-2 rounded-3">
+                                Save And Update
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Right Column (Profile Image) -->
+                    <div class="col-md-4 d-flex flex-column align-items-center justify-content-center">
+                        <div class="profile-img-wrapper mb-3">
+                            <img v-if="preview"
+                                :src="preview || (auth.user?.image ? '/storage/' + auth.user.image : '/default-avatar.png')"
+                                class="rounded-circle border shadow-sm" width="120" height="120" alt="Profile" />
+                            <div v-else
+                                class="default-avatar rounded-circle d-flex align-items-center justify-content-center">
+                                <i class="bi bi-person fs-1 text-white"></i>
+                            </div>
+                        </div>
+
+                        <label class="btn btn-upload rounded-3 px-3 py-2">
+                            <i class="bi bi-camera me-2"></i> Upload Image
+                            <input type="file" @change="handleImageUpload" hidden />
+                        </label>
+                    </div>
+                </div>
+            </form>
         </div>
-      </div>
-
-      <!-- New Password -->
-      <div class="mb-3">
-        <label class="form-label">New Password</label>
-        <input type="password" v-model="form.password" class="form-control" placeholder="Enter new password" />
-      </div>
-
-      <!-- Submit -->
-      <button type="submit" class="btn btn-primary main-btn">Update Profile</button>
-    </form>
-  </div>
-  </div>
+    </div>
 </template>
 
 <script setup>

@@ -12,5 +12,28 @@ class Appointment extends Model
         'date',
         'time',
         'status',
+        'session',
+        'payment_id',
+        'payment',
+        'currency',
+        'replay',
+        'Zomemeting',
+        'rating',
+        'email',
+        'name',
+        'country',
     ];
+
+    public function doctor()
+    {
+        return $this->belongsTo(User::class, 'doctor_id');
+    }
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
+    public function doctorpackage()
+    {
+        return $this->hasOne(DoctorPackage::class, 'id', 'session');
+    }
 }

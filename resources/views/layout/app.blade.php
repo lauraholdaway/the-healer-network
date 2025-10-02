@@ -7,6 +7,8 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+
 
     <!-- Favicon -->
     <link rel="icon" type="image/x-icon" href="{{ asset('asset/images/dark-logo.png') }}">
@@ -17,9 +19,6 @@
     <link type="text/css" rel="stylesheet" href="{{ asset('asset/css/bootstrap.min.css') }}" />
     <link type="text/css" rel="stylesheet" href="{{ asset('asset/custome-css/backend.css') }}" />
     <link type="text/css" rel="stylesheet" href="{{ asset('asset/custome-css/all.min.css') }}" />
-    <link type="text/css" rel="stylesheet" href="{{ asset('asset/slick-css/slick.css') }}" />
-    <link type="text/css" rel="stylesheet" href="{{ asset('asset/slick-css/slick-theme.css') }}" />
-    <script type="text/javascript" src="{{ asset('asset/slick-css/slick.min.js') }}"></script>
 
     <!-- Select2 CSS -->
 <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
@@ -72,8 +71,7 @@
                             class="fa fa-server me-2"></i>Dashboard</a>
                     <a href="{{url('/practitioner')}}" class="nav-item nav-link"><i class="fa fa-user-plus me-2"></i>Practitioner</a>
                     <a href="{{url('/users')}}" class="nav-item nav-link"><i class="fa fa-user-o me-2"></i>Users</a>
-
-
+                    <a href="{{url('/Appointments')}}" class="nav-item nav-link"><i class="fa fa-vcard-o me-2"></i>Appointments</a>
                     @php
                         $ispolicy =
                             request()->is('admin/terms')

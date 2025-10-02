@@ -44,6 +44,7 @@ class PractitionerController extends Controller
         'number' => $validated['primary_contact_number'],
         'password' => Hash::make($validated['password']),
         'role' => '3',
+            'status' => '0',
     ]);
 
     // ✅ Create Practitioner linked to user

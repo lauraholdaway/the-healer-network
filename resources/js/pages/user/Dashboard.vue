@@ -48,26 +48,16 @@ function logout() {
 
 <template>
     <section>
-        <div class="container-fluid userdashboard-container">
+        <div class="container-fluid userdashboard-container p-0">
             <div class="row">
                 <!-- Sidebar -->
                 <div class="col-md-4">
                     <div class="userdashboard-card text-center">
-                        <label for="uploadImage" style="cursor: pointer;">
-                            <img :src="preview || (auth.user?.image ? '/storage/' + auth.user.image : '/default-avatar.png')"
-                                alt="User Image" />
-                        </label>
-                        <input type="file" id="uploadImage" class="d-none" accept="image/*"
-                            @change="handleImageUpload" />
-
-                        <h4 class="userdashboard-name">{{ auth.user?.name }} {{ auth.user?.last_name }}</h4>
-                        <p class="userdashboard-joined">Joined since {{ auth.user?.created_at }}</p>
-
                         <div class="userdashboard-menu">
-                            <router-link to="/profile/Chart" class="btn">Dashboard</router-link>
+                            <router-link to="/profile/Chart" class="btn">Manage Your Bookings</router-link>
                             <router-link to="/profile/bookings" class="btn">Manage your bookings</router-link>
                             <router-link to="/profile/packages" class="btn">Packages</router-link>
-                            <router-link to="/profile/update-profile" class="btn">Edit your profile</router-link>
+                            <router-link to="/profile/update-profile" class="btn">Profile</router-link>
                             <router-link to="/profile/settings" class="btn">Settings</router-link>
                             <router-link to="/profile/help" class="btn">Help Center</router-link>
                             <button @click="logout" class="btn">Log Out</button>
@@ -92,23 +82,17 @@ function logout() {
 .userdashboard-container {
     background: #f5f0eb;
     min-height: 100vh;
-    padding: 40px 0;
+
 }
 
 .userdashboard-card {
-    background: #fff;
-    border-radius: 15px;
+    background: #F4EFE6;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
     padding: 30px 20px;
+    height: 100vh;
 }
 
-.userdashboard-card img {
-    width: 120px;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 50%;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-}
+
 
 .userdashboard-name {
     font-size: 20px;
@@ -127,20 +111,20 @@ function logout() {
 }
 
 .userdashboard-menu .btn {
-    background: #f1eae4;
-    border: none;
+    background: #F4EFE6;
+        border: 1px solid #DED1BA;
     text-align: left;
     padding: 10px 15px;
     margin-bottom: 10px;
     font-size: 15px;
-    color: #8A7356;
+    color: #5B4C3A;
     border-radius: 6px;
     width: 100%;
 }
 
 .userdashboard-menu .btn:hover {
-    background: #d9b8a6;
-    color: #fff;
+    background: #fffffe;
+        color: #5B4C3A;
 }
 
 .userdashboard-section h5 {

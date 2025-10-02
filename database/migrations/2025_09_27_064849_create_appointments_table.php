@@ -15,8 +15,18 @@ return new class extends Migration
                     $table->id();
                     $table->unsignedBigInteger('user_id');   // user who booked
                     $table->unsignedBigInteger('doctor_id'); // doctor assigned
-                    $table->date('date');
-                    $table->time('time');
+            $table->string('date')->nullable();
+            $table->string('time')->nullable();
+            $table->string('session')->nullable();
+            $table->string('payment_id')->nullable();
+            $table->string('payment')->nullable();
+            $table->string('currency')->nullable();
+            $table->string('replay')->nullable();
+            $table->string('Zomemeting')->nullable();
+            $table->string('rating')->nullable();
+            $table->string('name')->nullable();
+            $table->string('email')->nullable();
+            $table->string('country')->nullable();
                     $table->enum('status', ['pending', 'confirmed', 'completed', 'cancelled'])->default('pending');
                     $table->timestamps();
         });

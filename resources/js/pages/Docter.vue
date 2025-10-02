@@ -1,18 +1,79 @@
-<script setup>
-import Joinus from '../components/joinus.vue';
-</script>
+<style scoped>
+.service-card {
+    background-color: #faf8f6;
+    border: 1px solid #eee;
+    transition: all 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.icon-wrapper {
+    font-size: 2rem;
+    color: #a66d55;
+}
+
+h5 {
+    color: #3b2d2a;
+}
+
+.tag {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-left: 5px;
+}
+
+.docter-type {
+    background: #5B4C3A;
+    border-radius: 20px;
+    font-size: 0.85rem;
+}
+
+.price {
+    color: #5B4C3A;
+}
+
+.testimonial-section {
+    background-color: #EEE9E3;
+}
+
+.subheading {
+    font-size: 1.1rem;
+    color: #5B4C3A;
+}
+
+
+
+.card-text {
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.card {
+    transition: all 0.3s ease;
+    background-color: #E5D9CB;
+
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+</style>
 <template>
     <section>
         <div class="container">
 
             <!-- Doctor card -->
             <div class="cards mx-md-5 my-5">
-                <div class="row">
+                <div class="row" v-if="doctor">
                     <!-- Left image & icons -->
                     <div class="col-md-4">
                         <div class="position-relative rounded-4"
                             style="background: linear-gradient(180deg, rgb(91 76 58 / 41%) 50.9%, #5B4C3A 100%);">
-                            <img src="/public/asset/images/docter.png" class="card-img-top" alt="practitioner">
+                            <img :src="doctor?.user?.image ? '/storage/' + doctor.user.image : '/default-image.png'"
+                                class="card-img-top" alt="practitioner">
                             <div class="position-absolute top-0 end-0 p-2">
                                 <svg width="30" height="30" viewBox="0 0 46 46" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -64,12 +125,13 @@ import Joinus from '../components/joinus.vue';
                             <p class="docter-type px-3 py-1">Meditation</p>
                             <p class="price fw-bold">$300.00</p>
                         </div>
-                        <h5 class="card-title fw-bold">Your Child's Soul Essence Akashic Record Reading</h5>
+                        <h5 class="card-title fw-bold">{{ doctor?.user?.name }} {{ doctor?.user?.last_name }}</h5>
                         <p class="card-text m-color">
-                            Enhancing your parenting wisdom: Supporting your child’s aut...
-                            <router-link to="/docter" class="m-color">See more</router-link>
+                            {{ doctor?.about ? doctor.about.split(" ").slice(0, 20).join(" ") : "" }}...
+                            <a href="#" class="m-color">See more</a>
                         </p>
-                        <router-link to="booksession" class="btn main-btn2">
+                        <router-link v-if="doctor?.user?.id" :to="`/booksession/${doctor.user.id}`"
+                            class="btn main-btn2">
                             Book Session Now →
                         </router-link>
                     </div>
@@ -347,7 +409,7 @@ import Joinus from '../components/joinus.vue';
             </div>
         </div>
 
-        <section class="testimonial-section py-5" >
+        <section class="testimonial-section py-5">
             <div class="container-fluid text-center">
 
                 <!-- Heading -->
@@ -365,140 +427,87 @@ import Joinus from '../components/joinus.vue';
                     <br>
                 </div>
                 <p class="text-muted">Excellent rating from 200 reviews</p>
+                <div class="container-fluid mt-4">
+                    <Swiper :slides-per-view="3" :space-between="20" :loop="true" class="mySwiper" :breakpoints="{
+                        576: { slidesPerView: 2 },
+                        768: { slidesPerView: 3 },
+                        1200: { slidesPerView: 4 }
+                    }" :autoplay="{ delay: 3000 }">
 
-               <div class="container-fluid">
-                 <!-- Testimonials row -->
-                <div class="row g-4 mt-4">
-                    <!-- Card 1 -->
-                    <div class="col-md-3 col-sm-6">
-                        <div class="card h-100 shadow-sm border-0 rounded-4 p-0">
-                           <div>
-                             <img src="/public/asset/images/docter.png" class="card-img-top " alt="User"></img>
-                           </div>
-                            <div class="card-body">
-                                <p class="card-text">
-                                    Dealing with mental health can be overwhelming and expensive. Although it has its
-                                    challenges, therapy is a vital step forward.
-                                </p>
-                                <h6 class="fw-bold mt-3">Sarah M.</h6>
+                        <SwiperSlide v-for="(doctor, index) in doctors" :key="index">
+                            <div class="card h-100 shadow-sm border-0 rounded-4 p-0">
+
+                                <!-- Alternate layout -->
+                                <div v-if="index % 2 === 0">
+                                    <!-- Image on top -->
+                                    <img :src="doctor.user.image ? '/storage/' + doctor.user.image : '/default-image.png'"
+                                        class="card-img-top" alt="User" />
+                                    <div class="card-body">
+                                        <p class="card-text">{{ doctor?.about }}</p>
+                                        <h6 class="fw-bold mt-3">{{ doctor?.user?.name }} {{ doctor?.user?.last_name }}
+                                        </h6>
+                                    </div>
+                                </div>
+
+                                <div v-else>
+                                    <!-- Text on top -->
+                                    <div class="card-body">
+                                        <p class="card-text">{{ doctor?.about }}</p>
+                                        <h6 class="fw-bold mt-3">{{ doctor?.user?.name }} {{ doctor?.user?.last_name }}
+                                        </h6>
+                                    </div>
+                                    <img :src="doctor.user.image ? '/storage/' + doctor.user.image : '/default-image.png'"
+                                        class="card-img-top" alt="User" />
+                                </div>
                             </div>
-                        </div>
-                    </div>
-
-                    <!-- Card 2 -->
-                    <div class="col-md-3 col-sm-6">
-                        <div class="card h-100 shadow-sm border-0 rounded-4">
-                            <div class="card-body">
-                                <p class="card-text">
-                                    Accessible and open. I've been managing to seek help from a psychologist for a long
-                                    time, but now I feel supported at an affordable cost.
-                                </p>
-                                <h6 class="fw-bold mt-3">James L.</h6>
-                            </div>
-                            <img src="/public/asset/images/docter.png" class="card-img-top rounded-top-4" alt="User">
-
-                        </div>
-                    </div>
-
-                    <!-- Card 3 -->
-                    <div class="col-md-3 col-sm-6">
-                        <div class="card h-100 shadow-sm border-0 rounded-4">
-                            <img src="/public/asset/images/docter.png" class="card-img-top rounded-top-4" alt="User">
-                            <div class="card-body">
-                                <p class="card-text">
-                                    Dealing with mental health can be overwhelming and expensive. Therapy has been a
-                                    huge relief for me.
-                                </p>
-                                <h6 class="fw-bold mt-3">Michael B.</h6>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Card 4 -->
-                    <div class="col-md-3 col-sm-6">
-                        <div class="card h-100 shadow-sm border-0 rounded-4">
-                            <div class="card-body">
-                                <p class="card-text">
-                                    Excellent service! So easy to use and find the right psychologist. Highly recommend
-                                    to anyone seeking help.
-                                </p>
-                                <h6 class="fw-bold mt-3">Emma W.</h6>
-                            </div>
-                            <img src="/public/asset/images/docter.png" class="card-img-top rounded-top-4" alt="User">
-
-                        </div>
-                    </div>
+                        </SwiperSlide>
+                    </Swiper>
                 </div>
-               </div>
+
 
             </div>
         </section>
         <Joinus />
     </section>
 </template>
+<script setup>
+import Joinus from '../components/joinus.vue';
+import { ref, watch, onMounted } from "vue";
+import { useRoute, useRouter } from "vue-router";
+import axios from "axios";
 
-<style scoped>
-.service-card {
-    background-color: #faf8f6;
-    border: 1px solid #eee;
-    transition: all 0.3s ease;
-}
+import { Swiper, SwiperSlide } from 'swiper/vue'
+import 'swiper/swiper-bundle.css'
 
-.service-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.1);
-}
+const doctor = ref(null);
+const route = useRoute();
+const router = useRouter();
+const doctors = ref(null);
 
-.icon-wrapper {
-    font-size: 2rem;
-    color: #a66d55;
-}
-
-h5 {
-    color: #3b2d2a;
-}
-
-.tag {
-    font-size: 0.9rem;
-    font-weight: 500;
-    margin-left: 5px;
-}
-
-.docter-type {
-    background: #5B4C3A;
-    border-radius: 20px;
-    font-size: 0.85rem;
-}
-
-.price {
-    color: #5B4C3A;
-}
-
-.testimonial-section {
-    background-color: #EEE9E3;
-}
-
-.subheading {
-    font-size: 1.1rem;
-    color: #5B4C3A;
+async function loaddoctor() {
+    try {
+        axios.get(`/api/doctor/${route.params.id}`).then(({ data }) => {
+            doctor.value = data;
+        });
+    }
+    catch (err) { console.error("Failed to load Doctor:", err); }
 }
 
 
+onMounted(async () => {
+    try {
+        const res = await axios.get('/api/GetAllDoctor');
+        doctors.value = res.data;
 
-.card-text {
-    font-size: 0.95rem;
-    color: #555;
-}
+    } catch (error) {
+        console.error('Doctor APi'.error);
 
-.card {
-    transition: all 0.3s ease;
-    background-color: #E5D9CB;
+    }
+});
 
-}
-
-.card:hover {
-    transform: translateY(-5px);
-}
+onMounted(() => {
+    loaddoctor();
+});
 
 
-</style>
+</script>

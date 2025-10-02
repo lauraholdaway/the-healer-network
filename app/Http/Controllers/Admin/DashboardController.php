@@ -55,4 +55,29 @@ class DashboardController extends Controller
         $users = User::where('role', '2')->get();
         return view('admin.user.index', compact('users'));
     }
+
+    public function Appointmentslist(Request $request)
+    {
+
+        // dd($user);
+        $appointments = Appointment::with(['user', 'doctor', 'doctorpackage']) // eager load relations
+            ->latest()
+            ->get();
+        // dd($appointments);
+        return view('admin.booking.index', compact('appointments'));
+    }
+
+    public function toggleStatus($id)
+    {
+        $appointment = User::findOrFail($id);
+
+        // toggle status
+        $appointment->status = $appointment->status == 1 ? 0 : 1;
+        $appointment->save();
+
+        return response()->json([
+            'success' => true,
+            'status' => $appointment->status
+        ]);
+    }
 }

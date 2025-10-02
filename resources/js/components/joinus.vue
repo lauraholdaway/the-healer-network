@@ -9,7 +9,7 @@
                     we can help.</p>
             </div>
             <div class="col-md-4">
-                <router-link to ="practitor_register" class="btn btn-light px-3">Join Us →</router-link>
+                <router-link to ="PractitionerIndex" class="btn btn-light px-3">Join Us →</router-link>
             </div>
             </div>
         </div>

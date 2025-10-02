@@ -24,6 +24,7 @@ class Practitioner extends Authenticatable
         'free_trial_sessions',
         'happy_to_provide_free_session',
         'referred_by',
+        'price',
     ];
 
 

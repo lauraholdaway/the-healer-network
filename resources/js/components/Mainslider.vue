@@ -1,36 +1,40 @@
 <template>
+    <br>
+    <br>
     <section class="my-5">
         <div class="split-section d-flex flex-wrap align-items-center">
             <!-- Left Section -->
-            <div class="left-section col-md-6 p-4">
-                <div class="heading-title fw-bold" style="width: 30rem;">
-                    {{ slides[currentIndex].title }}
-                </div>
-                <div class="heading-text mb-4">
-                    {{ slides[currentIndex].text }}
-                </div>
+            <div class="left-section col-md-6 p-4 ">
+                <div class="ms-5 ps-md-5">
+                    <div class="heading-title fw-bold">
+                        {{ slides[currentIndex].title }}
+                    </div>
+                    <div class="heading-text mb-4">
+                        {{ slides[currentIndex].text }}
+                    </div>
 
-                <div class="row">
-                    <div class="col-md-4 col-4">
-                        <div class="counter-wrapper">
-                            <div class="counter-top">
-                                {{ String(currentIndex + 1).padStart(2, '0') }}
-                            </div>
-                            <div class="counter-line"></div>
-                            <div class="counter-bottom">
-                                {{ String(slides.length).padStart(2, '0') }}
+                    <div class="row">
+                        <div class="col-md-4 col-4">
+                            <div class="counter-wrapper">
+                                <div class="counter-top">
+                                    {{ String(currentIndex + 1).padStart(2, '0') }}
+                                </div>
+                                <div class="counter-line"></div>
+                                <div class="counter-bottom">
+                                    {{ String(slides.length).padStart(2, '0') }}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-8 col-7">
-                        <div class="therapy-box">
-                            <h6>{{ slides[currentIndex].heading }}</h6>
-                            <p>{{ slides[currentIndex].description }}</p>
+                        <div class="col-md-8 col-7">
+                            <div class="therapy-box">
+                                <h6>{{ slides[currentIndex].heading }}</h6>
+                                <p>{{ slides[currentIndex].description }}</p>
 
-                            <br>
-                            <div class="therapy-nav mt-5">
-                                <span @click="prevSlide" class="me-3 nav-arrow">&larr;</span>
-                                <span @click="nextSlide" class="nav-arrow">&rarr;</span>
+                                <br>
+                                <div class="therapy-nav mt-5">
+                                    <span @click="prevSlide" class="me-3 nav-arrow">&larr;</span>
+                                    <span @click="nextSlide" class="nav-arrow">&rarr;</span>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -41,9 +45,8 @@
 
             <div class="right-section">
                 <!-- Replace with your uploaded image URL -->
-                <img :src="slides[currentIndex].image" class="img-fluid"
-                    :alt="slides[currentIndex].heading"
-                    style="object-fit: cover;"/>
+                <img :src="slides[currentIndex].image" class="img-fluid" :alt="slides[currentIndex].heading"
+                    style="object-fit: cover;" />
                 <button class="book-btn">Book Now →</button>
             </div>
         </div>

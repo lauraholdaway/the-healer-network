@@ -51,6 +51,7 @@ class DoctorController extends Controller
     // ✅ Update User
     $user->name = $validated['name'] . ' ' . $validated['last_name'];
         $user->number = $validated['phone'] ?? $user->phone;
+        $user->status = 0;
     $user->save();
 
     // ✅ Update Practitioner
@@ -85,7 +86,7 @@ class DoctorController extends Controller
     public function updateImage(Request $request)
     {
         $request->validate([
-            'profile_image' => 'required|image|mimes:jpg,jpeg,png|max:2048',
+            'profile_image' => 'required|image|mimes:jpg,jpeg,png|max:9048',
         ]);
 
     $user = User::find(Auth::id());
@@ -113,7 +114,17 @@ class DoctorController extends Controller
 
     public function GetAllDoctor()
     {
-        $Practitioner = Practitioner::with('user')->where('user_id', Auth::id())->get();
+        $Practitioner = Practitioner::with('user')
+            ->whereHas('user', function ($query) {
+                $query->where('status', '1');
+            })
+
+            ->get();
+        return response()->json($Practitioner);
+    }
+    public function GetOneDoctor($id)
+    {
+        $Practitioner = Practitioner::with('user')->where('user_id', $id)->first();
         return response()->json($Practitioner);
     }
 }

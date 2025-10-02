@@ -1,14 +1,14 @@
 @font-face {
-  font-family: 'Avenir';
-  src: url('https://your-cdn.com/fonts/avenir.woff2') format('woff2'),
-       url('https://your-cdn.com/fonts/avenir.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'Avenir';
+        src: url('https://your-cdn.com/fonts/avenir.woff2') format('woff2'),
+            url('https://your-cdn.com/fonts/avenir.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
 }
 
 
 body {
-     font-family: "Avenir", sans-serif;
+    font-family: "Avenir", sans-serif;
     background-color: #FFFFFF;
     color: #333;
 }
@@ -35,7 +35,6 @@ b {
 
 .fw-bold {
     color: #21272A;
-
     font-family: 'Cormorant Garamond' !important;
     font-weight: 400 !important;
 }
@@ -83,7 +82,7 @@ b {
 }
 
 .hero-section {
-    min-height: 100vh;
+    min-height: 120vh;
     background: url('/asset/images/hero.png') center center/cover no-repeat;
     /* 🔥 Replace with your image */
     position: relative;
@@ -147,8 +146,6 @@ b {
 
 .scroll-down {
     margin-bottom: 0px;
-    position: relative;
-    bottom: -42px
 }
 
 
@@ -267,6 +264,7 @@ b {
     font-weight: 500;
     margin-bottom: 20px;
     line-height: 60px;
+    width: 30rem;
 }
 
 .heading-text {
@@ -351,9 +349,16 @@ b {
         margin: 20px auto;
         display: block;
     }
-    .shopnowBTN{
+.shopnowBTN {
         display: none !important;
     }
+.heading-title {
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    line-height: 60px;
+    width: 20rem;
+}
 }
 
 .counter-wrapper {
@@ -606,7 +611,7 @@ footer ul li a:hover {
 
 .booknow {
     background-color: #C4B39A;
-    padding: 21px;
+    padding: 23px;
 }
 
 .booknow:hover {
@@ -627,6 +632,7 @@ footer ul li a:hover {
     border-radius: 10px;
     border: 1px solid #4b4032;
 }
+
 .main-btn2 {
     background-color: #C1B39D;
     color: white;
@@ -642,16 +648,16 @@ footer ul li a:hover {
 }
 
 .btn-outline-custome {
-border:1px solid #C1B39D;
-color:#5B4C3A;
-border-radius: 30px;
-margin-left: 20px;
+    border: 1px solid #C1B39D;
+        color: #5B4C3A;
+        border-radius: 30px;
+        margin-left: 20px;
 }
-.btn-outline-custome:hover{
-border:1px solid #C1B39D;
-background-color:#5B4C3A;
-color: white;
-border-radius: 30px;
+.btn-outline-custome:hover {
+    border: 1px solid #C1B39D;
+    background-color: #5B4C3A;
+    color: white;
+    border-radius: 30px;
 }
 
 .card {
@@ -659,4 +665,71 @@ border-radius: 30px;
     padding: 10px;
     border-radius: 12px;
     margin-top: 20px;
+}
+
+.practitionerindex {
+    background-color: #F4EFE6;
+    height: 90vh;
+}
+
+.practitionerindextext {
+    font-size: 62px;
+    line-height: 90%;
+
+}
+
+.practitionerindeximage img {
+    border-radius: 30px !important;
+}
+
+.practitionerindexBox {
+    margin: 20px;
+    background-color: #5B4C3A;
+    padding: 30px;
+    text-align: center;
+    border-radius: 20px;
+    color: white;
+}
+
+.practitionerindexBox>p {
+    font-size: 38px;
+    font-family: 'Cormorant Garamond' !important;
+    font-weight: 400;
+}
+
+.practitionerabout {
+    display: inline;
+}
+
+.practitionerabout>b {
+    font-size: 62px;
+    font-weight: 400 !important;
+}
+
+.practitioneraboutimage>img {
+    /* height: 60vh; */
+    object-fit: cover;
+    border-radius: 30px;
+}
+
+@media (max-width: 768px) {
+    .practitionerindextext {
+        font-size: 20px;
+    }
+
+    .practitionerindexBox>p {
+        font-size: 18px;
+        font-family: 'Cormorant Garamond' !important;
+        font-weight: 400;
+    }
+
+    .practitionerindeximage img {
+        border-radius: 30px !important;
+        margin-top: 62px;
+    }
+
+    .herotaxt {
+        color: #FBF9F7;
+        font-size: 20px;
+    }
 }
