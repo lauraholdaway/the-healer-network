@@ -161,7 +161,7 @@
                                             :aria-labelledby="`heading${index}`" data-bs-parent="#accordionExample">
                                             <div class="accordion-body">
 
-                                                <div class="btn-group" role="group" aria-label="Time Slot">
+                                                <div class="" role="group" aria-label="Time Slot">
                                                     <template v-for="(time, tIndex) in tm.times" :key="tIndex">
                                                         <input type="radio" class="btn-check"
                                                             :name="`time-group-${index}`" :id="`time${index}-${tIndex}`"
@@ -249,12 +249,19 @@
                                         <option value="AU">Australia</option>
                                     </select>
                                 </div>
+                                <div>
+                                    <div v-if="Object.keys(errors).length" class="alert alert-danger">
+                                        <ul class="mb-0">
+                                            <li v-for="(message, field) in errors" :key="field">
+                                                {{ message }}
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
                                 <!-- Buttons -->
                                 <div class="d-flex justify-content-center mt-3">
-                                    <button class="btn btn-outline-dark btn-outline-custome px-5" @click="handleBack">
-                                        Back
-                                    </button>
-                                    <button class="btn btn-dark main-btn2 px-5 rounded-4 ms-3" :disabled="loading"
+
+                                    <button class="btn btn-dark main-btn2 px-5 rounded-4 ms-3 w-100" :disabled="loading"
                                         @click="payNow">
                                         <span v-if="loading">Processing...</span>
                                         <span v-else>Pay Now</span>
@@ -262,8 +269,6 @@
                                 </div>
                             </div>
                         </div>
-
-
                     </div>
                 </div>
             </div>
@@ -285,17 +290,7 @@ const doctor = ref(null);
 const route = useRoute();
 const router = useRouter();
 const auth = useAuthStore();
-const doctortime = ref([]);
-const packagesdata = ref([]);
-const docterPackage = ref(null);
-const selectedDate = ref(null);
-const selectedTime = ref(null);
-const name = ref(null);
-const email = ref(null);
-const setcountry = ref('')
-const loading = ref(false);
-const Doctor_id = ref(route.params.id);
-const user_id = ref(auth?.user?.id);
+
 
 // 👀 Watch when step changes
 const step = ref(1);
@@ -312,45 +307,91 @@ watch(step, async (newStep) => {
     }
 });
 
-// ✅ Payment function
-async function payNow() {
+
+
+
+
+const doctortime = ref([]);
+const packagesdata = ref([]);
+const docterPackage = ref(null);
+const selectedDate = ref(null);
+const selectedTime = ref(null);
+const name = ref(null);
+const email = ref(null);
+const setcountry = ref("");
+const loading = ref(false);
+const Doctor_id = ref(route.params.id);
+const user_id = ref(auth?.user?.id);
+const token = ref({}); // Stripe token for example
+
+const errors = ref({});
+
+// ✅ Validation function
+const validateForm = () => {
+    errors.value = {};
+
+    if (!Doctor_id.value) errors.value.doctor_id = "Doctor is required";
+    if (!user_id.value) errors.value.user_id = "User is required";
+    if (!docterPackage.value) errors.value.doctortime = "Package is required";
+    if (!selectedDate.value) errors.value.date = "Date is required";
+    if (!selectedTime.value) errors.value.time = "Time is required";
+    if (!email.value) errors.value.email = "Email is required";
+    if (!name.value) errors.value.name = "Name is required";
+    if (!setcountry.value) errors.value.country = "Country is required";
+
+    return Object.keys(errors.value).length === 0;
+};
+
+// ✅ Submit handler
+const payNow = async () => {
     const stripe = await stripePromise;
     const { token, error } = await stripe.createToken(cardElement);
-    loading.value = true; // start loading
     if (error) {
         alert(error.message);
         return;
     }
+    if (!validateForm()) return;
 
-    const payload = {
-        doctor_id: Doctor_id.value,
-        user_id: user_id.value,
-        doctortime: docterPackage.value,
-        currency: "usd",
-        amount: 150,
-        date: selectedDate.value,
-        time: selectedTime.value,
-        token: token.id,
-        email: email.value,
-        name: name.value,
-        country: setcountry.value,
-    };
-    const response = await fetch("/api/userpayment", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-    });
-    const data = await response.json();
-    console.log("Server response:", data);
-    if (response.ok) {
-        loading.value = false; // stop loading
-        alert("Payment successful!");
 
-    } else {
-        alert("Payment failed: " + (data.message || "Unknown error"));
+    try {
+        const payload = {
+            doctor_id: Doctor_id.value,
+            user_id: user_id.value,
+            doctortime: docterPackage.value,
+            currency: "usd",
+            amount: 150,
+            date: selectedDate.value,
+            time: selectedTime.value,
+            token: token.id,
+            email: email.value,
+            name: name.value,
+            country: setcountry.value,
+        };
+        loading.value = true;
+
+        const response = await fetch("/api/userpayment", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+        });
+
+        const data = await response.json();
+        console.log("Server response:", data);
+
+        if (response.ok) {
+            alert("✅ Payment successful!");
+        } else {
+            alert("❌ Payment failed: " + (data.message || "Unknown error"));
+        }
+    } catch (error) {
+        console.error(error);
+        alert("❌ Payment failed: " + error.message);
+    } finally {
+        loading.value = false;
     }
+};
 
-}
+
 
 
 

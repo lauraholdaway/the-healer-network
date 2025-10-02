@@ -2,7 +2,7 @@
 <template>
     <div class="content flex-grow-1 p-4 card">
         <div class="p-4 session-card">
-            <h3 class="mb-4">📅 Doctor Availability</h3>
+            <h3 class="mb-4">📅Practitioner Availability</h3>
             <!-- Add Date & Time -->
             <div class="row mb-3">
                 <div class="col-md-4">

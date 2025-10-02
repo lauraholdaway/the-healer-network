@@ -736,3 +736,21 @@ footer ul li a:hover {
 .form-control {
     border: 1px solid #E5E5E5 !important;
 }
+.accordion-item {
+    border: 1px solid gray;
+}
+
+.accordion-button:not(.collapsed) {
+    color: var(--bs-accordion-active-color);
+    background-color: white !important;
+    box-shadow: none !important;
+    border: 1px solid #8A7356;
+
+}
+
+.accordion-button {
+    color: var(--bs-accordion-active-color);
+    background-color: white !important;
+    box-shadow: none !important;
+
+}
