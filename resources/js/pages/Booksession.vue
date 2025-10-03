@@ -106,10 +106,13 @@
                             </div>
 
                             <div class="d-flex justify-content-center">
-                                <div class="d-flex justify-content-center mb-2"
-                                    style="background-color: #F4EFE6; width: 200px;padding: 10px; border-radius: 10px;">
-                                     Australia (GMT+10)
-                                </div>
+
+                                <select v-model="setimezone" class="form-select mb-3"
+                                    style="background-color: #F4EFE6; width: 200px; padding: 10px; border-radius: 10px;">
+                                    <option value="AU">Australia (GMT+10)</option>
+                                    <option value="US">United States (GMT-5)</option>
+                                    <option value="PK">Pakistan (GMT+5)</option>
+                                </select>
                             </div>
                         </div>
                         <div v-if="step === 1">
@@ -290,7 +293,7 @@ const doctor = ref(null);
 const route = useRoute();
 const router = useRouter();
 const auth = useAuthStore();
-
+const setimezone = ref("AU")
 
 // 👀 Watch when step changes
 const step = ref(1);
