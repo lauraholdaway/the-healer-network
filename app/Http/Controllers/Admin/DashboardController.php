@@ -14,11 +14,11 @@ class DashboardController extends Controller
 
     public function index()
     {
+        dd('this');
 
         if (Auth::check() && Auth::user()->role !== '1') {
             return redirect()->route('logout');
         }
-
 
         $users = User::where('role', '2')->get();
 
