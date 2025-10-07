@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Contact;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Appointment;
 
@@ -14,7 +15,7 @@ class DashboardController extends Controller
 
     public function index()
     {
-        dd('this');
+        // dd('this');
 
         if (Auth::check() && Auth::user()->role !== '1') {
             return redirect()->route('logout');
@@ -79,5 +80,27 @@ class DashboardController extends Controller
             'success' => true,
             'status' => $appointment->status
         ]);
+    }
+    public function contactsave(Request $request)
+    {
+        $validated = $request->validate([
+            'first_name' => 'required|string|max:100',
+            'second_name' => 'nullable|string|max:100',
+            'email' => 'required|email|max:150',
+            'message' => 'required|string|max:1000',
+        ]);
+
+        $contact = Contact::create($validated);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Thank you! Your message has been received.',
+            'data' => $contact
+        ]);
+    }
+    public function showAdminside(Request $request)
+    {
+        $contacts = Contact::get();
+        return view('admin.contact.contact', compact('contacts'));
     }
 }

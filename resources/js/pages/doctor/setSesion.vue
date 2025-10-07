@@ -1,4 +1,3 @@
-```vue
 <template>
     <div class="content flex-grow-1 p-4 card">
         <div class="p-4 session-card">

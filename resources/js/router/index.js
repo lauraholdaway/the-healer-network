@@ -8,7 +8,10 @@ import Login from '../pages/Login.vue'
 import Register from '../pages/Register.vue'
 import Dashboard from '../pages/Dashboard.vue'
 import About from '../pages/About.vue'
+import Alldoctor from '../pages/Alldoctor.vue';
 import PractitionerIndex from '../pages/PractitionerIndex.vue';
+import Forgotpassword from '../pages/Forgotpassword.vue';
+import Contact from '../pages/Contact.vue';
 
 import Docter from '../pages/docter.vue'
 import Booksession from '../pages/Booksession.vue'
@@ -22,6 +25,10 @@ import UserView from '../pages/doctor/UserView.vue';
 import setSesion from '../pages/doctor/setSesion.vue';
 import DoctorTime from '../pages/doctor/DoctorTime.vue';
 import UserBooking from '../pages/doctor/UserBooking.vue';
+import Myservice from '../pages/doctor/Myservice.vue';
+import AddService from '../pages/doctor/AddService.vue';
+import EditService from '../pages/doctor/EditService.vue';
+import Inbox from '../pages/doctor/Inbox.vue';
 
 
 // Update User
@@ -30,23 +37,24 @@ import Updateprofile from '../pages/user/Updateprofile.vue';
 import Chart from '../pages/user/Chart.vue';
 import bookings from '../pages/user/bookings.vue';
 import Settings from '../pages/user/Settings.vue';
+import Packages from '../pages/user/Packages.vue';
 
 const routes = [
     { path: '/', name: 'Home', component: Home },
     { path: '/services', name: 'Services', component: Services },
     { path: '/health-guide', name: 'HealthGuide', component: HealthGuide },
-    { path: '/login', name: 'Login', component: Login },
-    { path: '/register', name: 'Register', component: Register },
+    { path: '/login', name: 'Login', component: Login, meta: { hideFooter: true, hideNav: true, } },
+    { path: '/register', name: 'Register', component: Register, meta: { hideFooter: true, hideNav: true, } },
+    { path: '/Forgotpassword', name: 'Forgotpassword', component: Forgotpassword, meta: { hideFooter: true, hideNav: true, } },
     { path: '/dashboard', name: 'Dashboard', component: Dashboard },
     { path: '/about', name: 'About', component: About },
+    { path: '/Alldoctor', name: 'Alldoctor', component: Alldoctor },
     { path: '/docter/:id', name: 'Docter', component: Docter },
     { path: '/booksession/:id', name: 'Booksession', component: Booksession, props: true },
     { path: '/profile', name: 'Profile', component: Profile, meta: { requiresAuth: true }, },
     { path: '/practitor_register', name: 'practitor_register', component: practitor_register },
     { path: '/PractitionerIndex', name: 'PractitionerIndex', component: PractitionerIndex },
-
-
-
+    { path: '/Contact', name: 'Contact', component: Contact },
 
     // update User profile
     {
@@ -58,6 +66,7 @@ const routes = [
             { path: 'update-profile', name: 'update-profile', component: Updateprofile },
             { path: 'bookings', name: 'bookings', component: bookings },
             { path: 'Settings', name: 'Settings', component: Settings },
+            { path: 'Packages', name: 'Packages', component: Packages },
 
         ]
     },
@@ -71,6 +80,10 @@ const routes = [
             { path: 'setSesion', name: 'setSesion', component: setSesion, meta: { hideNav: true, hideFooter: true, requiresAuth: true } },
             { path: 'DoctorTime', name: 'DoctorTime', component: DoctorTime, meta: { hideNav: true, hideFooter: true, requiresAuth: true } },
             { path: 'UserBooking', name: 'UserBooking', component: UserBooking, meta: { hideNav: true, hideFooter: true, requiresAuth: true } },
+            { path: 'Myservice', name: 'Myservice', component: Myservice, meta: { hideNav: true, hideFooter: true, requiresAuth: true } },
+            { path: 'AddService', name: 'AddService', component: AddService, meta: { hideNav: true, hideFooter: true, requiresAuth: true } },
+            { path: 'EditService/:id', name: 'EditService', component: EditService, meta: { hideNav: true, hideFooter: true, requiresAuth: true, props: true } },
+            { path: 'Inbox', name: 'Inbox', component: Inbox, meta: { hideNav: true, hideFooter: true, requiresAuth: true, props: true } },
 
         ]
     }

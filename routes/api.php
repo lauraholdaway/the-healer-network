@@ -6,6 +6,8 @@ use App\Http\Controllers\Api\PractitionerController;
 use App\Http\Controllers\Api\DoctorController;
 use App\Http\Controllers\Api\AppointmentController;
 use App\Http\Controllers\DoctorSessionController;
+use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\Admin\DashboardController;
 
 Route::post('/register', [AuthController::class,'register']);
 Route::post('/login', [AuthController::class,'login']);
@@ -30,6 +32,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/doctor/availability', [DoctorSessionController::class, 'saveAvailability']);
     Route::get('/appointments', [AppointmentController::class, 'userBooking']);
     Route::get('/doctor/userappointments', [AppointmentController::class, 'doctorBooking']);
+    Route::apiResource('services', ServiceController::class);
 });
 Route::get('/GetAllDoctor', [DoctorController::class, 'GetAllDoctor']);
 Route::get('/doctor/{id}', [DoctorController::class, 'GetOneDoctor']);
@@ -38,3 +41,5 @@ Route::get("/availability/{doctor_id}", [DoctorSessionController::class, "GetDat
 Route::delete("availability/delete/{id}", [DoctorSessionController::class, "deleteavailability"]);
 Route::get("/package/{doctor_id}", [DoctorSessionController::class, "Getpackage"]);
 Route::delete("packages/delete/{id}", [DoctorSessionController::class, "deletePackage"]);
+Route::post('/contact', [DashboardController::class, 'contactsave']);
+Route::get('/doctorservice/{id}', [ServiceController::class, 'getDoctorServices']);

@@ -73,21 +73,21 @@
                     <a href="{{url('/users')}}" class="nav-item nav-link"><i class="fa fa-user-o me-2"></i>Users</a>
                     <a href="{{url('/Appointments')}}" class="nav-item nav-link"><i class="fa fa-vcard-o me-2"></i>Appointments</a>
                     @php
-                        $ispolicy =
-                            request()->is('admin/terms')
+                        $UserContact =
+                            request()->is('UserContact')
 
                     @endphp
-                    <div class="nav-item dropdown {{ $ispolicy ? 'show' : '' }}">
-                        <a href="#" class="nav-link dropdown-toggle {{ $ispolicy ? 'active' : '' }}"
-                            data-bs-toggle="dropdown" aria-expanded="{{ $ispolicy ? 'true' : 'false' }}">
+                    <div class="nav-item dropdown {{ $UserContact ? 'show' : '' }}">
+                        <a href="#" class="nav-link dropdown-toggle {{ $UserContact ? 'active' : '' }}"
+                            data-bs-toggle="dropdown" aria-expanded="{{ $UserContact ? 'true' : 'false' }}">
                             <i class="fa fa-window-maximize me-2"></i>Pages
                         </a>
 
-                        <div class="dropdown-menu bg-transparent border-0 ps-2 {{ $ispolicy ? 'show' : '' }}">
+                        <div class="dropdown-menu bg-transparent border-0 ps-2 {{ $UserContact ? 'show' : '' }}">
 
-                            <a href="#"
+                            <a href="{{ url('/UserContact') }}"
                                 class="dropdown-item m-1 {{ request()->is('heropages') ? 'active' : '' }}">
-                                HERO</a>
+                                Contact</a>
 
                         </div>
                     </div>

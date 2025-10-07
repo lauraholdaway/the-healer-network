@@ -5,6 +5,9 @@
         font-weight: normal;
         font-style: normal;
 }
+.bg-custome {
+    background-color: #F4EFE6;
+}
 
 
 body {
@@ -428,6 +431,11 @@ b {
     height: 230px;
     object-fit: cover;
 }
+.doctorImages {
+    border-radius: 15px;
+    height: 300px;
+    object-fit: cover;
+}
 
 .tag {
     font-size: 12px;
@@ -678,6 +686,7 @@ footer ul li a:hover {
 
 }
 
+
 .practitionerindeximage img {
     border-radius: 30px !important;
 }
@@ -712,11 +721,16 @@ footer ul li a:hover {
     border-radius: 30px;
 }
 
+.abovttext {
+    font-size: 52px;
+}
 @media (max-width: 768px) {
     .practitionerindextext {
         font-size: 20px;
     }
-
+.abovttext {
+    font-size: 22px;
+}
     .practitionerindexBox>p {
         font-size: 18px;
         font-family: 'Cormorant Garamond' !important;
@@ -753,4 +767,43 @@ footer ul li a:hover {
     background-color: white !important;
     box-shadow: none !important;
 
+}
+
+.rating-box .stars i {
+    color: #5B4C3B;
+    /* brown star color */
+    font-size: 18px;
+}
+
+.rating-text {
+    background-color: #5B4C3B;
+    /* brown background */
+    color: #fff;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.info-box {
+    background-color: #7b5b3e;
+    /* Brown color */
+    border-radius: 12px;
+}
+
+.info-box h6 {
+    color: #fff;
+    font-size: 1rem;
+}
+
+.info-box p {
+    color: #f9f5f0;
+    font-size: 0.9rem;
+}
+
+@media (max-width: 767px) {
+    .info-box .border-end {
+        border-right: none !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+    }
 }

@@ -91,7 +91,7 @@
 
             <!-- Button -->
             <div class="text-start mb-4">
-                <router-link to="/about" class="btn btn-outline-dark btn-outline-custome rounded-pill">View All
+                <router-link to="/Alldoctor" class="btn btn-outline-dark btn-outline-custome rounded-pill">View All
                     Practitioners</router-link>
             </div>
 

@@ -23,6 +23,7 @@ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/UserContact', [DashboardController::class, 'showAdminside'])->name('contact');
 
     Route::get('/practitioner', [DoctorController::class, 'index'])->name('doctors.index');
 
