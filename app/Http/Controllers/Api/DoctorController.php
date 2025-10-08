@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Practitioner;
+use App\Models\doctorCerticate;
 use App\Models\User;
 
 class DoctorController extends Controller
@@ -126,5 +127,41 @@ class DoctorController extends Controller
     {
         $Practitioner = Practitioner::with('user')->where('user_id', $id)->first();
         return response()->json($Practitioner);
+    }
+    public function addCertificate(Request $request)
+    {
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'certificate' => 'required|file|mimes:jpg,jpeg,png,pdf|max:2048',
+        ]);
+
+        $doctor_id = Auth::id();
+
+        // store file
+        $path = $request->file('certificate')->store('certificates', 'public');
+
+        $certificate = doctorCerticate::create([
+            'doctor_id' => $doctor_id,
+            'title' => $request->title,
+            'certificate' => $path,
+        ]);
+
+        return response()->json(['message' => 'Certificate saved successfully', 'data' => $certificate]);
+    }
+
+    public function getCertificates()
+    {
+        $doctor_id = Auth::id();
+        $certificates = doctorCerticate::where('doctor_id', $doctor_id)->get();
+        return response()->json($certificates);
+    }
+
+    public function deleteCertificate($id)
+    {
+        $certificate = doctorCerticate::findOrFail($id);
+        Storage::disk('public')->delete($certificate->certificate);
+        $certificate->delete();
+
+        return response()->json(['message' => 'Certificate deleted successfully']);
     }
 }

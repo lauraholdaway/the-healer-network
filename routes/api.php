@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\DoctorController;
 use App\Http\Controllers\Api\AppointmentController;
 use App\Http\Controllers\DoctorSessionController;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\ZoomController;
 use App\Http\Controllers\Admin\DashboardController;
 
 Route::post('/register', [AuthController::class,'register']);
@@ -27,11 +28,25 @@ Route::post('/practitioners/register', [PractitionerController::class, 'store'])
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/doctor/profile', [DoctorController::class, 'profile']);
     Route::post('/doctor/update', [DoctorController::class, 'update']);
+    Route::post('/doctor/savecertificate', [DoctorController::class, 'addCertificate']);
+    Route::get('/doctor/getcertificate', [DoctorController::class, 'getCertificates']);
+    Route::delete('/doctor/deletecertificate/{id}', [DoctorController::class, 'deleteCertificate']);
+
     Route::post('/doctor/update-image', [DoctorController::class, 'updateImage']);
+
     Route::post('/doctor/packages', [DoctorSessionController::class, 'savePackages']);
+
     Route::post('/doctor/availability', [DoctorSessionController::class, 'saveAvailability']);
+
     Route::get('/appointments', [AppointmentController::class, 'userBooking']);
+
     Route::get('/doctor/userappointments', [AppointmentController::class, 'doctorBooking']);
+    Route::get('/doctor/oneappointment/{id}', [AppointmentController::class, 'oneappointment']);
+
+    Route::post('/zoom/generate-signature', [ZoomController::class, 'generate']);
+    Route::get('/appointments', [ZoomController::class, 'index']);
+
+
     Route::apiResource('services', ServiceController::class);
 });
 Route::get('/GetAllDoctor', [DoctorController::class, 'GetAllDoctor']);

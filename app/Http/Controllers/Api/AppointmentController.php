@@ -92,5 +92,16 @@ try {
             // dd($appointments);
         return response()->json($appointments);
     }
+    public function oneappointment($id)
+    {
+
+        // dd($user);
+        $appointments = Appointment::with(['user', 'doctorpackage']) // eager load relations
+            ->where('id', $id)
+            ->latest()
+            ->first();
+        // dd($appointments);
+        return response()->json($appointments);
+    }
 
 }

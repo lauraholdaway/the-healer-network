@@ -28,10 +28,12 @@ const clientsPerMonth = ref("");
 const freeTrialSessions = ref("");
 const happyToProvideFreeSession = ref(false);
 const referredBy = ref("");
+const Showmodel = ref(false);
 
 // image handling
 const image = ref(null);
 const preview = ref(null);
+const resultcerticate = ref(null);
 
 // ✅ Load user + doctor profile
 async function getProfile() {
@@ -130,16 +132,64 @@ function handleImageUpload(e) {
   }
 }
 
+const form = ref({
+    title: '',
+    certificate: null
+})
+
+const certificates = ref([])
+
+const handleFile = (e) => {
+    form.value.certificate = e.target.files[0]
+}
+
+const saveCertificate = async () => {
+    try {
+        const formData = new FormData()
+        formData.append('title', form.value.title)
+        formData.append('certificate', form.value.certificate)
+
+        await axios.post('/api/doctor/savecertificate', formData, {
+            headers: { 'Content-Type': 'multipart/form-data' }
+        })
+
+        await fetchCertificates()
+
+        // reset form
+        form.value.title = ''
+        form.value.certificate = null
+
+        // ✅ close modal after success
+        Showmodel.value = false
+
+    } catch (error) {
+        console.error('Error saving certificate:', error)
+    }
+}
+
+const fetchCertificates = async () => {
+    const res = await axios.get('/api/doctor/getcertificate')
+    certificates.value = res.data
+}
+
+const deleteCertificate = async (id) => {
+    if (confirm('Are you sure you want to delete this certificate?')) {
+        await axios.delete(`/api/doctor/deletecertificate/${id}`)
+        await fetchCertificates()
+    }
+}
+
 onMounted(() => {
   getProfile();
+    fetchCertificates();
 });
 </script>
 
 <template>
-    <div class="content flex-grow-1 p-4">
-        <div class="card p-4">
-            <h3 class="mb-4">Update Profile</h3>
-
+    <div class="flex-grow-1">
+        <div class="cards shadow-sm p-4">
+            <h4 class="mb-4">Basic Information</h4>
+            <hr>
             <!-- Profile Image -->
             <div class="text-center mb-4">
                 <img :src="preview || (user?.image ? '/storage/' + user.image : '/default-avatar.png')"
@@ -151,7 +201,6 @@ onMounted(() => {
                     </button>
                 </div>
             </div>
-
             <!-- Update Form -->
             <form @submit.prevent="updateProfile">
                 <div class="row mb-3">
@@ -164,13 +213,11 @@ onMounted(() => {
                         <input v-model="lastName" type="text" class="form-control" />
                     </div>
                 </div>
-
                 <!-- Email (not editable) -->
                 <div class="mb-3">
                     <label class="form-label">Email (not editable)</label>
                     <input :value="email" type="email" class="form-control" disabled />
                 </div>
-
                 <div class="row mb-3">
                     <div class="col-md-6">
                         <label class="form-label">Phone</label>
@@ -250,6 +297,76 @@ onMounted(() => {
                     <button type="submit" class="btn btn-primary px-4 main-btn">Update Profile</button>
                 </div>
             </form>
+
+        </div>
+        <div class="shadow-sm p-4">
+            <div class="d-flex justify-content-between">
+                <div>
+                    <h4 class="my-3">Certifications</h4>
+                </div>
+                <div>
+                    <button class="btn main-btn mt-3" @click="Showmodel = true">Add New Certificate</button>
+                </div>
+            </div>
+            <hr>
+            <div>
+                <div class="mt-4">
+                    <div class="row bordere rounded-3">
+                        <div class="col-md-3" v-for="cert in certificates" :key="cert.id">
+                            <div class="cards p-3">
+                                <img :src="'/storage/' + cert.certificate" alt="" class="image-fluid rounded-3"
+                                    style="width: 150px; height:160px;object-fit: cover;">
+                                <div class="row my-3">
+                                    <div class="col-md-9">
+                                        <p class="fs-6 fw-bold mt-2">{{ cert.title }}</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <button class="btn btn-sm border-0 bg-white"
+                                            @click="deleteCertificate(cert.id)">
+
+                                            <svg width="25" height="25" viewBox="0 0 40 40" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <rect x="0.5" y="0.5" width="39" height="39" rx="7.5"
+                                                    stroke="#DED1BA" />
+                                                <path
+                                                    d="M12 15H28M18 19V25M22 19V25M13 15L14 27C14 27.5304 14.2107 28.0391 14.5858 28.4142C14.9609 28.7893 15.4696 29 16 29H24C24.5304 29 25.0391 28.7893 25.4142 28.4142C25.7893 28.0391 26 27.5304 26 27L27 15M17 15V12C17 11.7348 17.1054 11.4804 17.2929 11.2929C17.4804 11.1054 17.7348 11 18 11H22C22.2652 11 22.5196 11.1054 22.7071 11.2929C22.8946 11.4804 23 11.7348 23 12V15"
+                                                    stroke="#8A7356" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg>
+
+                                        </button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div v-if="Showmodel" class="modal-overlay p-5">
+                <div class="logout-modal text-center">
+                    <button class="close-btn" @click="Showmodel = false">×</button>
+                    <form @submit.prevent="saveCertificate">
+                        <div class="col-md-12 mb-3">
+                            <label>Title</label>
+                            <input v-model="form.title" class="form-control" required />
+                        </div>
+
+                        <div class="col-md-12 mb-3">
+                            <label>Certificate</label>
+                            <input type="file" class="form-control" @change="handleFile" required />
+                        </div>
+
+                        <div class="d-flex justify-content-center gap-2 mt-3">
+                            <button type="button" class="btn cancel-btn" @click="Showmodel = false">Cancel</button>
+                            <button type="submit" class="btn confirm-btn main-btn">Save</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
         </div>
     </div>
 </template>
@@ -264,5 +381,39 @@ onMounted(() => {
   border-radius: 50%;
   object-fit: cover;
   border: 3px solid #ddd;
+}
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(43, 29, 15, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1050;
+}
+
+/* Modal Box */
+.logout-modal {
+    background-color: #f8f4ee;
+    border-radius: 16px;
+    padding: 30px 20px;
+    width: 320px;
+    position: relative;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 12px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    font-size: 22px;
+    color: #5b4c3a;
+    cursor: pointer;
 }
 </style>
