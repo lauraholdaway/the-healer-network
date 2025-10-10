@@ -122,7 +122,11 @@ h5 {
                     <!-- Right content -->
                     <div class="col-md-8">
                         <div class="d-flex justify-content-between my-3">
-                            <p class="docter-type px-3 py-1">Meditation</p>
+                            <div class="d-flex">
+                                <p class="docter-type px-3 ms-1" v-for="(s, index) in doctor.modalities">
+                                    {{ s?.title }}
+                                </p>
+                            </div>
                             <p class="price fw-bold">$300.00</p>
                         </div>
                         <h4 class="fw-bold">{{ doctor?.user?.name }} {{ doctor?.user?.last_name }}</h4>

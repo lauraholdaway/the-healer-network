@@ -5,7 +5,8 @@
             <div class="row mb-2 align-items-center">
                 <!-- Logo (show first on mobile) -->
                 <div class="col-md-3 order-1 order-md-2 text-md-end text-center mb-3 mb-md-0">
-                    <img src="/public/asset/images/dark-logo.png" alt="Logo" class="img-fluid" style="height: 100px;" />
+                    <router-link to="/"><img src="/public/asset/images/dark-logo.png" alt="Logo" class="img-fluid"
+                            style="height: 100px;" /></router-link>
                 </div>
 
                 <!-- Sign Up text (show after logo on mobile) -->

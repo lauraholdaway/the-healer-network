@@ -23,6 +23,8 @@ return new class extends Migration
             $table->string('currency')->nullable();
             $table->string('replay')->nullable();
             $table->string('Zomemeting')->nullable();
+            $table->text('zoom_join_url')->nullable();
+            $table->text('zoom_start_url')->nullable();
             $table->string('rating')->nullable();
             $table->string('name')->nullable();
             $table->string('email')->nullable();

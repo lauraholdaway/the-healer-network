@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Practitioner;
 use App\Models\User;
+use App\Models\Modalitypivot;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
@@ -14,7 +15,9 @@ class PractitionerController extends Controller
     public function store(Request $request)
     {
 
-     $validated = $request->validate([
+        // dd($request->all());
+
+        $validated = $request->validate([
         // User fields
         'first_name' => 'required|string|max:50',
         'last_name' => 'required|string|max:50',
@@ -31,7 +34,7 @@ class PractitionerController extends Controller
         'about' => 'nullable|string',
         'practicing_since' => 'nullable|string',
         'clients_per_month' => 'nullable|integer',
-        'free_trial_sessions' => 'nullable|integer',
+            'free_trial_sessions' => 'nullable',
         'happy_to_provide_free_session' => 'boolean',
         'referred_by' => 'nullable|string|max:100',
     ]);
@@ -53,8 +56,7 @@ class PractitionerController extends Controller
         'primary_contact_number' => $validated['primary_contact_number'],
         'mobile_number' => $request->mobile_number,
         'address' => $request->address,
-        'social_media_handle' => $request->social_media_handle,
-        'modalities' => $request->modalities ? json_encode($request->modalities) : null,
+            'social_media_handle' => $request->social_media_handle,
         'practice_location' => $request->practice_location,
         'about' => $request->about,
         'practicing_since' => $request->practicing_since,
@@ -64,7 +66,16 @@ class PractitionerController extends Controller
         'referred_by' => $request->referred_by,
     ]);
 
-    return response()->json([
+
+        foreach ($request->modalities as $key => $mode) {
+            $user = Modalitypivot::create([
+                'practitioner_id' => $practitioner->id,
+                'modality_id' => $mode,
+
+            ]);
+        }
+
+        return response()->json([
         'message' => 'Registration successful!',
         'user' => $user,
         'practitioner' => $practitioner

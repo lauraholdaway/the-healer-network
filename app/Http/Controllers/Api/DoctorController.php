@@ -8,8 +8,10 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use App\Models\Practitioner;
+use App\Models\Modalitypivot;
 use App\Models\doctorCerticate;
 use App\Models\User;
+use App\Models\Modality;
 
 class DoctorController extends Controller
 {
@@ -17,9 +19,10 @@ class DoctorController extends Controller
     public function profile()
     {
         $user = Auth::guard('web')->user();
-        $Practitioner = Practitioner::where('user_id', Auth::id())->first();
+        $Practitioner = Practitioner::with('modalities')->where('user_id', Auth::id())->first();
         return response()->json($Practitioner);
     }
+
 
 
     // ✅ Update doctor profile (except email)
@@ -44,14 +47,14 @@ class DoctorController extends Controller
             // 'modalities' => 'nullable|string', // or 'array' if you send JSON
             'practicing_since' => 'nullable|string|max:50',
             'clients_per_month' => 'nullable|integer',
-            'free_trial_sessions' => 'nullable|boolean',
+            'free_trial_sessions' => 'nullable|integer',
             'happy_to_provide_free_session' => 'nullable|boolean',
             'referred_by' => 'nullable|string|max:255',
         ]);
 
         // ✅ Update User
         $user->name = $validated['name'] . ' ' . $validated['last_name'];
-        $user->number = $validated['phone'] ?? $user->phone;
+        $user->number = $validated['number'] ?? $user->number;
         $user->save();
 
         // ✅ Update Practitioner
@@ -64,7 +67,6 @@ class DoctorController extends Controller
             $practitioner->mobile_number = $validated['mobile_number'] ?? $practitioner->mobile_number;
             $practitioner->address = $validated['address'] ?? $practitioner->address;
             $practitioner->social_media_handle = $validated['social_media_handle'] ?? $practitioner->social_media_handle;
-            // $practitioner->modalities = json_encode($validated['modalities'] ?? $practitioner->modalities);
             $practitioner->practicing_since = $validated['practicing_since'] ?? $practitioner->practicing_since;
             $practitioner->clients_per_month = $validated['clients_per_month'] ?? $practitioner->clients_per_month;
             $practitioner->free_trial_sessions = $validated['free_trial_sessions'] ?? $practitioner->free_trial_sessions;
@@ -74,6 +76,15 @@ class DoctorController extends Controller
             $practitioner->save();
         }
 
+        if (!empty($request->modalities)) {
+            $Modalitypivot = Modalitypivot::where('practitioner_id', $practitioner->id)->delete();
+            foreach ($request->modalities as $key => $mode) {
+                $user = Modalitypivot::create([
+                    'practitioner_id' => $practitioner->id,
+                    'modality_id' => $mode,
+                ]);
+            }
+        }
         return response()->json([
             'success' => true,
             'message' => 'Profile updated successfully',
@@ -115,19 +126,21 @@ class DoctorController extends Controller
 
     public function GetAllDoctor()
     {
-        $Practitioner = Practitioner::with('user')
+        $Practitioner = Practitioner::with(['user', 'modalities'])
             ->whereHas('user', function ($query) {
                 $query->where('status', '1');
             })
 
             ->get();
+        // dd($Practitioner);
         return response()->json($Practitioner);
     }
     public function GetOneDoctor($id)
     {
-        $Practitioner = Practitioner::with('user')->where('user_id', $id)->first();
+        $Practitioner = Practitioner::with(['user', 'modalities'])->where('user_id', $id)->first();
         return response()->json($Practitioner);
     }
+
     public function addCertificate(Request $request)
     {
         $request->validate([
@@ -163,5 +176,62 @@ class DoctorController extends Controller
         $certificate->delete();
 
         return response()->json(['message' => 'Certificate deleted successfully']);
+    }
+    public function modalities(Request $request)
+    {
+
+        $data = Modality::where('status', '1')->get();
+
+        return response()->json($data);
+    }
+
+    public function GetDoctorByModality($id)
+    {
+        if (!empty($id)) {
+            $practitioners = Practitioner::with(['user', 'modalities'])
+                ->whereHas('modalities', function ($query) use ($id) {
+                    $query->where('modalities.id', $id);
+                })
+                ->get();
+        } else {
+            $practitioners = Practitioner::with(['user', 'modalities'])->get();
+        }
+
+
+        return response()->json($practitioners);
+    }
+
+
+    public function searchdoctor(Request $request)
+    {
+        $modality = $request->query('modality');
+        $location = $request->query('location');
+
+        // 🔹 Get all modality IDs that match the search
+        $modalityIds = Modality::where('title', 'like', "%{$modality}%")->pluck('id');
+
+        // 🔹 Get practitioners with filters
+        $practitioners = Practitioner::with(['user', 'modalities'])
+            ->when($modality, function ($query) use ($modalityIds) {
+                $query->whereHas('modalities', function ($q) use ($modalityIds) {
+                    $q->whereIn('modality_id', $modalityIds);
+                });
+            })
+            ->when($location, function ($query) use ($location) {
+                $query->where('practice_location', 'like', "%{$location}%");
+            })
+            ->get();
+
+        // 🔹 Attach modality titles safely
+        $practitioners->each(function ($practitioner) {
+            // If modalities relation is empty or null, make it a collection
+            $modalities = $practitioner->modalities ?? collect();
+            $practitioner->modality_titles = $modalities->map(function ($pivot) {
+                $modality = Modality::find($pivot->modality_id);
+                return $modality ? $modality->title : null;
+            })->filter()->values();
+        });
+
+        return response()->json($practitioners);
     }
 }

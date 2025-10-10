@@ -31,13 +31,9 @@
 
                             <!-- Location -->
                             <div class="col-md-12">
-                                <label class="form-label">Location</label>
-                                <select v-model="form.location" class="form-select rounded-3">
-                                    <option value="Perth, Australia">Perth, Australia</option>
-                                    <option value="Sydney, Australia">Sydney, Australia</option>
-                                    <option value="Karachi, Pakistan">Karachi, Pakistan</option>
-                                    <option value="New York, USA">New York, USA</option>
-                                </select>
+                                <label class="form-label">Address</label>
+                                <input type="text" v-model="form.address" class="form-control rounded-3"
+                                    placeholder="US" />
                             </div>
                         </div>
 
@@ -57,7 +53,9 @@
                                 class="rounded-circle border shadow-sm" width="120" height="120" alt="Profile" />
                             <div v-else
                                 class="default-avatar rounded-circle d-flex align-items-center justify-content-center">
-                                <i class="bi bi-person fs-1 text-white"></i>
+                                <div style="margin-top: 61px;">
+                                    <i class="bi bi-person fs-1 text-white"></i>
+                                </div>
                             </div>
                         </div>
 
@@ -82,45 +80,47 @@ const preview = ref(null);
 
 // Form data initialized from current user
 const form = ref({
-  name: auth.user?.name || "",
-  last_name: auth.user?.last_name || "",
-  number: auth.user?.number || "",
-  password: "",
-  image: null,
+    name: auth.user?.name || "",
+    last_name: auth.user?.last_name || "",
+    number: auth.user?.number || "",
+    password: "",
+    address: auth.user?.address || "",
+    image: null,
 });
 
 // Handle file input
 const handleImageUpload = (event) => {
-  const file = event.target.files[0];
-  if (file) {
-    form.value.image = file;
-    preview.value = URL.createObjectURL(file);
-  }
+    const file = event.target.files[0];
+    if (file) {
+        form.value.image = file;
+        preview.value = URL.createObjectURL(file);
+    }
 };
 
 // Update profile
 const updateProfile = async () => {
-  try {
-    const formData = new FormData();
-    formData.append("name", form.value.name);
-    formData.append("last_name", form.value.last_name);
-    formData.append("number", form.value.number);
-    if (form.value.password) {
-      formData.append("password", form.value.password);
-    }
-    if (form.value.image) {
-      formData.append("image", form.value.image);
-    }
+    try {
+        const formData = new FormData();
+        formData.append("name", form.value.name);
+        formData.append("last_name", form.value.last_name);
+        formData.append("number", form.value.number);
+        formData.append("address", form.value.address);
+        if (form.value.password) {
+            formData.append("password", form.value.password);
+        }
+        if (form.value.image) {
+            formData.append("image", form.value.image);
+        }
 
-    const { data } = await axios.post("/api/user/update", formData, {
-      headers: { "Content-Type": "multipart/form-data" },
-    });
+        const { data } = await axios.post("/api/user/update", formData, {
+            headers: { "Content-Type": "multipart/form-data" },
+        });
 
-    auth.user = data.user; // ✅ Update Pinia store with new user info
-    alert("Profile updated successfully!");
-  } catch (error) {
-    console.error(error);
-    alert("Failed to update profile.");
-  }
+        auth.user = data.user; // ✅ Update Pinia store with new user info
+        alert("Profile updated successfully!");
+    } catch (error) {
+        console.error(error);
+        alert("Failed to update profile.");
+    }
 };
 </script>

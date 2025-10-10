@@ -14,7 +14,7 @@ const lastName = ref("");
 const email = ref("");
 
 // doctor profile fields
-const phone = ref("");
+const number = ref("");
 const practiceLocation = ref("");
 const about = ref("");
 const primaryContactNumber = ref("");
@@ -29,6 +29,7 @@ const freeTrialSessions = ref("");
 const happyToProvideFreeSession = ref(false);
 const referredBy = ref("");
 const Showmodel = ref(false);
+const modalitiesdata = ref([]);
 
 // image handling
 const image = ref(null);
@@ -37,99 +38,101 @@ const resultcerticate = ref(null);
 
 // ✅ Load user + doctor profile
 async function getProfile() {
-  try {
-    // 1) get user info
-    const { data: userData } = await axios.get("/api/user");
-    name.value = userData.name ?? "";
-    lastName.value = userData.last_name ?? "";
-    email.value = userData.email ?? "";
-    user.value = userData;
+    try {
+        // 1) get user info
+        const { data: userData } = await axios.get("/api/user");
+        name.value = userData.name ?? "";
+        lastName.value = userData.last_name ?? "";
+        email.value = userData.email ?? "";
+        number.value = userData.number ?? "";
 
-    // 2) get doctor profile info
-    const { data: docData } = await axios.get("/api/doctor/profile");
+        user.value = userData;
 
-    phone.value = docData.number ?? ""; // fallback if doctor profile has phone
-    practiceLocation.value = docData.practice_location ?? "";
-    about.value = docData.about ?? "";
-    primaryContactNumber.value = docData.primary_contact_number ?? "";
-    mobileNumber.value = docData.mobile_number ?? "";
-    address.value = docData.address ?? "";
-    socialMediaHandle.value = docData.social_media_handle ?? "";
-    website.value = docData.website ?? "";
-    modalities.value = docData.modalities
-      ? Array.isArray(docData.modalities)
-        ? docData.modalities.join(", ")
-        : JSON.parse(docData.modalities).join(", ")
-      : "";
-    practicingSince.value = docData.practicing_since ?? "";
-    clientsPerMonth.value = docData.clients_per_month ?? "";
-    freeTrialSessions.value = docData.free_trial_sessions ?? "";
-    happyToProvideFreeSession.value = !!docData.happy_to_provide_free_session;
-    referredBy.value = docData.referred_by ?? "";
-  } catch (error) {
-    console.error("Error loading profile:", error);
-  }
+        // 2) get doctor profile info
+        const { data: docData } = await axios.get("/api/doctor/profile");
+
+        practiceLocation.value = docData.practice_location ?? "";
+        about.value = docData.about ?? "";
+        primaryContactNumber.value = docData.primary_contact_number ?? "";
+        mobileNumber.value = docData.mobile_number ?? "";
+        address.value = docData.address ?? "";
+        socialMediaHandle.value = docData.social_media_handle ?? "";
+        website.value = docData.website ?? "";
+
+        if (Array.isArray(docData.modalities)) {
+            modalities.value = docData.modalities.map(m => Number(m.modality_id)); // ensure numeric
+        } else if (typeof docData.modalities === "string" && docData.modalities !== "") {
+            modalities.value = docData.modalities.split(",").map(id => Number(id.trim()));
+        } else {
+            modalities.value = [];
+        }
+        practicingSince.value = docData.practicing_since ?? "";
+        clientsPerMonth.value = docData.clients_per_month ?? "";
+        freeTrialSessions.value = docData.free_trial_sessions ?? "";
+        happyToProvideFreeSession.value = !!docData.happy_to_provide_free_session;
+        referredBy.value = docData.referred_by ?? "";
+    } catch (error) {
+        console.error("Error loading profile:", error);
+    }
 }
 
 // ✅ Update profile (both tables)
 async function updateProfile() {
-  try {
-    await axios.post("/api/doctor/update", {
-      name: name.value,
-      last_name: lastName.value,
-      phone: phone.value,
-      practice_location: practiceLocation.value,
-      primary_contact_number: primaryContactNumber.value,
-      mobile_number: mobileNumber.value,
-      address: address.value,
-      social_media_handle: socialMediaHandle.value,
-      website: website.value,
-      modalities: modalities.value
-        ? modalities.value.split(",").map((m) => m.trim())
-        : [],
-      about: about.value,
-      practicing_since: practicingSince.value,
-      clients_per_month: clientsPerMonth.value,
-      free_trial_sessions: freeTrialSessions.value,
-      happy_to_provide_free_session: happyToProvideFreeSession.value ? 1 : 0,
-      referred_by: referredBy.value,
-    });
+    try {
+        await axios.post("/api/doctor/update", {
+            name: name.value,
+            last_name: lastName.value,
+            practice_location: practiceLocation.value,
+            number: number.value,
+            primary_contact_number: primaryContactNumber.value,
+            mobile_number: mobileNumber.value,
+            address: address.value,
+            social_media_handle: socialMediaHandle.value,
+            website: website.value,
+            modalities: modalities.value,
+            about: about.value,
+            practicing_since: practicingSince.value,
+            clients_per_month: clientsPerMonth.value,
+            free_trial_sessions: freeTrialSessions.value,
+            happy_to_provide_free_session: happyToProvideFreeSession.value ? 1 : 0,
+            referred_by: referredBy.value,
+        });
 
-    alert("Profile updated successfully!");
-  } catch (err) {
-    console.error("Update failed:", err);
-    alert("Error updating profile!");
-  }
+        alert("Profile updated successfully!");
+    } catch (err) {
+        console.error("Update failed:", err);
+        alert("Error updating profile!");
+    }
 }
 
 // ✅ Update profile image
 async function updateImage() {
-  if (!image.value) return alert("Please select an image!");
+    if (!image.value) return alert("Please select an image!");
 
-  try {
-    const formData = new FormData();
-    formData.append("profile_image", image.value);
+    try {
+        const formData = new FormData();
+        formData.append("profile_image", image.value);
 
-    const res = await axios.post("/api/doctor/update-image", formData, {
-      headers: { "Content-Type": "multipart/form-data" },
-    });
+        const res = await axios.post("/api/doctor/update-image", formData, {
+            headers: { "Content-Type": "multipart/form-data" },
+        });
 
-    user.value.image = res.data.image;
-    image.value = null;
-    preview.value = null;
-    alert("Image updated successfully!");
-  } catch (err) {
-    console.error("Image update failed:", err);
-  }
+        user.value.image = res.data.image;
+        image.value = null;
+        preview.value = null;
+        alert("Image updated successfully!");
+    } catch (err) {
+        console.error("Image update failed:", err);
+    }
 }
 
 // ✅ Handle file preview
 function handleImageUpload(e) {
-  const file = e.target.files[0];
-  if (file) {
-    image.value = file;
-    preview.value = URL.createObjectURL(file);
-  }
+    const file = e.target.files[0];
+    if (file) {
+        image.value = file;
+        preview.value = URL.createObjectURL(file);
+    }
 }
 
 const form = ref({
@@ -178,9 +181,17 @@ const deleteCertificate = async (id) => {
         await fetchCertificates()
     }
 }
+onMounted(async () => {
+    try {
+        const res = await axios.get("/api/modalities");
+        modalitiesdata.value = res.data;
+    } catch (err) {
+        console.error("Error fetching modalities:", err);
+    }
+});
 
 onMounted(() => {
-  getProfile();
+    getProfile();
     fetchCertificates();
 });
 </script>
@@ -221,7 +232,7 @@ onMounted(() => {
                 <div class="row mb-3">
                     <div class="col-md-6">
                         <label class="form-label">Phone</label>
-                        <input v-model="phone" type="text" class="form-control" />
+                        <input v-model="number" type="text" class="form-control" />
                     </div>
                     <div class="col-md-6">
                         <label class="form-label">Practice Location</label>
@@ -257,9 +268,16 @@ onMounted(() => {
                 </div>
 
                 <div class="mb-3">
-                    <label class="form-label">Modalities (comma separated)</label>
-                    <input v-model="modalities" type="text" class="form-control" />
+                    <label class="form-label fw-semibold">Select Your Modalities</label>
+
+                    <select v-model="modalities" class="form-select form-select-lg border-info" multiple>
+                        <option v-for="modalitie in modalitiesdata" :key="modalitie.id" :value="modalitie.id">
+                            {{ modalitie.title }}
+                        </option>
+                    </select>
+
                 </div>
+
 
                 <div class="mb-3">
                     <label class="form-label">About</label>
@@ -373,15 +391,17 @@ onMounted(() => {
 
 <style scoped>
 .content {
-  flex: 1;
+    flex: 1;
 }
+
 .profile-pic {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  object-fit: cover;
-  border: 3px solid #ddd;
+    width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid #ddd;
 }
+
 .modal-overlay {
     position: fixed;
     top: 0;

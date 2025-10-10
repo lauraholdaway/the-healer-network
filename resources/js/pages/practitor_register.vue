@@ -1,14 +1,14 @@
 <template>
     <div class="container d-flex justify-content-center align-items-center min-vh-100">
         <div class="cards rounded-4 shadow-lg p-4 my-5" style="max-width: 750px; width: 100%;">
-            <!-- Logo -->
+            <!-- Header -->
             <div class="row mb-2 align-items-center">
-                <!-- Logo (show first on mobile) -->
                 <div class="col-md-3 order-1 order-md-2 text-md-end text-center mb-3 mb-md-0">
-                    <img src="/public/asset/images/dark-logo.png" alt="Logo" class="img-fluid" style="height: 100px;" />
+                    <router-link to="/">
+                        <img src="/public/asset/images/dark-logo.png" alt="Logo" class="img-fluid"
+                            style="height: 100px;" />
+                    </router-link>
                 </div>
-
-                <!-- Sign Up text (show after logo on mobile) -->
                 <div class="col-md-9 order-2 order-md-1 text-center text-md-start">
                     <h3 class="m-color">Sign Up</h3>
                     <p style="color: #5B4C3A;">
@@ -17,10 +17,9 @@
                     </p>
                 </div>
             </div>
-            <br>
-            <!-- Register Form -->
+
+            <!-- Form -->
             <form @submit.prevent="onSubmit">
-                <!-- Basic Info -->
                 <div class="row">
                     <div class="col-md-6 mb-3">
                         <label class="form-label">First Name</label>
@@ -33,12 +32,12 @@
                             placeholder="Enter Last Name" />
                     </div>
                 </div>
+
                 <div class="row">
                     <div class="mb-3 col-md-6">
                         <label class="form-label">Primary Contact Number</label>
                         <input v-model="form.primary_contact_number" type="text" class="form-control" />
                     </div>
-
                     <div class="mb-3 col-md-6">
                         <label class="form-label">Mobile Number</label>
                         <input v-model="form.mobile_number" type="text" class="form-control" />
@@ -60,14 +59,22 @@
                     <input v-model="form.email" type="email" class="form-control" />
                 </div>
 
-                <!-- Modality -->
-                <div class="mb-3">
-                    <label class="form-label">Which modality are you offering?</label>
-                    <select v-model="form.modalities" class="form-select" multiple>
-                        <option value="Akashic Therapy">Akashic Therapy</option>
-                        <option value="Access Bars">Access Bars</option>
-                        <option value="Access Space and Land Clearing">Access Space and Land Clearing</option>
-                    </select>
+                <!-- Modalities -->
+                <div class=" mb-3">
+                    <div class="card-body">
+                        <h5 class="card-title mb-3 text-primary">Select Your Modalities</h5>
+
+                        <select v-model="form.modalities" class="form-select form-select-lg border-info" multiple>
+                            <option v-for="modalitie in modalities" :key="modalitie.id" :value="modalitie.id">
+                                {{ modalitie.title }}
+                            </option>
+                        </select>
+
+                        <p class="text-muted mt-2 mb-0">
+                            <i class="bi bi-info-circle"></i>
+                            Hold <kbd>Ctrl</kbd> (Windows) or <kbd>Cmd</kbd> (Mac) to select multiple.
+                        </p>
+                    </div>
                 </div>
 
                 <div class="mb-3">
@@ -80,7 +87,6 @@
                     <textarea v-model="form.about" class="form-control" rows="3"></textarea>
                 </div>
 
-                <!-- Experience -->
                 <div class="row">
                     <div class="mb-3 col-md-6">
                         <label class="form-label">How long have you been practicing?</label>
@@ -109,96 +115,94 @@
                     </div>
                 </div>
 
-
-
-                <!-- Referral -->
                 <div class="mb-3">
                     <label class="form-label">Referred By (Optional)</label>
                     <input v-model="form.referred_by" type="text" class="form-control" />
                 </div>
 
-                <!-- Password -->
                 <div class="row">
                     <div class="mb-3 col-md-6">
                         <label class="form-label">Password</label>
                         <input v-model="form.password" type="password" class="form-control" />
                     </div>
-
                     <div class="mb-3 col-md-6">
                         <label class="form-label">Confirm Password</label>
                         <input v-model="form.password_confirmation" type="password" class="form-control" />
                     </div>
                 </div>
 
-                <!-- Error -->
                 <div v-if="error" class="alert alert-danger py-2">{{ error }}</div>
 
-                <!-- Submit -->
                 <div class="row my-2">
                     <div class="d-grid col-md-6">
                         <button class="btn btn-primary main-btn" :disabled="processing">
                             {{ processing ? "Registering..." : "Register" }}
                         </button>
                     </div>
-                    <!-- Link to Login -->
+
                     <div class="text-end mt-3 col-md-6">
-                        <p class="mb-0">Already have an account?
+                        <p class="mb-0">
+                            Already have an account?
                             <router-link to="/login" class="text-decoration-none"
                                 style="color: #5B4C3A;">Login</router-link>
                         </p>
                     </div>
                 </div>
-
             </form>
-
-
         </div>
     </div>
 </template>
 
-<script>
+<script setup>
+import { ref, onMounted } from "vue";
 import axios from "axios";
+import { useRouter } from "vue-router";
 
-export default {
-    data() {
-        return {
-            form: {
-                first_name: "",
-                last_name: "",
-                primary_contact_number: "",
-                mobile_number: "",
-                address: "",
-                social_media_handle: "",
-                email: "",
-                modalities: [],
-                practice_location: "",
-                about: "",
-                practicing_since: "",
-                clients_per_month: 0,
-                free_trial_sessions: 0,
-                happy_to_provide_free_session: false,
-                referred_by: "",
-                password: "",
-                password_confirmation: "",
-            },
-            error: null,
-            processing: false,
-        };
-    },
-    methods: {
-        async onSubmit() {
-            this.processing = true;
-            this.error = null;
+const router = useRouter();
+const modalities = ref([]);
+const form = ref({
+    first_name: "",
+    last_name: "",
+    primary_contact_number: "",
+    mobile_number: "",
+    address: "",
+    social_media_handle: "",
+    email: "",
+    modalities: [],
+    practice_location: "",
+    about: "",
+    practicing_since: "",
+    clients_per_month: 0,
+    free_trial_sessions: 0,
+    happy_to_provide_free_session: false,
+    referred_by: "",
+    password: "",
+    password_confirmation: "",
+});
+const error = ref(null);
+const processing = ref(false);
 
-            try {
-                await axios.post("/api/practitioners/register", this.form);
-                this.$router.push("/login"); // redirect to login after success
-            } catch (err) {
-                this.error = err.response?.data?.message || "Registration failed.";
-            } finally {
-                this.processing = false;
-            }
-        },
-    },
+// Fetch modalities
+onMounted(async () => {
+    try {
+        const res = await axios.get("/api/modalities");
+        modalities.value = res.data;
+    } catch (err) {
+        console.error("Error fetching modalities:", err);
+    }
+});
+
+// Submit form
+const onSubmit = async () => {
+    processing.value = true;
+    error.value = null;
+    try {
+        await axios.post("/api/practitioners/register", form.value);
+        router.push("/login");
+    } catch (err) {
+        error.value = err.response?.data?.message || "Registration failed.";
+    } finally {
+        processing.value = false;
+    }
 };
 </script>

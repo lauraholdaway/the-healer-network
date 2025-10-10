@@ -29,8 +29,8 @@
                             Services
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="findHealerDropdown">
-                            <li><router-link class="dropdown-item" to="/Services">Services</router-link></li>
-                            <li><router-link class="dropdown-item" to="/locations">Services</router-link></li>
+                            <li><router-link class="dropdown-item" to="">Services</router-link></li>
+                            <li><router-link class="dropdown-item" to="">Services</router-link></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -41,7 +41,7 @@
                         <ul class="dropdown-menu" aria-labelledby="findHealerDropdown">
                             <li><router-link class="dropdown-item" to="/PractitionerIndex">All Healers</router-link>
                             </li>
-                            <li><router-link class="dropdown-item" to="/locations">By Location</router-link></li>
+                            <li><router-link class="dropdown-item" to="">By Location</router-link></li>
                         </ul>
                     </li>
                     <li class="nav-item">

@@ -7,6 +7,10 @@ use App\Http\Controllers\Controller;
 use Stripe\Stripe;
 use Stripe\Charge;
 use App\Models\Appointment;
+use Illuminate\Support\Facades\Auth;
+use App\Services\ZoomService;
+use Illuminate\Support\Facades\Mail;
+
 
 class AppointmentController extends Controller
 {
@@ -70,10 +74,9 @@ try {
 
         public function userBooking(Request $request)
     {
-
-        $user = $request->user();
+        $user = Auth::id();
         $appointments = Appointment::with(['doctor', 'doctorpackage']) // eager load relations
-            ->where('user_id', $user->id)
+            ->where('user_id', $user)
             ->latest()
             ->get();
 
@@ -104,4 +107,47 @@ try {
         return response()->json($appointments);
     }
 
+    public function updateStatus(Request $request, $id)
+    {
+        $appointment = Appointment::findOrFail($id);
+        $appointment->status = $request->status;
+        $appointment->Zomemeting = $request->peer_id;
+        $appointment->save();
+        return response()->json(['message' => 'Status updated', 'data' => $appointment]);
+    }
+    public function createZoomMeeting(Request $request, $id)
+    {
+        $appointment = Appointment::with('doctor', 'user')->findOrFail($id);
+
+        $zoom = new ZoomService();
+
+        // dd($appointment->time);
+
+        $meeting = $zoom->createMeeting(
+            "Appointment with Dr. " . $appointment->doctor->name,
+            $appointment->date . 'T' . $appointment->time . ':00Z'
+        );
+
+
+        // Save meeting info
+        $appointment->Zomemeting = $meeting['id'];
+        $appointment->zoom_join_url = $meeting['join_url'];
+        $appointment->zoom_start_url = $meeting['start_url'];
+        $appointment->status = 'meeting_scheduled';
+        $appointment->save();
+
+        // Send email to user
+        Mail::raw("Join your meeting: " . $meeting['join_url'], function ($message) use ($appointment) {
+
+            if ($appointment->email) {
+                $message->to($appointment->email)
+                    ->subject('Your Zoom Meeting Link');
+            } else {
+                $message->to($appointment->user->email)
+                    ->subject('Your Zoom Meeting Link');
+            }
+        });
+
+        return back()->with('success', 'Meeting created and link sent!');
+    }
 }

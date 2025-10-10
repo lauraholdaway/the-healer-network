@@ -22,6 +22,8 @@ class Appointment extends Model
         'email',
         'name',
         'country',
+        'zoom_join_url',
+        'zoom_start_url',
     ];
 
     public function doctor()

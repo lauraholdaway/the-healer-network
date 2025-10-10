@@ -27,11 +27,15 @@ class Practitioner extends Authenticatable
         'price',
     ];
 
-
-
-
-public function user()
+    public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+
+
+    public function modalities()
+    {
+        return $this->belongsToMany(Modality::class, 'modalitypivots', 'practitioner_id', 'modality_id');
     }
 }

@@ -483,6 +483,10 @@ b {
     background-color: #5B4C3A;
     border-radius: 3rem;
     color: white;
+    text-align: center;
+        display: flex;
+        align-items: center;
+        font-size: 12px;
 }
 
 .joinUs {
@@ -806,4 +810,62 @@ footer ul li a:hover {
         margin-bottom: 10px;
         padding-bottom: 10px;
     }
+}
+.profile-img-wrapper {
+    background-color: #F4EFE6;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+}
+
+.profile-img-wrapper img {
+    margin-top: 33px;
+    display: flex;
+    margin-left: 29px;
+}
+
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 150px;
+}
+
+.loading-bar {
+    width: 200px;
+    height: 8px;
+    background: #eee;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.loading-progress {
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(90deg, #5b4c3a, #bfa67a, #5b4c3a);
+    border-radius: 10px;
+    animation: loadingMove 1.5s infinite ease-in-out;
+}
+
+@keyframes loadingMove {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    50% {
+        transform: translateX(50%);
+    }
+
+    100% {
+        transform: translateX(200%);
+    }
+}
+
+.loading-text {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #5b4c3a;
+    font-weight: 600;
 }

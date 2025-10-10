@@ -12,6 +12,8 @@ import Alldoctor from '../pages/Alldoctor.vue';
 import PractitionerIndex from '../pages/PractitionerIndex.vue';
 import Forgotpassword from '../pages/Forgotpassword.vue';
 import Contact from '../pages/Contact.vue';
+import Searchdoctorpage from '../pages/Searchdoctorpage.vue';
+
 
 import Docter from '../pages/docter.vue'
 import Booksession from '../pages/Booksession.vue'
@@ -29,6 +31,7 @@ import Myservice from '../pages/doctor/Myservice.vue';
 import AddService from '../pages/doctor/AddService.vue';
 import EditService from '../pages/doctor/EditService.vue';
 import Inbox from '../pages/doctor/Inbox.vue';
+import ViewAppointment from '../pages/doctor/ViewAppointment.vue';
 
 
 // Update User
@@ -38,6 +41,7 @@ import Chart from '../pages/user/Chart.vue';
 import bookings from '../pages/user/bookings.vue';
 import Settings from '../pages/user/Settings.vue';
 import Packages from '../pages/user/Packages.vue';
+import UserAppointment from '../pages/user/UserAppointment.vue';
 
 const routes = [
     { path: '/', name: 'Home', component: Home },
@@ -55,6 +59,10 @@ const routes = [
     { path: '/practitor_register', name: 'practitor_register', component: practitor_register },
     { path: '/PractitionerIndex', name: 'PractitionerIndex', component: PractitionerIndex },
     { path: '/Contact', name: 'Contact', component: Contact },
+    { path: '/ViewAppointment/:id', name: 'ViewAppointment', component: ViewAppointment, props: true, meta: { hideFooter: true, hideNav: true, } },
+    { path: '/UserAppointment/:id', name: 'UserAppointment', component: UserAppointment, props: true, meta: { hideFooter: true, hideNav: true, } },
+    { path: '/Searchdoctorpage', name: 'Searchdoctorpage', component: Searchdoctorpage },
+
 
     // update User profile
     {
@@ -67,6 +75,8 @@ const routes = [
             { path: 'bookings', name: 'bookings', component: bookings },
             { path: 'Settings', name: 'Settings', component: Settings },
             { path: 'Packages', name: 'Packages', component: Packages },
+
+
 
         ]
     },
@@ -84,7 +94,6 @@ const routes = [
             { path: 'AddService', name: 'AddService', component: AddService, meta: { hideNav: true, hideFooter: true, requiresAuth: true } },
             { path: 'EditService/:id', name: 'EditService', component: EditService, meta: { hideNav: true, hideFooter: true, requiresAuth: true, props: true } },
             { path: 'Inbox', name: 'Inbox', component: Inbox, meta: { hideNav: true, hideFooter: true, requiresAuth: true, props: true } },
-
         ]
     }
 

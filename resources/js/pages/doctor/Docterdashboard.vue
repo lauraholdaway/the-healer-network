@@ -39,7 +39,7 @@ function logout() {
         <div class="container-fluid userdashboard-container p-0" v-if="auth.user.status === 1">
             <div class="row">
                 <!-- Sidebar -->
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <div class="userdashboard-card text-center">
                         <div class="userdashboard-menu">
                             <router-link class="btn" to="/Docterdashboard">Dashboard</router-link>
@@ -55,7 +55,7 @@ function logout() {
                     </div>
                 </div>
                 <!-- Right section for child routes -->
-                <div class="col-md-8">
+                <div class="col-md-9">
                     <router-view /> <!-- ✅ child pages will render here -->
                 </div>
             </div>

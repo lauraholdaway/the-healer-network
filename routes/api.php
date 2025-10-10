@@ -7,7 +7,6 @@ use App\Http\Controllers\Api\DoctorController;
 use App\Http\Controllers\Api\AppointmentController;
 use App\Http\Controllers\DoctorSessionController;
 use App\Http\Controllers\ServiceController;
-use App\Http\Controllers\ZoomController;
 use App\Http\Controllers\Admin\DashboardController;
 
 Route::post('/register', [AuthController::class,'register']);
@@ -43,18 +42,21 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/doctor/userappointments', [AppointmentController::class, 'doctorBooking']);
     Route::get('/doctor/oneappointment/{id}', [AppointmentController::class, 'oneappointment']);
 
-    Route::post('/zoom/generate-signature', [ZoomController::class, 'generate']);
-    Route::get('/appointments', [ZoomController::class, 'index']);
-
+    Route::put('/doctor/update-appointment-status/{id}', [AppointmentController::class, 'updateStatus']);
+    Route::post('/doctor/createZoomMeeting/{id}', [AppointmentController::class, 'createZoomMeeting'])->name('doctor.createZoomMeeting');
 
     Route::apiResource('services', ServiceController::class);
 });
 Route::get('/GetAllDoctor', [DoctorController::class, 'GetAllDoctor']);
 Route::get('/doctor/{id}', [DoctorController::class, 'GetOneDoctor']);
+Route::get('/GetDoctorByModality/{id}', [DoctorController::class, 'GetDoctorByModality']);
 Route::post('/userpayment', [AppointmentController::class, 'store']);
 Route::get("/availability/{doctor_id}", [DoctorSessionController::class, "GetDateForDoctor"]);
 Route::delete("availability/delete/{id}", [DoctorSessionController::class, "deleteavailability"]);
 Route::get("/package/{doctor_id}", [DoctorSessionController::class, "Getpackage"]);
 Route::delete("packages/delete/{id}", [DoctorSessionController::class, "deletePackage"]);
 Route::post('/contact', [DashboardController::class, 'contactsave']);
+
 Route::get('/doctorservice/{id}', [ServiceController::class, 'getDoctorServices']);
+Route::get('/modalities', [DoctorController::class, 'modalities']);
+Route::get('/searchdoctor', [DoctorController::class, 'searchdoctor']);

@@ -116,6 +116,7 @@ public function updateImage(Request $request)
 
         // Update fields
         $user->name = $validated['name'];
+        $user->address = $request->address;
         $user->last_name = $validated['last_name'] ?? $user->last_name;
         $user->number = $validated['number'] ?? $user->number;
 

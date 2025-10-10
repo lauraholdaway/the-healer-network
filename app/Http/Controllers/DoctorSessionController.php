@@ -4,7 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\DoctorPackage;
+use App\Models\doctorCerticate;
 use App\Models\DoctorAvailability;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class DoctorSessionController extends Controller
 {
