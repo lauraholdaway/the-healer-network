@@ -14,8 +14,8 @@
             </button>
 
             <!-- ✅ Menu Items -->
-            <div class="collapse navbar-collapse text-end text-white  ps-md-5" id="mainNavbar">
-                <ul class="navbar-nav mx-auto ">
+            <div class="collapse navbar-collapse  text-white  ps-md-5" id="mainNavbar">
+                <ul class="navbar-nav ms-auto pe-5">
                     <li class="nav-item">
                         <router-link class="nav-link" to="/">Home</router-link>
                     </li>

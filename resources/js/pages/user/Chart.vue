@@ -1,6 +1,7 @@
 <template>
     <div class="col-md-12 text-center ">
-        <div class="userdashboard-section mb-5">
+        <br>
+        <div class="userdashboard-section mb-5 mt-5">
             <h1 class="m-color fw-bold">Upcoming Bookings</h1>
             <p>No upcoming bookings (yet)</p>
             <router-link to="/" class="btn main-btn ">Browse available packages</router-link to="/">
