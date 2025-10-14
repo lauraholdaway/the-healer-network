@@ -34,8 +34,11 @@
             <table class="table table-bordered">
                 <thead class="" style="">
                     <tr class="bg-info" style="background-color: #F4EFE6 !important;">
-                        <th style="background-color: #F4EFE6 !important;" v-for="(day, index) in Alldates" :key="index">
-                            {{ day.date }}</th>
+                        <th class="text-center" style="background-color: #F4EFE6 !important;"
+                            v-for="(day, index) in Alldates" :key="index">
+                            <p>{{ dayjs(day.date).format("dddd") }}</p>
+                            {{ dayjs(day.date).format("D MMM YYYY") }}
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
@@ -64,6 +67,7 @@ import { ref, computed, onMounted } from "vue";
 import axios from "axios";
 import { useRouter, useRoute } from "vue-router";
 import { useAuthStore } from "../../stores/auth";
+import dayjs from "dayjs";
 
 // --- Reactive state ---
 const selectedMonth = ref("10");
