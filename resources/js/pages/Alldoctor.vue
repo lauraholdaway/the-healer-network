@@ -19,7 +19,7 @@
 
                 <button v-for="modalitie in modalities" @click="GetDoctorByModality(modalitie.id)"
                     class="btn btn-outline-success btn-outline-custome" style="">{{
-                        modalitie?.title }}</button>
+                    modalitie?.title }}</button>
 
             </div>
 
@@ -29,7 +29,7 @@
                     <div class="loading-bar">
                         <div class="loading-progress"></div>
                     </div>
-                    <p class="loading-text">Loading doctors...</p>
+                    <p class="loading-text">Loading Practitioner...</p>
                 </div>
 
 
@@ -150,10 +150,18 @@ const loading = ref(false)
 
 
 const GetDoctorByModality = async (id) => {
+
     loading.value = true;
     try {
-        const res = await axios.get(`/api/GetDoctorByModality/${id}`)
+        if (id) {
+            const res = await axios.get(`/api/GetDoctorByModality/${id}`)
         doctors.value = res.data;
+
+        } else {
+            const res = await axios.get(`/api/GetAllDoctor`)
+            doctors.value = res.data;
+
+        }
     } catch (error) {
         error.value = err.response?.data?.message || "Registration failed.";
 
@@ -169,4 +177,6 @@ onMounted(async () => {
         console.error("Error fetching modalities:", err);
     }
 });
+
+onMounted(GetDoctorByModality);
 </script>

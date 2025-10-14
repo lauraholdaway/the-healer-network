@@ -13,6 +13,8 @@ import PractitionerIndex from '../pages/PractitionerIndex.vue';
 import Forgotpassword from '../pages/Forgotpassword.vue';
 import Contact from '../pages/Contact.vue';
 import Searchdoctorpage from '../pages/Searchdoctorpage.vue';
+import Quiz from '../pages/Quiz.vue';
+import DoctorFind from '../pages/DoctorFind.vue';
 
 
 import Docter from '../pages/docter.vue'
@@ -62,6 +64,8 @@ const routes = [
     { path: '/ViewAppointment/:id', name: 'ViewAppointment', component: ViewAppointment, props: true, meta: { hideFooter: true, hideNav: true, } },
     { path: '/UserAppointment/:id', name: 'UserAppointment', component: UserAppointment, props: true, meta: { hideFooter: true, hideNav: true, } },
     { path: '/Searchdoctorpage', name: 'Searchdoctorpage', component: Searchdoctorpage },
+    { path: '/Quiz', name: 'Quiz', component: Quiz },
+    { path: '/DoctorFind', name: 'DoctorFind', component: DoctorFind },
 
 
     // update User profile

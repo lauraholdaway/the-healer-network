@@ -22,6 +22,22 @@ class DoctorController extends Controller
         $Practitioner = Practitioner::with('modalities')->where('user_id', Auth::id())->first();
         return response()->json($Practitioner);
     }
+    public function quiz(Request $request)
+    {
+        // ✅ Get selected modality IDs from request
+        $modal = $request->checkoptions;
+
+        // ✅ Fetch practitioners that have any of those modalities
+        $practitioners = Practitioner::with(['user', 'modalities'])
+            ->whereHas('modalities', function ($query) use ($modal) {
+                $query->whereIn('modalities.id', $modal);
+            })
+            ->get();
+
+        // dd($practitioners);
+        return response()->json($practitioners);
+    }
+
 
 
 

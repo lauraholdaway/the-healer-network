@@ -5,7 +5,6 @@ import { useAuthStore } from "../../stores/auth";
 
 const auth = useAuthStore();
 const user = ref(null);
-
 const image = ref(null);
 const preview = ref(null);
 
@@ -47,8 +46,8 @@ function logout() {
                             <router-link class="btn" to="/Docterdashboard/Myservice">My Services</router-link>
                             <!-- <router-link class="btn" to="/Docterdashboard/Inbox">Inbox</router-link> -->
                             <!-- <a class="btn" href="#">Patients</a> -->
-                            <router-link class="btn" to="/Docterdashboard/setSesion"> Set Session</router-link>
-                            <router-link class="btn" to="/Docterdashboard/DoctorTime">Avaible Time</router-link>
+                            <router-link class="btn" to="/Docterdashboard/setSesion"> Avaible Time </router-link>
+                            <router-link class="btn" to="/Docterdashboard/DoctorTime">Set Packages</router-link>
                             <router-link class="btn" to="/Docterdashboard/Doctorprofile">Profile</router-link>
                             <a @click="logout" class="btn logout-btn">Logout</a>
                         </div>

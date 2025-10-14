@@ -45,6 +45,9 @@ b {
 .m-color {
     color: #8A7356 !important;
 }
+.bg-color {
+    background-color: #C4B39A !important;
+}
 
 /* Extra styling for hero background */
 .hero-section {
@@ -868,4 +871,8 @@ footer ul li a:hover {
     font-size: 14px;
     color: #5b4c3a;
     font-weight: 600;
+}
+.form-check-input:checked {
+    background-color: #5b4c3a;
+    border-color: #5b4c3a;
 }

@@ -60,3 +60,5 @@ Route::post('/contact', [DashboardController::class, 'contactsave']);
 Route::get('/doctorservice/{id}', [ServiceController::class, 'getDoctorServices']);
 Route::get('/modalities', [DoctorController::class, 'modalities']);
 Route::get('/searchdoctor', [DoctorController::class, 'searchdoctor']);
+
+Route::post('/quiz', [DoctorController::class, 'quiz']);

@@ -1,6 +1,7 @@
 <template>
-    <div class="card p-2 m-2">
-        <h3>Practitioner Appointments</h3>
+    <div class=" p-2 m-2">
+        <h4>Practitioner Appointments</h4>
+        <hr>
 
         <div v-if="loading">Loading appointments...</div>
         <div v-else-if="appointments.length === 0">No appointments found.</div>

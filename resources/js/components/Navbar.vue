@@ -29,7 +29,7 @@
                             Services
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="findHealerDropdown">
-                            <li><router-link class="dropdown-item" to="">Services</router-link></li>
+                            <li><router-link to="/Quiz" class="dropdown-item">Quiz</router-link></li>
                             <li><router-link class="dropdown-item" to="">Services</router-link></li>
                         </ul>
                     </li>

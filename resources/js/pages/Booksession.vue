@@ -52,7 +52,8 @@
 
                             </div>
                             <div class="d-flex justify-content-center mt-3">
-                                <p class="docter-type px-3 py-1 text-center" style="width: 150px;">Meditation</p>
+                                <p class="docter-type px-3 py-1 text-center" v-for="item in doctor.modalities"
+                                    style="width:auto;">{{ item.title }}</p>
                             </div>
                             <div class="d-flex justify-content-between my-3">
                             </div>
@@ -138,9 +139,15 @@
                                 <!-- Buttons -->
                                 <div class="d-flex justify-content-between">
                                     <button class="btn btn-outline-dark btn-outline-custome px-5">Back</button>
-                                    <button class="btn btn-dark main-btn2 px-5 rounded-4 ms-3" @click="handleNext">
+
+                                    <button v-if="auth?.user?.id" class="btn btn-dark main-btn2 px-5 rounded-4 ms-3"
+                                        @click="handleNext">
                                         Next
                                     </button>
+
+                                    <router-link v-else to="/login"
+                                        class="btn btn-dark main-btn2 px-5 rounded-4 ms-3">Login</router-link>
+
                                 </div>
                             </div>
                         </div>
@@ -156,7 +163,10 @@
                                             <button class="accordion-button collapsed" type="button"
                                                 data-bs-toggle="collapse" :data-bs-target="`#collapse${index}`"
                                                 aria-expanded="false" :aria-controls="`collapse${index}`">
-                                                {{ tm.date }}
+                                                {{ new Date(tm.date).toLocaleString('en-US', {
+                                                    day: '2-digit', month: 'short', year:
+                                                        'numeric'
+                                                }) }}
                                             </button>
                                         </h2>
 
@@ -262,9 +272,10 @@
                                     </div>
                                 </div>
                                 <!-- Buttons -->
-                                <div class="d-flex justify-content-center mt-3">
-
-                                    <button class="btn btn-dark main-btn2 px-5 rounded-4 ms-3 w-100" :disabled="loading"
+                                <div class="d-flex justify-content-between mt-3">
+                                    <button class="btn btn-outline-dark btn-outline-custome px-5"
+                                        @click="handleBack">Back</button>
+                                    <button class="btn btn-dark main-btn2 px-5 rounded-4 ms-3 " :disabled="loading"
                                         @click="payNow">
                                         <span v-if="loading">Processing...</span>
                                         <span v-else>Pay Now</span>

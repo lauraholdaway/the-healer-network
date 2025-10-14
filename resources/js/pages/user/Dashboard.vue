@@ -55,8 +55,8 @@ function logout() {
                 <div class="col-md-3">
                     <div class="userdashboard-card text-center">
                         <div class="userdashboard-menu">
-                            <router-link to="/profile/Chart" class="btn">Dashboard</router-link>
-                            <router-link to="/profile/bookings" class="btn">Manage your bookings</router-link>
+                            <router-link to="/profile/Chart" class="btn">Manage your bookings</router-link>
+                            <router-link to="/profile/bookings" class="btn">Appointments</router-link>
                             <!-- <router-link to="/profile/Packages" class="btn">Packages</router-link> -->
                             <router-link to="/profile/update-profile" class="btn">Profile</router-link>
                             <router-link to="/profile/settings" class="btn">Settings</router-link>
