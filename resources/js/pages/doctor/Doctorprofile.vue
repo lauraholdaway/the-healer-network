@@ -22,6 +22,7 @@ const mobileNumber = ref("");
 const address = ref("");
 const socialMediaHandle = ref("");
 const website = ref("");
+const price = ref("");
 const modalities = ref("");
 const practicingSince = ref("");
 const clientsPerMonth = ref("");
@@ -58,9 +59,11 @@ async function getProfile() {
         address.value = docData.address ?? "";
         socialMediaHandle.value = docData.social_media_handle ?? "";
         website.value = docData.website ?? "";
+        price.value = docData.price ?? "";
 
+        console.log(docData.modalities);
         if (Array.isArray(docData.modalities)) {
-            modalities.value = docData.modalities.map(m => Number(m.modality_id)); // ensure numeric
+            modalities.value = docData.modalities.map(m => Number(m.id)); // ensure numeric
         } else if (typeof docData.modalities === "string" && docData.modalities !== "") {
             modalities.value = docData.modalities.split(",").map(id => Number(id.trim()));
         } else {
@@ -89,6 +92,7 @@ async function updateProfile() {
             address: address.value,
             social_media_handle: socialMediaHandle.value,
             website: website.value,
+            price: price.value,
             modalities: modalities.value,
             about: about.value,
             practicing_since: practicingSince.value,
@@ -108,20 +112,18 @@ async function updateProfile() {
 // ✅ Update profile image
 async function updateImage() {
     if (!image.value) return alert("Please select an image!");
-
     try {
         const formData = new FormData();
         formData.append("profile_image", image.value);
-
         const res = await axios.post("/api/doctor/update-image", formData, {
             headers: { "Content-Type": "multipart/form-data" },
         });
-
         user.value.image = res.data.image;
         image.value = null;
         preview.value = null;
         alert("Image updated successfully!");
     } catch (err) {
+        alert("Image not updated !");
         console.error("Image update failed:", err);
     }
 }
@@ -157,12 +159,8 @@ const saveCertificate = async () => {
         })
 
         await fetchCertificates()
-
-        // reset form
         form.value.title = ''
         form.value.certificate = null
-
-        // ✅ close modal after success
         Showmodel.value = false
 
     } catch (error) {
@@ -262,9 +260,15 @@ onMounted(() => {
                     <input v-model="socialMediaHandle" type="text" class="form-control" />
                 </div>
 
-                <div class="mb-3">
-                    <label class="form-label">Website</label>
-                    <input v-model="website" type="text" class="form-control" />
+                <div class="row">
+                    <div class="mb-3 col-md-6">
+                        <label class="form-label">Website</label>
+                        <input v-model="website" type="text" class="form-control" />
+                    </div>
+                    <div class="mb-3 col-md-6">
+                        <label class="form-label">Price</label>
+                        <input v-model="price" type="text" class="form-control" />
+                    </div>
                 </div>
 
                 <div class="mb-3">

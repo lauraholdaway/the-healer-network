@@ -25,6 +25,7 @@ class Practitioner extends Authenticatable
         'happy_to_provide_free_session',
         'referred_by',
         'price',
+        'website',
     ];
 
     public function user()

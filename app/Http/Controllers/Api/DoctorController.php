@@ -69,7 +69,8 @@ class DoctorController extends Controller
         ]);
 
         // ✅ Update User
-        $user->name = $validated['name'] . ' ' . $validated['last_name'];
+        $user->name = $validated['name'];
+        $user->last_name = $validated['last_name'];
         $user->number = $validated['number'] ?? $user->number;
         $user->save();
 
@@ -79,6 +80,8 @@ class DoctorController extends Controller
         if ($practitioner) {
             $practitioner->practice_location = $validated['practice_location'] ?? $practitioner->practice_location;
             $practitioner->about = $validated['about'] ?? $practitioner->about;
+            $practitioner->website =  $request->website;
+            $practitioner->price =  $request->price;
             $practitioner->primary_contact_number = $validated['primary_contact_number'] ?? $practitioner->primary_contact_number;
             $practitioner->mobile_number = $validated['mobile_number'] ?? $practitioner->mobile_number;
             $practitioner->address = $validated['address'] ?? $practitioner->address;
@@ -112,6 +115,7 @@ class DoctorController extends Controller
     // ✅ Update doctor profile image
     public function updateImage(Request $request)
     {
+
 
         $request->validate([
             'profile_image' => 'required',

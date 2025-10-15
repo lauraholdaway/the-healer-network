@@ -73,7 +73,7 @@ h5 {
                         <div class="position-relative rounded-4"
                             style="background: linear-gradient(180deg, rgb(91 76 58 / 41%) 50.9%, #5B4C3A 100%);">
                             <img :src="doctor?.user?.image ? '/storage/' + doctor.user.image : '/default-image.png'"
-                                class="doctorImages" alt="practitioner">
+                                class="doctorImages img-fluid" alt="practitioner">
                             <div class="position-absolute top-0 end-0 p-2">
                                 <svg width="30" height="30" viewBox="0 0 46 46" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -186,7 +186,8 @@ h5 {
 
                             <div class="col-md-3 col-6 mb-3 mb-md-0 border-end border-light">
                                 <h6 class="fw-semibold fst-italic">Location</h6>
-                                <p class="mb-0 small">Kingston Beach TAS 7050,<br>Australia</p>
+                                <p class="mb-0 small">{{ doctor?.practic_location }},<br>{{ doctor?.address }}
+                                </p>
                             </div>
 
                             <div class="col-md-3 col-6 mb-3 mb-md-0 border-end border-light">
