@@ -53,7 +53,11 @@ Route::get('/doctor/{id}', [DoctorController::class, 'GetOneDoctor']);
 Route::get('/doctorCertificate/{id}', [DoctorController::class, 'doctorCertificate']);
 Route::get('/GetDoctorByModality/{id}', [DoctorController::class, 'GetDoctorByModality']);
 Route::post('/userpayment', [AppointmentController::class, 'store']);
+
 Route::get("/availability/{doctor_id}", [DoctorSessionController::class, "GetDateForDoctor"]);
+
+Route::get("/availability/{doctor_id}/{time}/{year}", [DoctorSessionController::class, "TimeDocotroinMOnth"]);
+
 Route::delete("availability/delete/{id}", [DoctorSessionController::class, "deleteavailability"]);
 Route::get("/package/{doctor_id}", [DoctorSessionController::class, "Getpackage"]);
 Route::delete("packages/delete/{id}", [DoctorSessionController::class, "deletePackage"]);

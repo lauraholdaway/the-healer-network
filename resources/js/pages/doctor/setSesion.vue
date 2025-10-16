@@ -48,7 +48,9 @@
                 <tbody>
                     <tr v-for="(tm, index) in timedata" :key="tm.id">
                         <th scope="row">{{ index + 1 }}</th>
-                        <td>{{ tm.date }}</td>
+                        <td>
+                            {{ dayjs(tm.date).format("D MMM YYYY") }}
+                        </td>
                         <td>
                             <div v-for="(ontime, index) in tm.times" :key='indec'>
                                 {{ formatTime(ontime) }}
@@ -70,6 +72,7 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import axios from "axios";
+import dayjs from "dayjs";
 
 import { useAuthStore } from "../../stores/auth";
 
