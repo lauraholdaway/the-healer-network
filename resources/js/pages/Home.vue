@@ -1,23 +1,22 @@
 <template>
-    <section class="hero-section d-flex align-items-center text-center text-white position-relative">
-        <div class="container">
+    <section class="hero-section d-flex align-items-start text-center text-white position-relative">
+        <div class="container mt-5 pt-5">
             <!-- Heading -->
-            <h1 class="display-4 fw-bold my-4 herotaxt mt-5">
-                FIND AND BOOK A HOLISTIC <br />
-                PRACTITIONER YOU CAN TRUST
+            <h1 class="display-4 fw-bold my-2 text-[#A0704C] herotaxt mt-0 pt-11">
+                BOOK A HOLISTIC HEALER <br />
+                THAT YOU LOVE 
             </h1>
 
             <!-- Buttons -->
-            <div class="d-flex justify-content-center gap-3 mb-4">
-                <button class="btn btn-light rounded-pill active-hero">Highly Rated ✓</button>
-                <button class="btn btn-outline-light rounded-pill">Proven Expertise</button>
-                <button class="btn btn-outline-light rounded-pill">Genuine Care</button>
+            <div class="d-flex justify-content-center gap-3 mb-4 heroButtons  ">
+                <button class="btn btn-outline-light rounded-pill px-4">Highly Rated </button>
+                <button class="btn btn-outline-light rounded-pill px-4">Proven Expertise</button>
+                <button class="btn btn-outline-light rounded-pill px-4">Genuine Care</button>
             </div>
 
             <!-- Subtext -->
-            <p class="mb-5 px-lg-5">
-                Whether it’s Acupuncture, Reiki, or Hypnotherapy, our thorough vetting process ensures you can
-                confidently book the best natural therapy practitioners, both online and locally.
+            <p class="mb-5 px-lg-5 hero-subtext">
+                Whether it's Acupuncture, Reiki, Hypnotherapy or Counselling we'll help you find the best natural <br> therapy healer thats right for you.
             </p>
 
             <!-- Search Box -->
@@ -25,26 +24,32 @@
             <!-- Scroll Down -->
         </div>
         <br>
-        <div class="scroll-down mt-5 position-absolute" style="right:45%;bottom:-7%;">
+        <div class="scroll-down mt-5 position-absolute" style="bottom:4%; left: 50%; transform: translateX(-50%);">
             <a class="btn btn-light  shadow" href="#below">
                 <p class="mt-2">Scroll to discover</p>
-                <i class="bi bi-arrow-down"></i>
+                <img :src="Barrow" alt="icon" class="ms-1" style="width: 18px; height: 18px; position: relative; top: -6px;">
+
             </a>
 
         </div>
     </section>
 
+    <!-- Hero Section 2 -->
+    <section class="hero-section-2 d-flex align-items-center justify-content-center text-center">
+        <!-- Add your content here if needed -->
+    </section>
+
     <br>
-    <section class="container my-md-5 pt-md-5" id="below">
-        <h2 class="section-heading">Your Path to Healing</h2>
+    <section class="container my-md-5 pt-md--10" id="below">
+        <h2 class="section-heading ">Your Path to Healing</h2>
         <p class="section-subtext">
-            THN connects you with certified online therapists, providing the tools and support you need to book therapy
-            sessions <br> tailored to your well-being.
+            The Healer Network connects you with certified online therapists, providing the tools and support you need to book <br> therapy sessions tailored to your well-being.
         </p>
 
         <div class="row gy-4">
             <div class="col-md-4">
                 <div class="feature-box">
+                    <img :src="cardicon" alt="card icon" class="mb-3" style="width: 48px; height: 48px;">
                     <h5 class="feature-title">Trusted Therapists</h5>
                     <p class="feature-content">
                         Our therapists are carefully selected, highly rated, and certified in their respective fields,
@@ -222,6 +227,8 @@ import { ref, onMounted, computed } from "vue";
 import axios from "axios";
 import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/swiper-bundle.css'
+import Barrow from '/public/asset/images/Barrow.svg';
+import cardicon from '/public/asset/images/cardicon.svg';
 
 const doctors = ref(null);
 onMounted(async () => {

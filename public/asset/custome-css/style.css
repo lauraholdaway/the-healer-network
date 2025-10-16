@@ -5,6 +5,14 @@
         font-weight: normal;
         font-style: normal;
 }
+
+@font-face {
+    font-family: 'FONTSPRING DEMO - The Seasons';
+        src: url('/asset/fonts/the-seasons.woff2') format('woff2'),
+            url('/asset/fonts/the-seasons.woff') format('woff');
+        font-weight: normal;
+        font-style: normal;
+}
 .bg-custome {
     background-color: #F4EFE6;
 }
@@ -38,8 +46,8 @@ b {
 
 .fw-bold {
     color: #21272A;
-    font-family: 'Cormorant Garamond' !important;
-    font-weight: 400 !important;
+    font-family: 'Avenir' !important;
+    font-weight: 600 !important;
 }
 
 .m-color {
@@ -89,8 +97,14 @@ b {
 
 .hero-section {
     min-height: 120vh;
-    background: url('/asset/images/hero.png') center center/cover no-repeat;
+    background: url('/asset/images/hero1.png') center center/cover no-repeat;
     /* 🔥 Replace with your image */
+    position: relative;
+}
+
+.hero-section-2 {
+    min-height: 12vh;
+    background: url('/asset/images/hero2.png') center center/cover no-repeat;
     position: relative;
 }
 
@@ -100,12 +114,33 @@ b {
 }
 
 .herotaxt {
-    color: #FBF9F7;
-    font-size: 71px;
+    color: #A0704C;
+    font-size: 65px;
+    font-family: 'FONTSPRING DEMO - The Seasons', 'Cormorant Garamond', serif !important;
+}
+.heroButtons {
+    margin-top: 20px;
+    font-family: 'FONTSPRING DEMO - The Seasons', 'Cormorant Garamond', serif !important;
+
+}
+
+.hero-subtext {
+    color: #A0704C !important;
 }
 
 .active-hero {
     background-color: #DED1BA;
+}
+
+.btn-outline-light {
+    border-color: #A0704C !important;
+    color: #A0704C !important;
+}
+
+.btn-outline-light:hover {
+    /* background-color: #A0704C !important; */
+    border-color: #A0704C !important;
+    color: #A0704C !important;
 }
 
 
@@ -144,24 +179,41 @@ b {
 
 .scroll-down>a {
     background-color: #DED1BA;
-    padding: 12px;
+    padding: 4px 12px;
     border-radius: 100px;
-    width: 248px;
+    width: 200px;
     border: none;
+    display: block;
+    margin: 0 auto;
 }
 
 .scroll-down {
     margin-bottom: 0px;
+    display: flex;
+    justify-content: center;
 }
 
 
 
 .section-heading {
-    font-size: 2.2rem;
+    font-size: 44px;
     font-weight: 500;
     text-align: center;
     margin-top: 60px;
     margin-bottom: 10px;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+    .section-heading {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .section-heading {
+        font-size: 2rem;
+    }
 }
 
 .section-subtext {
@@ -752,6 +804,7 @@ footer ul li a:hover {
     .herotaxt {
         color: #FBF9F7;
         font-size: 20px;
+        font-family: 'FONTSPRING DEMO - The Seasons', 'Cormorant Garamond', serif !important;
     }
 }
 .form-control {
@@ -875,4 +928,42 @@ footer ul li a:hover {
 .form-check-input:checked {
     background-color: #5b4c3a;
     border-color: #5b4c3a;
+}
+
+/* Hero Section Mobile Responsive */
+@media (max-width: 768px) {
+    .hero-section {
+        min-height: 70vh;
+        align-items: start;
+        padding-top: 20px;
+    }
+
+    .hero-section .container {
+        padding: 0 15px;
+    }
+
+    .herotaxt {
+        font-size: 1.8rem !important;
+        line-height: 1.3;
+        color: #A0704C !important;
+    }
+
+    .hero-subtext {
+        font-size: 0.9rem;
+        padding: 0 10px !important;
+    }
+
+    .heroButtons {
+        flex-wrap: wrap;
+        gap: 8px !important;
+    }
+
+    .heroButtons button {
+        font-size: 0.75rem;
+        padding: 6px 12px !important;
+    }
+
+    .scroll-down {
+        display: none !important;
+    }
 }

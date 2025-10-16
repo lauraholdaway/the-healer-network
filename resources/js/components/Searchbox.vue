@@ -1,31 +1,34 @@
 <template>
     <form @submit.prevent="searchDoctor">
         <div class="row search-box bg-white shadow p-3 d-flex align-items-center" style="border-radius: 20px;">
-            <!-- Concern / Practice -->
-            <div class="col-md-4 text-start" style="border-right: 1px solid #DED1BA;">
-                <label class="form-label fw-bold text-dark mb-0">Concern / Practice</label>
-                <input type="text" v-model="form.modality" class="form-control border-0 shadow-none"
-                    placeholder='Try "Anxiety" or "Naturopathy"' />
+            <!-- Concern or Practice -->
+            <div class="col-12 col-md-4 text-start search-box-section">
+                <div class="d-flex flex-column">
+                    <span class="fw-bold mb-1 search-box-title">Concern or Practice</span>
+                    <span class="mb-2 search-box-text">Energy Healing' or 'Anxiety'</span>
+                </div>
+                <!-- <input type="text" v-model="form.modality" class="form-control border-0 shadow-none"
+                    placeholder="Enter your concern or practice" style="color: #5B4C3A;" /> -->
             </div>
 
-            <!-- Location -->
-            <div class="col-md-5 text-start" style="border-right: 1px solid #DED1BA;">
-                <label class="form-label fw-bold text-dark mb-0 text-start">Location</label>
-                <div class="d-flex gap-2">
-                    <input type="text" v-model="form.location" class="form-control border-0 shadow-none"
-                        placeholder="Anywhere" />
-                    <button type="button" class="btn btn-outline-dark rounded-pill btn-sm"
-                        style="font-size: 10px; width: 320px; background-color: #5B4C3A; color: white;"
+            <!-- Locations -->
+            <div class="col-12 col-md-5 text-start search-box-section">
+                <label class="form-label fw-bold mb-0 text-start search-box-title">Locations</label>
+                <div class="d-flex gap-2 align-items-center flex-wrap location-wrapper">
+                    <span class="location-text">Anywhere</span>
+                    <button type="button" class="btn rounded-pill btn-sm location-btn"
                         @click="getCurrentLocation">
                         My Current Location
+                        <img :src="Location" alt="Location" class="ms-1" style="width: 12px; height: 12px; filter: brightness(0) invert(1);">
                     </button>
                 </div>
             </div>
 
             <!-- Search Button -->
-            <div class="px-2 col-md-3">
-                <button type="submit" class="btn main-btn px-5 w-100 rounded-4">
-                    Search
+            <div class="px-2 col-12 col-md-3 search-button-wrapper">
+                <button type="submit" class="btn w-100 rounded-pill search-submit-btn">
+                    <img :src="searchIcon" alt="Search" class="me-2" style="width: 16px; height: 16px;">
+                    Search here...
                 </button>
             </div>
         </div>
@@ -35,6 +38,8 @@
 <script setup>
 import { ref } from "vue";
 import { useRouter } from "vue-router";
+import searchIcon from "../../../public/asset/images/Searchicon.svg";
+import Location from "../../../public/asset/images/Location.svg";
 
 const router = useRouter();
 
@@ -82,3 +87,144 @@ const getCurrentLocation = () => {
     }
 };
 </script>
+
+<style scoped>
+/* Apply Avenir font family to all elements in this component */
+.search-box,
+.search-box *,
+.search-box span,
+.search-box label,
+.search-box button,
+.search-box .fw-bold {
+    font-family: 'Avenir', sans-serif !important;
+}
+
+/* Desktop styles */
+.search-box-section {
+    border-right: 1px solid #DED1BA;
+    padding: 0.5rem 1rem;
+}
+
+.search-box-section:last-of-type {
+    border-right: none;
+}
+
+.search-box-title {
+    color: #5B4C3A;
+    font-size: 16px;
+    font-weight: 800;
+}
+
+.search-box-text {
+    color: #8A7356;
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.location-text {
+    color: #8A7356;
+    padding-right: 20px;
+}
+
+.location-btn {
+    font-size: 10px;
+    background-color: #5B4C3A;
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    white-space: nowrap;
+}
+
+.search-submit-btn {
+    background-color: #6B5B4E;
+    color: #C0B2A4;
+    border: none;
+    padding: 12px 20px;
+    font-weight: 400;
+}
+
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+    .search-box {
+        padding: 1rem !important;
+    }
+
+    .search-box-section {
+        border-right: none !important;
+        border-bottom: 1px solid #DED1BA;
+        padding: 1rem 0.5rem !important;
+        margin-bottom: 0.5rem;
+    }
+
+    .search-box-section:last-of-type {
+        border-bottom: none;
+    }
+
+    .search-box-title {
+        font-size: 14px;
+    }
+
+    .search-box-text {
+        font-size: 12px;
+    }
+
+    .location-wrapper {
+        justify-content: flex-start;
+    }
+
+    .location-text {
+        padding-right: 10px;
+        font-size: 13px;
+    }
+
+    .location-btn {
+        font-size: 9px;
+        padding: 4px 12px;
+    }
+
+    .search-button-wrapper {
+        padding: 0.5rem 0.5rem !important;
+        margin-top: 0.5rem;
+    }
+
+    .search-submit-btn {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+    .search-box {
+        border-radius: 15px !important;
+    }
+
+    .search-box-title {
+        font-size: 13px;
+    }
+
+    .search-box-text {
+        font-size: 11px;
+    }
+
+    .location-btn {
+        font-size: 8px;
+        padding: 3px 10px;
+    }
+
+    .location-btn img {
+        width: 10px !important;
+        height: 10px !important;
+    }
+
+    .search-submit-btn {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+
+    .search-submit-btn img {
+        width: 14px !important;
+        height: 14px !important;
+    }
+}
+</style>
