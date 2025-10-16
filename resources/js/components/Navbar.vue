@@ -14,14 +14,14 @@
                     <span></span>
                     <span></span>
                 </button>
-                
+
                 <!-- Navigation Links -->
                 <div class="navbar-nav-links" :class="{ 'mobile-menu-open': isMobileMenuOpen }">
                     <router-link to="/" class="nav-link" @click="closeMobileMenu">Home</router-link>
                     <router-link to="/corporate" class="nav-link" @click="closeMobileMenu">Corporate</router-link>
                     <router-link to="/resources" class="nav-link" @click="closeMobileMenu">Resources</router-link>
                     <router-link to="/about" class="nav-link" @click="closeMobileMenu">About</router-link>
-                    
+
                     <!-- Services Dropdown -->
                     <div class="dropdown">
                         <a href="#" class="nav-link dropdown-toggle" @click.prevent="toggleDropdown('services')">
@@ -32,10 +32,10 @@
                             <router-link to="/services" class="dropdown-item" @click="closeMobileMenu">All Services</router-link>
                             <router-link to="/Quiz" class="dropdown-item" @click="closeMobileMenu">Health Quiz</router-link>
                             <router-link to="/consultation" class="dropdown-item" @click="closeMobileMenu">Consultation</router-link>
-                            
+
                         </div>
                     </div>
-                    
+
                     <!-- Find My Healer Dropdown -->
                     <div class="dropdown">
                         <a href="#" class="nav-link dropdown-toggle" @click.prevent="toggleDropdown('healer')">
@@ -67,15 +67,15 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Separator Line -->
             <div class="navbar-separator"></div>
-            
+
             <!-- Right Section - Dark Taupe Background (Desktop Only) -->
             <div class="navbar-right">
                 <!-- If not logged in -->
                 <button v-if="!isAuthenticated" @click="$router.push('/login')" class="book-now-btn">
-                  
+
                     Book Now
                     <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M11.5 1.5L19 9L11.5 1.5ZM19 9L11.5 16.5L19 9ZM19 9L1 9L19 9Z" fill="#2E2D29"/>
@@ -185,7 +185,7 @@ const handleMobileRedirect = async () => {
     display: flex;
     align-items: center;
     background:#F3EFE7;
-  
+
     position: relative;
     z-index: 1000;
     overflow: visible;

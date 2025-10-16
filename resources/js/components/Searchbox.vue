@@ -5,22 +5,29 @@
             <div class="col-12 col-md-4 text-start search-box-section">
                 <div class="d-flex flex-column">
                     <span class="fw-bold mb-1 search-box-title">Concern or Practice</span>
-                    <span class="mb-2 search-box-text">Energy Healing' or 'Anxiety'</span>
+                    <input type="text" v-model="form.modality" class="form-control border-0 shadow-none"
+                        placeholder='Try "Anxiety" or "Naturopathy"' />
                 </div>
-                <!-- <input type="text" v-model="form.modality" class="form-control border-0 shadow-none"
-                    placeholder="Enter your concern or practice" style="color: #5B4C3A;" /> -->
+
             </div>
 
             <!-- Locations -->
             <div class="col-12 col-md-5 text-start search-box-section">
-                <label class="form-label fw-bold mb-0 text-start search-box-title">Locations</label>
-                <div class="d-flex gap-2 align-items-center flex-wrap location-wrapper">
-                    <span class="location-text">Anywhere</span>
-                    <button type="button" class="btn rounded-pill btn-sm location-btn"
-                        @click="getCurrentLocation">
-                        My Current Location
-                        <img :src="Location" alt="Location" class="ms-1" style="width: 12px; height: 12px; filter: brightness(0) invert(1);">
-                    </button>
+
+                <div class="d-flex justify-content-between">
+                    <div>
+                        <label class="form-label fw-bold mb-0 text-start search-box-title">Locations</label>
+                        <input type="text" v-model="form.location"
+                            class="location-text form-control border-0 shadow-none" placeholder="Anywhere" />
+                    </div>
+                    <div>
+                        <button type="button" class="btn rounded-pill btn-sm location-btn mt-4 ms-1"
+                            @click="getCurrentLocation">
+                            My Current Location
+                            <img :src="Location" alt="Location" class="ms-1"
+                                style="width: 12px; height: 12px; filter: brightness(0) invert(1);">
+                        </button>
+                    </div>
                 </div>
             </div>
 

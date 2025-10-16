@@ -11,101 +11,112 @@
                     <b class="mt-2 ms-3">Bookings</b>
                 </h4>
             </div>
-            <div class="row justify-content-center mb-3">
-                <div class="col-auto">
-                    <select class="form-select" v-model="selectedMonth" @change="updateCalendar">
-                        <option v-for="month in months" :key="month.value" :value="month.value">
-                            {{ month.name }}
-                        </option>
-                    </select>
+            <form @submit.prevent="getime">
+                <div class="row justify-content-center mb-3">
+                    <div class="col-auto">
+                        <select class="form-select" v-model="selectedMonth" @change="updateCalendar">
+                            <option v-for="month in months" :key="month.value" :value="month.value">
+                                {{ month.name }}
+                            </option>
+                        </select>
+                    </div>
+                    <div class="col-auto">
+                        <select class="form-select" v-model="selectedYear" @change="updateCalendar">
+                            <option v-for="year in years" :key="year" :value="year">
+                                {{ year }}
+                            </option>
+                        </select>
+                    </div>
                 </div>
-                <div class="col-auto">
-                    <select class="form-select" v-model="selectedYear" @change="updateCalendar">
-                        <option v-for="year in years" :key="year" :value="year">
-                            {{ year }}
-                        </option>
-                    </select>
-                </div>
-            </div>
+            </form>
         </div>
         <hr>
 
         <div class="table-responsive ">
             <table class="table table-bordered">
-                <thead class="" style="">
+                <thead>
                     <tr class="bg-info" style="background-color: #F4EFE6 !important;">
-                        <th class="text-center" style="background-color: #F4EFE6 !important;"
-                            v-for="(day, index) in Alldates" :key="index">
-                            <p>{{ dayjs(day.date).format("dddd") }}</p>
-                            {{ dayjs(day.date).format("D MMM YYYY") }}
-                        </th>
+                        <th style="background-color: #F4EFE6 !important;">Day</th>
+                        <th style="background-color: #F4EFE6 !important;">Date</th>
+                        <th style="background-color: #F4EFE6 !important;">Available Times</th>
                     </tr>
                 </thead>
+
                 <tbody>
-                    <tr v-for="(datas, index) in Alldates" :key="index">
-                        <td v-for="(tms, timeIndex) in datas.times" :key="timeIndex">
-                            <div class="btn btn-custome">
-                                <svg width="17" height="16" viewBox="0 0 17 16" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M11.0777 8H8.35547V4.11111M1.35547 8C1.35547 8.91925 1.53653 9.82951 1.88831 10.6788C2.24009 11.5281 2.75571 12.2997 3.40572 12.9497C4.05573 13.5998 4.82741 14.1154 5.67668 14.4672C6.52596 14.8189 7.43622 15 8.35547 15C9.27472 15 10.185 14.8189 11.0343 14.4672C11.8835 14.1154 12.6552 13.5998 13.3052 12.9497C13.9552 12.2997 14.4708 11.5281 14.8226 10.6788C15.1744 9.82951 15.3555 8.91925 15.3555 8C15.3555 7.08075 15.1744 6.1705 14.8226 5.32122C14.4708 4.47194 13.9552 3.70026 13.3052 3.05025C12.6552 2.40024 11.8835 1.88463 11.0343 1.53284C10.185 1.18106 9.27472 1 8.35547 1C7.43622 1 6.52596 1.18106 5.67668 1.53284C4.82741 1.88463 4.05573 2.40024 3.40572 3.05025C2.75571 3.70026 2.24009 4.47194 1.88831 5.32122C1.53653 6.1705 1.35547 7.08075 1.35547 8Z"
-                                        stroke="#2E2D29" stroke-width="1.5" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                </svg>
-                                <span class="time">{{ tms }}</span>
+                    <tr v-for="(data, index) in Alldates" :key="index">
+                        <td>{{ dayjs(data.date).format('dddd') }}</td>
+                        <td>{{ dayjs(data.date).format('D MMM YYYY') }}</td>
+                        <td>
+                            <div class="d-flex flex-wrap gap-2">
+                                <div v-for="(time, tIndex) in data.times" :key="tIndex" class="btn btn-custome">
+                                    <span class="time">{{ formatTime(time) }}</span>
+                                </div>
                             </div>
                         </td>
                     </tr>
                 </tbody>
             </table>
+
         </div>
     </div>
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from "vue";
+import { ref, onMounted } from "vue";
 import axios from "axios";
 import { useRouter, useRoute } from "vue-router";
 import { useAuthStore } from "../../stores/auth";
 import dayjs from "dayjs";
 
-// --- Reactive state ---
-const selectedMonth = ref("10");
-const selectedYear = ref("2025");
-const auth = useAuthStore()
-const router = useRouter()
-const route = useRoute()
-const Alldates = ref([])
+const auth = useAuthStore();
+const router = useRouter();
+const route = useRoute();
+
+const Alldates = ref([]);
+const selectedMonth = ref(dayjs().format("MM")); // current month
+const selectedYear = ref(dayjs().format("YYYY")); // current year
+
 const months = ref([
+    { name: "January", value: "01" },
+    { name: "February", value: "02" },
+    { name: "March", value: "03" },
+    { name: "April", value: "04" },
+    { name: "May", value: "05" },
+    { name: "June", value: "06" },
+    { name: "July", value: "07" },
+    { name: "August", value: "08" },
+    { name: "September", value: "09" },
     { name: "October", value: "10" },
-    // Add more months as needed
+    { name: "November", value: "11" },
+    { name: "December", value: "12" },
 ]);
 
-
-const years = ref([2025, 2026]); // Add more years as needed
-
-
-
-// --- Methods ---
-function getBookings(day, hour) {
-    return bookings.value.filter(
-        (booking) => booking.day === day && booking.hour === hour
-    );
-}
-
-function updateCalendar() {
-    // Logic to update calendar based on selected month and year
-    console.log(`Updating for ${selectedMonth.value}/${selectedYear.value}`);
-}
+const years = ref([2024, 2025, 2026]);
 
 async function getime() {
     try {
-        const res = await axios.get(`/api/availability/${auth.user.id}`);
+        const res = await axios.get(
+            `/api/availability/${auth.user.id}/${selectedMonth.value}/${selectedYear.value}`
+        );
         Alldates.value = res.data;
+    } catch (err) {
+        console.error("Failed to load availability:", err);
     }
-    catch (err) { console.error("Failed to load packages:", err); }
 }
-onMounted(getime)
+
+// Refresh calendar on month/year change
+function updateCalendar() {
+    getime();
+}
+
+onMounted(getime);
+function formatTime(time) {
+    const [hours, minutes] = time.split(":");
+    let h = parseInt(hours);
+    const ampm = h >= 12 ? "PM" : "AM";
+    h = h % 12 || 12;
+    return `${h}:${minutes} ${ampm}`;
+}
 </script>
 <style scoped>
 .table {

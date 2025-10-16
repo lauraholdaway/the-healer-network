@@ -252,9 +252,10 @@ class DoctorController extends Controller
         // 🔹 Attach modality titles safely
         $practitioners->each(function ($practitioner) {
             // If modalities relation is empty or null, make it a collection
-            $modalities = $practitioner->modalities ?? collect();
-            $practitioner->modality_titles = $modalities->map(function ($pivot) {
-                $modality = Modality::find($pivot->modality_id);
+            $modalities = collect(explode(',', $practitioner->modalities));
+
+            $practitioner->modality_titles = $modalities->map(function ($id) {
+                $modality = Modality::find(trim($id));
                 return $modality ? $modality->title : null;
             })->filter()->values();
         });

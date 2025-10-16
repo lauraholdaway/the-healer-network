@@ -8,9 +8,47 @@ use App\Http\Controllers\Api\AppointmentController;
 use App\Http\Controllers\DoctorSessionController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\Admin\DashboardController;
+use Illuminate\Foundation\Auth\EmailVerificationRequest;
+use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Auth\Events\Verified;
+
+Route::post('/email/verification-notification', function (Request $request) {
+    $request->user()->sendEmailVerificationNotification();
+    return response()->json(['message' => 'Verification link sent!']);
+})->middleware(['auth:sanctum', 'throttle:6,1']);
+
+
+Route::get('/email/verify/{id}/{hash}', function (Request $request, $id, $hash) {
+    $user = User::find($id);
+
+    if (!$user) {
+        return response()->json(['message' => 'User not found.'], 404);
+    }
+
+    // Check if already verified
+    if ($user->hasVerifiedEmail()) {
+        return redirect('http://127.0.0.1:8000/Verifyemailcomplete');
+    }
+
+    // Verify hash (security)
+    if (!hash_equals(sha1($user->getEmailForVerification()), $hash)) {
+        return response()->json(['message' => 'Invalid verification link.'], 400);
+    }
+
+    // Mark verified
+    $user->markEmailAsVerified();
+    event(new Verified($user));
+
+    // Redirect to Vue app
+    return redirect('http://127.0.0.1:8000/Verifyemailcomplete');
+})->middleware(['signed'])->name('verification.verify');
+
+
 
 Route::post('/register', [AuthController::class,'register']);
 Route::post('/login', [AuthController::class,'login']);
+
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/user', [AuthController::class,'me']);
@@ -53,7 +91,11 @@ Route::get('/doctor/{id}', [DoctorController::class, 'GetOneDoctor']);
 Route::get('/doctorCertificate/{id}', [DoctorController::class, 'doctorCertificate']);
 Route::get('/GetDoctorByModality/{id}', [DoctorController::class, 'GetDoctorByModality']);
 Route::post('/userpayment', [AppointmentController::class, 'store']);
+
 Route::get("/availability/{doctor_id}", [DoctorSessionController::class, "GetDateForDoctor"]);
+
+Route::get("/availability/{doctor_id}/{time}/{year}", [DoctorSessionController::class, "TimeDocotroinMOnth"]);
+
 Route::delete("availability/delete/{id}", [DoctorSessionController::class, "deleteavailability"]);
 Route::get("/package/{doctor_id}", [DoctorSessionController::class, "Getpackage"]);
 Route::delete("packages/delete/{id}", [DoctorSessionController::class, "deletePackage"]);

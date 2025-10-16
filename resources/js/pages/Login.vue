@@ -21,7 +21,6 @@
                     <label class="form-label">Email</label>
                     <input v-model="form.email" type="email" class="form-control" required />
                 </div>
-
                 <div class="mb-3">
                     <label class="form-label">Password</label>
                     <input v-model="form.password" type="password" class="form-control" required />
@@ -66,12 +65,18 @@ async function onSubmit() {
     try {
         await auth.login({ email: form.email, password: form.password })
 
-
-        if (auth.user.role === '2') {
-            await router.push('/profile/Chart')
+        if (auth.user.email_verified_at) {
+            if (auth.user.role === '2') {
+                await router.push('/profile/Chart')
+            } else {
+                await router.push('/Docterdashboard')
+            }
         } else {
-            await router.push('/Docterdashboard')
+            await router.push('/Verifyemail')
+
         }
+
+
     } catch (e) {
         error.value =
             e.response?.data?.message ||
