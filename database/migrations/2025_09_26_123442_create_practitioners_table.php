@@ -37,6 +37,7 @@ return new class extends Migration
             // Referral
             $table->string('referred_by')->nullable();
             $table->string('price')->nullable();
+            $table->string('languages')->nullable();
 
             // Authentication
             $table->timestamps();

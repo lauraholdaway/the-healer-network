@@ -164,8 +164,8 @@
                                                 data-bs-toggle="collapse" :data-bs-target="`#collapse${index}`"
                                                 aria-expanded="false" :aria-controls="`collapse${index}`">
                                                 {{ new Date(tm.date).toLocaleString('en-US', {
-                                                    day: '2-digit', month: 'short', year:
-                                                        'numeric'
+    day: '2-digit', month: 'short', year:
+        'numeric'
                                                 }) }}
                                             </button>
                                         </h2>
@@ -244,8 +244,8 @@
                                 <h5 class="fw-bold text-center m-color">Payment</h5>
                                 <div class="mb-3">
                                     <label class="form-label">Email</label>
-                                    <input v-model="email" type="text" class="form-control"
-                                        placeholder="Enter your Email" />
+                                    <input v-model="email" type="email" class="form-control"
+                                        placeholder="Enter your Email" required />
                                 </div>
                                 <label class="form-label">Card information</label>
                                 <!-- ✅ Single Stripe Card Input -->
@@ -394,6 +394,7 @@ const payNow = async () => {
 
         if (response.ok) {
             alert("✅ Payment successful!");
+            route.push('/')
         } else {
             alert("❌ Payment failed: " + (data.message || "Unknown error"));
         }
