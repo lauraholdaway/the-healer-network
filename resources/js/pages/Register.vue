@@ -108,7 +108,7 @@ async function onSubmit() {
     error.value = null
     try {
         await auth.register(form)   // ✅ send confirmation too
-        await router.push('/profile')
+        await router.push('/Verifyemail')
     } catch (e) {
         error.value =
             e.response?.data?.message ||

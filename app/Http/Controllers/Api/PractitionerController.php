@@ -49,9 +49,11 @@ class PractitionerController extends Controller
         'role' => '3',
             'status' => '0',
     ]);
+        $user->sendEmailVerificationNotification();
 
-    // ✅ Create Practitioner linked to user
-    $practitioner = Practitioner::create([
+
+        // ✅ Create Practitioner linked to user
+        $practitioner = Practitioner::create([
         'user_id' => $user->id,
         'primary_contact_number' => $validated['primary_contact_number'],
         'mobile_number' => $request->mobile_number,
@@ -74,6 +76,7 @@ class PractitionerController extends Controller
 
             ]);
         }
+
 
         return response()->json([
         'message' => 'Registration successful!',

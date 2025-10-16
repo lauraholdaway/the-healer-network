@@ -15,6 +15,8 @@ import Contact from '../pages/Contact.vue';
 import Searchdoctorpage from '../pages/Searchdoctorpage.vue';
 import Quiz from '../pages/Quiz.vue';
 import DoctorFind from '../pages/DoctorFind.vue';
+import Verifyemail from '../pages/Verifyemail.vue';
+import Verifyemailcomplete from '../pages/Verifyemailcomplete.vue';
 
 
 import Docter from '../pages/docter.vue'
@@ -66,6 +68,8 @@ const routes = [
     { path: '/Searchdoctorpage', name: 'Searchdoctorpage', component: Searchdoctorpage },
     { path: '/Quiz', name: 'Quiz', component: Quiz },
     { path: '/DoctorFind', name: 'DoctorFind', component: DoctorFind },
+    { path: '/Verifyemail', name: 'Verifyemail', component: Verifyemail, meta: { hideFooter: true, hideNav: true, } },
+    { path: '/Verifyemailcomplete', name: 'Verifyemailcomplete', component: Verifyemailcomplete, meta: { hideFooter: true, hideNav: true, } },
 
 
     // update User profile
@@ -117,6 +121,9 @@ router.beforeEach((to, from, next) => {
     if (to.meta.requiresAuth && !auth.user) {
         // not logged in → redirect login
         next({ name: "Login" });
+        if (auth.user && !auth.user.email_verified_at && to.meta.requiresAuth) {
+            next({ name: "Verifyemail" });
+        }
     } else {
         next();
     }

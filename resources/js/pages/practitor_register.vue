@@ -198,7 +198,7 @@ const onSubmit = async () => {
     error.value = null;
     try {
         await axios.post("/api/practitioners/register", form.value);
-        router.push("/login");
+        router.push("/Verifyemail");
     } catch (err) {
         error.value = err.response?.data?.message || "Registration failed.";
     } finally {

@@ -35,6 +35,7 @@
                         <th scope="col">#</th>
                         <th scope="col">Price</th>
                         <th scope="col">Type</th>
+                        <th scope="col">Time</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
@@ -43,6 +44,7 @@
                         <th scope="row">{{ index + 1 }}</th>
                         <td>{{ pkg.price }}</td>
                         <td>{{ pkg.type }}</td>
+                        <td>{{ pkg.time }}</td>
                         <td> <button class="btn btn-sm btn-danger" @click="deletePackage(pkg.id)"> Delete </button>
                         </td>
                     </tr>

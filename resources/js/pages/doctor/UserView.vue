@@ -110,7 +110,6 @@ function updateCalendar() {
 }
 
 onMounted(getime);
-
 function formatTime(time) {
     const [hours, minutes] = time.split(":");
     let h = parseInt(hours);
