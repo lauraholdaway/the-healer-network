@@ -186,18 +186,18 @@ h5 {
 
                             <div class="col-md-3 col-6 mb-3 mb-md-0 border-end border-light">
                                 <h6 class="fw-semibold fst-italic">Location</h6>
-                                <p class="mb-0 small">{{ doctor?.practic_location }},<br>{{ doctor?.address }}
+                                <p class="mb-0 small">{{ doctor?.practice_location }},<br>{{ doctor?.address }}
                                 </p>
                             </div>
 
                             <div class="col-md-3 col-6 mb-3 mb-md-0 border-end border-light">
                                 <h6 class="fw-semibold fst-italic">Languages</h6>
-                                <p class="mb-0 small">English, Spanish, German</p>
+                                <p class="mb-0 small">{{ doctor?.languages }}</p>
                             </div>
 
                             <div class="col-md-3 col-6">
                                 <h6 class="fw-semibold fst-italic">Certifications</h6>
-                                <p class="mb-0 small">Evolutionary Astrologer – Sydney Astrology School (2025)</p>
+                                <p class="mb-0 small" v-for="GetCer in GetCert">{{ GetCer?.title }}</p>
                             </div>
 
                         </div>
@@ -332,6 +332,7 @@ const services = ref(null);
 const route = useRoute();
 const router = useRouter();
 const doctors = ref(null);
+const GetCert = ref(null);
 
 async function loaddoctor() {
     try {
@@ -340,6 +341,14 @@ async function loaddoctor() {
         });
     }
     catch (err) { console.error("Failed to load Doctor:", err); }
+}
+async function getcertificate() {
+    try {
+        axios.get(`/api/doctorCertificate/${route.params.id}`).then(({ data }) => {
+            GetCert.value = data;
+        });
+    }
+    catch (err) { console.error("Failed to load Doctor GetCertificate:", err); }
 }
 
 
@@ -367,6 +376,7 @@ onMounted(async () => {
 
 onMounted(() => {
     loaddoctor();
+    getcertificate();
 });
 
 

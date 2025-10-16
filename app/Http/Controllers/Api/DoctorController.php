@@ -82,6 +82,7 @@ class DoctorController extends Controller
             $practitioner->about = $validated['about'] ?? $practitioner->about;
             $practitioner->website =  $request->website;
             $practitioner->price =  $request->price;
+            $practitioner->languages =  $request->languages;
             $practitioner->primary_contact_number = $validated['primary_contact_number'] ?? $practitioner->primary_contact_number;
             $practitioner->mobile_number = $validated['mobile_number'] ?? $practitioner->mobile_number;
             $practitioner->address = $validated['address'] ?? $practitioner->address;
@@ -159,6 +160,12 @@ class DoctorController extends Controller
     {
         $Practitioner = Practitioner::with(['user', 'modalities'])->where('user_id', $id)->first();
         return response()->json($Practitioner);
+    }
+
+    public function doctorCertificate($id)
+    {
+        $getcertificate = doctorCerticate::where('doctor_id', $id)->get('title');
+        return response()->json($getcertificate);
     }
 
     public function addCertificate(Request $request)

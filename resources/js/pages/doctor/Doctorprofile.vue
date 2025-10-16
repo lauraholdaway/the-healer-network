@@ -22,6 +22,7 @@ const mobileNumber = ref("");
 const address = ref("");
 const socialMediaHandle = ref("");
 const website = ref("");
+const languages = ref("");
 const price = ref("");
 const modalities = ref("");
 const practicingSince = ref("");
@@ -59,6 +60,7 @@ async function getProfile() {
         address.value = docData.address ?? "";
         socialMediaHandle.value = docData.social_media_handle ?? "";
         website.value = docData.website ?? "";
+        languages.value = docData.languages ?? "";
         price.value = docData.price ?? "";
 
         console.log(docData.modalities);
@@ -92,6 +94,7 @@ async function updateProfile() {
             address: address.value,
             social_media_handle: socialMediaHandle.value,
             website: website.value,
+            languages: languages.value,
             price: price.value,
             modalities: modalities.value,
             about: about.value,
@@ -269,8 +272,12 @@ onMounted(() => {
                         <label class="form-label">Price</label>
                         <input v-model="price" type="text" class="form-control" />
                     </div>
-                </div>
 
+                </div>
+                <div class="mb-3 ">
+                    <label class="form-label">languages</label>
+                    <input v-model="languages" type="text" class="form-control" />
+                </div>
                 <div class="mb-3">
                     <label class="form-label fw-semibold">Select Your Modalities</label>
 

@@ -60,7 +60,23 @@ try {
                 'country'   => $request->country,
             ]);
 
-        return response()->json([
+            Mail::raw(
+                "Dear {$appointment->name},\n\n" .
+                    "Your appointment has been successfully confirmed!\n\n" .
+                    "📅 Date: {$appointment->date}\n" .
+                    "⏰ Time: {$appointment->time}\n\n" .
+                    "Doctor ID: {$appointment->doctor_id}\n\n" .
+                    "Thank you for booking with us. We look forward to seeing you!\n\n" .
+                    "Best regards,\n" .
+                    "The Healar Network Team",
+                function ($message) use ($appointment) {
+                    $message->to($appointment->email)
+                        ->subject('Your Appointment is Confirmed');
+                }
+            );
+
+
+            return response()->json([
             'success' => true,
             'appointment' => $appointment,
         ]);

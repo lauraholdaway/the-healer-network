@@ -47,8 +47,10 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::apiResource('services', ServiceController::class);
 });
+
 Route::get('/GetAllDoctor', [DoctorController::class, 'GetAllDoctor']);
 Route::get('/doctor/{id}', [DoctorController::class, 'GetOneDoctor']);
+Route::get('/doctorCertificate/{id}', [DoctorController::class, 'doctorCertificate']);
 Route::get('/GetDoctorByModality/{id}', [DoctorController::class, 'GetDoctorByModality']);
 Route::post('/userpayment', [AppointmentController::class, 'store']);
 Route::get("/availability/{doctor_id}", [DoctorSessionController::class, "GetDateForDoctor"]);
