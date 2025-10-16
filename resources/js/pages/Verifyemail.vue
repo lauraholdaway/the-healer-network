@@ -3,22 +3,27 @@
         <div class="bg-white p-5 rounded-4 shadow-sm">
             <div class="text-center">
                 <div class="">
-                <router-link to="/"><img src="/public/asset/images/dark-logo.png" alt="Logo" class="img-fluid"
-                        style="height: 100px;" /></router-link>
-            </div>
-            <div>
-                <h2>Verification</h2>
-                <p>We have sent you a link on your email
+                    <router-link to="/"><img src="/public/asset/images/dark-logo.png" alt="Logo" class="img-fluid"
+                            style="height: 100px;" /></router-link>
+                </div>
+                <div>
+                    <h2>Verification</h2>
+                    <p>We have sent you a link on your email
                     </p>
                     <span>
-                     {{ auth.user?.email }}
+                        {{ auth.user?.email }}
                     </span>
-            </div>
-            <br>
-            <div>
-                <button class="btn main-btn px-4 mx-1" @click="refreshUser">Continue</button>
-                <button class="btn main-btn2 px-4 mx-1" @click="resend">Send Again</button>
-            </div>
+                </div>
+                <br>
+                <div class="d-flex">
+                    <div v-if="auth.user.email_verified_at">
+                        <router-link class="btn main-btn px-4 mx-1" to="/">Home</router-link>
+                    </div>
+                    <div v-else>
+                        <button class="btn main-btn px-4 mx-1" @click="refreshUser">Continue</button>
+                    </div>
+                    <button class="btn main-btn2 px-4 mx-1" @click="resend">Send Again</button>
+                </div>
             </div>
         </div>
     </div>
@@ -59,7 +64,7 @@ export default {
       if (auth.user.email_verified_at) {
         verified.value = true;
         alert("✅ Email verified successfully!");
-        router.push("/dashboard");
+          router.push("/home");
       } else {
         alert("❌ Not verified yet. Please check your inbox.");
       }
