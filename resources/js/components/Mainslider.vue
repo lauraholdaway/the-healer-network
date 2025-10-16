@@ -1,20 +1,20 @@
 <template>
     <br>
-    <br>
-    <section class="my-5">
+    
+    <section class="my-3 my-md-5">
         <div class="split-section d-flex flex-wrap align-items-center">
             <!-- Left Section -->
-            <div class="left-section col-md-6 p-4 ">
-                <div class="ms-5 ps-md-5">
+            <div class="left-section col-12 col-md-6 p-3 p-md-4">
+                <div class="ms-md-5 ps-md-5">
                     <div class="heading-title fw-bold">
                         {{ slides[currentIndex].title }}
                     </div>
-                    <div class="heading-text mb-4">
+                    <div class="heading-text mb-3 mb-md-4">
                         {{ slides[currentIndex].text }}
                     </div>
 
-                    <div class="row">
-                        <div class="col-md-4 col-4">
+                    <div class="row g-2 g-md-3">
+                        <div class="col-3 col-md-4">
                             <div class="counter-wrapper">
                                 <div class="counter-top">
                                     {{ String(currentIndex + 1).padStart(2, '0') }}
@@ -25,29 +25,45 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-8 col-7">
+                        <div class="col-9 col-md-8">
                             <div class="therapy-box">
                                 <h6>{{ slides[currentIndex].heading }}</h6>
                                 <p>{{ slides[currentIndex].description }}</p>
 
-                                <br>
-                                <div class="therapy-nav mt-5">
-                                    <span @click="prevSlide" class="me-3 nav-arrow">&larr;</span>
-                                    <span @click="nextSlide" class="nav-arrow">&rarr;</span>
+                                <div class="therapy-nav mt-1">
+                                    <span @click="prevSlide" class="me-2 me-md-3 nav-arrow">
+                                        <img :src="'/asset/images/arrowlift.svg'" alt="Previous" />
+                                    </span>
+                                    <span @click="nextSlide" class="nav-arrow">
+                                        <img :src="'/asset/images/arrowright.svg'" alt="Next" />
+                                    </span>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    
+                    <!-- Book Now button for mobile -->
+                    <div class="d-md-none text-center mt-3">
+                        <button class="book-btn">Book Now 
+                            <svg width="14" height="14" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M11.5 1.5L19 9L11.5 1.5ZM19 9L11.5 16.5L19 9ZM19 9L1 9L19 9Z" fill="#2E2D29"/>
+                                <path d="M11.5 1.5L19 9M19 9L11.5 16.5M19 9L1 9" stroke="#2E2D29" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </button>
                     </div>
                 </div>
             </div>
 
             <!-- Right Section -->
-
-            <div class="right-section">
-                <!-- Replace with your uploaded image URL -->
+            <div class="right-section col-md-6 d-none d-md-block">
                 <img :src="slides[currentIndex].image" class="img-fluid" :alt="slides[currentIndex].heading"
                     style="object-fit: cover;" />
-                <button class="book-btn">Book Now →</button>
+                <button class="book-btn">Book Now 
+                    <svg width="14" height="14" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M11.5 1.5L19 9L11.5 1.5ZM19 9L11.5 16.5L19 9ZM19 9L1 9L19 9Z" fill="#2E2D29"/>
+                        <path d="M11.5 1.5L19 9M19 9L11.5 16.5M19 9L1 9" stroke="#2E2D29" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
             </div>
         </div>
     </section>
@@ -61,7 +77,7 @@ const currentIndex = ref(0)
 const slides = [
     {
         title: 'Discover the holistic therapy that is right for you',
-        text: "THN’s practitioners provide expertise across a wide range of holistic modalities going beyond just the physical body to cover all aspects of health, well-being and self-development.",
+        text: "THN's practitioners provide expertise across a wide range of holistic modalities going beyond just the physical body to cover all aspects of health, well-being and self-development.",
         heading: 'Energy Therapy',
         description: 'Explore transformative modalities like Reiki, Kinesiology, and more to restore harmony and balance to your body\'s energy systems.',
         image: '/asset/images/slider1.jpg'
@@ -111,3 +127,24 @@ function nextSlide() {
     currentIndex.value = (currentIndex.value + 1) % slides.length
 }
 </script>
+
+<style scoped>
+.nav-arrow {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.nav-arrow:hover {
+    background-color: #5B4C3A;
+    border-radius: 100%;
+}
+
+.nav-arrow:hover img {
+    filter: brightness(0) invert(1);
+}
+</style>
