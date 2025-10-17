@@ -8,6 +8,7 @@ use App\Http\Controllers\Api\AppointmentController;
 use App\Http\Controllers\DoctorSessionController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\BlogsController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 use App\Models\User;
@@ -106,3 +107,5 @@ Route::get('/modalities', [DoctorController::class, 'modalities']);
 Route::get('/searchdoctor', [DoctorController::class, 'searchdoctor']);
 
 Route::post('/quiz', [DoctorController::class, 'quiz']);
+Route::get('/blogs', [BlogsController::class, 'blogs']);
+Route::get('/blog/{id?}', [BlogsController::class, 'blogone']);

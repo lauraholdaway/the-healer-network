@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Api\DoctorController;
 use App\Http\Controllers\Api\AppointmentController;
 use App\Http\Controllers\ModalityController;
+use App\Http\controllers\BlogsController;
 
 use Illuminate\Support\Facades\Auth;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -32,6 +33,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/Appointments', [DashboardController::class, 'Appointmentslist'])->name('Appointments.index');
     Route::post('/userstatus/{id}/toggle-status', [DashboardController::class, 'toggleStatus']);
     Route::resource('modalities', ModalityController::class);
+    Route::resource('/Blogs', BlogsController::class);
 });
 
 // routes/web.php
