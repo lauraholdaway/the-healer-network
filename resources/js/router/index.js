@@ -85,9 +85,6 @@ const routes = [
             { path: 'bookings', name: 'bookings', component: bookings },
             { path: 'Settings', name: 'Settings', component: Settings },
             { path: 'Packages', name: 'Packages', component: Packages },
-
-
-
         ]
     },
     {
@@ -121,7 +118,6 @@ router.beforeEach((to, from, next) => {
     const auth = useAuthStore();
 
     if (to.meta.requiresAuth && !auth.user) {
-        // not logged in → redirect login
         next({ name: "Login" });
         if (auth.user && !auth.user.email_verified_at && to.meta.requiresAuth) {
             next({ name: "Verifyemail" });
