@@ -2,7 +2,7 @@
     <div class="d-flex justify-content-center align-items-center vh-100" style="background-color: #FBF9F7; position: relative; overflow: hidden; padding: 15px;">
         <!-- Background Sign.svg at bottom left - Hidden on mobile -->
         <img src="/public/asset/images/Sign.svg" alt="" class="d-none d-lg-block" style="position: absolute; bottom: 0; left: 0; width: 440px; height: auto; z-index: 0;" />
-        
+
         <div class="cards shadow p-4 my-5 rounded-5" style="max-width: 650px; width: 100%; position: relative; z-index: 10; background-color: white;">
             <div class="row mb-0 align-items-center">
                 <!-- Logo (show first on mobile) -->
@@ -19,7 +19,7 @@
                     </p>
                 </div>
             </div>
-            
+
             <hr style="border: 1px solid #DED1BA; margin-top: -8px;">
 
             <!-- Register Form -->
@@ -43,12 +43,12 @@
                     <div class="mb-3 col-md-6">
                         <label class="form-label" style="font-size: 13px; color: #737373;">New Password</label>
                         <div class="position-relative">
-                            <input v-model="form.password" :type="showPassword ? 'text' : 'password'" class="form-control" 
+                            <input v-model="form.password" :type="showPassword ? 'text' : 'password'" class="form-control"
                                 style="border-color: #DED1BA; padding-right: 50px;" placeholder="Enter password" />
-                            <button type="button" class="btn btn-link position-absolute end-0 top-50 translate-middle-y pe-3" 
-                                style="border: none; background: none; color: #5B4C3A; padding: 8px; border-radius: 4px; transition: all 0.2s ease;" 
-                                @click="togglePasswordVisibility" 
-                                @mouseover="$event.target.style.backgroundColor='#F5F5F5'" 
+                            <button type="button" class="btn btn-link position-absolute end-0 top-50 translate-middle-y pe-3"
+                                style="border: none; background: none; color: #5B4C3A; padding: 8px; border-radius: 4px; transition: all 0.2s ease;"
+                                @click="togglePasswordVisibility"
+                                @mouseover="$event.target.style.backgroundColor='#F5F5F5'"
                                 @mouseout="$event.target.style.backgroundColor='transparent'">
                                 <!-- Eye Slash Icon SVG (when password is hidden) -->
                                 <svg v-if="!showPassword" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -65,12 +65,12 @@
                     <div class="mb-3 col-md-6">
                         <label class="form-label" style="font-size: 13px; color: #737373;">Confirm New Password</label>
                         <div class="position-relative">
-                            <input v-model="form.password_confirmation" :type="showConfirmPassword ? 'text' : 'password'" class="form-control" 
+                            <input v-model="form.password_confirmation" :type="showConfirmPassword ? 'text' : 'password'" class="form-control"
                                 style="border-color: #DED1BA; padding-right: 50px;" placeholder="Confirm password" />
-                            <button type="button" class="btn btn-link position-absolute end-0 top-50 translate-middle-y pe-3" 
-                                style="border: none; background: none; color: #5B4C3A; padding: 8px; border-radius: 4px; transition: all 0.2s ease;" 
-                                @click="toggleConfirmPasswordVisibility" 
-                                @mouseover="$event.target.style.backgroundColor='#F5F5F5'" 
+                            <button type="button" class="btn btn-link position-absolute end-0 top-50 translate-middle-y pe-3"
+                                style="border: none; background: none; color: #5B4C3A; padding: 8px; border-radius: 4px; transition: all 0.2s ease;"
+                                @click="toggleConfirmPasswordVisibility"
+                                @mouseover="$event.target.style.backgroundColor='#F5F5F5'"
                                 @mouseout="$event.target.style.backgroundColor='transparent'">
                                 <!-- Eye Slash Icon SVG (when password is hidden) -->
                                 <svg v-if="!showConfirmPassword" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -88,13 +88,13 @@
                 <div v-if="error" class="text-danger mt-3 text-center">{{ error }}</div>
 
                 <div class="d-flex justify-content-between align-items-center mt-4">
-                    <button class="btn main-btn px-4 py-2" :disabled="processing" 
-                        style="border-radius: 8px; background-color: #8A7356; color: white; font-family: 'Cormorant Garamond', serif !important; border: none; padding: 12px 24px; transition: all 0.3s ease;" 
-                        @mouseover="$event.target.style.backgroundColor='#6B5B47'" 
+                    <button class="btn main-btn px-4 py-2" :disabled="processing"
+                        style="border-radius: 8px; background-color: #8A7356; color: white; font-family: 'Cormorant Garamond', serif !important; border: none; padding: 12px 24px; transition: all 0.3s ease;"
+                        @mouseover="$event.target.style.backgroundColor='#6B5B47'"
                         @mouseout="$event.target.style.backgroundColor='#8A7356'">
                         {{ processing ? "Registering..." : "Sign Up" }}
                     </button>
-                    
+
                     <div class="text-end">
                         <span style="color: #C4B39A; font-size: 13px;">Are you already registered? </span>
                         <router-link to="/login" class="text-decoration-none" style="color: #5B4C3A; font-size: 13px; font-weight: 500;">Sign In</router-link>
@@ -116,8 +116,6 @@ const auth = useAuthStore()
 // Form data
 const form = reactive({
     name: '',
-    last_name: '',
-    phone: '',
     email: '',
     password: '',
     password_confirmation: ''
