@@ -51,9 +51,14 @@ b {
 }
 
 .fw-bold {
-    color: #21272A;
-    font-family: 'Avenir' !important;
+   
+    font-family: 'Roboto', sans-serif !important;
     font-weight: 100 !important;
+}
+.fw-boldd {
+   
+    font-family: 'Roboto', sans-serif !important;
+    font-weight: bold !important;
 }
 
 .m-color {

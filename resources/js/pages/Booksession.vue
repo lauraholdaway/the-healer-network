@@ -1,12 +1,12 @@
 <template>
-    <section class="booking-section py-5">
+    <section class="booking-section py-5 ">
         <div class="container">
-            <div class="row g-4 align-items-start">
+            <div class="row g-4 align-items-stretch mb-5 mt-3">
                 <!-- Left Profile Card -->
                 <div class="col-md-4" v-if="doctor">
                     <div class="card card-custom">
                         <div class="position-relative d-flex justify-content-center"
-                            style="background: linear-gradient(180deg, #c4b39a 0%, rgb(91 76 58 / 41%) 100%); border-radius: 20px; overflow: hidden; padding: 10px; min-height: 300px;">
+                            style="background: linear-gradient(180deg, #c4b39a 0%, rgb(91 76 58 / 41%) 100%); border-radius: 20px; overflow: hidden; padding: 6px; min-height: 100px;">
                             <!-- ✅ safe optional chaining -->
                             <img :src="doctor?.user?.image ? '/storage/' + doctor.user.image : '/public/asset/images/docter.png'"
                                 class="card-img-top" alt="Doctor Image" 
@@ -47,37 +47,69 @@
                         </div>
 
                         <div class="card-body">
-                            <!-- ✅ safe name -->
-                            <div class="text-center">
-                                <h5 class="card-title fw-bold">{{ doctor?.user?.name }}</h5>
+                            <!-- Original Content for Steps 1-3 -->
+                            <div v-if="step !== 4">
+                                <!-- ✅ safe name -->
+                                <div class="text-center">
+                                    <h5 class="card-title fw-bold">{{ doctor?.user?.name }}</h5>
 
-                            </div>
-                            <div class="d-flex justify-content-center mt-3">
-                                <p class="docter-type px-3 py-1 text-center" v-for="item in doctor.modalities"
-                                    style="width:auto;">{{ item.title }}</p>
-                            </div>
-                            <div class="d-flex justify-content-between my-3">
-                            </div>
-                            <!-- ✅ limit to 20 words -->
-                            <p class="card-text m-color fw-bold text-center">
-                                Wednesday 8 October 2025 11:30 am
-                            </p>
-
-                            <div
-                                style="background-color: #5B4C3A;border-radius: 10px; padding: 20px;color:white; text-align: center;">
-
-                                <p class="text-white">Freshwater NSW 2096, Australia</p>
-                                <hr>
-                                <b class="text-white">
-                                    ${{ doctor?.price }}
-                                </b>
-                            </div>
-                            <br>
-                            <div>
-                                <p style="background-color: #F4EFE6;border-radius: 10px;padding: 10px;">
-                                    Every practitioner on Bodhi Holistic Hub is carefully vetted, highly rated and a
-                                    certified expert in their fields.
+                                </div>
+                                <div class="d-flex justify-content-center mt-1 flex-wrap gap-2" style="max-height: 60px; overflow: hidden;">
+                                    <p class="docter-type px-2 py-1 text-center" v-for="item in doctor.modalities"
+                                        style="width:auto; margin: 2px;">{{ item.title }}</p>
+                                </div>
+                                <div class="d-flex justify-content-between my-1">
+                                </div>
+                                <!-- ✅ limit to 20 words -->
+                                <p class="card-text m-color fw-bold text-center">
+                                    Wednesday 8 October 2025 11:30 am
                                 </p>
+
+                                <div
+                                    style="background-color: #5B4C3A;border-radius: 10px; padding: 8px 8px;color:white; text-align: center;">
+
+                                    <p class="text-[#F4EFE6] mb-1" style="font-size: 12px;">Freshwater NSW 2096, Australia</p>
+                                    <hr class="my-1">
+                                    <b class="text-white" style="font-size: 14px;">
+                                        ${{ doctor?.price }}
+                                    </b>
+                                </div>
+                                <br>
+                                <div>
+                                    <p style="background-color: #F4EFE6;border-radius: 10px; font-size: 12px; padding: 4px 10px;">
+                                        Every practitioner on Bodhi Holistic Hub is carefully vetted, highly rated and a
+                                        certified expert in their fields.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Session Details Content for Step 4 -->
+                            <div v-if="step === 4">
+                                <!-- Category and Price -->
+                                <div class="category-price-row">
+                                    <div class="category-tag">Meditation</div>
+                                    <div class="price-tag">$300.00</div>
+                                </div>
+
+                                <!-- Session Title -->
+                                <div class="session-title">
+                                    <h4>Your Child's Soul Essence Akashic Record Reading</h4>
+                                </div>
+
+                                <!-- Session Description -->
+                                <div class="session-description">
+                                    <p>Enhancing your parenting wisdom: Supporting your child's aut... <a href="#" class="see-more-link">See more</a></p>
+                                </div>
+
+                                <!-- Book Session Button -->
+                                <div class="book-session-btn-local">
+                                    <button class="btn-book-session">
+                                        Book Session Now
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -85,13 +117,14 @@
 
                 <!-- Right Booking Form -->
                 <div class="col-md-8">
-                    <div class="booking-wrapper  shadow-sm rounded-4 bg-white mt-3 p-5">
+                    <div class="booking-wrapper shadow-sm rounded-4 bg-white p-4 h-100">
                         <div class="d-flex justify-content-center">
-                            <h5 class="fw-bold mb-3 m-color">Book a session</h5>
-                        </div>
+                                <h5 class="fw-boldd mb-4 mt-3 text-center" style="font-size: 20px; font-weight: bolder;   color: #7D684E;">Book a session</h5>
+
+                            </div>
 
                         <!-- Stepper -->
-                        <div class="stepper d-flex justify-content-between align-items-center mb-4">
+                        <div class="stepper d-flex justify-content-between align-items-center mb-2">
                             <div class="step" :class="{ active: step >= 1 }">1</div>
                             <div class="line"></div>
                             <div class="step" :class="{ active: step >= 2 }">2</div>
@@ -101,186 +134,285 @@
                             <div class="step" :class="{ active: step >= 4 }">4</div>
                         </div>
 
-                        <div>
+                        <div v-if="step !== 4">
                             <div class="d-flex justify-content-center">
-                                <h5 class="fw-bold mb-3 m-color">Select a session</h5>
+                                <h5 class="fw-bold mb-3 mt-3 text-center" style="font-size: 28px; color: #7D684E;">{{ step === 2 ? 'Select a session date & time' : step === 3 ? 'Confirm your details' : 'Select a session' }}</h5>
 
                             </div>
 
                             <div class="d-flex justify-content-center">
 
-                                <select v-model="setimezone" class="form-select mb-3"
-                                    style="background-color: #F4EFE6; width: 200px; padding: 10px; border-radius: 10px;">
-                                    <option value="AU">Australia (GMT+10)</option>
-                                    <option value="US">United States (GMT-5)</option>
-                                    <option value="PK">Pakistan (GMT+5)</option>
+                                <select v-model="setimezone" class="custom-select mb-3"
+                                    style="background-color: #F4EFE6; color: #7D684E; font-weight: bold; width: 200px; padding: 10px; border-radius: 10px; border: 2px solid #F4EFE6; outline: none; box-shadow: none;">
+                                    <option value="AU" style="color: #7D684E; font-weight: bold;">Australia (GMT+10)</option>
+                                    <option value="US" style="color: #7D684E; font-weight: bold;">United States (GMT-5)</option>
+                                    <option value="PK" style="color: #7D684E; font-weight: bold;">Pakistan (GMT+5)</option>
                                 </select>
                             </div>
                         </div>
                         <div v-if="step === 1">
 
                             <!-- Dropdown -->
-                            <select v-model="docterPackage" class="form-select mb-3">
-                                <option v-for="(pkgata, index) in packagesdata" :key="index" :value="pkgata.id"
-                                    :selected="index === 0">
-                                    {{ pkgata.type }} ({{ pkgata.price }}, {{ pkgata.time }})
-                                </option>
-                            </select>
+                            <div class="d-flex justify-content-center">
+                                <select v-model="docterPackage" class="form-select mb-3" style="width: 500px; color: #7D684E; text-align: center; font-weight: bold;">
+                                    <option v-for="(pkgata, index) in packagesdata" :key="index" :value="pkgata.id"
+                                        :selected="index === 0" style="color: #7D684E; text-align: center; font-weight: bold;">
+                                        {{ pkgata.type }} ({{ pkgata.price }}, {{ pkgata.time }})
+                                    </option>
+                                </select>
+                            </div>
 
 
                             <div class="text-center">
                                 <!-- Radio -->
-                                <div class="form-check mb-4 d-flex justify-content-center align-item-center">
-                                    <div class="p-1 mt-2"
-                                        style="background-color: #7D684E; border-radius: 50%; width: 12px; height: 12px;">
+                                <div class="d-flex justify-content-center gap-4 mb-4 mt-2">
+                                    <div class="form-check d-flex align-items-center">
+                                        <input type="radio" class="form-check-input me-2" name="sessionType" value="online" checked style="accent-color: #7D684E;">
+                                        <label class="form-check-label" style="color: #7D684E;">Online session</label>
                                     </div>
-                                    <label class="form-check-label m-color ms-2">Online session</label>
+                                    <div class="form-check d-flex align-items-center">
+                                        <input type="radio" class="form-check-input me-2" name="sessionType" value="inperson" style="accent-color: #7D684E;">
+                                        <label class="form-check-label" style="color: #7D684E;">In-Person</label>
+                                    </div>
                                 </div>
 
                                 <!-- Buttons -->
                                 <div class="d-flex justify-content-between">
-                                    <button class="btn btn-outline-dark btn-outline-custome px-5">Back</button>
+                                    <button class="btn btn-outline-dark btn-outline-custome px-5" style="border-radius: 999px;">Back</button>
 
-                                    <button v-if="auth?.user?.id" class="btn btn-dark main-btn2 px-5 rounded-4 ms-3"
+                                    <button v-if="auth?.user?.id" class="btn btn-dark main-btn2 px-5 ms-3" style="border-radius: 999px;"
                                         @click="handleNext">
                                         Next
                                     </button>
 
                                     <router-link v-else to="/login"
-                                        class="btn btn-dark main-btn2 px-5 rounded-4 ms-3">Login</router-link>
+                                        class="btn btn-dark main-btn2 px-5 ms-3" style="border-radius: 999px;">Login</router-link>
 
                                 </div>
                             </div>
                         </div>
-                        <div v-if="step === 2">
+                        <div v-if="step === 2" style=" padding: 2px;">
 
-                            <div class="text-center m-2">
+                            <!-- <div class="text-center mb-4">
+                                <h5 class="fw-bold mb-3" style="font-size: 22px; color: #7D684E; text-shadow: 0 1px 2px rgba(0,0,0,0.1);">Select a session date & time</h5>
+                            </div> -->
 
-                                <div class="accordion" id="accordionExample">
-                                    <!-- Item 1 -->
-
-                                    <div class="accordion-item m-4" v-for="(tm, index) in doctortime" :key="index">
-                                        <h2 class="accordion-header" :id="`heading${index}`">
-                                            <button class="accordion-button collapsed" type="button"
-                                                data-bs-toggle="collapse" :data-bs-target="`#collapse${index}`"
-                                                aria-expanded="false" :aria-controls="`collapse${index}`">
-                                                {{ new Date(tm.date).toLocaleString('en-US', {
+                            <div class="accordion" id="accordionExample">
+                                <div class="accordion-item mb-3" v-for="(tm, index) in doctortime" :key="index" style="border: 1px solid #E8E2D5; border-radius: 12px; overflow: hidden;">
+                                    <h2 class="accordion-header" :id="`heading${index}`">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" :data-bs-target="`#collapse${index}`"
+                                            aria-expanded="false" :aria-controls="`collapse${index}`"
+                                            style="background-color: #F4EFE6; color: #7D684E; font-weight: bold; border: none; padding: 15px 20px;">
+                                            {{ new Date(tm.date).toLocaleString('en-US', {
     day: '2-digit', month: 'short', year:
         'numeric'
-                                                }) }}
-                                            </button>
-                                        </h2>
+                                            }) }}
+                                        </button>
+                                    </h2>
 
-                                        <div :id="`collapse${index}`" class="accordion-collapse collapse"
-                                            :aria-labelledby="`heading${index}`" data-bs-parent="#accordionExample">
-                                            <div class="accordion-body">
+                                    <div :id="`collapse${index}`" class="accordion-collapse collapse"
+                                        :aria-labelledby="`heading${index}`" data-bs-parent="#accordionExample">
+                                        <div class="accordion-body" style="background-color: #FFFFFF; padding: 20px;">
+                                            <div class="d-flex flex-wrap gap-3" role="group" aria-label="Time Slot">
+                                                <template v-for="(time, tIndex) in tm.times" :key="tIndex">
+                                                    <input type="radio" class="btn-check"
+                                                        :name="`time-group-${index}`" :id="`time${index}-${tIndex}`"
+                                                        :value="time" v-model="selectedTime"
+                                                        @change="selectedDate = tm.date" />
 
-                                                <div class="" role="group" aria-label="Time Slot">
-                                                    <template v-for="(time, tIndex) in tm.times" :key="tIndex">
-                                                        <input type="radio" class="btn-check"
-                                                            :name="`time-group-${index}`" :id="`time${index}-${tIndex}`"
-                                                            :value="time" v-model="selectedTime"
-                                                            @change="selectedDate = tm.date" />
-
-                                                        <label class="btn btn-outline-dark btn-outline-custome"
-                                                            :for="`time${index}-${tIndex}`">
-                                                            {{ formatTime(time) }}
-                                                        </label>
-                                                    </template>
-                                                </div>
-
+                                                    <label class="btn btn-outline-custom"
+                                                        :for="`time${index}-${tIndex}`"
+                                                        style="border: 2px solid #E8E2D5; color: #7D684E; background-color: #F4EFE6; border-radius: 8px; padding: 10px 20px; font-weight: 500; min-width: 100px;">
+                                                        {{ formatTime(time) }}
+                                                    </label>
+                                                </template>
                                             </div>
                                         </div>
                                     </div>
-
-
-                                    <div class="form-check mb-4 d-flex justify-content-center align-item-center">
-                                        <div class="p-1 mt-2"
-                                            style="background-color: #7D684E; border-radius: 50%; width: 12px; height: 12px;">
-                                        </div>
-                                        <label class="form-check-label m-color ms-2">Online session</label>
-                                    </div>
                                 </div>
-                                <!-- Buttons -->
-                                <div class="d-flex justify-content-between">
-                                    <button class="btn btn-outline-dark btn-outline-custome px-5"
-                                        @click="handleBack">Back</button>
-                                    <button class="btn btn-dark main-btn2 px-5 rounded-4 ms-3" @click="handleNext">
-                                        Next
-                                    </button>
+
+                                <div class="form-check mb-4 d-flex justify-content-center align-items-center mt-4">
+                                    <input type="radio" class="form-check-input me-2" name="sessionType2" value="online" checked style="accent-color: #7D684E;">
+                                    <label class="form-check-label" style="color: #7D684E; font-weight: 500;">Online session</label>
                                 </div>
+                            </div>
+
+                            <!-- Buttons -->
+                            <div class="d-flex justify-content-between mt-4">
+                                <button class="btn btn-outline-custom px-4 py-2" 
+                                    style="border: 2px solid #7D684E; color: #7D684E; border-radius: 999px; font-weight: 500; background: transparent;"
+                                    @click="handleBack">Back</button>
+                                <button class="btn px-4 py-2 ms-3"
+                                    style="background: linear-gradient(135deg, #7D684E 0%, #5B4C3A 100%); color: white; border-radius: 999px; font-weight: 500; box-shadow: 0 4px 8px rgba(0,0,0,0.2);"
+                                    @click="handleNext">
+                                    Next
+                                </button>
                             </div>
                         </div>
                         <div v-if="step === 3">
 
-                            <div class="p-2">
+                            <div class="p-4">
 
-                                <h3 class="m-color text-center my-4">Confirm your details</h3>
+                                <!-- <h3 class="m-color text-center my-4">Confirm your details</h3> -->
 
-                                <div class="my-1">
-                                    <b>Name :</b> <span>{{ auth?.user?.name }}</span>
+                                <div class="user-details-container mb-4">
+                                    <div class="detail-item mb-3">
+                                        <span class="detail-label">Name:</span> 
+                                        <span class="detail-value">{{ auth?.user?.name }}</span>
+                                    </div>
+                                    <div class="detail-item mb-3">
+                                        <span class="detail-label">Email:</span> 
+                                        <span class="detail-value">{{ auth?.user?.email }}</span>
+                                    </div>
+                                    <div class="detail-item mb-3">
+                                        <span class="detail-label">Phone:</span> 
+                                        <span class="detail-value">{{ auth?.user?.number }}</span>
+                                    </div>
                                 </div>
-                                <div class="my-1">
-                                    <b>Email :</b> <span>{{ auth?.user?.email }}</span>
+                                
+                                <div class="reminder-box mb-4">
+                                    <div class="d-flex align-items-center">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="me-2">
+                                            <path d="M12 2L20 6L20 18L12 22L4 18L4 6L12 2Z" stroke="#7D684E" stroke-width="2" fill="#F4EFE6"/>
+                                            <path d="M12 8V12" stroke="#7D684E" stroke-width="2" stroke-linecap="round"/>
+                                            <circle cx="12" cy="15" r="1" fill="#7D684E"/>
+                                        </svg>
+                                        <span class="reminder-text">Booking reminders will be sent via email and text</span>
+                                    </div>
                                 </div>
-                                <div class="my-1">
-                                    <b>Phone :</b> <span>{{ auth?.user?.number }}</span>
-                                </div>
-                                <br>
-                                <span
-                                    style="background-color: #F4EFE6;padding: 10px;border-radius: 20px;margin: 10px;">Booking
-                                    reminders will be sent via email and text</span>
+                                
                                 <!-- Buttons -->
-                                <div class="d-flex justify-content-between mt-3">
-                                    <button class="btn btn-outline-dark btn-outline-custome px-5"
+                                <div class="d-flex justify-content-between mt-4">
+                                    <button class="btn btn-outline-custom px-4 py-2" 
+                                        style="border: 2px solid #7D684E; color: #7D684E; border-radius: 999px; font-weight: 500; background: transparent;"
                                         @click="handleBack">Back</button>
-                                    <button class="btn btn-dark main-btn2 px-5 rounded-4 ms-3" @click="handleNext">
+                                    <button class="btn px-4 py-2 ms-3"
+                                        style="background: linear-gradient(135deg, #7D684E 0%, #5B4C3A 100%); color: white; border-radius: 999px; font-weight: 500; box-shadow: 0 4px 8px rgba(0,0,0,0.2);"
+                                        @click="handleNext">
                                         Confirm
                                     </button>
                                 </div>
                             </div>
                         </div>
                         <div v-if="step === 4">
-                            <div class="">
-                                <h5 class="fw-bold text-center m-color">Payment</h5>
-                                <div class="mb-3">
-                                    <label class="form-label">Email</label>
-                                    <input v-model="email" type="email" class="form-control"
-                                        placeholder="Enter your Email" required />
+                            <div class="payment-form-container">
+                                <!-- Email Section -->
+                                <div class="form-group mb-4">
+                                    <label class="form-label-custom">Email</label>
+                                    <input v-model="email" type="email" class="form-input-custom"
+                                        placeholder="Enter your email" required />
                                 </div>
-                                <label class="form-label">Card information</label>
-                                <!-- ✅ Single Stripe Card Input -->
-                                <div id="card-element"></div>
-                                <div class="mb-3">
-                                    <label class="form-label">Cardholder name</label>
-                                    <input v-model="name" type="text" class="form-control"
-                                        placeholder="Enter your Name" />
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label">Country or region</label>
-                                    <select v-model="setcountry" class="form-select">
-                                        <option value="US">United States</option>
-                                        <option value="AU">Australia</option>
-                                    </select>
-                                </div>
-                                <div>
-                                    <div v-if="Object.keys(errors).length" class="alert alert-danger">
-                                        <ul class="mb-0">
-                                            <li v-for="(message, field) in errors" :key="field">
-                                                {{ message }}
-                                            </li>
-                                        </ul>
+
+                                <!-- Payment Method Section -->
+                                <div class="form-group mb-4">
+                                    <label class="form-label-custom">Payment Method</label>
+                                    <div class="payment-method-selector">
+                                        <select class="form-select-custom">
+                                            <option value="credit">Credit Card</option>
+                                            <option value="debit">Debit Card</option>
+                                        </select>
                                     </div>
                                 </div>
-                                <!-- Buttons -->
-                                <div class="d-flex justify-content-between mt-3">
-                                    <button class="btn btn-outline-dark btn-outline-custome px-5"
-                                        @click="handleBack">Back</button>
-                                    <button class="btn btn-dark main-btn2 px-5 rounded-4 ms-3 " :disabled="loading"
-                                        @click="payNow">
+
+                                <!-- Card Information Section -->
+                                <div class="form-group mb-4">
+                                    <label class="form-label-custom">Card information</label>
+                                    <div class="card-info-container">
+                                        <!-- Card Number Section -->
+                                        <div class="card-number-section">
+                                            <input type="text" class="card-number-input" 
+                                                placeholder="1234 1234 1234 1234" />
+                                            <div class="card-icons">
+                                                <svg width="24" height="16" viewBox="0 0 24 16" fill="none">
+                                                    <rect width="24" height="16" rx="2" fill="#1A1F71"/>
+                                                    <path d="M8 4h8v2H8V4zm0 3h6v1H8V7z" fill="white"/>
+                                                </svg>
+                                                <svg width="24" height="16" viewBox="0 0 24 16" fill="none">
+                                                    <rect width="24" height="16" rx="2" fill="#EB001B"/>
+                                                    <circle cx="9" cy="8" r="3" fill="#F79E1B"/>
+                                                    <circle cx="15" cy="8" r="3" fill="#F79E1B"/>
+                                                </svg>
+                                                <svg width="24" height="16" viewBox="0 0 24 16" fill="none">
+                                                    <rect width="24" height="16" rx="2" fill="#006FCF"/>
+                                                    <path d="M12 4c-2.2 0-4 1.8-4 4s1.8 4 4 4 4-1.8 4-4-1.8-4-4-4z" fill="white"/>
+                                                </svg>
+                                                <svg width="24" height="16" viewBox="0 0 24 16" fill="none">
+                                                    <rect width="24" height="16" rx="2" fill="#000000"/>
+                                                    <path d="M8 4h8v2H8V4zm0 3h6v1H8V7z" fill="white"/>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        
+                                        <!-- Separator Line -->
+                                        <div class="card-separator-line"></div>
+                                        
+                                        <!-- Expiration and CVC Section -->
+                                        <div class="expiry-cvc-section">
+                                            <div class="expiry-container">
+                                                <input type="text" class="expiry-input" 
+                                                    placeholder="MM / YY" />
+                                            </div>
+                                            <div class="cvc-container">
+                                                <input type="text" class="cvc-input" 
+                                                    placeholder="CVC" />
+                                                <div class="cvc-help-icon">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                                        <circle cx="8" cy="8" r="7" stroke="#9CA3AF" stroke-width="1.5"/>
+                                                        <path d="M8 4v4" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round"/>
+                                                        <circle cx="8" cy="11" r="1" fill="#9CA3AF"/>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Cardholder Name Section -->
+                                <div class="form-group mb-4">
+                                    <label class="form-label-custom">Cardholder name</label>
+                                    <input v-model="name" type="text" class="form-input-custom"
+                                        placeholder="Full name on card" />
+                                </div>
+
+                                <!-- Country and ZIP Combined Section -->
+                                <div class="form-group mb-4">
+                                    <label class="form-label-custom">Country or region</label>
+                                    <div class="combined-input-container">
+                                        <div class="country-section">
+                                            <select v-model="setcountry" class="form-select-custom country-select">
+                                                <option value="US" selected>United States</option>
+                                                <option value="AU">Australia</option>
+                                                <option value="PK">Pakistan</option>
+                                            </select>
+                                        </div>
+                                        <div class="separator-line"></div>
+                                        <div class="zip-section">
+                                            <input type="text" class="form-input-custom zip-input" placeholder="ZIP" />
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Error Messages -->
+                                <div v-if="Object.keys(errors).length" class="error-container mb-4">
+                                    <ul class="error-list">
+                                        <li v-for="(message, field) in errors" :key="field">
+                                            {{ message }}
+                                        </li>
+                                    </ul>
+                                </div>
+
+                                <!-- Pay Button -->
+                                <div class="payment-actions">
+                                    <button class="btn pay-button" :disabled="loading" @click="payNow">
                                         <span v-if="loading">Processing...</span>
-                                        <span v-else>Pay Now</span>
+                                        <span v-else>Pay</span>
                                     </button>
+                                </div>
+
+                                <!-- Terms and Privacy -->
+                                <div class="terms-text">
+                                    By clicking Pay, you agree to the <a href="#" class="terms-link">Terms</a> and <a href="#" class="terms-link">Privacy Policy</a>.
                                 </div>
                             </div>
                         </div>
@@ -472,6 +604,10 @@ function formatTime(time) {
 <style scoped>
 .booking-section {
     background-color: #f8f6f4;
+    background-image: url('/public/asset/images/Book-session.png');
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    background-size: auto;
 }
 
 .profile-card {
@@ -499,5 +635,512 @@ function formatTime(time) {
     height: 2px;
     background: #ddd;
     margin: 0 5px;
+}
+
+.custom-select {
+    border: 2px solid #F4EFE6 !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.custom-select:focus {
+    border: 2px solid #F4EFE6 !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.custom-select:hover {
+    border: 2px solid #F4EFE6 !important;
+}
+
+.form-select {
+    border: 2px solid #E8E2D5 !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.form-select:focus {
+    border: 2px solid #E8E2D5 !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.form-select:hover {
+    border: 2px solid #E8E2D5 !important;
+}
+
+.btn-check:checked + .btn-outline-custom {
+    background-color: #7D684E !important;
+    border-color: #7D684E !important;
+    color: white !important;
+}
+
+/* Step 3 styling */
+.user-details-container {
+   
+    padding: 20px;
+   
+}
+
+.detail-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 0;
+}
+
+.detail-label {
+    font-weight: 400;
+    color: #51624A;
+    min-width: 80px;
+    margin-right: 10px;
+}
+
+.detail-value {
+
+    color: #5B4C3A;
+    font-weight: 500;
+    
+}
+
+.reminder-box {
+    background-color: #F4EFE6;
+    border-radius: 12px;
+    padding: 15px 20px;
+    border: 1px solid #E8E2D5;
+}
+
+.reminder-text {
+    color: #7D684E;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+/* Step 4 Payment Form Styling */
+.payment-form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 15px 10px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label-custom {
+    display: block;
+    font-weight: 500;
+    color: #6B7280;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.form-input-custom {
+    width: 100%;
+    padding: 6px 16px;
+    border: 1px solid #D1D5DB;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #FFFFFF;
+    transition: all 0.2s ease;
+    color: #6B7280;
+    box-shadow: none;
+    height: 36px;
+}
+
+.form-input-custom:focus {
+    outline: none;
+    border-color: #7D684E;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 0 2px rgba(125, 104, 78, 0.1);
+}
+
+.form-input-custom::placeholder {
+    color: #6B7280;
+}
+
+.form-select-custom {
+    width: 100%;
+    padding: 6px 16px;
+    border: 1px solid #D1D5DB;
+    border-radius: 8px;
+    font-size: 16px;
+    background-color: #FFFFFF;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 12px center;
+    background-repeat: no-repeat;
+    background-size: 16px;
+    padding-right: 40px;
+    appearance: none;
+    color: #6B7280;
+    box-shadow: none;
+    height: 36px;
+}
+
+.form-select-custom:focus {
+    outline: none;
+    border-color: #7D684E;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 0 2px rgba(125, 104, 78, 0.1);
+}
+
+.payment-method-selector {
+    position: relative;
+}
+
+/* Card Information Container */
+.card-info-container {
+    border: 1px solid #D1D5DB;
+    border-radius: 8px;
+    background-color: #FFFFFF;
+    overflow: hidden;
+}
+
+.card-number-section {
+    position: relative;
+    padding: 6px 16px;
+}
+
+.card-number-input {
+    border: none;
+    background: transparent;
+    padding: 0;
+    font-size: 16px;
+    color: #6B7280;
+    width: 100%;
+    box-shadow: none;
+    padding-right: 120px;
+}
+
+.card-number-input:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.card-number-input::placeholder {
+    color: #6B7280;
+}
+
+.card-icons {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    gap: 6px;
+    align-items: center;
+}
+
+.card-separator-line {
+    height: 1px;
+    background-color: #E5E7EB;
+    margin: 0;
+}
+
+.expiry-cvc-section {
+    display: flex;
+    padding: 6px 16px;
+    gap: 0;
+    position: relative;
+}
+
+.expiry-cvc-section::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background-color: #E5E7EB;
+    transform: translateX(-50%);
+}
+
+.expiry-container {
+    flex: 1;
+    padding-right: 12px;
+}
+
+.expiry-input {
+    border: none;
+    background: transparent;
+    padding: 0;
+    font-size: 16px;
+    color: #6B7280;
+    width: 100%;
+    box-shadow: none;
+}
+
+.expiry-input:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.expiry-input::placeholder {
+    color: #6B7280;
+}
+
+.cvc-container {
+    flex: 1;
+    position: relative;
+    padding-left: 12px;
+}
+
+.cvc-input {
+    border: none;
+    background: transparent;
+    padding: 0;
+    font-size: 16px;
+    color: #6B7280;
+    width: 100%;
+    box-shadow: none;
+    padding-right: 40px;
+}
+
+.cvc-input:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.cvc-input::placeholder {
+    color: #6B7280;
+}
+
+.cvc-help-icon {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: help;
+}
+
+/* Combined Country and ZIP Container */
+.combined-input-container {
+    border: 1px solid #D1D5DB;
+    border-radius: 8px;
+    background-color: #FFFFFF;
+    overflow: hidden;
+}
+
+.country-section {
+    padding: 6px 16px;
+}
+
+.country-select {
+    border: none;
+    background: transparent;
+    padding: 0;
+    font-size: 16px;
+    color: #6B7280;
+    width: 100%;
+    box-shadow: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0 center;
+    background-repeat: no-repeat;
+    background-size: 16px;
+    padding-right: 20px;
+    appearance: none;
+}
+
+.country-select:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.separator-line {
+    height: 1px;
+    background-color: #E5E7EB;
+    margin: 0;
+}
+
+.zip-section {
+    padding: 6px 16px;
+}
+
+.zip-input {
+    border: none;
+    background: transparent;
+    padding: 0;
+    font-size: 16px;
+    color: #6B7280;
+    width: 100%;
+    box-shadow: none;
+}
+
+.zip-input:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.zip-input::placeholder {
+    color: #6B7280;
+}
+
+
+.error-container {
+    background-color: #FEF2F2;
+    border: 1px solid #FECACA;
+    border-radius: 8px;
+    padding: 12px 16px;
+}
+
+.error-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.error-list li {
+    color: #DC2626;
+    font-size: 14px;
+    margin-bottom: 4px;
+}
+
+.payment-actions {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 32px;
+    margin-bottom: 16px;
+}
+
+.pay-button {
+    background: #B8A78F;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 12px 32px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    display: block;
+}
+
+.pay-button:hover:not(:disabled) {
+    background: #A6967F;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.pay-button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.terms-text {
+    text-align: center;
+    margin-top: 16px;
+    font-size: 14px;
+    color: #6B7280;
+    line-height: 1.4;
+}
+
+.terms-link {
+    color: #7D684E;
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+.terms-link:hover {
+    text-decoration: underline;
+}
+
+/* Session Details Styling for Step 4 */
+.category-price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.category-tag {
+    background: #7D684E;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 8px;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.price-tag {
+    font-size: 16px;
+    font-weight: 700;
+    color: #7D684E;
+}
+
+.session-title {
+    margin-bottom: 12px;
+}
+
+.session-title h4 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #2E2D29;
+    line-height: 1.4;
+    margin: 0;
+}
+
+.session-description {
+    margin-bottom: 20px;
+}
+
+.session-description p {
+    font-size: 14px;
+    color: #6B7280;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.see-more-link {
+    color: #7D684E;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.see-more-link:hover {
+    text-decoration: underline;
+}
+
+/* local wrapper to avoid global brown background */
+.book-session-btn-local {
+    width: 100%;
+    background-color: transparent !important;
+    border: 0;
+    padding: 0;
+}
+
+.btn-book-session {
+    width: 100%;
+    background-color: transparent !important;
+    color: #6B7280;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 8px;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    text-decoration: none;
+    box-shadow: none;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+.btn-book-session:hover {
+    background-color: transparent !important;
+    color: #7D684E;
+}
+
+.btn-book-session:focus {
+    background-color: transparent !important;
+    outline: none;
+    box-shadow: none;
 }
 </style>
