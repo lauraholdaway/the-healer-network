@@ -3,9 +3,9 @@
         <div class="container my-5 px-md-3">
 
             <div class="container my-5 text-center">
-                <h1 class="fw-bold m-color">Book A Session</h1>
-                <p class="m-color">Embark on a transformative journey to rejuvenate your body, mind, and spirit. Whether
-                    you’re aiming to detox,<br> break free from unhelpful habits, or elevate your overall well-being, we
+                <h1 class="fw-bold m-color mt-3">Book A Session</h1>
+                <p class="m-color" style="color: #5B4C3A;">Embark on a transformative journey to rejuvenate your body, mind, and spirit. Whether
+                    you’re aiming to detox, break free from <br></br> unhelpful habits, or elevate your overall well-being, we
                     offer tailored sessions to support your unique needs and goals.</p>
 
             </div>
@@ -15,10 +15,10 @@
 
             <div class="my-5 px-md-5">
                 <button class="btn btn-outline-success border-0 rounded-5 text-white" @click="GetDoctorByModality('')"
-                    style="background-color: #C1B39D;">View ALL</button>
+                    style="background-color: #C1B39D; height: 40px; margin-right: 12px; display: inline-flex; align-items: center; white-space: nowrap;">View ALL</button>
 
                 <button v-for="modalitie in modalities" @click="GetDoctorByModality(modalitie.id)"
-                    class="btn btn-outline-success btn-outline-custome" style="">{{
+                    class="btn btn-outline-success btn-outline-custome" style="margin-right: 12px;">{{
                     modalitie?.title }}</button>
 
             </div>
@@ -33,13 +33,13 @@
                 </div>
 
 
-                <div class="card mx-md-5" v-for="doctor in doctors">
+                <div class="card mx-md-5" v-for="(doctor, index) in doctors">
                     <div class="row">
                         <div class="col-md-3">
-                            <div class="position-relative rounded-4"
-                                style="background: linear-gradient(180deg, rgb(91 76 58 / 41%) 50.9%, #5B4C3A 100%);">
-                                <img :src="doctor.user.image ? '/storage/' + doctor.user.image : '/default-image.png'"
-                                    class="card-img-top rounded-4" alt="practitioner">
+                            <div class="position-relative rounded-4 p-4"
+                                style="background-color: #C1B39D;">
+                                <img :src="getDoctorImage(index)"
+                                    class="card-img-top rounded-4" alt="practitioner" style="width: 100%; height: 220px; object-fit: cover; overflow: hidden;">
                                 <div class="position-absolute top-0 end-0 p-2">
                                     <svg width="30" height="30" viewBox="0 0 46 46" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -89,26 +89,30 @@
 
                             <div class="d-flex justify-content-between my-3">
                                 <div class="d-flex">
-                                    <p class="docter-type px-3 ms-1" v-for="(s, index) in doctor.modalities">
+                                    <p class="docter-type px-3 py-1 ms-1" v-for="(s, index) in doctor.modalities">
                                         {{ s?.title }}
                                     </p>
                                 </div>
                                 <p class="price fw-bold">${{ doctor.price }}</p>
 
                             </div>
-                            <p class="card-text">{{ doctor.about }} <router-link :to="`/docter/${doctor.user.id}`"
+                            <p class="card-text mb-2" style="margin-top: -8px; font-family: roboto;">{{ doctor.about }} <router-link :to="`/docter/${doctor.user.id}`"
                                     class="m-color">See
                                     more</router-link></p>
 
-                            <router-link :to="`/booksession/${doctor.user.id}`" class="btn main-btn2 text-dark">Book
+                            <router-link :to="`/booksession/${doctor.user.id}`" class="btn main-btn2 " style="padding: 6px 12px; align-self: flex-start;">Book
                                 Session
                                 Now
-                                →</router-link>
-                            <router-link :to="`/docter/${doctor.user.id}`" class=" btn main-btn2 ms-2">View
+                                <svg width="14" class="main-btn2-icon" height="14" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M11.5 1.5L19 9L11.5 1.5ZM19 9L11.5 16.5L19 9ZM19 9L1 9L19 9Z" fill="#4b4032"/>
+                                            <path d="M11.5 1.5L19 9M19 9L11.5 16.5M19 9L1 9" stroke="#4b4032" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                             </router-link>
+                            <router-link :to="`/docter/${doctor.user.id}`" class=" btn main-btn3 ms-2" style="padding: 6px 12px; ">View
                                 Profile</router-link>
 
                             <div class=" mt-3">
-                                <span><svg width="18" height="21" viewBox="0 0 18 21" fill="none"
+                                <span><svg width="14" height="17" viewBox="0 0 18 21" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path
                                             d="M6 9.25763C6 10.0533 6.31607 10.8163 6.87868 11.379C7.44129 11.9416 8.20435 12.2576 9 12.2576C9.79565 12.2576 10.5587 11.9416 11.1213 11.379C11.6839 10.8163 12 10.0533 12 9.25763C12 8.46198 11.6839 7.69892 11.1213 7.13631C10.5587 6.5737 9.79565 6.25763 9 6.25763C8.20435 6.25763 7.44129 6.5737 6.87868 7.13631C6.31607 7.69892 6 8.46198 6 9.25763Z"
@@ -119,7 +123,7 @@
                                             stroke="#2E2D29" stroke-width="2" stroke-linecap="round"
                                             stroke-linejoin="round" />
                                     </svg>
-                                    <span class="ms-2 mt-3">{{ doctor.practice_location }}</span>
+                                    <span class="ms-2 mt-3" style="color: #8A7356; font-size: 12px;">{{ doctor.practice_location }}</span>
                                 </span>
                             </div>
                         </div>
@@ -147,7 +151,15 @@ const modalities = ref([]);
 const doctors = ref(null);
 const loading = ref(false)
 
+const doctorImages = [
+    '/asset/images/docter.png',
+    '/asset/images/docter2.png',
+    '/asset/images/docter3.png'
+];
 
+const getDoctorImage = (index) => {
+    return doctorImages[index % doctorImages.length];
+};
 
 const GetDoctorByModality = async (id) => {
 

@@ -5,11 +5,12 @@
                 <!-- Left Profile Card -->
                 <div class="col-md-4" v-if="doctor">
                     <div class="card card-custom">
-                        <div class="position-relative"
-                            style="background: linear-gradient(180deg, rgb(91 76 58 / 41%) 50.9%, #5B4C3A 100%);">
+                        <div class="position-relative d-flex justify-content-center"
+                            style="background: linear-gradient(180deg, #c4b39a 0%, rgb(91 76 58 / 41%) 100%); border-radius: 20px; overflow: hidden; padding: 10px; min-height: 300px;">
                             <!-- ✅ safe optional chaining -->
-                            <img :src="doctor?.user?.image ? '/storage/' + doctor.user.image : '/default-image.png'"
-                                class="card-img-top" alt="practitioner" />
+                            <img :src="doctor?.user?.image ? '/storage/' + doctor.user.image : '/public/asset/images/docter.png'"
+                                class="card-img-top" alt="Doctor Image" 
+                                style="width: 100%; height: 100%; object-fit: contain;" />
                             <div class="position-absolute top-0 end-0 p-2">
                                 <!-- avatar svg -->
                             </div>
@@ -84,7 +85,7 @@
 
                 <!-- Right Booking Form -->
                 <div class="col-md-8">
-                    <div class="booking-wrapper p-4 shadow-sm rounded-4 bg-white mt-3 p-5">
+                    <div class="booking-wrapper  shadow-sm rounded-4 bg-white mt-3 p-5">
                         <div class="d-flex justify-content-center">
                             <h5 class="fw-bold mb-3 m-color">Book a session</h5>
                         </div>

@@ -2,6 +2,7 @@
 .service-card {
     background-color: #faf8f6;
     border: 1px solid #eee;
+    border-radius: 20px;
     transition: all 0.3s ease;
 }
 
@@ -60,143 +61,625 @@ h5 {
 .card:hover {
     transform: translateY(-5px);
 }
+
+/* Doctor Profile Section */
+.cards {
+    border: 1px solid #DED1BA;
+    border-radius: 20px;
+    padding: 8px;
+    background-color: #FAF8F6;
+    position: relative;
+    overflow: hidden;
+}
+
+.cards::before {
+    content: '';
+    position: absolute;
+    top: -20%;
+    right: -10%;
+    width: 200px;
+    height: 200px;
+  
+    background-size: contain;
+    z-index: 1;
+}
+
+.doctor-type-tag {
+    background: #5B4C3A;
+    color: white;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: inline-block;
+    margin-bottom: 1rem;
+}
+
+.doctor-name {
+    color: #2E2D29;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 0.8rem;
+    line-height: 1.2;
+}
+
+.rating-section {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.stars {
+    color: #2E2D29;
+    font-size: 1.1rem;
+}
+
+.rating-text {
+    background: #5B4C3A;
+    color: white;
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+.doctor-description {
+    color: #2E2D29;
+    line-height: 1.5;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+    position: relative;
+    z-index: 2;
+}
+
+.book-session-btn {
+    background: #C1B39D;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    position: relative;
+    z-index: 2;
+}
+
+.book-session-btn:hover {
+    background: #8A7356
+    ;
+    color: white;
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(46, 45, 41, 0.3);
+}
+
+/* Modern Rating Container */
+.modern-rating-container {
+    background: #DED1BA;
+    border-radius: 50px;
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+   
+    transition: all 0.3s ease;
+}
+
+.modern-rating-container:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(91, 76, 58, 0.2);
+}
+
+.rating-number {
+    font-family: 'Georgia', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #5B4C3A;
+    margin: 0;
+    line-height: 1;
+}
+
+.rating-stars {
+    display: flex;
+    gap: 4px;
+    align-items: center;
+}
+
+.rating-stars i {
+    font-size: 1.2rem;
+    color: #5B4C3A;
+    transition: all 0.2s ease;
+}
+
+.rating-stars i:hover {
+    transform: scale(1.1);
+    color: #8A7356;
+}
+
+/* Responsive Design for Rating */
+@media (max-width: 768px) {
+    .modern-rating-container {
+        padding: 10px 20px;
+        gap: 12px;
+    }
+    
+    .rating-number {
+        font-size: 1.3rem;
+    }
+    
+    .rating-stars i {
+        font-size: 1.1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .modern-rating-container {
+        padding: 8px 16px;
+        gap: 10px;
+        flex-direction: column;
+        border-radius: 25px;
+    }
+    
+    .rating-number {
+        font-size: 1.2rem;
+    }
+    
+    .rating-stars i {
+        font-size: 1rem;
+    }
+}
+
+/* Testimonial Cards Styling */
+.testimonial-card {
+    background-color: #E5D9CB;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: none;
+    height: 400px; /* Fixed height for all cards */
+    display: flex;
+    flex-direction: column;
+}
+
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.testimonial-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.testimonial-image {
+    flex-shrink: 0;
+    height: 220px; /* Increased height for better image display */
+    overflow: hidden;
+    position: relative;
+    background-color: #f0f0f0;
+}
+
+.testimonial-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    transition: transform 0.3s ease;
+}
+
+.testimonial-image:hover img {
+    transform: scale(1.05);
+}
+
+.testimonial-text {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #E5D9CB;
+    min-height: 180px; /* Minimum height for text area */
+}
+
+.testimonial-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2E2D29;
+    margin-bottom: 12px;
+    line-height: 1.3;
+}
+
+.testimonial-description {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    flex-grow: 1;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+
+.testimonial-rating {
+    display: flex;
+    gap: 3px;
+    margin-top: auto;
+    padding-top: 10px;
+}
+
+.testimonial-rating i {
+    color: #5B4C3A;
+    font-size: 1.1rem;
+}
+
+/* Responsive adjustments for testimonial cards */
+@media (max-width: 768px) {
+    .testimonial-card {
+        height: 380px; /* Slightly smaller for tablets */
+    }
+    
+    .testimonial-image {
+        height: 200px;
+    }
+    
+    .testimonial-text {
+        padding: 15px;
+        min-height: 180px;
+    }
+    
+    .testimonial-title {
+        font-size: 1rem;
+    }
+    
+    .testimonial-description {
+        font-size: 0.9rem;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+    }
+}
+
+@media (max-width: 576px) {
+    .testimonial-card {
+        height: 360px; /* Smaller for mobile */
+    }
+    
+    .testimonial-image {
+        height: 180px;
+    }
+    
+    .testimonial-text {
+        padding: 12px;
+        min-height: 180px;
+    }
+    
+    .testimonial-description {
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+    }
+}
+
+/* Horizontal Scroll Swiper Styles */
+.horizontal-scroll-swiper {
+    padding: 10px 0 30px 0;
+    overflow: hidden;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide-auto {
+    width: 320px !important;
+    height: auto;
+}
+
+/* Scrollbar hidden but scroll functionality maintained */
+.horizontal-scroll-swiper .swiper-scrollbar {
+    display: none;
+}
+
+/* Prevent page scroll and enable only cards section scroll */
+body {
+    overflow-x: hidden;
+}
+
+.testimonial-section {
+    overflow-x: hidden;
+}
+
+.container-fluid {
+    overflow-x: hidden;
+}
+
+/* Enable smooth scrolling only in swiper */
+.horizontal-scroll-swiper .swiper-wrapper {
+    transition-timing-function: ease-in-out;
+    display: flex;
+    align-items: center;
+}
+
+/* Center the swiper container */
+.horizontal-scroll-swiper .swiper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Responsive adjustments for horizontal scroll */
+@media (max-width: 768px) {
+    .swiper-slide-auto {
+        width: 280px !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .swiper-slide-auto {
+        width: 260px !important;
+    }
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 991px) {
+    .doctor-name {
+        font-size: 1.75rem;
+    }
+    
+    .cards {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .doctor-name {
+        font-size: 1.5rem;
+        margin-top: 1rem;
+    }
+    
+    .doctor-description {
+        font-size: 0.9rem;
+    }
+    
+    .book-session-btn {
+        width: 100%;
+        text-align: center;
+        margin-top: 1rem;
+    }
+    
+    .rating-section {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+    
+    .cards {
+        padding: 12px;
+    }
+    
+    .service-card {
+        margin-bottom: 1rem;
+    }
+    
+    .service-card h5 {
+        font-size: 1.1rem;
+    }
+    
+    .service-card p {
+        font-size: 0.9rem;
+    }
+    
+    .subheading {
+        font-size: 1.3rem !important;
+        line-height: 1.5;
+    }
+}
+
+@media (max-width: 576px) {
+    .doctor-name {
+        font-size: 1.25rem;
+    }
+    
+    .doctor-type-tag {
+        font-size: 0.75rem;
+        padding: 5px 12px;
+        margin-bottom: 0.5rem;
+    }
+    
+    .rating-section .stars {
+        font-size: 1rem;
+    }
+    
+    .rating-text {
+        font-size: 0.8rem;
+        padding: 5px 10px;
+    }
+    
+    .doctor-description {
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+    
+    .book-session-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+    
+    .cards {
+        padding: 10px;
+        margin: 1rem 0 !important;
+    }
+    
+    .service-card {
+        padding: 1rem !important;
+    }
+    
+    .service-card h5 {
+        font-size: 1rem;
+    }
+    
+    .service-card p {
+        font-size: 0.85rem;
+    }
+    
+    .subheading {
+        font-size: 1.1rem !important;
+        padding: 0 15px;
+    }
+    
+    .testimonial-section {
+        padding: 2rem 0 !important;
+    }
+    
+    .container-fluid.mt-5.py-5 {
+        padding: 2rem 0 !important;
+        margin-top: 2rem !important;
+    }
+}
+
+/* Info Bar Responsive */
+@media (max-width: 768px) {
+    .info-box .col-md-3 {
+        border-right: none !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .info-box .col-md-3:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+    }
+    
+    .info-box h6 {
+        font-size: 0.95rem;
+    }
+    
+    .info-box p {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .info-box {
+        padding: 1.5rem 1rem !important;
+    }
+    
+    .info-box h6 {
+        font-size: 0.9rem;
+    }
+    
+    .info-box p {
+        font-size: 0.8rem;
+    }
+    
+    .info-box .col-6 {
+        margin-bottom: 1rem !important;
+    }
+}
+
+/* Service Card Price Section Responsive */
+@media (max-width: 576px) {
+    .service-card .my-3.d-flex {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 0.5rem;
+    }
+    
+    .service-card svg {
+        width: 30px;
+        height: 30px;
+    }
+}
 </style>
 <template>
     <section>
         <div class="container">
 
             <!-- Doctor card -->
-            <div class="cards mx-md-5 my-5">
+            <div class="cards mx-md-3 my-5">
                 <div class="row" v-if="doctor">
-                    <!-- Left image & icons -->
-                    <div class="col-md-4">
-                        <div class="position-relative rounded-4"
-                            style="background: linear-gradient(180deg, rgb(91 76 58 / 41%) 50.9%, #5B4C3A 100%);">
-                            <img :src="doctor?.user?.image ? '/storage/' + doctor.user.image : '/default-image.png'"
-                                class="doctorImages img-fluid" alt="practitioner">
-                            <div class="position-absolute top-0 end-0 p-2">
-                                <svg width="30" height="30" viewBox="0 0 46 46" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <rect width="46" height="46" rx="23" fill="#5B4C3A" />
-                                    <path
-                                        d="M17.168 29.849C17.4155 29.0252 17.9219 28.3032 18.6122 27.79C19.3025 27.2768 20.1398 26.9997 21 27H25C25.8612 26.9997 26.6996 27.2774 27.3904 27.7918C28.0811 28.3062 28.5874 29.0298 28.834 29.855M14 23C14 24.1819 14.2328 25.3522 14.6851 26.4442C15.1374 27.5361 15.8003 28.5282 16.636 29.364C17.4718 30.1997 18.4639 30.8626 19.5558 31.3149C20.6478 31.7672 21.8181 32 23 32C24.1819 32 25.3522 31.7672 26.4442 31.3149C27.5361 30.8626 28.5282 30.1997 29.364 29.364C30.1997 28.5282 30.8626 27.5361 31.3149 26.4442C31.7672 25.3522 32 24.1819 32 23C32 21.8181 31.7672 20.6478 31.3149 19.5558C30.8626 18.4639 30.1997 17.4718 29.364 16.636C28.5282 15.8003 27.5361 15.1374 26.4442 14.6851C25.3522 14.2328 24.1819 14 23 14C21.8181 14 20.6478 14.2328 19.5558 14.6851C18.4639 15.1374 17.4718 15.8003 16.636 16.636C15.8003 17.4718 15.1374 18.4639 14.6851 19.5558C14.2328 20.6478 14 21.8181 14 23ZM20 21C20 21.7956 20.3161 22.5587 20.8787 23.1213C21.4413 23.6839 22.2044 24 23 24C23.7956 24 24.5587 23.6839 25.1213 23.1213C25.6839 22.5587 26 21.7956 26 21C26 20.2044 25.6839 19.4413 25.1213 18.8787C24.5587 18.3161 23.7956 18 23 18C22.2044 18 21.4413 18.3161 20.8787 18.8787C20.3161 19.4413 20 20.2044 20 21Z"
-                                        stroke="#FBF9F7" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                </svg>
-
-                            </div>
-                            <div class="position-absolute  bottom-0 mb-3" style="left: 3%;">
-
-                                <div class="d-flex justify-content-cetner">
-                                    <div>
-                                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <rect width="32" height="32" rx="16" fill="#DED1BA" />
-                                            <path d="M19.8974 14.0388V17.8847L23 20.5V11.5L19.8974 14.0388Z"
-                                                stroke="#2E2D29" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path
-                                                d="M9.68989 11.5H17.5299C18.6717 11.5 19.8889 12.4023 19.8889 13.6023V19.7493C19.8908 19.9455 19.8121 20.1345 19.67 20.275C19.528 20.4155 19.334 20.4961 19.1306 20.4993H11.0627C9.76611 20.4993 9 19.3742 9 18.2492L9.00778 12.2493C8.99315 12.1545 9.00003 12.0578 9.02797 11.9659C9.0559 11.8739 9.10421 11.7889 9.16956 11.7168C9.23411 11.6455 9.31447 11.5891 9.40467 11.5519C9.49488 11.5146 9.59263 11.4974 9.69067 11.5015L9.68989 11.5Z"
-                                                stroke="#2E2D29" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>
-                                        <span class="tag">Online</span>
-                                    </div>
-                                    <div>
-                                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <rect width="32" height="32" rx="16" fill="#DED1BA" />
-                                            <path
-                                                d="M18.7222 16H16V12.1111M9 16C9 16.9193 9.18106 17.8295 9.53284 18.6788C9.88463 19.5281 10.4002 20.2997 11.0503 20.9497C11.7003 21.5998 12.4719 22.1154 13.3212 22.4672C14.1705 22.8189 15.0807 23 16 23C16.9193 23 17.8295 22.8189 18.6788 22.4672C19.5281 22.1154 20.2997 21.5998 20.9497 20.9497C21.5998 20.2997 22.1154 19.5281 22.4672 18.6788C22.8189 17.8295 23 16.9193 23 16C23 15.0807 22.8189 14.1705 22.4672 13.3212C22.1154 12.4719 21.5998 11.7003 20.9497 11.0503C20.2997 10.4002 19.5281 9.88463 18.6788 9.53284C17.8295 9.18106 16.9193 9 16 9C15.0807 9 14.1705 9.18106 13.3212 9.53284C12.4719 9.88463 11.7003 10.4002 11.0503 11.0503C10.4002 11.7003 9.88463 12.4719 9.53284 13.3212C9.18106 14.1705 9 15.0807 9 16Z"
-                                                stroke="#2E2D29" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg><span class="tag">30 Minutes</span>
-
-                                    </div>
-                                </div>
-
-                            </div>
+                    <!-- Left image only -->
+                    <div class="col-md-4 col-12 mb-3 mb-md-0">
+                        <div class="rounded-4 text-center" style="background: linear-gradient(180deg, #c4b39a 0%, rgb(91 76 58 / 41%) 100%); padding:0px;">
+                            <img src="/public/asset/images/docter.png"
+                                class="doctorImages img-fluid rounded-4" alt="practitioner" style="display: inline-block;">
                         </div>
                     </div>
 
                     <!-- Right content -->
-                    <div class="col-md-8">
-                        <div class="d-flex justify-content-between my-3">
-                            <div class="d-flex">
-                                <p class="docter-type px-3 ms-1" v-for="(s, index) in doctor.modalities">
-                                    {{ s?.title }}
-                                </p>
-                            </div>
-                            <p class="price fw-bold">$300.00</p>
-                        </div>
-                        <h4 class="fw-bold">{{ doctor?.user?.name }} {{ doctor?.user?.last_name }}</h4>
-                        <div class="my-4">
-                            <div class="rating-box d-flex align-items-center">
-                                <div class="stars me-2">
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                </div>
-                                <div class="rating-text px-3 py-1">
-                                    5.0 &nbsp; 162 Reviews
-                                </div>
+                    <div class="col-md-8 col-12 d-flex align-items-center">
+                        <div class="w-100">
+                            <!-- Doctor Type Tag -->
+                            <div class="doctor-type-tag me-2 mb-2 d-inline-block" v-for="(s, index) in doctor.modalities" :key="index" style="background:#C4B39A;">
+                                {{ s?.title }}
                             </div>
 
+                            <!-- Doctor Name -->
+                            <h1 style="font-size: 30px; font-weight: 300;" class="doctor-name">{{ doctor?.user?.name }} {{ doctor?.user?.last_name }} {{ doctor?.user?.specialization }}</h1>
+
+                            <!-- Rating Section -->
+                            <div class="rating-section">
+                                <div class="stars" style="color: #5B4C3A; ">
+                                    <i class="bi bi-star-fill me-1"></i>
+                                    <i class="bi bi-star-fill me-1"></i>
+                                    <i class="bi bi-star-fill me-1"></i>
+                                    <i class="bi bi-star-fill me-1"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                </div>
+                                <div class="rating-text" style="background: #5B4C3A; color: white; padding: 6px 12px; border-radius: 8px; font-weight: 500; font-size: 0.9rem;">
+                                    5.0 162 Reviews
+                                </div>
+                            </div>
+
+                            <!-- Doctor Description -->
+                            <p class="doctor-description">
+                                {{ doctor?.about || "Hi, I'm Darrell Steward, a Meditation Therapist dedicated to helping you find peace and balance through meditation. Using techniques like mindfulness, guided visualization, and breathing exercises, I tailor each session to meet your personal needs, whether it's managing stress, gaining clarity, or fostering emotional well-being." }}
+                            </p>
+
+                            <!-- Book Session Button -->
+                            <router-link 
+                                v-if="doctor?.user?.id" 
+                                :to="`/booksession/${doctor.user.id}`"
+                                class="book-session-btn">
+                                Book A Session
+                            </router-link>
                         </div>
-                        <p class="card-text m-color">
-                            {{ doctor?.about ? doctor.about.split(" ").slice(0, 20).join(" ") : "" }}...
-                            <a href="#" class="m-color">See more</a>
-                        </p>
-                        <router-link v-if="doctor?.user?.id" :to="`/booksession/${doctor.user.id}`"
-                            class="btn main-btn2" style="background-color: #2E2D29;">
-                            Book Session Now →
-                        </router-link>
-                        <button class="btn btn-outline-info border-0 ms-2 m-color" style="background-color: #DED1BA;">
-                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M0.992188 18.0106L2.29219 14.1106C1.16863 12.4489 0.762181 10.481 1.14841 8.57288C1.53463 6.66477 2.68725 4.94625 4.39195 3.73685C6.09666 2.52745 8.23745 1.90947 10.4163 1.99782C12.5951 2.08616 14.6637 2.87481 16.2375 4.21714C17.8112 5.55946 18.7831 7.36412 18.9723 9.29556C19.1614 11.227 18.5551 13.1538 17.2661 14.7177C15.977 16.2816 14.0928 17.3762 11.964 17.7979C9.83512 18.2197 7.60639 17.9399 5.69219 17.0106L0.992188 18.0106Z"
-                                    stroke="#5B4C3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-
-                        </button>
-                        <button class="btn btn-outline-info border-0 ms-2 m-color" style="background-color: #DED1BA;">
-                            <svg width="20" height="18" viewBox="0 0 20 18" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path
-                                    d="M11.0002 0.997437V4.99744C4.42519 6.02544 1.98019 11.7854 1.00019 16.9974C0.963188 17.2034 6.38419 11.0354 11.0002 10.9974V14.9974L19.0002 7.99744L11.0002 0.997437Z"
-                                    stroke="#5B4C3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-
-                        </button>
                     </div>
                 </div>
             </div>
             <div class="container my-5">
                 <section class="info-bar my-5">
-                    <div class="container">
+                    <div class="container" style="background-color: #8A7356; border-radius: 13px;">
                         <div class="row text-center text-white py-4 px-3 rounded-4 info-box">
 
                             <div class="col-md-3 col-6 mb-3 mb-md-0 border-end border-light">
                                 <h6 class="fw-semibold fst-italic">Focus Areas</h6>
+                                <hr class="my-2 border-light">
                                 <p class="mb-0 small">Personal Development & Life Transitions</p>
                             </div>
 
                             <div class="col-md-3 col-6 mb-3 mb-md-0 border-end border-light">
                                 <h6 class="fw-semibold fst-italic">Location</h6>
+                                <hr class="my-2 border-light">
                                 <p class="mb-0 small">{{ doctor?.practice_location }},<br>{{ doctor?.address }}
                                 </p>
                             </div>
 
                             <div class="col-md-3 col-6 mb-3 mb-md-0 border-end border-light">
                                 <h6 class="fw-semibold fst-italic">Languages</h6>
+                                <hr class="my-2 border-light">
                                 <p class="mb-0 small">{{ doctor?.languages }}</p>
                             </div>
 
                             <div class="col-md-3 col-6">
                                 <h6 class="fw-semibold fst-italic">Certifications</h6>
+                                <hr class="my-2 border-light">
                                 <p class="mb-0 small" v-for="GetCer in GetCert">{{ GetCer?.title }}</p>
                             </div>
 
@@ -211,10 +694,10 @@ h5 {
                 <div class="row g-4">
 
                     <!-- Trauma therapy -->
-                    <div class="col-md-6" v-for="s in services" :key="s.id">
+                    <div class="col-md-6 col-12" v-for="s in services" :key="s.id">
                         <div class="service-card p-4 h-100 shadow-sm rounded-3">
                             <div class="align-items-start">
-                                <div class="my-3 d-flex justify-content-between">
+                                <div class="my-3 d-flex justify-content-between align-items-center">
                                     <!-- Example SVG -->
                                     <div>
                                         <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
@@ -235,7 +718,7 @@ h5 {
                                         </svg>
                                     </div>
                                     <div>
-                                        <span class="px-2">Rate Per Session</span>
+                                        <span class="px-2" style="color: #8A7356;">Rate Per Session</span>
                                         <span class="px-2">$ {{ s.rate_per_session }}</span>
                                     </div>
                                 </div>
@@ -256,56 +739,92 @@ h5 {
                 </div>
             </div>
         </div>
+        <img src="/public/asset/images/d.png" alt="" class="mb--2 w-100 d-none d-md-block">
 
         <section class="testimonial-section py-5">
             <div class="container-fluid text-center">
 
                 <!-- Heading -->
-                <p class="subheading fw-bold">We’ve helped over 35,000
-
-                    <br>
-                    Australians improve their mental health
+                <p class="subheading fw-bold" style="font-size: 28px;">Our mission is to help over 100,000 people worldwide improve  <br class="d-none d-md-block"> their mental health and wellbeing
                 </p>
 
                 <!-- Rating -->
                 <div class="d-flex justify-content-center align-items-center mb-3">
-                    <div class="stars me-2">
-                        <img src="/public/asset/images/rating.png" width="200px" alt="">
+                    <div class="modern-rating-container">
+                        <div class="rating-number">5.00</div>
+                        <div class="rating-stars">
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                            <i class="bi bi-star-fill"></i>
+                        </div>
                     </div>
-                    <br>
                 </div>
-                <p class="text-muted">Excellent rating from 200 reviews</p>
-                <div class="container-fluid mt-4">
-                    <Swiper :slides-per-view="3" :space-between="20" :loop="true" class="mySwiper" :breakpoints="{
-                        576: { slidesPerView: 2 },
-                        768: { slidesPerView: 3 },
-                        1200: { slidesPerView: 4 }
-                    }" :autoplay="{ delay: 3000 }">
+                <!-- <p class="text-muted">Excellent rating from 200 reviews</p> -->
+                <div class="container-fluid mt-5 py-5    d-flex justify-content-center">
+                    <Swiper 
+                        :slides-per-view="'auto'" 
+                        :space-between="20" 
+                        :loop="true" 
+                        class="mySwiper horizontal-scroll-swiper" 
+                        :autoplay="{ delay: 3000 }"
+                        :free-mode="true"
+                        :grab-cursor="true"
+                        :mousewheel="{ 
+                            forceToAxis: true,
+                            sensitivity: 1,
+                            releaseOnEdges: true
+                        }"
+                        :keyboard="true"
+                        :resistance-ratio="0.85"
+                        :breakpoints="{
+                            320: { slidesPerView: 1.2, spaceBetween: 15 },
+                            576: { slidesPerView: 1.5, spaceBetween: 20 },
+                            768: { slidesPerView: 2.2, spaceBetween: 20 },
+                            992: { slidesPerView: 2.8, spaceBetween: 20 },
+                            1200: { slidesPerView: 3.2, spaceBetween: 20 }
+                        }">
 
-                        <SwiperSlide v-for="(doctor, index) in doctors" :key="index">
-                            <div class="card h-100 shadow-sm border-0 rounded-4 p-0">
+                        <SwiperSlide v-for="(doctor, index) in doctors" :key="index" class="swiper-slide-auto">
+                            <div class="testimonial-card h-100">
 
                                 <!-- Alternate layout -->
-                                <div v-if="index % 2 === 0">
+                                <div v-if="index % 2 === 0" class="testimonial-content">
                                     <!-- Image on top -->
-                                    <img :src="doctor.user.image ? '/storage/' + doctor.user.image : '/default-image.png'"
-                                        class="card-img-top" alt="User" />
-                                    <div class="card-body">
-                                        <p class="card-text">{{ doctor?.about }}</p>
-                                        <h6 class="fw-bold mt-3">{{ doctor?.user?.name }} {{ doctor?.user?.last_name }}
-                                        </h6>
+                                    <div class="testimonial-image">
+                                        <img src="/public/asset/images/demo1.png"
+                                            alt="User" />
+                                    </div>
+                                    <div class="testimonial-text">
+                                        <h6 class="testimonial-title">Accessible and open.</h6>
+                                        <p class="testimonial-description">{{ doctor?.about || "I've been meaning to seek help from a psychologist for a long time, but have been put off seeing one in person due to inconvenient times and large gap fees. Someone makes the..." }}</p>
+                                        <div class="testimonial-rating">
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                        </div>
                                     </div>
                                 </div>
 
-                                <div v-else>
+                                <div v-else class="testimonial-content">
                                     <!-- Text on top -->
-                                    <div class="card-body">
-                                        <p class="card-text">{{ doctor?.about }}</p>
-                                        <h6 class="fw-bold mt-3">{{ doctor?.user?.name }} {{ doctor?.user?.last_name }}
-                                        </h6>
+                                    <div class="testimonial-text">
+                                        <p class="testimonial-description">{{ doctor?.about || "Makes dealing with mental health a bit easier. Dealing with mental health can be overwhelming, daunting and expensive. Although there's many reasons to go, there's just as many..." }}</p>
+                                        <div class="testimonial-rating">
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi bi-star-fill"></i>
+                                        </div>
                                     </div>
-                                    <img :src="doctor.user.image ? '/storage/' + doctor.user.image : '/default-image.png'"
-                                        class="card-img-top" alt="User" />
+                                    <div class="testimonial-image">
+                                        <img src="/public/asset/images/demo1.png"
+                                            alt="User" />
+                                    </div>
                                 </div>
                             </div>
                         </SwiperSlide>
