@@ -17,6 +17,7 @@ import Quiz from '../pages/Quiz.vue';
 import DoctorFind from '../pages/DoctorFind.vue';
 import Verifyemail from '../pages/Verifyemail.vue';
 import Verifyemailcomplete from '../pages/Verifyemailcomplete.vue';
+import blog from '../pages/blog.vue';
 
 
 import Docter from '../pages/docter.vue'
@@ -70,6 +71,7 @@ const routes = [
     { path: '/DoctorFind', name: 'DoctorFind', component: DoctorFind },
     { path: '/Verifyemail', name: 'Verifyemail', component: Verifyemail, meta: { hideFooter: true, hideNav: true, } },
     { path: '/Verifyemailcomplete', name: 'Verifyemailcomplete', component: Verifyemailcomplete, meta: { hideFooter: true, hideNav: true, } },
+    { path: '/blog/:id', name: 'blog', component: blog, },
 
 
     // update User profile

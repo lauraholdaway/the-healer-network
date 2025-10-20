@@ -72,7 +72,7 @@
                     <a href="{{url('/practitioner')}}" class="nav-item nav-link"><i class="fa fa-user-plus me-2"></i>Practitioner</a>
                     <a href="{{url('/users')}}" class="nav-item nav-link"><i class="fa fa-user-o me-2"></i>Users</a>
                     <a href="{{url('/Appointments')}}" class="nav-item nav-link"><i class="fa fa-vcard-o me-2"></i>Appointments</a>
-                    <a href="{{url('/modalities')}}" class="nav-item nav-link"><i class="fa fa-vcard-o me-2"></i>Modalities</a>
+                    <a href="{{url('/modalities')}}" class="nav-item nav-link"><i class="fa fa-archive me-2"></i>Modalities</a>
                     @php
                         $UserContact =
                             request()->is('UserContact')
@@ -92,6 +92,7 @@
 
                         </div>
                     </div>
+                    <a href="{{url('/Blogs')}}" class="nav-item nav-link"><i class=" fa fa-bold me-2"></i>Blogs</a>
                     <a href="#" class="nav-item nav-link"><i class="fa fa-bar-chart me-2"></i>Charts</a>
                 </div>
             </nav>

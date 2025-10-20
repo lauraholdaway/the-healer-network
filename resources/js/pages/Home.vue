@@ -4,7 +4,7 @@
             <!-- Heading -->
             <h1 class="display-4 fw-bold my-2 text-[#A0704C] herotaxt mt-0 pt-11">
                 BOOK A HOLISTIC HEALER <br />
-                THAT YOU LOVE 
+                THAT YOU LOVE
             </h1>
 
             <!-- Buttons -->
@@ -16,7 +16,8 @@
 
             <!-- Subtext -->
             <p class="mb-5 px-lg-5 hero-subtext">
-                Whether it's Acupuncture, Reiki, Hypnotherapy or Counselling we'll help you find the best natural <br> therapy healer thats right for you.
+                Whether it's Acupuncture, Reiki, Hypnotherapy or Counselling we'll help you find the best natural <br>
+                therapy healer thats right for you.
             </p>
 
             <!-- Search Box -->
@@ -27,7 +28,8 @@
         <div class="scroll-down mt-5 position-absolute" style="bottom:4%; left: 50%; transform: translateX(-50%);">
             <a class="btn btn-light  shadow" href="#below">
                 <p class="mt-2">Scroll to discover</p>
-                <img :src="Barrow" alt="icon" class="ms-1" style="width: 18px; height: 18px; position: relative; top: -6px;">
+                <img :src="Barrow" alt="icon" class="ms-1"
+                    style="width: 18px; height: 18px; position: relative; top: -6px;">
 
             </a>
 
@@ -43,41 +45,53 @@
     <section class="container my-md-5 pt-md--10" id="below">
         <h2 class="section-heading ">Your Path to Healing</h2>
         <p class="section-subtext">
-            The Healer Network connects you with certified online therapists, providing the tools and support you need to book <br> therapy sessions tailored to your well-being.
+            The Healer Network connects you with certified online therapists, providing the tools and support you need
+            to book <br> therapy sessions tailored to your well-being.
         </p>
 
         <div class="row gy-1">
             <div class="col-md-4">
-                <div class="feature-box position-relative text-center d-flex flex-column justify-content-center align-items-center">
-                    <img :src="cardicon" alt="card icon" class="position-absolute" style="width: 180px; height: 180px; bottom: 0; left: 0;">
+                <div
+                    class="feature-box position-relative text-center d-flex flex-column justify-content-center align-items-center">
+                    <img :src="cardicon" alt="card icon" class="position-absolute"
+                        style="width: 180px; height: 180px; bottom: 0; left: 0;">
                     <div class="position-relative" style="z-index: 2;">
                         <h5 class="feature-title">Trusted Therapists</h5>
                         <p class="feature-content">
-                            Our therapists are carefully selected, highly rated, and certified in their respective fields, ensuring that you receive professional and compassionate care from the most skilled providers.
+                            Our therapists are carefully selected, highly rated, and certified in their respective
+                            fields, ensuring that you receive professional and compassionate care from the most skilled
+                            providers.
                         </p>
                     </div>
                 </div>
             </div>
 
             <div class="col-md-4">
-                <div class="feature-box position-relative text-center d-flex flex-column justify-content-center align-items-center" style="background: #C1B39D; overflow: hidden;">
-                    <img :src="cardicon2" alt="card icon" class="position-absolute " style="width: 180px; height: 180px; bottom: -20px; right: 0; ">
+                <div class="feature-box position-relative text-center d-flex flex-column justify-content-center align-items-center"
+                    style="background: #C1B39D; overflow: hidden;">
+                    <img :src="cardicon2" alt="card icon" class="position-absolute "
+                        style="width: 180px; height: 180px; bottom: -20px; right: 0; ">
                     <div class="position-relative" style="z-index: 2;">
                         <h5 class="feature-title text-white">Personalized Search</h5>
                         <p class="feature-content text-white">
-                            You can search for therapists based on your specific concerns, availability, preferred communication methods, and location. Additionally, you can explore reviews and testimonials from past clients to find the best match for your therapy needs.
+                            You can search for therapists based on your specific concerns, availability, preferred
+                            communication methods, and location. Additionally, you can explore reviews and testimonials
+                            from past clients to find the best match for your therapy needs.
                         </p>
                     </div>
                 </div>
             </div>
 
             <div class="col-md-4">
-                <div class="feature-box position-relative text-center d-flex flex-column justify-content-center align-items-center">
-                    <img :src="cardicon3" alt="card icon" class="position-absolute" style="width: 180px; height: 180px; bottom: 0; left: 50%; transform: translateX(-50%);">
+                <div
+                    class="feature-box position-relative text-center d-flex flex-column justify-content-center align-items-center">
+                    <img :src="cardicon3" alt="card icon" class="position-absolute"
+                        style="width: 180px; height: 180px; bottom: 0; left: 50%; transform: translateX(-50%);">
                     <div class="position-relative" style="z-index: 2;">
                         <h5 class="feature-title">In-Depth Learning</h5>
                         <p class="feature-content">
-                            THN is more than just a therapy booking platform. Our monthly membership empowers you with valuable resources such as yoga classes, meditation, and live monthly group healings.
+                            THN is more than just a therapy booking platform. Our monthly membership empowers you with
+                            valuable resources such as yoga classes, meditation, and live monthly group healings.
                         </p>
                     </div>
                 </div>
@@ -91,9 +105,10 @@
             <!-- Title -->
             <h2 class="section-title">Book A Session Revitalize Your Health And Wellbeing</h2>
             <p class="section-subtitle">
-                Embark on a transformative journey to rejuvenate your mind, body and soul.  Whether you're aiming to heal, improve your mental health, or unlock your full potential, we offer tailored sessions to support your unique needs and goals
+                Embark on a transformative journey to rejuvenate your mind, body and soul. Whether you're aiming to
+                heal, improve your mental health, or unlock your full potential, we offer tailored sessions to support
+                your unique needs and goals
             </p>
-
             <!-- Button and Navigation -->
             <div class="d-flex justify-content-between align-items-center mb-4 mt-4">
                 <div class="text-start">
@@ -102,31 +117,36 @@
                 </div>
                 <div class="d-flex gap-2">
                     <!-- Left Arrow Button -->
-                    <button @click="swiperPrev" class="btn btn-arrow-left rounded-circle d-flex align-items-center justify-content-center" style="width: 31px; height: 31px; background-color: transparent; border: none;">
-                        <img src="/public/asset/images/arrowlift.svg" alt="Previous" class="arrow-icon" style="width: 32px; height: 32px;">
+                    <button @click="swiperPrev"
+                        class="btn btn-arrow-left rounded-circle d-flex align-items-center justify-content-center"
+                        style="width: 31px; height: 31px; background-color: transparent; border: none;">
+                        <img src="/public/asset/images/arrowlift.svg" alt="Previous" class="arrow-icon"
+                            style="width: 32px; height: 32px;">
                     </button>
                     <!-- Right Arrow Button -->
-                    <button @click="swiperNext" class="btn btn-arrow-right rounded-circle d-flex align-items-center justify-content-center" style="width: 31px; height: 31px; background-color: transparent; border: none;">
-                        <img src="/public/asset/images/arrowright.svg" alt="Next" class="arrow-icon" style="width: 32px; height: 32px;">
+                    <button @click="swiperNext"
+                        class="btn btn-arrow-right rounded-circle d-flex align-items-center justify-content-center"
+                        style="width: 31px; height: 31px; background-color: transparent; border: none;">
+                        <img src="/public/asset/images/arrowright.svg" alt="Next" class="arrow-icon"
+                            style="width: 32px; height: 32px;">
                     </button>
                 </div>
             </div>
-
             <!-- Cards -->
             <div class="row g-4">
                 <!-- Card 1 -->
-                <Swiper ref="swiperRef" :slides-per-view="3" :space-between="20" :loop="true" :autoplay="{ delay: 3000 }" :breakpoints="{
-                    0: { slidesPerView: 1 },      // Mobile
-                    768: { slidesPerView: 2 },    // Tablet
-                    1024: { slidesPerView: 3 }    // Desktop
-                }" class="mySwiper">
+                <Swiper ref="swiperRef" :slides-per-view="3" :space-between="20" :loop="true"
+                    :autoplay="{ delay: 3000 }" :breakpoints="{
+                        0: { slidesPerView: 1 },      // Mobile
+                        768: { slidesPerView: 2 },    // Tablet
+                        1024: { slidesPerView: 3 }    // Desktop
+                    }" class="mySwiper">
                     <SwiperSlide class="col-md-4 col-12" v-for="(doctor, index) in doctors" :key="doctor.id">
                         <div class="card card-custom">
                             <div class="position-relative d-flex justify-content-center"
                                 style="background: linear-gradient(180deg, #c4b39a 0%, rgb(91 76 58 / 41%) 100%); border-radius: 20px; overflow: hidden; padding: 10px;">
-                                <img :src="getDoctorImage(index)"
+                                <img :src="doctor?.user?.image ? '/storage/' + doctor.user.image : '/default-image.png'"
                                     class="card-img-top" alt="practitioner">
-
                                 <div class="position-absolute top-0 end-0 p-2">
                                     <router-link :to="`/docter/${doctor.user.id}`">
                                         <svg width=" 46" height="46" viewBox="0 0 46 46" fill="none"
@@ -138,7 +158,6 @@
                                                 stroke-linejoin="round" />
                                         </svg>
                                     </router-link>
-
                                 </div>
                                 <div class="position-absolute  bottom-0 mb-3" style="left: 20%;">
                                     <div class="d-flex justify-content-cetner">
@@ -173,7 +192,8 @@
 
                                 <div class="d-flex justify-content-between my-3">
                                     <div class="d-flex">
-                                        <p class="docter-type px-3 ms-1" v-for="(s, index) in doctor.modalities.slice(0, 2)" :key="index">
+                                        <p class="docter-type px-3 ms-1"
+                                            v-for="(s, index) in doctor.modalities.slice(0, 2)" :key="index">
                                             {{ s?.title }}
                                         </p>
                                     </div>
@@ -181,12 +201,16 @@
                                 </div>
                                 <h5 class="card-title fw-bold">{{ doctor.user?.name }} {{ doctor.user?.last_name }}</h5>
                                 <p class="card-text">{{ doctor.about }} <a href="#" class="m-color">See more</a></p>
-                                <router-link :to="`/booksession/${doctor.user.id}`" class="btn btn-book" style="width: 200px; align-self: flex-start;">
+                                <router-link :to="`/booksession/${doctor.user.id}`" class="btn btn-book"
+                                    style="width: 200px; align-self: flex-start;">
                                     Book Session Now
                                     <span style="margin-left: 8px;">
-                                        <svg width="14" height="14" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M11.5 1.5L19 9L11.5 1.5ZM19 9L11.5 16.5L19 9ZM19 9L1 9L19 9Z" fill="#2E2D29"/>
-                                            <path d="M11.5 1.5L19 9M19 9L11.5 16.5M19 9L1 9" stroke="#2E2D29" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                        <svg width="14" height="14" viewBox="0 0 20 18" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M11.5 1.5L19 9L11.5 1.5ZM19 9L11.5 16.5L19 9ZM19 9L1 9L19 9Z"
+                                                fill="#2E2D29" />
+                                            <path d="M11.5 1.5L19 9M19 9L11.5 16.5M19 9L1 9" stroke="#2E2D29"
+                                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
                                     </span>
                                 </router-link>
@@ -204,78 +228,56 @@
 
     <br>
     <br>
-    <section >
+    <section>
         <div class="container py-5 mt-md-5">
             <div class="blog-header d-flex justify-content-between align-items-center ">
                 <div class="blog-header-text">
-                    <small class="section-sub m-color " style="font-family: 'Cormorant Garamond', serif;">Our Blogs</small>
+                    <small class="section-sub m-color " style="font-family: 'Cormorant Garamond', serif;">Our
+                        Blogs</small>
                     <h1 class="blog-section-title m-color fw-bold">Latest Blog And Reads</h1>
                 </div>
                 <a href="#" class="btn-view btn btn-info border-0">View All Reads
                     <svg width="14" height="14" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M11.5 1.5L19 9L11.5 1.5ZM19 9L11.5 16.5L19 9ZM19 9L1 9L19 9Z" fill="#2E2D29"/>
-                                            <path d="M11.5 1.5L19 9M19 9L11.5 16.5M19 9L1 9" stroke="#2E2D29" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </svg>
-                    </a>
+                        <path d="M11.5 1.5L19 9L11.5 1.5ZM19 9L11.5 16.5L19 9ZM19 9L1 9L19 9Z" fill="#2E2D29" />
+                        <path d="M11.5 1.5L19 9M19 9L11.5 16.5M19 9L1 9" stroke="#2E2D29" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </a>
             </div>
 
             <div class="row g-4 mt-3">
-                <!-- Blog Card 1 -->
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="blog-card">
-                        <img src="/public/asset/images/blog1.png" class="blog-card-img" alt="Reiki">
-                        <div class="blog-card-body">
-                            <div class="whitedark">
-                                <span class="tag">10 mins read</span>
-                                <span class="">T/N</span>
-                            </div>
-                            <h5 class="blog-card-title">Reiki for Chakra Balancing</h5>
-                            <p class="blog-card-text">Explore the transformative effects of Reiki in balancing your chakras. Discover how this power...</p>
-                            <div class="blog-card-footer">
-                                <a href="#" class="blog-membership-btn">our monthly membership</a>
-                                <a href="#" class="blog-read-more">Read More</a>
+                <Swiper ref="swiperRef" :slides-per-view="3" :space-between="20" :loop="true"
+                    :autoplay="{ delay: 3000 }" :breakpoints="{
+                        0: { slidesPerView: 1 },      // Mobile
+                        768: { slidesPerView: 2 },    // Tablet
+                        1024: { slidesPerView: 3 }    // Desktop
+                    }" class="mySwiper">
+                    <!-- Blog Card 1 -->
+                    <SwiperSlide class="col-lg-4 col-md-6 col-sm-12" v-for="(blog, index) in blogs" :key="blog.id">
+                        <div class="blog-card">
+                            <img :src="blog?.image ? '/storage/' + blog.image : '/default-image.png'"
+                                class="blog-card-img" alt="Reiki">
+                            <div class="blog-card-body">
+                                <div class="whitedark w-100">
+                                    <span class="tag">{{ blog.time }} read</span>
+                                    <span class="">T/N</span>
+                                </div>
+                                <h5 class="blog-card-title">{{ blog.title }}</h5>
+                                <p class="blog-card-text">{{ blog.description }}</p>
+                                <div class="blog-card-footer">
+                                    <a href="#" class="blog-membership-btn">
+                                        {{ blog.subscription }}
+                                    </a>
+                                    <router-link :to="`/blog/${blog.id}`" class="blog-read-more">Read More</router-link>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    </SwiperSlide>
+                </Swiper>
 
-                <!-- Blog Card 2 -->
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="blog-card">
-                        <img src="/public/asset/images/blog2.png" class="blog-card-img" alt="Meditation">
-                        <div class="blog-card-body">
-                            <div class="whitedark">
-                                <span class="tag">8 mins read</span>
-                                <span class="">T/N</span>
-                            </div>
-                            <h5 class="blog-card-title">Meditation for Inner Peace</h5>
-                            <p class="blog-card-text">Discover the ancient practice of meditation and its profound effects on mental clarity and emotional wellbeing...</p>
-                            <div class="blog-card-footer">
-                                <a href="#" class="blog-membership-btn">our monthly membership</a>
-                                <a href="#" class="blog-read-more">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- Blog Card 3 -->
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <div class="blog-card">
-                        <img src="/public/asset/images/blog3.png" class="blog-card-img" alt="Ayurveda">
-                        <div class="blog-card-body">
-                            <div class="whitedark">
-                                <span class="tag">12 mins read</span>
-                                <span class="">T/N</span>
-                            </div>
-                            <h5 class="blog-card-title">Ayurveda for Wellness</h5>
-                            <p class="blog-card-text">Learn about the ancient Indian system of medicine and how it can help you achieve optimal health and balance...</p>
-                            <div class="blog-card-footer">
-                                <a href="#" class="blog-membership-btn">our monthly membership</a>
-                                <a href="#" class="blog-read-more">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+
 
             </div>
         </div>
@@ -297,6 +299,7 @@ import cardicon3 from '/public/asset/images/cardicon3.svg';
 
 const doctors = ref(null);
 const swiperRef = ref(null);
+const blogs = ref(null)
 
 // Function to get doctor image based on index
 const getDoctorImage = (index) => {
@@ -324,6 +327,16 @@ onMounted(async () => {
 
     } catch (error) {
         console.error('Doctor APi'.error);
+
+    }
+});
+onMounted(async () => {
+    try {
+        const res = await axios.get('/api/blogs');
+        blogs.value = res.data;
+
+    } catch (error) {
+        console.error('blogs APi'.error);
 
     }
 });
