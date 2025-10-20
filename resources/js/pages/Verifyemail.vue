@@ -1,6 +1,9 @@
 <template>
     <div class="d-flex justify-content-center align-items-center vh-100 bg-light">
         <div class="bg-white p-5 rounded-4 shadow-sm">
+            <div>
+                <button class="btn main-btn" @click="logout">logout</button>
+            </div>
             <div class="text-center">
                 <div class="">
                     <router-link to="/"><img src="/public/asset/images/dark-logo.png" alt="Logo" class="img-fluid"
@@ -69,12 +72,16 @@ export default {
         alert("❌ Not verified yet. Please check your inbox.");
       }
     }
+        async function logout() {
+            auth.logout();
+        }
 
     return {
       auth,
       verified,
       refreshUser,
       resend,
+        logout,
     };
   },
 };

@@ -16,8 +16,6 @@ class AuthController extends Controller
         // dd($request->all());
         $data = $request->validate([
             'name' => 'required|string|max:255',
-            'last_name' => 'required|string|max:255',
-            'phone' => 'required|string|max:255',
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|min:2|confirmed',
@@ -25,17 +23,15 @@ class AuthController extends Controller
 
         $user = User::create([
             'name' => $data['name'],
-            'last_name' => $data['last_name'],
-            'number' => $data['phone'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
 
         $user->sendEmailVerificationNotification();
-        $token = $user->createToken('auth_token')->plainTextToken;
+        // $token = $user->createToken('auth_token')->plainTextToken;
 
         return response()->json([
-            'access_token' => $token,
+            // 'access_token' => $token,
             'token_type' => 'Bearer',
             'user' => $user,
         ], 201);

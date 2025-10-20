@@ -18,6 +18,7 @@ import DoctorFind from '../pages/DoctorFind.vue';
 import Verifyemail from '../pages/Verifyemail.vue';
 import Verifyemailcomplete from '../pages/Verifyemailcomplete.vue';
 import blog from '../pages/blog.vue';
+import Allblog from '../pages/Allblog.vue';
 
 
 import Docter from '../pages/docter.vue'
@@ -72,6 +73,7 @@ const routes = [
     { path: '/Verifyemail', name: 'Verifyemail', component: Verifyemail, meta: { hideFooter: true, hideNav: true, } },
     { path: '/Verifyemailcomplete', name: 'Verifyemailcomplete', component: Verifyemailcomplete, meta: { hideFooter: true, hideNav: true, } },
     { path: '/blog/:id', name: 'blog', component: blog, },
+    { path: '/Allblog', name: 'Allblog', component: Allblog, },
 
 
     // update User profile
@@ -85,9 +87,6 @@ const routes = [
             { path: 'bookings', name: 'bookings', component: bookings },
             { path: 'Settings', name: 'Settings', component: Settings },
             { path: 'Packages', name: 'Packages', component: Packages },
-
-
-
         ]
     },
     {
@@ -121,7 +120,6 @@ router.beforeEach((to, from, next) => {
     const auth = useAuthStore();
 
     if (to.meta.requiresAuth && !auth.user) {
-        // not logged in → redirect login
         next({ name: "Login" });
         if (auth.user && !auth.user.email_verified_at && to.meta.requiresAuth) {
             next({ name: "Verifyemail" });

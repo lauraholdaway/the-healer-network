@@ -27,7 +27,7 @@ body {
     background-color: #FFFFFF;
     color: #333;
     overflow-x: hidden;
-   
+
 }
 
 h1,
@@ -342,7 +342,7 @@ b {
     margin-bottom: 10px;
     /* line-height: 48px; */
     width: 320px;
-  
+
 }
 
 .heading-text {
@@ -350,7 +350,7 @@ b {
     color: #5e5e5e;
     margin-bottom: 40px;
     max-width: 320px;
-  
+
 }
 
 .therapy-box {
@@ -751,7 +751,7 @@ b {
 }
 
 .card-img-top {
-   
+
     height: 400px;
     width: 400px;
     margin: 0 auto;
@@ -785,14 +785,14 @@ b {
     font-family: 'Cormorant Garamond', serif !important;
     font-weight: 500;
     transition: all 0.3s ease;
-  
+
 }
 
 .btn-book:hover {
     background-color: #E8E0D3;
     color: #2E2D29;
     transform: translateY(-2px);
-    
+
 }
 
 .btn-join-us {
@@ -1185,15 +1185,15 @@ footer ul li a:hover {
         flex-direction: column;
         gap: 10px;
     }
-    
+
     .practitioner-name {
         font-size: 24px;
     }
-    
+
     .action-buttons {
         flex-direction: column;
     }
-    
+
     .book-session-btn,
     .view-profile-btn {
         text-align: center;
@@ -1213,7 +1213,7 @@ footer ul li a:hover {
 }
 .btn-outline-custome:hover {
     border: 1px solid #C1B39D;
-    
+
     border-radius: 30px;
 }
 
@@ -1316,7 +1316,7 @@ footer ul li a:hover {
 
 .form-control::placeholder {
     color: #DED1BA !important;
-    
+
     font-size: 14px !important;
     font-family: 'Cormorant Garamond', serif !important;
 }
