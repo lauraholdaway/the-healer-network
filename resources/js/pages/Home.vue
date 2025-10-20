@@ -236,13 +236,13 @@
                         Blogs</small>
                     <h1 class="blog-section-title m-color fw-bold">Latest Blog And Reads</h1>
                 </div>
-                <a href="#" class="btn-view btn btn-info border-0">View All Reads
+                <router-link to="/Allblog" class="btn-view btn btn-info border-0">View All Reads
                     <svg width="14" height="14" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M11.5 1.5L19 9L11.5 1.5ZM19 9L11.5 16.5L19 9ZM19 9L1 9L19 9Z" fill="#2E2D29" />
                         <path d="M11.5 1.5L19 9M19 9L11.5 16.5M19 9L1 9" stroke="#2E2D29" stroke-width="1.5"
                             stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
-                </a>
+                </router-link>
             </div>
 
             <div class="row g-4 mt-3">
