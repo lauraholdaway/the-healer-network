@@ -3,7 +3,7 @@
         <div class="container my-3 my-md-5 px-2 px-md-3">
 
             <div class="container my-3 my-md-5 text-center px-2">
-                <h1 class="fw-bold m-color mt-3 fs-3 fs-md-1">Book A Session</h1>
+                <h1 class="fw-bold m-color mt-3 fs-3 fs-md-1" style="font-family: 'Cormorant Garamond', serif !important; color: #2E2D29 ;">Book A Session</h1>
                 <p class="m-color px-2 px-md-0" style="color: #5B4C3A; font-size: 14px;">Embark on a transformative journey to rejuvenate your body, mind, and spirit. Whether
                     you're aiming to detox, break free from unhelpful habits, or elevate your overall well-being, we
                     offer tailored sessions to support your unique needs and goals.</p>
@@ -16,10 +16,15 @@
             <div class="my-4 my-md-5 px-2 px-md-5">
                 <div class="d-flex flex-wrap gap-2">
                     <button class="btn btn-outline-success border-0 rounded-5 text-white mb-2" @click="GetDoctorByModality('')"
-                        style="background-color: #C1B39D; height: 40px; display: inline-flex; align-items: center; white-space: nowrap; padding: 0 15px;">View ALL</button>
+                        style="background-color: #C1B39D; height: 40px; display: inline-flex; align-items: center; white-space: nowrap; padding: 0 15px; transition: all 0.3s ease;" 
+                        onmouseover="this.style.backgroundColor='#5B4C3A'" 
+                        onmouseout="this.style.backgroundColor='#C1B39D'">View ALL</button>
 
                     <button v-for="modalitie in modalities" @click="GetDoctorByModality(modalitie.id)"
-                        class="btn btn-outline-success btn-outline-custome mb-2">{{
+                        class="btn btn-outline-success btn-outline-custome mb-2"
+                        style="transition: all 0.3s ease;"
+                        onmouseover="this.style.backgroundColor='#5B4C3A'; this.style.color='white'; this.style.borderColor='#5B4C3A'" 
+                        onmouseout="this.style.backgroundColor='transparent'; this.style.color='#4B4032'; this.style.borderColor='#C1B39D'">{{
                         modalitie?.title }}</button>
                 </div>
             </div>
