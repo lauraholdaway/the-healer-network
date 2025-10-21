@@ -24,6 +24,10 @@ class Appointment extends Model
         'country',
         'zoom_join_url',
         'zoom_start_url',
+        'type',
+        'payment_method',
+        'zip',
+        'timezone',
     ];
 
     public function doctor()
