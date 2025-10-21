@@ -71,6 +71,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::delete('/doctor/deletecertificate/{id}', [DoctorController::class, 'deleteCertificate']);
 
     Route::post('/doctor/update-image', [DoctorController::class, 'updateImage']);
+    Route::post('/update-password', [DoctorController::class, 'updatepassword']);
 
     Route::post('/doctor/packages', [DoctorSessionController::class, 'savePackages']);
 

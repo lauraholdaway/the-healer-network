@@ -24,6 +24,7 @@ const socialMediaHandle = ref("");
 const website = ref("");
 const languages = ref("");
 const price = ref("");
+const currency = ref("");
 const modalities = ref("");
 const practicingSince = ref("");
 const clientsPerMonth = ref("");
@@ -63,6 +64,7 @@ async function getProfile() {
         website.value = docData.website ?? "";
         languages.value = docData.languages ?? "";
         price.value = docData.price ?? "";
+        currency.value = docData.currency ?? "";
 
         console.log(docData.modalities);
         if (Array.isArray(docData.modalities)) {
@@ -97,6 +99,7 @@ async function updateProfile() {
             website: website.value,
             languages: languages.value,
             price: price.value,
+            currency: currency.value,
             modalities: modalities.value,
             about: about.value,
             practicing_since: practicingSince.value,
@@ -215,26 +218,33 @@ onMounted(() => {
                     <div class="outer-circle">
                         <!-- Inner Circle -->
                         <div class="inner-circle">
-                            <img v-if="preview || user?.image" 
-                                :src="preview || (user?.image ? '/storage/' + user.image : '/default-avatar.png')" 
-                                alt="Doctor Image" 
-                                class="profile-image" 
-                            />
-                            <svg v-else xmlns="http://www.w3.org/2000/svg" class="user-icon-svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                                <path fill-rule="evenodd" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" clip-rule="evenodd" />
+                            <img v-if="preview || user?.image"
+                                :src="preview || (user?.image ? '/storage/' + user.image : '/default-avatar.png')"
+                                alt="Doctor Image" class="profile-image" />
+                            <svg v-else xmlns="http://www.w3.org/2000/svg" class="user-icon-svg" viewBox="0 0 24 24"
+                                fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd"
+                                    d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
+                                    clip-rule="evenodd" />
                             </svg>
                         </div>
                     </div>
                     <!-- Upload Button -->
                     <button @click="triggerFileInput" class="upload-button" type="button">
-                        <svg width="21" height="18" viewBox="0 0 21 18" fill="none" xmlns="http://www.w3.org/2000/svg" class="camera-icon">
-                            <path d="M3.5 4H4.5C5.03043 4 5.53914 3.78929 5.91421 3.41421C6.28929 3.03914 6.5 2.53043 6.5 2C6.5 1.73478 6.60536 1.48043 6.79289 1.29289C6.98043 1.10536 7.23478 1 7.5 1H13.5C13.7652 1 14.0196 1.10536 14.2071 1.29289C14.3946 1.48043 14.5 1.73478 14.5 2C14.5 2.53043 14.7107 3.03914 15.0858 3.41421C15.4609 3.78929 15.9696 4 16.5 4H17.5C18.0304 4 18.5391 4.21071 18.9142 4.58579C19.2893 4.96086 19.5 5.46957 19.5 6V15C19.5 15.5304 19.2893 16.0391 18.9142 16.4142C18.5391 16.7893 18.0304 17 17.5 17H3.5C2.96957 17 2.46086 16.7893 2.08579 16.4142C1.71071 16.0391 1.5 15.5304 1.5 15V6C1.5 5.46957 1.71071 4.96086 2.08579 4.58579C2.46086 4.21071 2.96957 4 3.5 4Z" stroke="#5B4C3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            <path d="M7.5 10C7.5 10.7956 7.81607 11.5587 8.37868 12.1213C8.94129 12.6839 9.70435 13 10.5 13C11.2956 13 12.0587 12.6839 12.6213 12.1213C13.1839 11.5587 13.5 10.7956 13.5 10C13.5 9.20435 13.1839 8.44129 12.6213 7.87868C12.0587 7.31607 11.2956 7 10.5 7C9.70435 7 8.94129 7.31607 8.37868 7.87868C7.81607 8.44129 7.5 9.20435 7.5 10Z" stroke="#5B4C3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <svg width="21" height="18" viewBox="0 0 21 18" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            class="camera-icon">
+                            <path
+                                d="M3.5 4H4.5C5.03043 4 5.53914 3.78929 5.91421 3.41421C6.28929 3.03914 6.5 2.53043 6.5 2C6.5 1.73478 6.60536 1.48043 6.79289 1.29289C6.98043 1.10536 7.23478 1 7.5 1H13.5C13.7652 1 14.0196 1.10536 14.2071 1.29289C14.3946 1.48043 14.5 1.73478 14.5 2C14.5 2.53043 14.7107 3.03914 15.0858 3.41421C15.4609 3.78929 15.9696 4 16.5 4H17.5C18.0304 4 18.5391 4.21071 18.9142 4.58579C19.2893 4.96086 19.5 5.46957 19.5 6V15C19.5 15.5304 19.2893 16.0391 18.9142 16.4142C18.5391 16.7893 18.0304 17 17.5 17H3.5C2.96957 17 2.46086 16.7893 2.08579 16.4142C1.71071 16.0391 1.5 15.5304 1.5 15V6C1.5 5.46957 1.71071 4.96086 2.08579 4.58579C2.46086 4.21071 2.96957 4 3.5 4Z"
+                                stroke="#5B4C3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                            <path
+                                d="M7.5 10C7.5 10.7956 7.81607 11.5587 8.37868 12.1213C8.94129 12.6839 9.70435 13 10.5 13C11.2956 13 12.0587 12.6839 12.6213 12.1213C13.1839 11.5587 13.5 10.7956 13.5 10C13.5 9.20435 13.1839 8.44129 12.6213 7.87868C12.0587 7.31607 11.2956 7 10.5 7C9.70435 7 8.94129 7.31607 8.37868 7.87868C7.81607 8.44129 7.5 9.20435 7.5 10Z"
+                                stroke="#5B4C3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                         <span class="upload-text">Upload Image</span>
                     </button>
                     <!-- Hidden Input -->
-                    <input type="file" ref="fileInput" @change="handleImageUpload" accept="image/*" class="hidden-input" />
+                    <input type="file" ref="fileInput" @change="handleImageUpload" accept="image/*"
+                        class="hidden-input" />
                 </div>
                 <!-- Update Image Button
                 <div class="mt-3">
@@ -298,9 +308,16 @@ onMounted(() => {
                         <label class="form-label">Website</label>
                         <input v-model="website" type="text" class="form-control" />
                     </div>
-                    <div class="mb-3 col-md-6">
+                    <div class="mb-3 col-md-4">
                         <label class="form-label">Price</label>
                         <input v-model="price" type="text" class="form-control" />
+                    </div>
+                    <div class="mb-3 col-md-2">
+                        <label class="form-label">currency</label>
+                        <select v-model="currency" class="form-control">
+                            <option value="US">US</option>
+                            <option value="USD">USD</option>
+                        </select>
                     </div>
 
                 </div>

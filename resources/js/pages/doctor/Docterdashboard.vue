@@ -55,10 +55,7 @@ function logout() {
 <template>
     <section>
         <!-- Mobile Hamburger Button -->
-        <button 
-            v-if="auth.user.status === 1"
-            class="mobile-menu-toggle" 
-            @click="toggleSidebar" 
+        <button v-if="auth.user.status === 1" class="mobile-menu-toggle" @click="toggleSidebar"
             :class="{ active: sidebarOpen }">
             <span></span>
             <span></span>
@@ -66,10 +63,7 @@ function logout() {
         </button>
 
         <!-- Mobile Sidebar Overlay -->
-        <div 
-            v-if="auth.user.status === 1"
-            class="sidebar-overlay" 
-            :class="{ active: sidebarOpen }" 
+        <div v-if="auth.user.status === 1" class="sidebar-overlay" :class="{ active: sidebarOpen }"
             @click="closeSidebar"></div>
 
         <div class="container-fluid userdashboard-container p-0" v-if="auth.user.status === 1">
@@ -78,9 +72,7 @@ function logout() {
                 <div class="col-md-3 sidebar-wrapper" :class="{ active: sidebarOpen }">
                     <div class="userdashboard-card text-center">
                         <div class="userdashboard-menu">
-                            <router-link 
-                                to="/Docterdashboard" 
-                                exact
+                            <router-link to="/Docterdashboard" exact
                                 class="btn menu-btn d-flex align-items-center justify-content-between"
                                 @click="closeSidebar">
                                 <span class="d-flex align-items-center gap-2">
@@ -89,9 +81,16 @@ function logout() {
                                 </span>
                             </router-link>
 
-                            <router-link 
-                                to="/Docterdashboard/Myservice"
-                                exact
+                            <router-link to="/Docterdashboard/UserBooking" exact
+                                class="btn menu-btn d-flex align-items-center justify-content-between"
+                                @click="closeSidebar">
+                                <span class="d-flex align-items-center gap-2">
+                                    <img :src="ICONS.package" alt="My Services" class="menu-icon" />
+                                    <span>User Appointment </span>
+                                </span>
+                            </router-link>
+
+                            <router-link to="/Docterdashboard/Myservice" exact
                                 class="btn menu-btn d-flex align-items-center justify-content-between"
                                 @click="closeSidebar">
                                 <span class="d-flex align-items-center gap-2">
@@ -100,9 +99,9 @@ function logout() {
                                 </span>
                             </router-link>
 
-                            <router-link 
-                                to="/Docterdashboard/Inbox"
-                                exact
+
+
+                            <router-link to="/Docterdashboard/Inbox" exact
                                 class="btn menu-btn d-flex align-items-center justify-content-between"
                                 @click="closeSidebar">
                                 <span class="d-flex align-items-center gap-2">
@@ -111,9 +110,7 @@ function logout() {
                                 </span>
                             </router-link>
 
-                            <router-link 
-                                to="/Docterdashboard/Doctorprofile"
-                                exact
+                            <router-link to="/Docterdashboard/Doctorprofile" exact
                                 class="btn menu-btn d-flex align-items-center justify-content-between"
                                 @click="closeSidebar">
                                 <span class="d-flex align-items-center gap-2">
@@ -121,19 +118,18 @@ function logout() {
                                     <span>My Profile</span>
                                 </span>
                             </router-link>
-
-                            <button
+                            <router-link to="/Docterdashboard/Seeting" exact
                                 class="btn menu-btn d-flex align-items-center justify-content-between"
-                                style="opacity: 0.6; cursor: not-allowed;"
-                                disabled>
+                                @click="closeSidebar">
                                 <span class="d-flex align-items-center gap-2">
-                                    <img :src="ICONS.settings" alt="Settings" class="menu-icon" />
-                                    <span>Settings (Coming Soon)</span>
+                                    <img :src="ICONS.settings" alt="My Profile" class="menu-icon" />
+                                    <span>Settings</span>
                                 </span>
-                            </button>
+                            </router-link>
 
-                            <button 
-                                @click="showModal = true; closeSidebar()" 
+
+
+                            <button @click="showModal = true; closeSidebar()"
                                 class="btn menu-btn logout-btn d-flex align-items-center justify-content-between">
                                 <span class="d-flex align-items-center gap-2">
                                     <img :src="ICONS.logout" alt="Logout" class="menu-icon" />
@@ -175,7 +171,9 @@ function logout() {
                 <div class="modal-icon">
                     <svg width="80" height="80" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <rect width="100" height="100" rx="50" fill="#F4EFE6" />
-                        <path d="M45.9997 33.9995H50.0336C53.8375 33.9995 55.7395 33.9995 56.9195 35.1715C57.5795 35.8235 57.8714 36.6994 57.9994 37.9994M45.9997 65.9988H50.0336C53.8375 65.9988 55.7395 65.9988 56.9195 64.8268C57.5795 64.1749 57.8714 63.2989 57.9994 61.9989M65.9993 49.9992H51.9996M62.9993 44.9993C62.9993 44.9993 67.9992 48.6792 67.9992 49.9992C67.9992 51.3191 62.9993 54.9991 62.9993 54.9991M32.786 33.9995C32 35.2335 32 36.8254 32 40.0074V59.9949C32 63.1769 32 64.7688 32.786 65.9988C32.926 66.2188 33.0826 66.4268 33.256 66.6228C34.222 67.7148 35.7539 68.1528 38.8159 69.0268C41.8818 69.9027 43.4158 70.3407 44.5277 69.6847C44.7202 69.5704 44.8994 69.4349 45.0617 69.2807C45.9997 68.3908 45.9997 66.7988 45.9997 63.6049V36.3934C45.9997 33.2015 45.9997 31.6076 45.0617 30.7196C44.8994 30.5654 44.7202 30.4299 44.5277 30.3156C43.4178 29.6596 41.8818 30.0956 38.8139 30.9736C35.7539 31.8475 34.222 32.2855 33.254 33.3775C33.082 33.573 32.9255 33.7796 32.786 33.9995Z" stroke="#8A7356" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+                        <path
+                            d="M45.9997 33.9995H50.0336C53.8375 33.9995 55.7395 33.9995 56.9195 35.1715C57.5795 35.8235 57.8714 36.6994 57.9994 37.9994M45.9997 65.9988H50.0336C53.8375 65.9988 55.7395 65.9988 56.9195 64.8268C57.5795 64.1749 57.8714 63.2989 57.9994 61.9989M65.9993 49.9992H51.9996M62.9993 44.9993C62.9993 44.9993 67.9992 48.6792 67.9992 49.9992C67.9992 51.3191 62.9993 54.9991 62.9993 54.9991M32.786 33.9995C32 35.2335 32 36.8254 32 40.0074V59.9949C32 63.1769 32 64.7688 32.786 65.9988C32.926 66.2188 33.0826 66.4268 33.256 66.6228C34.222 67.7148 35.7539 68.1528 38.8159 69.0268C41.8818 69.9027 43.4158 70.3407 44.5277 69.6847C44.7202 69.5704 44.8994 69.4349 45.0617 69.2807C45.9997 68.3908 45.9997 66.7988 45.9997 63.6049V36.3934C45.9997 33.2015 45.9997 31.6076 45.0617 30.7196C44.8994 30.5654 44.7202 30.4299 44.5277 30.3156C43.4178 29.6596 41.8818 30.0956 38.8139 30.9736C35.7539 31.8475 34.222 32.2855 33.254 33.3775C33.082 33.573 32.9255 33.7796 32.786 33.9995Z"
+                            stroke="#8A7356" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                 </div>
                 <h4 class="modal-title">Logout</h4>

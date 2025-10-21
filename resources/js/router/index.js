@@ -38,6 +38,7 @@ import AddService from '../pages/doctor/AddService.vue';
 import EditService from '../pages/doctor/EditService.vue';
 import Inbox from '../pages/doctor/Inbox.vue';
 import ViewAppointment from '../pages/doctor/ViewAppointment.vue';
+import Seeting from '../pages/doctor/Seeting.vue';
 
 
 // Update User
@@ -103,6 +104,7 @@ const routes = [
             { path: 'AddService', name: 'AddService', component: AddService, meta: { hideNav: true, hideFooter: true, requiresAuth: true } },
             { path: 'EditService/:id', name: 'EditService', component: EditService, meta: { hideNav: true, hideFooter: true, requiresAuth: true, props: true } },
             { path: 'Inbox', name: 'Inbox', component: Inbox, meta: { hideNav: true, hideFooter: true, requiresAuth: true, props: true } },
+            { path: 'Seeting', name: 'Seeting', component: Seeting, meta: { hideNav: true, hideFooter: true, requiresAuth: true, props: true } },
         ]
     }
 
