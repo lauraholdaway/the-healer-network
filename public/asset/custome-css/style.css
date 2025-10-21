@@ -1074,9 +1074,9 @@ footer ul li a:hover {
 }
 
 .practitioner-name {
-    font-family: 'Cormorant Garamond', serif !important;
+    /* font-family: 'Cormorant Garamond', serif !important; */
     font-size: 28px;
-    font-weight: 400;
+    font-weight: 500;
     color: #2E2D29;
     margin: 0;
     line-height: 1.2;
