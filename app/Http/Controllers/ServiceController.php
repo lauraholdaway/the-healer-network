@@ -31,6 +31,7 @@ public function store(Request $request)
         'currency' => 'required|string|max:10',
         'ideal_for' => 'nullable|string|max:255',
         'session_type' => 'required|string|max:50',
+        'image_url' => 'nullable|string|max:500',
     ]);
 
     // Add doctor_id manually
@@ -56,6 +57,7 @@ public function store(Request $request)
             'currency' => 'required|string|max:10',
             'ideal_for' => 'nullable|string|max:255',
             'session_type' => 'required|string|max:50',
+            'image_url' => 'nullable|string|max:500',
         ]);
 
         $service->update($validated);

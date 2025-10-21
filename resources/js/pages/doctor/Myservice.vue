@@ -1,29 +1,35 @@
 <template>
-    <section>
-        <div class="container">
-            <div class="mt-4 d-flex justify-content-between">
-                <div>
-                    <h4 class="fw-bold">
-                    <svg width="21" height="26" viewBox="0 0 21 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M6.42857 3.66667H3.71429C2.99441 3.66667 2.30402 3.94762 1.795 4.44772C1.28597 4.94781 1 5.62609 1 6.33333V22.3333C1 23.0406 1.28597 23.7189 1.795 24.219C2.30402 24.719 2.99441 25 3.71429 25H17.2857C18.0056 25 18.696 24.719 19.205 24.219C19.714 23.7189 20 23.0406 20 22.3333V6.33333C20 5.62609 19.714 4.94781 19.205 4.44772C18.696 3.94762 18.0056 3.66667 17.2857 3.66667H14.5714M6.42857 3.66667C6.42857 2.95942 6.71454 2.28115 7.22357 1.78105C7.73259 1.28095 8.42298 1 9.14286 1H11.8571C12.577 1 13.2674 1.28095 13.7764 1.78105C14.2855 2.28115 14.5714 2.95942 14.5714 3.66667M6.42857 3.66667C6.42857 4.37391 6.71454 5.05219 7.22357 5.55229C7.73259 6.05238 8.42298 6.33333 9.14286 6.33333H11.8571C12.577 6.33333 13.2674 6.05238 13.7764 5.55229C14.2855 5.05219 14.5714 4.37391 14.5714 3.66667M6.42857 13H6.44214M11.8571 13H14.5714M6.42857 18.3333H6.44214M11.8571 18.3333H14.5714"
-                            stroke="#8A7356" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                    </svg>
-                    My Services
-                </h4>
+    <section class="my-services-page">
+        <!-- White Card Container -->
+        <div class="content-card">
+            <!-- Header Section -->
+            <div class="services-header">
+                <div class="header-left">
+                    <h1 class="page-title">
+                        <svg width="21" height="26" viewBox="0 0 21 26" fill="none" xmlns="http://www.w3.org/2000/svg" class="title-icon">
+                            <path
+                                d="M6.42857 3.66667H3.71429C2.99441 3.66667 2.30402 3.94762 1.795 4.44772C1.28597 4.94781 1 5.62609 1 6.33333V22.3333C1 23.0406 1.28597 23.7189 1.795 24.219C2.30402 24.719 2.99441 25 3.71429 25H17.2857C18.0056 25 18.696 24.719 19.205 24.219C19.714 23.7189 20 23.0406 20 22.3333V6.33333C20 5.62609 19.714 4.94781 19.205 4.44772C18.696 3.94762 18.0056 3.66667 17.2857 3.66667H14.5714M6.42857 3.66667C6.42857 2.95942 6.71454 2.28115 7.22357 1.78105C7.73259 1.28095 8.42298 1 9.14286 1H11.8571C12.577 1 13.2674 1.28095 13.7764 1.78105C14.2855 2.28115 14.5714 2.95942 14.5714 3.66667M6.42857 3.66667C6.42857 4.37391 6.71454 5.05219 7.22357 5.55229C7.73259 6.05238 8.42298 6.33333 9.14286 6.33333H11.8571C12.577 6.33333 13.2674 6.05238 13.7764 5.55229C14.2855 5.05219 14.5714 4.37391 14.5714 3.66667M6.42857 13H6.44214M11.8571 13H14.5714M6.42857 18.3333H6.44214M11.8571 18.3333H14.5714"
+                                stroke="#8A7356" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        My Services
+                    </h1>
                 </div>
-                <div>
-                    <router-link to="/Docterdashboard/AddService" class="btn  main-btn">Add New Service</router-link>
+                <div class="header-right">
+                    <router-link to="/Docterdashboard/AddService" class="add-service-btn">
+                        Add New Service
+                    </router-link>
                 </div>
             </div>
             <hr>
-            <div class="row">
-                <div class="col-md-6" v-for="s in services" :key="s.id">
-                    <div class="card">
-                        <div class="d-flex justify-content-between">
-                            <div>
-                                <svg width="38" height="40" viewBox="0 0 38 40" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
+        
+          
+            <!-- Services Grid -->
+            <div class="services-grid">
+                <div class="service-card" v-for="s in services" :key="s.id">
+                    <!-- Card Header with Icon, Rate, and Actions -->
+                    <div class="card-header">
+                        <div class="rate-section">
+                            <svg width="38" height="40" viewBox="0 0 38 40" fill="none" xmlns="http://www.w3.org/2000/svg" class="brain-icon">
                                 <g clip-path="url(#clip0_261_6855)">
                                     <path
                                         d="M8.35925 18.4822C8.60496 17.254 9.17639 16.4828 9.21639 16.437C9.44496 16.14 9.89067 16.0658 10.2107 16.2829C10.5307 16.4942 10.5878 16.9055 10.3764 17.214C10.0221 17.7224 9.55923 19.0934 9.77066 20.3045C9.9878 21.5098 10.3535 22.4867 12.3592 22.8466C13.6335 23.075 13.7592 24.0519 13.8507 24.766C13.9535 25.5486 14.0792 26.5254 15.2907 27.5937C15.7707 28.0164 16.3821 28.3306 17.0278 28.6619C17.3478 28.8276 17.685 28.999 18.0164 29.1932C18.5135 28.1307 18.9307 26.3141 18.8964 25.2287C18.8564 23.8863 18.3878 22.601 17.5535 21.5212L17.3707 21.287L17.4278 21.0014C17.5307 20.4988 17.5707 19.9846 17.5592 19.4819C17.3078 19.5675 16.9821 19.619 16.6564 19.619C15.2907 19.6075 14.245 19.082 13.5307 18.2309C12.3078 16.7684 12.5878 15.1404 12.645 14.2891C12.7021 13.438 12.7535 12.7582 12.8564 11.7985C13.0164 10.3075 13.2107 8.45096 13.0621 7.79402C12.5992 5.76607 11.5535 5.80035 11.1592 5.81178C10.765 5.82321 10.4392 5.53758 10.4278 5.16626C10.4164 4.79494 10.725 4.48646 11.1192 4.47503C12.1021 4.44647 13.8392 4.79493 14.4564 7.50839C14.6507 8.37098 14.4564 10.1762 14.2735 11.9242C14.1707 12.8839 14.085 13.5751 14.0678 14.352C14.0507 15.1232 13.925 16.5513 14.6564 17.4025C15.1135 17.9395 15.7935 18.2309 16.7421 18.2766C17.085 18.2993 17.8392 17.9567 18.245 17.2654C18.485 16.7285 18.605 16.1514 18.5821 15.563C18.5535 14.7005 18.2392 13.8779 17.6735 13.1924L17.325 12.7696L17.685 12.3584C18.3535 11.5929 18.7078 10.6331 18.6735 9.65057C18.645 8.82798 18.3592 8.03967 17.845 7.37701L17.525 6.9657L17.8621 6.56582C18.5021 5.80606 18.8335 4.86349 18.805 3.90378C18.7307 1.53308 17.0964 -0.0664297 14.8278 0.00212071C13.2621 0.0535335 12.0907 0.699048 11.4392 2.21287C9.8564 1.79586 8.00494 3.16687 7.58779 4.53788C7.15922 5.95459 7.4221 7.6512 9.21067 9.79343C9.47924 10.1133 9.75923 10.399 10.0564 10.6446C10.3478 10.8902 10.3764 11.313 10.1135 11.5871C9.97639 11.73 9.79353 11.8042 9.60495 11.8099C9.42781 11.8099 9.25068 11.7586 9.10782 11.6443C8.75354 11.3472 8.41066 11.0045 8.09066 10.6217C6.81066 9.09077 6.35354 7.35987 6.18782 6.19451C3.47925 8.04537 3.13068 11.4501 4.36496 13.3238C2.7821 15.7059 5.23923 18.6135 8.34781 18.4708L8.35925 18.4822Z"
@@ -44,26 +50,31 @@
                                     </clipPath>
                                 </defs>
                             </svg>
-                            <span class="px-2">Rate Per Session</span>
-                            <span class="px-2">$ {{ s.rate_per_session }}</span>
-                            </div>
-                            <div>
-                            <router-link :to="{ name: 'EditService', params: { id: s.id } }" style="background-color: #DED1BA;" class="btn btn-outline-info roudended-0 m-color border-0"><i class="bi bi-pencil"></i></router-link>
-                            <button  style="background-color: #DED1BA;" @click="deleteService(s.id)" class="btn btn-outline-info roudended-0 m-color border-0 mx-2"><i class="bi bi-trash3"></i></button>
-                            </div>
+                            <span class="rate-text">Rate Per Session $ {{ s.rate_per_session }}.00</span>
                         </div>
+                        <div class="action-buttons">
+                            <router-link :to="{ name: 'EditService', params: { id: s.id } }" class="action-btn edit-btn" title="Edit">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34c-.39-.39-1.02-.39-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z" fill="currentColor"/>
+                                </svg>
+                            </router-link>
+                            <button @click="deleteService(s.id)" class="action-btn delete-btn" title="Delete">
+                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6v12zM19 4h-3.5l-1-1h-5l-1 1H5v2h14V4z" fill="currentColor"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
 
-                        <div class="mt-4">
-                            <h4>
-                                {{ s.title }}
-                            </h4>
-                            <p>
-                                {{ s.description }}
-                            </p>
-                        </div>
-                        <div class="text-center p-2 rounded-2" style="background-color: #F4EFE6;">
-                            <p>{{ s.ideal_for }}</p>
-                        </div>
+                    <!-- Service Content -->
+                    <div class="service-content">
+                        <h3 class="service-title">{{ s.title }}</h3>
+                        <p class="service-description" v-html="formatDescription(s.description)"></p>
+                    </div>
+
+                    <!-- Ideal For Section -->
+                    <div class="ideal-for-section">
+                        <p class="ideal-for-text">{{ s.ideal_for }}</p>
                     </div>
                 </div>
             </div>
@@ -87,6 +98,290 @@ const deleteService = async (id) => {
     fetchServices()
   }
 }
+
+const formatDescription = (description) => {
+  if (!description) return ''
+  
+  // Keywords to highlight
+  const keywords = ['trauma', 'relationships', 'ADHD', 'anxiety', 'depression', 'stress']
+  
+  let formattedDesc = description
+  
+  // Highlight keywords with underline
+  keywords.forEach(keyword => {
+    const regex = new RegExp(`\\b${keyword}\\b`, 'gi')
+    formattedDesc = formattedDesc.replace(regex, `<span class="highlighted-keyword">${keyword}</span>`)
+  })
+  
+  // Add "See more" if description is long
+  if (description.length > 100) {
+    formattedDesc = formattedDesc.substring(0, 100) + '... <span class="see-more">See more</span>'
+  }
+  
+  return formattedDesc
+}
+
 onMounted(fetchServices)
 
 </script>
+
+<style scoped>
+/* Main Page Container */
+.my-services-page {
+    padding: 20px;
+    background: transparent;
+    min-height: 100vh;
+}
+
+/* White Card Container */
+.content-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 30px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+/* Header Section */
+.services-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.page-title {
+    font-size: 28px;
+    font-weight: 600;
+    color: #8A7356;
+    margin: 0;
+    font-style: italic;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.title-icon {
+    width: 21px;
+    height: 26px;
+}
+
+.add-service-btn {
+    background: #8A7356;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.add-service-btn:hover {
+    background: #5B4C3A;
+    color: white;
+    text-decoration: none;
+}
+
+/* Services Grid */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    max-width: 1200px;
+}
+
+/* Service Card */
+.service-card {
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 24px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid #DED1BA;
+}
+
+.service-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* Card Header */
+.card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.rate-section {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.brain-icon {
+    width: 38px;
+    height: 40px;
+}
+
+.rate-text {
+    color: #8A7356;
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.action-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.action-btn {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+    text-decoration: none;
+}
+
+.edit-btn {
+    /* background: #DED1BA; */
+    border: 1px solid #DED1BA;
+    color: #8A7356;
+}
+
+.edit-btn:hover {
+    background: #C1B39D;
+    color: #8A7356;
+    text-decoration: none;
+}
+
+.delete-btn {
+    border: 1px solid #DED1BA;
+    color: #8A7356;
+}
+
+.delete-btn:hover {
+    background: #C1B39D;
+    color: #8A7356;
+}
+
+/* Service Content */
+.service-content {
+    margin-bottom: 20px;
+}
+
+.service-title {
+    font-size: 20px;
+    font-weight: 600;
+    color: #5B4C3A;
+    margin: 0 0 12px 0;
+    font-style: italic;
+    line-height: 1.3;
+}
+
+.service-description {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.5;
+    margin: 0;
+}
+
+.highlighted-keyword {
+    text-decoration: underline;
+    color: #8A7356;
+    font-weight: 500;
+}
+
+.see-more {
+    color: #8A7356;
+    text-decoration: underline;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.see-more:hover {
+    color: #5B4C3A;
+}
+
+/* Ideal For Section */
+.ideal-for-section {
+    background: #F4EFE6;
+    border-radius: 8px;
+    padding: 16px;
+    text-align: center;
+    margin-top: 16px;
+}
+
+.ideal-for-text {
+    margin: 0;
+    color: #5B4C3A;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .services-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .services-header {
+        flex-direction: column;
+        gap: 16px;
+        align-items: flex-start;
+    }
+    
+    .page-title {
+        font-size: 24px;
+    }
+    
+    .service-card {
+        padding: 20px;
+    }
+    
+    .card-header {
+        flex-direction: column;
+        gap: 12px;
+        align-items: flex-start;
+    }
+    
+    .action-buttons {
+        align-self: flex-end;
+    }
+}
+
+@media (max-width: 480px) {
+    .my-services-page {
+        padding: 16px;
+    }
+    
+    .page-title {
+        font-size: 20px;
+    }
+    
+    .add-service-btn {
+        padding: 10px 20px;
+        font-size: 14px;
+    }
+    
+    .service-card {
+        padding: 16px;
+    }
+    
+    .service-title {
+        font-size: 18px;
+    }
+}
+</style>

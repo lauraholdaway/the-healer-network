@@ -17,5 +17,6 @@ class Service extends Model
         'ideal_for',
         'session_type',
         'doctor_id',
+        'image_url',
     ];
 }

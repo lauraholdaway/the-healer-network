@@ -37,6 +37,7 @@ const modalitiesdata = ref([]);
 const image = ref(null);
 const preview = ref(null);
 const resultcerticate = ref(null);
+const fileInput = ref(null);
 
 // ✅ Load user + doctor profile
 async function getProfile() {
@@ -140,6 +141,11 @@ function handleImageUpload(e) {
     }
 }
 
+// Trigger file input
+function triggerFileInput() {
+    fileInput.value?.click();
+}
+
 const form = ref({
     title: '',
     certificate: null
@@ -204,18 +210,42 @@ onMounted(() => {
             <hr>
             <!-- Profile Image -->
             <div class="text-center mb-4">
-                <img :src="preview || (user?.image ? '/storage/' + user.image : '/default-avatar.png')"
-                    class="profile-pic mb-3" alt="Doctor Image" />
-                <div class="d-flex gap-2 justify-content-center">
-                    <input type="file" @change="handleImageUpload" class="form-control w-50" />
-                    <button class="btn btn-secondary" @click="updateImage">
-                        Update Image
+                <div class="profile-uploader-container">
+                    <!-- Outer Circle -->
+                    <div class="outer-circle">
+                        <!-- Inner Circle -->
+                        <div class="inner-circle">
+                            <img v-if="preview || user?.image" 
+                                :src="preview || (user?.image ? '/storage/' + user.image : '/default-avatar.png')" 
+                                alt="Doctor Image" 
+                                class="profile-image" 
+                            />
+                            <svg v-else xmlns="http://www.w3.org/2000/svg" class="user-icon-svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                <path fill-rule="evenodd" d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" clip-rule="evenodd" />
+                            </svg>
+                        </div>
+                    </div>
+                    <!-- Upload Button -->
+                    <button @click="triggerFileInput" class="upload-button" type="button">
+                        <svg width="21" height="18" viewBox="0 0 21 18" fill="none" xmlns="http://www.w3.org/2000/svg" class="camera-icon">
+                            <path d="M3.5 4H4.5C5.03043 4 5.53914 3.78929 5.91421 3.41421C6.28929 3.03914 6.5 2.53043 6.5 2C6.5 1.73478 6.60536 1.48043 6.79289 1.29289C6.98043 1.10536 7.23478 1 7.5 1H13.5C13.7652 1 14.0196 1.10536 14.2071 1.29289C14.3946 1.48043 14.5 1.73478 14.5 2C14.5 2.53043 14.7107 3.03914 15.0858 3.41421C15.4609 3.78929 15.9696 4 16.5 4H17.5C18.0304 4 18.5391 4.21071 18.9142 4.58579C19.2893 4.96086 19.5 5.46957 19.5 6V15C19.5 15.5304 19.2893 16.0391 18.9142 16.4142C18.5391 16.7893 18.0304 17 17.5 17H3.5C2.96957 17 2.46086 16.7893 2.08579 16.4142C1.71071 16.0391 1.5 15.5304 1.5 15V6C1.5 5.46957 1.71071 4.96086 2.08579 4.58579C2.46086 4.21071 2.96957 4 3.5 4Z" stroke="#5B4C3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M7.5 10C7.5 10.7956 7.81607 11.5587 8.37868 12.1213C8.94129 12.6839 9.70435 13 10.5 13C11.2956 13 12.0587 12.6839 12.6213 12.1213C13.1839 11.5587 13.5 10.7956 13.5 10C13.5 9.20435 13.1839 8.44129 12.6213 7.87868C12.0587 7.31607 11.2956 7 10.5 7C9.70435 7 8.94129 7.31607 8.37868 7.87868C7.81607 8.44129 7.5 9.20435 7.5 10Z" stroke="#5B4C3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                        <span class="upload-text">Upload Image</span>
                     </button>
+                    <!-- Hidden Input -->
+                    <input type="file" ref="fileInput" @change="handleImageUpload" accept="image/*" class="hidden-input" />
                 </div>
+                <!-- Update Image Button
+                <div class="mt-3">
+                    <button class="btn save-update-btn" @click="updateImage" type="button">
+                        Save And Update
+                    </button>
+                </div> -->
             </div>
             <!-- Update Form -->
             <form @submit.prevent="updateProfile">
-                <div class="row mb-3">
+                <div class="row mb-5">
                     <div class="col-md-6">
                         <label class="form-label">First Name</label>
                         <input v-model="name" type="text" class="form-control" />
@@ -407,10 +437,123 @@ onMounted(() => {
 
 .profile-pic {
     width: 120px;
-        height: 120px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 3px solid #ddd;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #ddd;
+}
+
+/* Profile Uploader Styles */
+.profile-uploader-container {
+    position: relative;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.outer-circle {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background-color: #d1c8b8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.inner-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background-color: #C4B39A;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.user-icon-svg {
+    width: 96px;
+    height: 96px;
+    color: #F4EFE6;
+}
+
+.upload-button {
+    position: absolute;
+    bottom: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 14px;
+    background-color: #C1B39D;
+    color: #695D51;
+    border: 3px solid white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    transform: scale(1);
+}
+
+.upload-button:hover {
+    background-color: #B8A892;
+    transform: scale(1.05);
+}
+
+.camera-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.upload-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    color: #5B4C3A;
+    font-weight: 400;
+}
+
+.hidden-input {
+    display: none;
+}
+
+/* Save And Update Button Styles */
+.save-update-btn {
+    background-color: #C1B39D;
+    color: #4F3C1E;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: capitalize;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: none;
+}
+
+.save-update-btn:hover {
+    background-color: #B8A892;
+    color: #737373;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.save-update-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+.save-update-btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(193, 179, 157, 0.3);
 }
 
 .modal-overlay {
@@ -446,5 +589,70 @@ onMounted(() => {
     font-size: 22px;
     color: #5b4c3a;
     cursor: pointer;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+    .outer-circle {
+        width: 200px;
+        height: 200px;
+    }
+
+    .inner-circle {
+        width: 120px;
+        height: 120px;
+    }
+
+    .user-icon-svg {
+        width: 72px;
+        height: 72px;
+    }
+
+    .upload-button {
+        padding: 8px 12px;
+        font-size: 14px;
+    }
+
+    .camera-icon {
+        width: 16px;
+        height: 16px;
+    }
+
+    .save-update-btn {
+        width: 100%;
+        padding: 14px 24px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 576px) {
+    .outer-circle {
+        width: 160px;
+        height: 160px;
+    }
+
+    .inner-circle {
+        width: 100px;
+        height: 100px;
+    }
+
+    .user-icon-svg {
+        width: 60px;
+        height: 60px;
+    }
+
+    .upload-button {
+        padding: 6px 10px;
+        font-size: 13px;
+    }
+
+    .upload-text {
+        font-size: 14px;
+    }
+
+    .save-update-btn {
+        padding: 12px 20px;
+        font-size: 15px;
+    }
 }
 </style>
