@@ -58,6 +58,10 @@ try {
                 'name'   => $request->name,
                 'email'   => $request->email,
                 'country'   => $request->country,
+                'zip'   => $request->zip,
+                'timezone'   => $request->timezone,
+                'payment_method'   => $request->payment_method,
+                'type'   => $request->type,
             ]);
 
             Mail::raw(

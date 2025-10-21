@@ -9,7 +9,7 @@
                             style="background: linear-gradient(180deg, #c4b39a 0%, rgb(91 76 58 / 41%) 100%); border-radius: 20px; overflow: hidden; padding: 6px; min-height: 100px;">
                             <!-- ✅ safe optional chaining -->
                             <img :src="doctor?.user?.image ? '/storage/' + doctor.user.image : '/public/asset/images/docter.png'"
-                                class="card-img-top" alt="Doctor Image" 
+                                class="card-img-top" alt="Doctor Image"
                                 style="width: 100%; height: 100%; object-fit: contain;" />
                             <div class="position-absolute top-0 end-0 p-2">
                                 <!-- avatar svg -->
@@ -54,7 +54,8 @@
                                     <h5 class="card-title fw-bold">{{ doctor?.user?.name }}</h5>
 
                                 </div>
-                                <div class="d-flex justify-content-center mt-1 flex-wrap gap-2" style="max-height: 60px; overflow: hidden;">
+                                <div class="d-flex justify-content-center mt-1 flex-wrap gap-2"
+                                    style="max-height: 60px; overflow: hidden;">
                                     <p class="docter-type px-2 py-1 text-center" v-for="item in doctor.modalities"
                                         style="width:auto; margin: 2px;">{{ item.title }}</p>
                                 </div>
@@ -68,7 +69,8 @@
                                 <div
                                     style="background-color: #5B4C3A;border-radius: 10px; padding: 8px 8px;color:white; text-align: center;">
 
-                                    <p class="text-[#F4EFE6] mb-1" style="font-size: 12px;">Freshwater NSW 2096, Australia</p>
+                                    <p class="text-[#F4EFE6] mb-1" style="font-size: 12px;">Freshwater NSW 2096,
+                                        Australia</p>
                                     <hr class="my-1">
                                     <b class="text-white" style="font-size: 14px;">
                                         ${{ doctor?.price }}
@@ -76,7 +78,8 @@
                                 </div>
                                 <br>
                                 <div>
-                                    <p style="background-color: #F4EFE6;border-radius: 10px; font-size: 12px; padding: 4px 10px;">
+                                    <p
+                                        style="background-color: #F4EFE6;border-radius: 10px; font-size: 12px; padding: 4px 10px;">
                                         Every practitioner on Bodhi Holistic Hub is carefully vetted, highly rated and a
                                         certified expert in their fields.
                                     </p>
@@ -98,7 +101,8 @@
 
                                 <!-- Session Description -->
                                 <div class="session-description">
-                                    <p>Enhancing your parenting wisdom: Supporting your child's aut... <a href="#" class="see-more-link">See more</a></p>
+                                    <p>Enhancing your parenting wisdom: Supporting your child's aut... <a href="#"
+                                            class="see-more-link">See more</a></p>
                                 </div>
 
                                 <!-- Book Session Button -->
@@ -106,7 +110,8 @@
                                     <button class="btn-book-session">
                                         Book Session Now
                                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                            <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5"
+                                                stroke-linecap="round" stroke-linejoin="round" />
                                         </svg>
                                     </button>
                                 </div>
@@ -119,9 +124,10 @@
                 <div class="col-md-8">
                     <div class="booking-wrapper shadow-sm rounded-4 bg-white p-4 h-100">
                         <div class="d-flex justify-content-center">
-                                <h5 class="fw-boldd mb-4 mt-3 text-center" style="font-size: 20px; font-weight: bolder;   color: #7D684E;">Book a session</h5>
+                            <h5 class="fw-boldd mb-4 mt-3 text-center"
+                                style="font-size: 20px; font-weight: bolder;   color: #7D684E;">Book a session</h5>
 
-                            </div>
+                        </div>
 
                         <!-- Stepper -->
                         <div class="stepper d-flex justify-content-between align-items-center mb-2">
@@ -136,27 +142,43 @@
 
                         <div v-if="step !== 4">
                             <div class="d-flex justify-content-center">
-                                <h5 class="fw-bold mb-3 mt-3 text-center" style="font-size: 28px; color: #7D684E;">{{ step === 2 ? 'Select a session date & time' : step === 3 ? 'Confirm your details' : 'Select a session' }}</h5>
+                                <h5 class="fw-bold mb-3 mt-3 text-center" style="font-size: 28px; color: #7D684E;">
+                                    {{ step === 2 ? 'Select a session date & time' : step === 3 ? 'Confirm your details'
+                                        :
+                                        'Select a session' }}</h5>
 
                             </div>
 
                             <div class="d-flex justify-content-center">
 
-                                <select v-model="setimezone" class="custom-select mb-3"
+
+                                <input type="hidden" v-model="currency" class="form-control" />
+
+
+                                <select v-model="timezone" class="custom-select mb-3"
                                     style="background-color: #F4EFE6; color: #7D684E; font-weight: bold; width: 200px; padding: 10px; border-radius: 10px; border: 2px solid #F4EFE6; outline: none; box-shadow: none;">
-                                    <option value="AU" style="color: #7D684E; font-weight: bold;">Australia (GMT+10)</option>
-                                    <option value="US" style="color: #7D684E; font-weight: bold;">United States (GMT-5)</option>
-                                    <option value="PK" style="color: #7D684E; font-weight: bold;">Pakistan (GMT+5)</option>
+                                    <option value="Australia (GMT+10)" style="color: #7D684E; font-weight: bold;">
+                                        Australia (GMT+10)
+                                    </option>
+                                    <option value="United States (GMT-5)" style="color: #7D684E; font-weight: bold;">
+                                        United States (GMT-5)
+                                    </option>
+                                    <option value="Pakistan (GMT+5)" style="color: #7D684E; font-weight: bold;">
+                                        Pakistan (GMT+5)
+                                    </option>
                                 </select>
+
                             </div>
                         </div>
                         <div v-if="step === 1">
 
                             <!-- Dropdown -->
                             <div class="d-flex justify-content-center">
-                                <select v-model="docterPackage" class="form-select mb-3" style="width: 500px; color: #7D684E; text-align: center; font-weight: bold;">
+                                <select v-model="docterPackage" class="form-select mb-3"
+                                    style="width: 500px; color: #7D684E; text-align: center; font-weight: bold;">
                                     <option v-for="(pkgata, index) in packagesdata" :key="index" :value="pkgata.id"
-                                        :selected="index === 0" style="color: #7D684E; text-align: center; font-weight: bold;">
+                                        :selected="index === 0"
+                                        style="color: #7D684E; text-align: center; font-weight: bold;">
                                         {{ pkgata.type }} ({{ pkgata.price }}, {{ pkgata.time }})
                                     </option>
                                 </select>
@@ -167,26 +189,29 @@
                                 <!-- Radio -->
                                 <div class="d-flex justify-content-center gap-4 mb-4 mt-2">
                                     <div class="form-check d-flex align-items-center">
-                                        <input type="radio" class="form-check-input me-2" name="sessionType" value="online" checked style="accent-color: #7D684E;">
+                                        <input type="radio" v-model="type" class=" form-check-input me-2"
+                                            name="sessionType" value="online" checked style="accent-color: #7D684E;">
                                         <label class="form-check-label" style="color: #7D684E;">Online session</label>
                                     </div>
                                     <div class="form-check d-flex align-items-center">
-                                        <input type="radio" class="form-check-input me-2" name="sessionType" value="inperson" style="accent-color: #7D684E;">
+                                        <input type="radio" v-model="type" class="form-check-input me-2"
+                                            name="sessionType" value="offline" style="accent-color: #7D684E;">
                                         <label class="form-check-label" style="color: #7D684E;">In-Person</label>
                                     </div>
                                 </div>
 
                                 <!-- Buttons -->
                                 <div class="d-flex justify-content-between">
-                                    <button class="btn btn-outline-dark btn-outline-custome px-5" style="border-radius: 999px;">Back</button>
+                                    <button class="btn btn-outline-dark btn-outline-custome px-5"
+                                        style="border-radius: 999px;">Back</button>
 
-                                    <button v-if="auth?.user?.id" class="btn btn-dark main-btn2 px-5 ms-3" style="border-radius: 999px;"
-                                        @click="handleNext">
+                                    <button v-if="auth?.user?.id" class="btn btn-dark main-btn2 px-5 ms-3"
+                                        style="border-radius: 999px;" @click="handleNext">
                                         Next
                                     </button>
 
-                                    <router-link v-else to="/login"
-                                        class="btn btn-dark main-btn2 px-5 ms-3" style="border-radius: 999px;">Login</router-link>
+                                    <router-link v-else to="/login" class="btn btn-dark main-btn2 px-5 ms-3"
+                                        style="border-radius: 999px;">Login</router-link>
 
                                 </div>
                             </div>
@@ -198,15 +223,16 @@
                             </div> -->
 
                             <div class="accordion" id="accordionExample">
-                                <div class="accordion-item mb-3" v-for="(tm, index) in doctortime" :key="index" style="border: 1px solid #E8E2D5; border-radius: 12px; overflow: hidden;">
+                                <div class="accordion-item mb-3" v-for="(tm, index) in doctortime" :key="index"
+                                    style="border: 1px solid #E8E2D5; border-radius: 12px; overflow: hidden;">
                                     <h2 class="accordion-header" :id="`heading${index}`">
                                         <button class="accordion-button collapsed" type="button"
                                             data-bs-toggle="collapse" :data-bs-target="`#collapse${index}`"
                                             aria-expanded="false" :aria-controls="`collapse${index}`"
                                             style="background-color: #F4EFE6; color: #7D684E; font-weight: bold; border: none; padding: 15px 20px;">
                                             {{ new Date(tm.date).toLocaleString('en-US', {
-    day: '2-digit', month: 'short', year:
-        'numeric'
+                                                day: '2-digit', month: 'short', year:
+                                                    'numeric'
                                             }) }}
                                         </button>
                                     </h2>
@@ -216,10 +242,9 @@
                                         <div class="accordion-body" style="background-color: #FFFFFF; padding: 20px;">
                                             <div class="d-flex flex-wrap gap-3" role="group" aria-label="Time Slot">
                                                 <template v-for="(time, tIndex) in tm.times" :key="tIndex">
-                                                    <input type="radio" class="btn-check"
-                                                        :name="`time-group-${index}`" :id="`time${index}-${tIndex}`"
-                                                        :value="time" v-model="selectedTime"
-                                                        @change="selectedDate = tm.date" />
+                                                    <input type="radio" class="btn-check" :name="`time-group-${index}`"
+                                                        :id="`time${index}-${tIndex}`" :value="time"
+                                                        v-model="selectedTime" @change="selectedDate = tm.date" />
 
                                                     <label class="btn btn-outline-custom"
                                                         :for="`time${index}-${tIndex}`"
@@ -232,15 +257,17 @@
                                     </div>
                                 </div>
 
-                                <div class="form-check mb-4 d-flex justify-content-center align-items-center mt-4">
-                                    <input type="radio" class="form-check-input me-2" name="sessionType2" value="online" checked style="accent-color: #7D684E;">
-                                    <label class="form-check-label" style="color: #7D684E; font-weight: 500;">Online session</label>
-                                </div>
+                                <!-- <div class="form-check mb-4 d-flex justify-content-center align-items-center mt-4">
+                                    <input type="radio" class="form-check-input me-2" name="sessionType2" value="online"
+                                        checked style="accent-color: #7D684E;">
+                                    <label class="form-check-label" style="color: #7D684E; font-weight: 500;">Online
+                                        session</label>
+                                </div> -->
                             </div>
 
                             <!-- Buttons -->
                             <div class="d-flex justify-content-between mt-4">
-                                <button class="btn btn-outline-custom px-4 py-2" 
+                                <button class="btn btn-outline-custom px-4 py-2"
                                     style="border: 2px solid #7D684E; color: #7D684E; border-radius: 999px; font-weight: 500; background: transparent;"
                                     @click="handleBack">Back</button>
                                 <button class="btn px-4 py-2 ms-3"
@@ -258,33 +285,36 @@
 
                                 <div class="user-details-container mb-4">
                                     <div class="detail-item mb-3">
-                                        <span class="detail-label">Name:</span> 
+                                        <span class="detail-label">Name:</span>
                                         <span class="detail-value">{{ auth?.user?.name }}</span>
                                     </div>
                                     <div class="detail-item mb-3">
-                                        <span class="detail-label">Email:</span> 
+                                        <span class="detail-label">Email:</span>
                                         <span class="detail-value">{{ auth?.user?.email }}</span>
                                     </div>
                                     <div class="detail-item mb-3">
-                                        <span class="detail-label">Phone:</span> 
+                                        <span class="detail-label">Phone:</span>
                                         <span class="detail-value">{{ auth?.user?.number }}</span>
                                     </div>
                                 </div>
-                                
+
                                 <div class="reminder-box mb-4">
                                     <div class="d-flex align-items-center">
                                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="me-2">
-                                            <path d="M12 2L20 6L20 18L12 22L4 18L4 6L12 2Z" stroke="#7D684E" stroke-width="2" fill="#F4EFE6"/>
-                                            <path d="M12 8V12" stroke="#7D684E" stroke-width="2" stroke-linecap="round"/>
-                                            <circle cx="12" cy="15" r="1" fill="#7D684E"/>
+                                            <path d="M12 2L20 6L20 18L12 22L4 18L4 6L12 2Z" stroke="#7D684E"
+                                                stroke-width="2" fill="#F4EFE6" />
+                                            <path d="M12 8V12" stroke="#7D684E" stroke-width="2"
+                                                stroke-linecap="round" />
+                                            <circle cx="12" cy="15" r="1" fill="#7D684E" />
                                         </svg>
-                                        <span class="reminder-text">Booking reminders will be sent via email and text</span>
+                                        <span class="reminder-text">Booking reminders will be sent via email and
+                                            text</span>
                                     </div>
                                 </div>
-                                
+
                                 <!-- Buttons -->
                                 <div class="d-flex justify-content-between mt-4">
-                                    <button class="btn btn-outline-custom px-4 py-2" 
+                                    <button class="btn btn-outline-custom px-4 py-2"
                                         style="border: 2px solid #7D684E; color: #7D684E; border-radius: 999px; font-weight: 500; background: transparent;"
                                         @click="handleBack">Back</button>
                                     <button class="btn px-4 py-2 ms-3"
@@ -308,7 +338,7 @@
                                 <div class="form-group mb-4">
                                     <label class="form-label-custom">Payment Method</label>
                                     <div class="payment-method-selector">
-                                        <select class="form-select-custom">
+                                        <select class="form-select-custom" v-model="paymenttype">
                                             <option value="credit">Credit Card</option>
                                             <option value="debit">Debit Card</option>
                                         </select>
@@ -318,54 +348,7 @@
                                 <!-- Card Information Section -->
                                 <div class="form-group mb-4">
                                     <label class="form-label-custom">Card information</label>
-                                    <div class="card-info-container">
-                                        <!-- Card Number Section -->
-                                        <div class="card-number-section">
-                                            <input type="text" class="card-number-input" 
-                                                placeholder="1234 1234 1234 1234" />
-                                            <div class="card-icons">
-                                                <svg width="24" height="16" viewBox="0 0 24 16" fill="none">
-                                                    <rect width="24" height="16" rx="2" fill="#1A1F71"/>
-                                                    <path d="M8 4h8v2H8V4zm0 3h6v1H8V7z" fill="white"/>
-                                                </svg>
-                                                <svg width="24" height="16" viewBox="0 0 24 16" fill="none">
-                                                    <rect width="24" height="16" rx="2" fill="#EB001B"/>
-                                                    <circle cx="9" cy="8" r="3" fill="#F79E1B"/>
-                                                    <circle cx="15" cy="8" r="3" fill="#F79E1B"/>
-                                                </svg>
-                                                <svg width="24" height="16" viewBox="0 0 24 16" fill="none">
-                                                    <rect width="24" height="16" rx="2" fill="#006FCF"/>
-                                                    <path d="M12 4c-2.2 0-4 1.8-4 4s1.8 4 4 4 4-1.8 4-4-1.8-4-4-4z" fill="white"/>
-                                                </svg>
-                                                <svg width="24" height="16" viewBox="0 0 24 16" fill="none">
-                                                    <rect width="24" height="16" rx="2" fill="#000000"/>
-                                                    <path d="M8 4h8v2H8V4zm0 3h6v1H8V7z" fill="white"/>
-                                                </svg>
-                                            </div>
-                                        </div>
-                                        
-                                        <!-- Separator Line -->
-                                        <div class="card-separator-line"></div>
-                                        
-                                        <!-- Expiration and CVC Section -->
-                                        <div class="expiry-cvc-section">
-                                            <div class="expiry-container">
-                                                <input type="text" class="expiry-input" 
-                                                    placeholder="MM / YY" />
-                                            </div>
-                                            <div class="cvc-container">
-                                                <input type="text" class="cvc-input" 
-                                                    placeholder="CVC" />
-                                                <div class="cvc-help-icon">
-                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                                        <circle cx="8" cy="8" r="7" stroke="#9CA3AF" stroke-width="1.5"/>
-                                                        <path d="M8 4v4" stroke="#9CA3AF" stroke-width="1.5" stroke-linecap="round"/>
-                                                        <circle cx="8" cy="11" r="1" fill="#9CA3AF"/>
-                                                    </svg>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <div id="card-element"></div>
                                 </div>
 
                                 <!-- Cardholder Name Section -->
@@ -374,7 +357,6 @@
                                     <input v-model="name" type="text" class="form-input-custom"
                                         placeholder="Full name on card" />
                                 </div>
-
                                 <!-- Country and ZIP Combined Section -->
                                 <div class="form-group mb-4">
                                     <label class="form-label-custom">Country or region</label>
@@ -388,7 +370,8 @@
                                         </div>
                                         <div class="separator-line"></div>
                                         <div class="zip-section">
-                                            <input type="text" class="form-input-custom zip-input" placeholder="ZIP" />
+                                            <input type="text" v-model="zip" class="form-input-custom zip-input"
+                                                placeholder="ZIP" />
                                         </div>
                                     </div>
                                 </div>
@@ -412,7 +395,8 @@
 
                                 <!-- Terms and Privacy -->
                                 <div class="terms-text">
-                                    By clicking Pay, you agree to the <a href="#" class="terms-link">Terms</a> and <a href="#" class="terms-link">Privacy Policy</a>.
+                                    By clicking Pay, you agree to the <a href="#" class="terms-link">Terms</a> and <a
+                                        href="#" class="terms-link">Privacy Policy</a>.
                                 </div>
                             </div>
                         </div>
@@ -437,7 +421,7 @@ const doctor = ref(null);
 const route = useRoute();
 const router = useRouter();
 const auth = useAuthStore();
-const setimezone = ref("AU")
+
 
 // 👀 Watch when step changes
 const step = ref(1);
@@ -457,7 +441,11 @@ watch(step, async (newStep) => {
 
 
 
-
+const setimezone = ref("AU")
+const paymenttype = ref("credit")
+const timezone = ref('Australia (GMT+10)')
+const zip = ref('')
+const type = ref("Online")
 const doctortime = ref([]);
 const packagesdata = ref([]);
 const docterPackage = ref(null);
@@ -470,7 +458,7 @@ const loading = ref(false);
 const Doctor_id = ref(route.params.id);
 const user_id = ref(auth?.user?.id);
 const token = ref({}); // Stripe token for example
-
+const currency = ref('');
 const errors = ref({});
 
 // ✅ Validation function
@@ -485,6 +473,7 @@ const validateForm = () => {
     if (!email.value) errors.value.email = "Email is required";
     if (!name.value) errors.value.name = "Name is required";
     if (!setcountry.value) errors.value.country = "Country is required";
+    if (!zip.value) errors.value.zip = "Zip is required";
 
     return Object.keys(errors.value).length === 0;
 };
@@ -498,14 +487,12 @@ const payNow = async () => {
         return;
     }
     if (!validateForm()) return;
-
-
     try {
         const payload = {
             doctor_id: Doctor_id.value,
             user_id: user_id.value,
             doctortime: docterPackage.value,
-            currency: "usd",
+            currency: currency.value,
             amount: 150,
             date: selectedDate.value,
             time: selectedTime.value,
@@ -513,21 +500,24 @@ const payNow = async () => {
             email: email.value,
             name: name.value,
             country: setcountry.value,
+            type: type.value,
+            payment_method: paymenttype.value,
+            zip: zip.value,
+            timezone: timezone.value,
         };
         loading.value = true;
-
         const response = await fetch("/api/userpayment", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(payload),
         });
-
         const data = await response.json();
         console.log("Server response:", data);
 
         if (response.ok) {
             alert("✅ Payment successful!");
-            route.push('/')
+            router.push("/");
+
         } else {
             alert("❌ Payment failed: " + (data.message || "Unknown error"));
         }
@@ -540,9 +530,6 @@ const payNow = async () => {
 };
 
 
-
-
-
 function handleNext() {
     if (!auth.user) {
         router.push("/login");
@@ -553,12 +540,11 @@ function handleNext() {
 function handleBack() {
     if (step.value > 1) step.value--;
 }
-
-
 async function loaddoctor() {
     try {
         axios.get(`/api/doctor/${route.params.id}`).then(({ data }) => {
             doctor.value = data;
+            currency.value = doctor.value.currency
         });
     }
     catch (err) { console.error("Failed to load Doctor:", err); }
@@ -669,7 +655,7 @@ function formatTime(time) {
     border: 2px solid #E8E2D5 !important;
 }
 
-.btn-check:checked + .btn-outline-custom {
+.btn-check:checked+.btn-outline-custom {
     background-color: #7D684E !important;
     border-color: #7D684E !important;
     color: white !important;
@@ -677,9 +663,9 @@ function formatTime(time) {
 
 /* Step 3 styling */
 .user-details-container {
-   
+
     padding: 20px;
-   
+
 }
 
 .detail-item {
@@ -699,7 +685,7 @@ function formatTime(time) {
 
     color: #5B4C3A;
     font-weight: 500;
-    
+
 }
 
 .reminder-box {
@@ -1142,5 +1128,16 @@ function formatTime(time) {
     background-color: transparent !important;
     outline: none;
     box-shadow: none;
+}
+
+.InputContainer .InputElement {
+    border: 2px solid #C1B39D !important;
+    border-radius: 10px !important;
+    padding: 10px !important;
+    background-color: white !important;
+    color: #2E2D29 !important;
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: 14px !important;
+    transition: all 0.3s ease !important;
 }
 </style>

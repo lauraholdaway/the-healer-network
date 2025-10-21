@@ -51,12 +51,12 @@ b {
 }
 
 .fw-bold {
-   
+
     font-family: 'Roboto', sans-serif !important;
     font-weight: 100 !important;
 }
 .fw-boldd {
-   
+
     font-family: 'Roboto', sans-serif !important;
     font-weight: bold !important;
 }
@@ -1482,3 +1482,4 @@ footer ul li a:hover {
         display: none !important;
     }
 }
+
