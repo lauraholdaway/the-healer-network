@@ -1,7 +1,9 @@
 <template>
     <div class="container d-flex justify-content-center align-items-center py-5">
         <div class="card shadow-sm border-0 rounded-4 p-4 user-profile-card w-100" style="max-width: 900px;">
-            <h5 class="mb-4 " style="color: #5B4C3A; font-family: Arial, Helvetica, sans-serif, serif; font-weight: 300; font-size: 25px;">Basic Information</h5>
+            <h5 class="mb-4 "
+                style="color: #5B4C3A; font-family: Arial, Helvetica, sans-serif, serif; font-weight: 300; font-size: 25px;">
+                Basic Information</h5>
 
             <form @submit.prevent="updateProfile" enctype="multipart/form-data">
                 <div class="row g-4">
@@ -10,56 +12,58 @@
                         <div class="row g-3">
                             <!-- First Name -->
                             <div class="col-md-6">
-                                <label class="form-label" style="color: #737373; font-family: Arial, Helvetica, sans-serif, serif; font-weight: 300; font-size: 15px;">First Name</label>
+                                <label class="form-label"
+                                    style="color: #737373; font-family: Arial, Helvetica, sans-serif, serif; font-weight: 300; font-size: 15px;">First
+                                    Name</label>
                                 <input type="text" v-model="form.name" class="form-control rounded-3"
                                     placeholder="John" />
                             </div>
 
                             <!-- Last Name -->
                             <div class="col-md-6">
-                                <label class="form-label" style="color: #737373; font-family: Arial, Helvetica, sans-serif, serif; font-weight: 300; font-size: 15px;">Second Name</label>
+                                <label class="form-label"
+                                    style="color: #737373; font-family: Arial, Helvetica, sans-serif, serif; font-weight: 300; font-size: 15px;">Second
+                                    Name</label>
                                 <input type="text" v-model="form.last_name" class="form-control rounded-3"
                                     placeholder="Doe" />
                             </div>
 
                             <!-- Phone Number -->
                             <div class="col-md-12">
-                                <label class="form-label" style="color: #737373; font-family: Arial, Helvetica, sans-serif, serif; font-weight: 300; font-size: 15px;">Phone Number</label>
+                                <label class="form-label"
+                                    style="color: #737373; font-family: Arial, Helvetica, sans-serif, serif; font-weight: 300; font-size: 15px;">Phone
+                                    Number</label>
                                 <div class="phone-input-container">
                                     <div class="country-selector" @click="toggleDropdown">
-                                        <img :src="selectedCountry.flag" :alt="selectedCountry.name" class="country-flag" />
+                                        <img :src="selectedCountry.flag" :alt="selectedCountry.name"
+                                            class="country-flag" />
                                         <span class="country-code">{{ selectedCountry.code }}</span>
-                                        <svg class="dropdown-arrow" :class="{ 'rotated': isDropdownOpen }" viewBox="0 0 20 20" fill="currentColor">
-                                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                        <svg class="dropdown-arrow" :class="{ 'rotated': isDropdownOpen }"
+                                            viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd"
+                                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                                clip-rule="evenodd" />
                                         </svg>
-                                        
+
                                         <!-- Custom Dropdown -->
                                         <div v-if="isDropdownOpen" class="country-dropdown">
                                             <!-- Search Input -->
                                             <div class="search-container">
-                                                <input 
-                                                    v-model="searchQuery" 
-                                                    type="text" 
-                                                    placeholder="Search countries..." 
-                                                    class="search-input"
-                                                    @click.stop
-                                                />
+                                                <input v-model="searchQuery" type="text"
+                                                    placeholder="Search countries..." class="search-input"
+                                                    @click.stop />
                                             </div>
-                                            
+
                                             <!-- Countries List -->
                                             <div class="countries-list">
-                                                <div 
-                                                    v-for="country in filteredCountries" 
-                                                    :key="country.code" 
-                                                    @click="selectCountry(country)"
-                                                    class="country-option"
-                                                    :class="{ 'selected': country.code === selectedCountryCode }"
-                                                >
+                                                <div v-for="country in filteredCountries" :key="country.code"
+                                                    @click="selectCountry(country)" class="country-option"
+                                                    :class="{ 'selected': country.code === selectedCountryCode }">
                                                     <img :src="country.flag" :alt="country.name" class="option-flag" />
                                                     <span class="option-code">{{ country.code }}</span>
                                                     <span class="option-name">{{ country.name }}</span>
                                                 </div>
-                                                
+
                                                 <!-- No results message -->
                                                 <div v-if="filteredCountries.length === 0" class="no-results">
                                                     No countries found
@@ -67,56 +71,48 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <input 
-                                        type="text" 
-                                        v-model="phoneNumber" 
-                                        class="phone-number-input"
-                                        placeholder="321 586 97 378" 
-                                    />
+                                    <input type="text" v-model="phoneNumber" class="phone-number-input"
+                                        placeholder="321 586 97 378" />
                                 </div>
                             </div>
 
                             <!-- Location -->
                             <div class="col-md-12">
-                                <label class="form-label" style="color: #737373; font-family: Arial, Helvetica, sans-serif, serif; font-weight: 300; font-size: 15px;">Location</label>
+                                <label class="form-label"
+                                    style="color: #737373; font-family: Arial, Helvetica, sans-serif, serif; font-weight: 300; font-size: 15px;">Location</label>
                                 <div class="location-input-container">
                                     <div class="location-selector" @click="toggleLocationDropdown">
                                         <svg class="location-icon" viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                            <path
+                                                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
                                         </svg>
                                         <span class="location-text">{{ selectedLocation }}</span>
-                                        <svg class="dropdown-arrow" :class="{ 'rotated': isLocationDropdownOpen }" viewBox="0 0 20 20" fill="currentColor">
-                                            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                        <svg class="dropdown-arrow" :class="{ 'rotated': isLocationDropdownOpen }"
+                                            viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd"
+                                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                                clip-rule="evenodd" />
                                         </svg>
-                                        
                                         <!-- Custom Location Dropdown -->
                                         <div v-if="isLocationDropdownOpen" class="location-dropdown">
                                             <!-- Search Input -->
                                             <div class="search-container">
-                                                <input 
-                                                    v-model="locationSearchQuery" 
-                                                    type="text" 
-                                                    placeholder="Search locations..." 
-                                                    class="search-input"
-                                                    @click.stop
-                                                />
+                                                <input v-model="locationSearchQuery" type="text"
+                                                    placeholder="Search locations..." class="search-input"
+                                                    @click.stop />
                                             </div>
-                                            
                                             <!-- Locations List -->
                                             <div class="locations-list">
-                                                <div 
-                                                    v-for="location in filteredLocations" 
-                                                    :key="location.value" 
-                                                    @click="selectLocation(location)"
-                                                    class="location-option"
-                                                    :class="{ 'selected': location.value === selectedLocation }"
-                                                >
-                                                    <svg class="option-location-icon" viewBox="0 0 24 24" fill="currentColor">
-                                                        <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                                                <div v-for="location in filteredLocations" :key="location.value"
+                                                    @click="selectLocation(location)" class="location-option"
+                                                    :class="{ 'selected': location.value === selectedLocation }">
+                                                    <svg class="option-location-icon" viewBox="0 0 24 24"
+                                                        fill="currentColor">
+                                                        <path
+                                                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
                                                     </svg>
                                                     <span class="option-name">{{ location.label }}</span>
                                                 </div>
-                                                
                                                 <!-- No results message -->
                                                 <div v-if="filteredLocations.length === 0" class="no-results">
                                                     No locations found
@@ -143,49 +139,36 @@
                             <div class="outer-circle">
                                 <!-- Inner Circle -->
                                 <div class="inner-circle">
-                                    <img
-                                        v-if="imagePreview"
-                                        :src="imagePreview"
-                                        alt="Profile Preview"
-                                        class="profile-image"
-                                    />
-                                    <svg
-                                        v-else
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        class="user-icon-svg"
-                                        viewBox="0 0 24 24"
-                                        fill="currentColor"
-                                        aria-hidden="true"
-                                    >
-                                        <path
-                                            fill-rule="evenodd"
+                                    <img v-if="imagePreview" :src="imagePreview" alt="Profile Preview"
+                                        class="profile-image" />
+                                    <svg v-else xmlns="http://www.w3.org/2000/svg" class="user-icon-svg"
+                                        viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                                        <path fill-rule="evenodd"
                                             d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"
-                                            clip-rule="evenodd"
-                                        />
+                                            clip-rule="evenodd" />
                                     </svg>
                                 </div>
                             </div>
 
                             <!-- Upload Button -->
-                            <button
-                                @click="triggerFileInput"
-                                class="upload-button"
-                            >
-                                <svg width="21" height="18" viewBox="0 0 21 18" fill="none" xmlns="http://www.w3.org/2000/svg" class="camera-icon">
-                                    <path d="M3.5 4H4.5C5.03043 4 5.53914 3.78929 5.91421 3.41421C6.28929 3.03914 6.5 2.53043 6.5 2C6.5 1.73478 6.60536 1.48043 6.79289 1.29289C6.98043 1.10536 7.23478 1 7.5 1H13.5C13.7652 1 14.0196 1.10536 14.2071 1.29289C14.3946 1.48043 14.5 1.73478 14.5 2C14.5 2.53043 14.7107 3.03914 15.0858 3.41421C15.4609 3.78929 15.9696 4 16.5 4H17.5C18.0304 4 18.5391 4.21071 18.9142 4.58579C19.2893 4.96086 19.5 5.46957 19.5 6V15C19.5 15.5304 19.2893 16.0391 18.9142 16.4142C18.5391 16.7893 18.0304 17 17.5 17H3.5C2.96957 17 2.46086 16.7893 2.08579 16.4142C1.71071 16.0391 1.5 15.5304 1.5 15V6C1.5 5.46957 1.71071 4.96086 2.08579 4.58579C2.46086 4.21071 2.96957 4 3.5 4Z" stroke="#5B4C3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <path d="M7.5 10C7.5 10.7956 7.81607 11.5587 8.37868 12.1213C8.94129 12.6839 9.70435 13 10.5 13C11.2956 13 12.0587 12.6839 12.6213 12.1213C13.1839 11.5587 13.5 10.7956 13.5 10C13.5 9.20435 13.1839 8.44129 12.6213 7.87868C12.0587 7.31607 11.2956 7 10.5 7C9.70435 7 8.94129 7.31607 8.37868 7.87868C7.81607 8.44129 7.5 9.20435 7.5 10Z" stroke="#5B4C3A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <button @click="triggerFileInput" class="upload-button">
+                                <svg width="21" height="18" viewBox="0 0 21 18" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg" class="camera-icon">
+                                    <path
+                                        d="M3.5 4H4.5C5.03043 4 5.53914 3.78929 5.91421 3.41421C6.28929 3.03914 6.5 2.53043 6.5 2C6.5 1.73478 6.60536 1.48043 6.79289 1.29289C6.98043 1.10536 7.23478 1 7.5 1H13.5C13.7652 1 14.0196 1.10536 14.2071 1.29289C14.3946 1.48043 14.5 1.73478 14.5 2C14.5 2.53043 14.7107 3.03914 15.0858 3.41421C15.4609 3.78929 15.9696 4 16.5 4H17.5C18.0304 4 18.5391 4.21071 18.9142 4.58579C19.2893 4.96086 19.5 5.46957 19.5 6V15C19.5 15.5304 19.2893 16.0391 18.9142 16.4142C18.5391 16.7893 18.0304 17 17.5 17H3.5C2.96957 17 2.46086 16.7893 2.08579 16.4142C1.71071 16.0391 1.5 15.5304 1.5 15V6C1.5 5.46957 1.71071 4.96086 2.08579 4.58579C2.46086 4.21071 2.96957 4 3.5 4Z"
+                                        stroke="#5B4C3A" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
+                                    <path
+                                        d="M7.5 10C7.5 10.7956 7.81607 11.5587 8.37868 12.1213C8.94129 12.6839 9.70435 13 10.5 13C11.2956 13 12.0587 12.6839 12.6213 12.1213C13.1839 11.5587 13.5 10.7956 13.5 10C13.5 9.20435 13.1839 8.44129 12.6213 7.87868C12.0587 7.31607 11.2956 7 10.5 7C9.70435 7 8.94129 7.31607 8.37868 7.87868C7.81607 8.44129 7.5 9.20435 7.5 10Z"
+                                        stroke="#5B4C3A" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round" />
                                 </svg>
                                 <span class="upload-text">Upload Image</span>
                             </button>
 
                             <!-- Hidden Input -->
-                            <input
-                                type="file"
-                                ref="fileInput"
-                                @change="onFileChange"
-                                accept="image/*"
-                                class="hidden-input"
-                            />
+                            <input type="file" ref="fileInput" @change="onFileChange" accept="image/*"
+                                class="hidden-input" />
                         </div>
                     </div>
                 </div>
@@ -198,7 +181,7 @@
 import { ref, computed, watch, onMounted, onUnmounted } from "vue";
 import axios from "axios";
 import { useAuthStore } from "@/stores/auth";
-import { getCountries, getCountryData } from 'country-list';
+// import { getCountries, getCountryData } from 'country-list';
 
 const auth = useAuthStore();
 const preview = ref(null);
@@ -553,7 +536,7 @@ const filteredCountries = computed(() => {
     if (!searchQuery.value) {
         return countries.value;
     }
-    return countries.value.filter(country => 
+    return countries.value.filter(country =>
         country.name.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
         country.code.includes(searchQuery.value)
     );
@@ -564,7 +547,7 @@ const filteredLocations = computed(() => {
     if (!locationSearchQuery.value) {
         return locations.value;
     }
-    return locations.value.filter(location => 
+    return locations.value.filter(location =>
         location.label.toLowerCase().includes(locationSearchQuery.value.toLowerCase())
     );
 });
@@ -652,7 +635,7 @@ function onFileChange(event) {
             imagePreview.value = reader.result;
         };
         reader.readAsDataURL(file);
-        
+
         // Also update the form data
         form.value.image = file;
         preview.value = URL.createObjectURL(file);
@@ -704,7 +687,7 @@ const updateProfile = async () => {
   display: flex;
   align-items: center;
   justify-content: center;
- 
+
 }
 
 .inner-circle {
@@ -731,7 +714,7 @@ const updateProfile = async () => {
 }
 
 .upload-button {
-  
+
   position: absolute;
   bottom: 0px;
   display: flex;
@@ -739,7 +722,7 @@ const updateProfile = async () => {
   justify-content: center;
   gap: 8px;
   padding: 10px 14px;
- 
+
   background-color: #C1B39D;
   color: #695D51;
   border: 3px solid white;
@@ -1086,119 +1069,119 @@ const updateProfile = async () => {
   .container {
     padding: 1rem !important;
   }
-  
+
   .user-profile-card {
     max-width: 100% !important;
     margin: 0 !important;
     padding: 1.5rem !important;
   }
-  
+
   .row.g-4 {
     --bs-gutter-x: 1rem;
     --bs-gutter-y: 1rem;
   }
-  
+
   .row.g-3 {
     --bs-gutter-x: 0.75rem;
     --bs-gutter-y: 0.75rem;
   }
-  
+
   /* Profile Image Section */
   .col-md-4 {
     margin-top: 2rem;
   }
-  
+
   .outer-circle {
     width: 200px !important;
     height: 200px !important;
   }
-  
+
   .inner-circle {
     width: 120px !important;
     height: 120px !important;
   }
-  
+
   .user-icon-svg {
     width: 72px !important;
     height: 72px !important;
   }
-  
+
   .upload-button {
     padding: 8px 12px !important;
     font-size: 14px !important;
   }
-  
+
   .camera-icon {
     width: 16px !important;
     height: 16px !important;
   }
-  
+
   /* Form Inputs */
   .form-control {
     font-size: 16px !important; /* Prevents zoom on iOS */
   }
-  
+
   /* Phone Input */
   .phone-input-container {
     flex-direction: column;
   }
-  
+
   .country-selector {
     min-width: 100% !important;
     border-right: none !important;
     border-bottom: 1px solid #D4C6B5;
     padding: 12px !important;
   }
-  
+
   .phone-number-input {
     padding: 12px 16px !important;
   }
-  
+
   .country-dropdown {
     min-width: 100% !important;
     left: 0 !important;
     right: 0 !important;
   }
-  
+
   /* Location Input */
   .location-dropdown {
     min-width: 100% !important;
     left: 0 !important;
     right: 0 !important;
   }
-  
+
   /* Button */
   .save-update-btn {
     width: 100% !important;
     padding: 14px 24px !important;
     font-size: 16px !important;
   }
-  
+
   /* Typography */
   h5 {
     font-size: 20px !important;
     text-align: center;
   }
-  
+
   .form-label {
     font-size: 14px !important;
   }
-  
+
   /* Dropdown Lists */
   .countries-list,
   .locations-list {
     max-height: 200px !important;
   }
-  
+
   .country-option,
   .location-option {
     padding: 12px 16px !important;
   }
-  
+
   .option-name {
     font-size: 14px !important;
   }
-  
+
   .option-code {
     font-size: 13px !important;
   }
@@ -1208,71 +1191,71 @@ const updateProfile = async () => {
   .container {
     padding: 0.5rem !important;
   }
-  
+
   .user-profile-card {
     padding: 1rem !important;
     border-radius: 12px !important;
   }
-  
+
   .outer-circle {
     width: 160px !important;
     height: 160px !important;
   }
-  
+
   .inner-circle {
     width: 100px !important;
     height: 100px !important;
   }
-  
+
   .user-icon-svg {
     width: 60px !important;
     height: 60px !important;
   }
-  
+
   .upload-button {
     padding: 6px 10px !important;
     font-size: 13px !important;
   }
-  
+
   .upload-text {
     font-size: 14px !important;
   }
-  
+
   h5 {
     font-size: 18px !important;
   }
-  
+
   .form-label {
     font-size: 13px !important;
   }
-  
+
   .form-control {
     font-size: 15px !important;
     padding: 10px 12px !important;
   }
-  
+
   .save-update-btn {
     padding: 12px 20px !important;
     font-size: 15px !important;
   }
-  
+
   .country-selector,
   .location-selector {
     padding: 10px 12px !important;
   }
-  
+
   .phone-number-input {
     padding: 10px 12px !important;
   }
-  
+
   .location-text {
     font-size: 15px !important;
   }
-  
+
   .country-code {
     font-size: 13px !important;
   }
-  
+
   .search-input {
     font-size: 13px !important;
     padding: 6px 10px !important;

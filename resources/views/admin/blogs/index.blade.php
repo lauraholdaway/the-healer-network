@@ -49,7 +49,7 @@
                                 <td>
                                     @if ($blog->image)
                                         <img src="{{ asset('storage/' . $blog->image) }}" class="card-img-top"
-                                            style="height:200px;object-fit:cover;">
+                                            style="height:100px;object-fit:cover;">
                                     @endif
                                 </td>
                                 <td>{{ $blog->title }}</td>
@@ -57,7 +57,7 @@
                                 <td>
                                     {{ ucfirst($blog->status) }} • {{ $blog->subscription ?? 'Free' }}
                                 </td>
-                                <td>{{ Str::limit(strip_tags($blog->description), 150) }}</td>
+                                <td>{!! Str::limit(strip_tags($blog->description), 150) !!}</td>
                                 <td>
                                     <a href="{{ route('Blogs.edit', $blog) }}" class="btn btn-sm btn-warning">Edit</a>
 

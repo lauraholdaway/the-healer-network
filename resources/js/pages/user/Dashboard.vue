@@ -85,49 +85,70 @@ function logout() {
                 <div class="col-md-3 sidebar-wrapper" :class="{ active: sidebarOpen }">
                     <div class="userdashboard-card text-center">
                         <div class="userdashboard-menu">
-                            <router-link to="/profile/Chart" class="btn menu-btn d-flex align-items-center justify-content-between" @click="closeSidebar">
+                            <router-link to="/profile/Chart"
+                                class="btn menu-btn d-flex align-items-center justify-content-between"
+                                @click="closeSidebar">
                                 <span class="d-flex align-items-center gap-2">
                                     <img :src="ICONS.manage" alt="Manage" class="menu-icon" />
                                     <span>Manage Your Bookings</span>
                                 </span>
                             </router-link>
 
-                            <router-link to="/profile/packages" class="btn menu-btn d-flex align-items-center justify-content-between" @click="closeSidebar">
+                            <router-link to="/profile/bookings"
+                                class="btn menu-btn d-flex align-items-center justify-content-between"
+                                @click="closeSidebar">
+                                <span class="d-flex align-items-center gap-2">
+                                    <img :src="ICONS.package" alt="Package" class="menu-icon" />
+                                    <span>Appointment</span>
+                                </span>
+                            </router-link>
+                            <!-- <router-link to="/profile/packages"
+                                class="btn menu-btn d-flex align-items-center justify-content-between"
+                                @click="closeSidebar">
                                 <span class="d-flex align-items-center gap-2">
                                     <img :src="ICONS.package" alt="Package" class="menu-icon" />
                                     <span>Package</span>
                                 </span>
-                            </router-link>
+                            </router-link> -->
 
-                            <router-link to="/profile/update-profile" class="btn menu-btn d-flex align-items-center justify-content-between" @click="closeSidebar">
+                            <router-link to="/profile/update-profile"
+                                class="btn menu-btn d-flex align-items-center justify-content-between"
+                                @click="closeSidebar">
                                 <span class="d-flex align-items-center gap-2">
                                     <img :src="ICONS.profile" alt="Profile" class="menu-icon" />
                                     <span>Profile</span>
                                 </span>
                             </router-link>
 
-                            <router-link to="/profile/inbox" class="btn menu-btn d-flex align-items-center justify-content-between" @click="closeSidebar">
+                            <!-- <router-link to="/profile/inbox"
+                                class="btn menu-btn d-flex align-items-center justify-content-between"
+                                @click="closeSidebar">
                                 <span class="d-flex align-items-center gap-2">
                                     <img :src="ICONS.inbox" alt="Inbox" class="menu-icon" />
                                     <span>Inbox</span>
                                 </span>
-                            </router-link>
+                            </router-link> -->
 
-                            <router-link to="/profile/settings" class="btn menu-btn d-flex align-items-center justify-content-between" @click="closeSidebar">
+                            <router-link to="/profile/settings"
+                                class="btn menu-btn d-flex align-items-center justify-content-between"
+                                @click="closeSidebar">
                                 <span class="d-flex align-items-center gap-2">
                                     <img :src="ICONS.settings" alt="Settings" class="menu-icon" />
                                     <span>Settings</span>
                                 </span>
                             </router-link>
 
-                            <router-link to="/profile/help" class="btn menu-btn d-flex align-items-center justify-content-between" @click="closeSidebar">
+                            <router-link to="/profile/help"
+                                class="btn menu-btn d-flex align-items-center justify-content-between"
+                                @click="closeSidebar">
                                 <span class="d-flex align-items-center gap-2">
                                     <img :src="ICONS.help" alt="Help Center" class="menu-icon" />
                                     <span>Help Center</span>
                                 </span>
                             </router-link>
 
-                            <button @click="showModal = true; closeSidebar()" class="btn menu-btn logout-btn d-flex align-items-center justify-content-between">
+                            <button @click="showModal = true; closeSidebar()"
+                                class="btn menu-btn logout-btn d-flex align-items-center justify-content-between">
                                 <span class="d-flex align-items-center gap-2">
                                     <img :src="ICONS.logout" alt="Logout" class="menu-icon" />
                                     <span>Logout</span>
@@ -443,7 +464,7 @@ function logout() {
     background-color: #8A7356;
     color:#F4EFE6;
     font-family: 'Courier New', Courier, monospace;
-   
+
     border-radius: 8px;
     padding: 12px 24px;
     font-weight: 600;
@@ -454,7 +475,7 @@ function logout() {
 
 .confirm-btn:hover {
     background-color: #5B4C3A;
-   
+
 }
 
 /* Mobile Hamburger Menu Button */

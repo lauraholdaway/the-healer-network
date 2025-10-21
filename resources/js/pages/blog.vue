@@ -10,12 +10,12 @@
             <div>
                 <div v-if="datas">
                     <div>
-                    <img :src="`/storage/${datas.image}`" alt="Blog image"  class="img-fluid">
+                        <img :src="`/storage/${datas.image}`" alt="Blog image" class="img-fluid">
                     </div>
                     <br>
                     <h2>{{ datas.title }}</h2>
                     <br>
-                    <p>{{ datas.description }}</p>
+                    <div v-html="datas.description"></div>
                 </div>
                 <div v-else>
                     <p>Loading...</p>

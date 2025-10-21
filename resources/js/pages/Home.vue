@@ -263,7 +263,7 @@
                                     <span class="">T/N</span>
                                 </div>
                                 <h5 class="blog-card-title">{{ blog.title }}</h5>
-                                <p class="blog-card-text">{{ blog.description }}</p>
+                                <!-- <div class="blog-card-text" v-html="blog.description"></div> -->
                                 <div class="blog-card-footer">
                                     <a href="#" class="blog-membership-btn">
                                         {{ blog.subscription }}
