@@ -40,21 +40,26 @@
                         <td>{{ appt.user?.number }}</td>
                         <td>{{ appt.doctorpackage?.type }}</td>
                         <td>{{ appt.doctorpackage?.price }}</td>
-                        <td>{{ appt.date }}
+                        <td>{{ dayjs(appt.date).format('D MMM YYYY') }}
                         </td>
                         <td>
-                            {{ appt.time }}
+                            {{ formatTime(appt.time) }}
                         </td>
-                        <td>{{ appt.status }}</td>
+                        <td>{{ appt.type }}</td>
                         <td>
-                            <p v-if="appt.zoom_start_url">
-                                <a :href="appt.zoom_start_url" target="_blank" class="btn main-btn2">
-                                    Join Meeting
-                                </a>
-                            </p>
-                            <p v-else>
-                                <button @click="startMeeting(appt.id)" class="btn main-btn">Start Meeting</button>
-                            </p>
+                            <div v-if="appt.type === 'offline'">
+                                <b>User Address</b> : {{ appt.user?.address }} <br>
+                            </div>
+                            <div v-else>
+                                <p v-if="appt.zoom_start_url">
+                                    <a :href="appt.zoom_start_url" target="_blank" class="btn main-btn2">
+                                        Join Meeting
+                                    </a>
+                                </p>
+                                <p v-else>
+                                    <button @click="startMeeting(appt.id)" class="btn main-btn">Start Meeting</button>
+                                </p>
+                            </div>
                         </td>
                     </tr>
                 </tbody>
@@ -66,6 +71,7 @@
 <script setup>
 import { ref, onMounted } from "vue";
 import axios from "axios";
+import dayjs from "dayjs";
 const appointments = ref([]);
 const loading = ref(true);
 
@@ -90,6 +96,14 @@ const startMeeting = async (id) => {
         console.error(error);
         alert("Error creating meeting.");
     }
+}
+
+function formatTime(time) {
+    const [hours, minutes] = time.split(":");
+    let h = parseInt(hours);
+    const ampm = h >= 12 ? "PM" : "AM";
+    h = h % 12 || 12;
+    return `${h}:${minutes} ${ampm}`;
 }
 onMounted(fetchAppointments);
 </script>

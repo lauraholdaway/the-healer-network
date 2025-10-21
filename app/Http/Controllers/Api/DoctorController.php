@@ -13,6 +13,7 @@ use App\Models\doctorCerticate;
 use App\Models\User;
 use App\Models\Modality;
 
+
 class DoctorController extends Controller
 {
     // ✅ Get profile
@@ -82,6 +83,7 @@ class DoctorController extends Controller
             $practitioner->about = $validated['about'] ?? $practitioner->about;
             $practitioner->website =  $request->website;
             $practitioner->price =  $request->price;
+            $practitioner->currency =  $request->currency;
             $practitioner->languages =  $request->languages;
             $practitioner->primary_contact_number = $validated['primary_contact_number'] ?? $practitioner->primary_contact_number;
             $practitioner->mobile_number = $validated['mobile_number'] ?? $practitioner->mobile_number;
@@ -135,6 +137,31 @@ class DoctorController extends Controller
         }
 
         return response()->json(['image' => $path]);
+    }
+
+    public function updatePassword(Request $request)
+    {
+        // ✅ 1. Validate input fields
+        $request->validate([
+            'current_password' => 'required',
+            'new_password' => 'required|min:6|confirmed', // checks new_password_confirmation automatically
+        ]);
+
+        // ✅ 2. Get logged-in user
+
+        $user = User::find(Auth::id());
+
+        // ✅ 3. Check current password
+        if (!Hash::check($request->current_password, $user->password)) {
+            return response()->json(['error' => 'Current password is incorrect.'], 422);
+        }
+
+        // ✅ 4. Update new password (hashed)
+        $user->password = Hash::make($request->new_password);
+        $user->save();
+
+        // ✅ 5. Return success response
+        return response()->json(['success' => 'Password updated successfully.']);
     }
 
     // here local
