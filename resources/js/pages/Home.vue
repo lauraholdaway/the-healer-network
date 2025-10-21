@@ -119,7 +119,7 @@
       </div>
       
       <!-- Cards -->
-      <div class="row g-4">
+      <div class="row g-4 px-3 px-md-0 py-3 py-md-0 ">
         <Swiper 
           ref="swiperRef" 
           :slides-per-view="3" 
@@ -206,7 +206,7 @@
   <br>
   
   <section>
-    <div class="container py-5 blog-container mt-md-5">
+    <div class="container py-5 blog-container mt-md-5 px-4 px-md-0">
       <div class="blog-header d-flex justify-content-between align-items-center">
         <div class="blog-header-text">
           <small class="section-sub m-color" style="font-family: 'Cormorant Garamond', serif;">Our Blogs</small>
