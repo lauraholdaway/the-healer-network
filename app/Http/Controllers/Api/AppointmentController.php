@@ -95,7 +95,7 @@ try {
         public function userBooking(Request $request)
     {
         $user = Auth::id();
-        $appointments = Appointment::with(['doctor', 'doctorpackage']) // eager load relations
+        $appointments = Appointment::with(['doctor', 'doctorpackage', 'doctorDetails']) // eager load relations
             ->where('user_id', $user)
             ->latest()
             ->get();

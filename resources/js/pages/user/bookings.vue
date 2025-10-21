@@ -11,7 +11,7 @@
                 <tr>
                     <th>#</th>
                     <th>Image</th>
-                    <th>Doctor</th>
+                    <th>Healar</th>
                     <th>Package</th>
                     <th>Payment</th>
                     <th>Date</th>
@@ -27,18 +27,29 @@
                     </td>
                     <td>{{ appt.doctor?.name }}</td>
                     <td>{{ appt.doctorpackage?.type }}</td>
-                    <td>{{ appt.doctorpackage?.price }}</td>
-                    <td>{{ appt.date }}</td>
-                    <td>{{ appt.status }}</td>
+                    <td>{{ appt.doctorpackage?.price }} {{ appt?.currency }}</td>
                     <td>
-                        <p v-if="appt.zoom_join_url">
-                            <a :href="appt.zoom_join_url" target="_blank" class="btn main-btn2">
-                                Join Meeting
-                            </a>
-                        </p>
-                        <p v-else>
-                            <span class="text-muted">Waiting for doctor to start...</span>
-                        </p>
+                        {{ dayjs(appt.date).format('D MMM YYYY') }}
+                        <br> {{ formatTime(appt.time) }}
+
+                    </td>
+                    <td>{{ appt.type }}</td>
+                    <td>
+                        <div v-if="appt.type === 'offline'">
+
+                            <b>Healar Address</b> : {{ appt.doctor_details?.practice_location }} <br>
+                            <b>Phone number</b> : {{ appt.doctor_details?.primary_contact_number }}
+                        </div>
+                        <div v-else>
+                            <p v-if="appt.zoom_join_url">
+                                <a :href="appt.zoom_join_url" target="_blank" class="btn main-btn2">
+                                    Join Meeting
+                                </a>
+                            </p>
+                            <p v-else>
+                                <span class="text-muted">Waiting for doctor to start...</span>
+                            </p>
+                        </div>
                     </td>
                 </tr>
             </tbody>
@@ -49,6 +60,7 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from "vue";
 import axios from "axios";
+import dayjs from "dayjs";
 
 const appointments = ref([]);
 const loading = ref(true);
@@ -85,4 +97,12 @@ onMounted(() => {
 onBeforeUnmount(() => {
     if (intervalId) clearInterval(intervalId);
 });
+
+function formatTime(time) {
+    const [hours, minutes] = time.split(":");
+    let h = parseInt(hours);
+    const ampm = h >= 12 ? "PM" : "AM";
+    h = h % 12 || 12;
+    return `${h}:${minutes} ${ampm}`;
+}
 </script>
