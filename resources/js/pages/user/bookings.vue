@@ -17,6 +17,7 @@
                     <th>Date</th>
                     <th>Status</th>
                     <th>Meeting</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -50,6 +51,10 @@
                                 <span class="text-muted">Waiting for doctor to start...</span>
                             </p>
                         </div>
+                    </td>
+                    <td>
+                        <router-link class="btn btn-outline-custome "
+                            :to="`Appointmentview/${appt.id}`">View</router-link>
                     </td>
                 </tr>
             </tbody>

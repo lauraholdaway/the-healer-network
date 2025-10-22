@@ -49,6 +49,7 @@ import bookings from '../pages/user/bookings.vue';
 import Settings from '../pages/user/Settings.vue';
 import Packages from '../pages/user/Packages.vue';
 import UserAppointment from '../pages/user/UserAppointment.vue';
+import Appointmentview from '../pages/user/Appointmentview.vue';
 
 const routes = [
     { path: '/', name: 'Home', component: Home },
@@ -88,6 +89,7 @@ const routes = [
             { path: 'bookings', name: 'bookings', component: bookings },
             { path: 'Settings', name: 'Settings', component: Settings },
             { path: 'Packages', name: 'Packages', component: Packages },
+            { path: 'Appointmentview/:id', name: 'Appointmentview', component: Appointmentview },
         ]
     },
     {

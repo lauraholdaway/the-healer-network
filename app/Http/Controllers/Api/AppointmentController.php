@@ -119,7 +119,7 @@ try {
     {
 
         // dd($user);
-        $appointments = Appointment::with(['user', 'doctorpackage']) // eager load relations
+        $appointments = Appointment::with(['user', 'doctorpackage', 'doctor']) // eager load relations
             ->where('id', $id)
             ->latest()
             ->first();

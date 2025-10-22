@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\DoctorController;
 use App\Http\Controllers\Api\AppointmentController;
 use App\Http\Controllers\ModalityController;
 use App\Http\controllers\BlogsController;
+use Illuminate\Support\Facades\Artisan;
 
 use Illuminate\Support\Facades\Auth;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -34,6 +35,14 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/userstatus/{id}/toggle-status', [DashboardController::class, 'toggleStatus']);
     Route::resource('modalities', ModalityController::class);
     Route::resource('/Blogs', BlogsController::class);
+});
+
+Route::get('/clear-cache', function () {
+    Artisan::call('config:clear');
+    Artisan::call('cache:clear');
+    Artisan::call('config:cache');
+
+    return "✅ Config and cache cleared successfully!";
 });
 
 // routes/web.php
