@@ -118,20 +118,23 @@ async function updateProfile() {
 
 // ✅ Update profile image
 async function updateImage() {
-    if (!image.value) return alert("Please select an image!");
+    if (!image.value) return alert('Please select an image!')
+
     try {
-        const formData = new FormData();
-        formData.append("profile_image", image.value);
-        const res = await axios.post("/api/doctor/update-image", formData, {
-            headers: { "Content-Type": "multipart/form-data" },
-        });
-        user.value.image = res.data.image;
-        image.value = null;
-        preview.value = null;
-        alert("Image updated successfully!");
+        const formData = new FormData()
+        formData.append('profile_image', image.value)
+
+        const res = await axios.post('/api/doctor/update-image', formData, {
+            headers: { 'Content-Type': 'multipart/form-data' }
+        })
+
+        user.value.image = res.data.image
+        image.value = null
+        preview.value = null
+        alert('Image updated successfully!')
     } catch (err) {
-        alert("Image not updated !");
-        console.error("Image update failed:", err);
+        alert('Image not updated!')
+        console.error('Image update failed:', err)
     }
 }
 
@@ -246,12 +249,11 @@ onMounted(() => {
                     <input type="file" ref="fileInput" @change="handleImageUpload" accept="image/*"
                         class="hidden-input" />
                 </div>
-                <!-- Update Image Button
                 <div class="mt-3">
                     <button class="btn save-update-btn" @click="updateImage" type="button">
                         Save And Update
                     </button>
-                </div> -->
+                </div>
             </div>
             <!-- Update Form -->
             <form @submit.prevent="updateProfile">

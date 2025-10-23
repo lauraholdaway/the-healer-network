@@ -211,7 +211,12 @@
                                 </div>
 
                                 <h5 class="card-title fw-bold">{{ doctor.user?.name }} {{ doctor.user?.last_name }}</h5>
-                                <p class="card-text">{{ doctor.about }} <a href="#" class="m-color">See more</a></p>
+                                <p class="card-text">
+                                    {{ showFull ? doctor.about : limitWords(doctor.about, 10) }}
+                                    <a href="#" class="m-color" @click.prevent="toggleText">
+                                        {{ showFull ? 'See less' : 'See more' }}
+                                    </a>
+                                </p>
 
                                 <router-link :to="`/booksession/${doctor.user.id}`" class="btn btn-book"
                                     style="width: 200px; align-self: flex-start;">
@@ -360,6 +365,12 @@ function limitWords(text, wordLimit) {
     return words.length > wordLimit
         ? words.slice(0, wordLimit).join(' ') + '...'
         : text;
+}
+
+const showFull = ref(false)
+
+function toggleText() {
+    showFull.value = !showFull.value
 }
 </script>
 
