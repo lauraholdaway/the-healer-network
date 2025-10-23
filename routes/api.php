@@ -12,7 +12,11 @@ use App\Http\Controllers\BlogsController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Password;
 use Illuminate\Auth\Events\Verified;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Cache;
+use Illuminate\Support\Facades\Hash;
 
 Route::post('/email/verification-notification', function (Request $request) {
     $request->user()->sendEmailVerificationNotification();
@@ -45,10 +49,59 @@ Route::get('/email/verify/{id}/{hash}', function (Request $request, $id, $hash) 
     return redirect('http://127.0.0.1:8000/Verifyemailcomplete');
 })->middleware(['signed'])->name('verification.verify');
 
+Route::post('/findLogin', function (Request $request) {
+    $request->validate(['email' => 'required|email']);
 
+    $user = User::where('email', $request->email)->first();
+    if (!$user) {
+        return response()->json(['message' => 'Email not found'], 404);
+    }
+
+    // Generate 6-digit OTP
+    $otp = rand(100000, 999999);
+
+    // Store OTP in cache for 10 minutes
+    Cache::put('password_reset_' . $request->email, $otp, now()->addMinutes(10));
+
+    // Send OTP via email
+    Mail::raw("Your password reset OTP is: $otp", function ($message) use ($user) {
+        $message->to($user->email)
+            ->subject('Password Reset OTP');
+    });
+
+    return response()->json(['message' => 'OTP sent to your email']);
+});
+
+Route::post('/verify-otp', function (Request $request) {
+    $request->validate([
+        'email' => 'required|email',
+        'otp' => 'required',
+        'password' => 'required|min:6',
+    ]);
+
+    $cachedOtp = Cache::get('password_reset_' . $request->email);
+
+    if (!$cachedOtp || $cachedOtp != $request->otp) {
+        return response()->json(['message' => 'Invalid or expired OTP'], 400);
+    }
+
+    $user = User::where('email', $request->email)->first();
+    if (!$user) {
+        return response()->json(['message' => 'User not found'], 404);
+    }
+
+    $user->password = Hash::make($request->password);
+    $user->save();
+
+    // Remove OTP from cache
+    Cache::forget('password_reset_' . $request->email);
+
+    return response()->json(['message' => 'Password updated successfully']);
+});
 
 Route::post('/register', [AuthController::class,'register']);
 Route::post('/login', [AuthController::class,'login']);
+
 
 
 Route::middleware('auth:sanctum')->group(function () {
@@ -61,8 +114,6 @@ Route::middleware('auth:sanctum')->group(function () {
 Route::middleware('auth:sanctum')->post('/profile/update-image', [AuthController::class, 'updateImage']);
 
 Route::post('/practitioners/register', [PractitionerController::class, 'store']);
-
-
 Route::middleware('auth:sanctum')->group(function () {
     Route::get('/doctor/profile', [DoctorController::class, 'profile']);
     Route::post('/doctor/update', [DoctorController::class, 'update']);

@@ -106,8 +106,8 @@
                                     :aria-controls="`collapse${index}`"
                                     style="background-color: #F4EFE6; color: #7D684E; font-weight: bold; border: none; padding: 15px 20px;">
                                     {{ new Date(tm.date).toLocaleString('en-US', {
-                                        day: '2-digit', month: 'short', year:
-                                            'numeric'
+                                    day: '2-digit', month: 'short', year:
+                                    'numeric'
                                     }) }}
                                 </button>
                             </h2>
@@ -138,7 +138,7 @@
                         </div>
 
                         <div class="text-end">
-                            <button type="submit" class="btn main-btn">Save Changes</button>
+                            <button type="submit" class="btn main-btn">Update Appointment</button>
                         </div>
                     </form>
                 </div>
