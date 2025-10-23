@@ -172,7 +172,7 @@
   padding: 14px 20px;
   border: 1px solid #8A7356;
   border-radius: 25px;
- 
+
   color: #4A4A4A;
   font-size: 14px;
   background-color: #DED1BA;
@@ -182,7 +182,7 @@
 }
 
 .email-input::placeholder {
- 
+
   color: #8B8B8B;
 }
 
@@ -277,11 +277,11 @@
   .footer-main {
     gap: 30px;
   }
-  
+
   .footer-section {
     padding-right: 20px;
   }
-  
+
   .subscribe-description {
     font-size: 11px;
   }
@@ -292,12 +292,12 @@
   .footer-container {
     padding: 50px 0 25px;
   }
-  
+
   .footer-main {
     flex-direction: column;
     gap: 25px;
   }
-  
+
   .footer-section {
     border-right: none;
     border-bottom: 1px solid #DED1BA;
@@ -305,35 +305,35 @@
     padding-bottom: 25px;
     flex: 1;
   }
-  
+
   .subscribe-section {
     border-bottom: none;
     padding-bottom: 0;
   }
-  
+
   .section-title {
     font-size: 17px;
   }
-  
+
   .footer-links a {
     font-size: 13px;
   }
-  
+
   .subscribe-description {
     font-size: 12px;
   }
-  
+
   .footer-bottom {
     flex-direction: column;
     gap: 20px;
     text-align: center;
   }
-  
+
   .social-section {
     flex-direction: column;
     gap: 12px;
   }
-  
+
   .copyright {
     font-size: 13px;
   }
@@ -344,77 +344,77 @@
   .footer-container {
     padding: 40px 0 20px;
   }
-  
+
   .footer-main {
     gap: 20px;
   }
-  
+
   .footer-logo img {
     max-width: 90px;
   }
-  
+
   .footer-section {
     padding-bottom: 20px;
   }
-  
+
   .section-title {
     font-size: 16px;
     margin-bottom: 12px;
   }
-  
+
   .footer-links li {
     margin-bottom: 10px;
   }
-  
+
   .footer-links a {
     font-size: 12px;
   }
-  
+
   .subscribe-description {
     font-size: 11px;
     line-height: 1.5;
     margin-bottom: 20px;
   }
-  
+
   .subscribe-form {
     flex-direction: column;
     align-items: stretch;
     gap: 12px;
   }
-  
+
   .email-input {
     padding: 12px 18px;
     font-size: 13px;
   }
-  
+
   .subscribe-btn {
     width: 100%;
     padding: 12px 24px;
     font-size: 13px;
   }
-  
+
   .footer-separator {
     margin: 25px 0;
   }
-  
+
   .footer-bottom {
     padding-top: 15px;
     gap: 15px;
   }
-  
+
   .copyright {
     font-size: 12px;
   }
-  
+
   .social-text {
     font-size: 13px;
   }
-  
+
   .social-icon {
     width: 30px;
     height: 30px;
   }
-  
+
   .social-icon img {
     width: 14px;
     height: 14px;
@@ -426,39 +426,39 @@
   .footer-container {
     padding: 30px 0 15px;
   }
-  
+
   .footer-logo img {
     max-width: 75px;
   }
-  
+
   .section-title {
     font-size: 15px;
   }
-  
+
   .footer-links a {
     font-size: 11px;
   }
-  
+
   .subscribe-description {
     font-size: 10px;
   }
-  
+
   .email-input,
   .subscribe-btn {
     font-size: 12px;
     padding: 10px 16px;
   }
-  
+
   .copyright,
   .social-text {
     font-size: 11px;
   }
-  
+
   .social-icon {
     width: 28px;
     height: 28px;
   }
-  
+
   .social-icons {
     gap: 6px;
   }
