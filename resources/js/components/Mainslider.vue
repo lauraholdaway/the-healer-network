@@ -1,6 +1,6 @@
 <template>
     <br>
-    
+
     <section class="my-3 my-md-5">
         <div class="split-section d-flex flex-wrap align-items-center">
             <!-- Left Section -->
@@ -41,13 +41,15 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <!-- Book Now button for mobile -->
                     <div class="d-md-none text-center mt-3">
-                        <button class="book-btn">Book Now 
-                            <svg width="14" height="14" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M11.5 1.5L19 9L11.5 1.5ZM19 9L11.5 16.5L19 9ZM19 9L1 9L19 9Z" fill="#2E2D29"/>
-                                <path d="M11.5 1.5L19 9M19 9L11.5 16.5M19 9L1 9" stroke="#2E2D29" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <button class="book-btn">Book Now
+                            <svg width="14" height="14" viewBox="0 0 20 18" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M11.5 1.5L19 9L11.5 1.5ZM19 9L11.5 16.5L19 9ZM19 9L1 9L19 9Z" fill="#2E2D29" />
+                                <path d="M11.5 1.5L19 9M19 9L11.5 16.5M19 9L1 9" stroke="#2E2D29" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
                         </button>
                     </div>
@@ -58,12 +60,13 @@
             <div class="right-section col-md-6 d-none d-md-block">
                 <img :src="slides[currentIndex].image" class="img-fluid" :alt="slides[currentIndex].heading"
                     style="object-fit: cover;" />
-                <button class="book-btn">Book Now 
+                <router-link class="book-btn text-dark text-decoration-none" to="Alldoctor">Book Now
                     <svg width="14" height="14" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M11.5 1.5L19 9L11.5 1.5ZM19 9L11.5 16.5L19 9ZM19 9L1 9L19 9Z" fill="#2E2D29"/>
-                        <path d="M11.5 1.5L19 9M19 9L11.5 16.5M19 9L1 9" stroke="#2E2D29" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M11.5 1.5L19 9L11.5 1.5ZM19 9L11.5 16.5L19 9ZM19 9L1 9L19 9Z" fill="#2E2D29" />
+                        <path d="M11.5 1.5L19 9M19 9L11.5 16.5M19 9L1 9" stroke="#2E2D29" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
-                </button>
+                </router-link>
             </div>
         </div>
     </section>
