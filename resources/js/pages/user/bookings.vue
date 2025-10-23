@@ -2,7 +2,12 @@
     <div class=" p-2 m-2">
         <h4>Practitioner Appointments</h4>
         <hr>
-        <div v-if="loading">Loading appointments...</div>
+        <div v-if="loading" class="loading-container">
+            <div class="loading-bar">
+                <div class="loading-progress"></div>
+            </div>
+            <p class="loading-text">Loading Practitioner...</p>
+        </div>
         <div v-else-if="appointments.length === 0">No appointments found.</div>
 
         <table v-else class="table table-bordered">
@@ -101,8 +106,8 @@
                                     :aria-controls="`collapse${index}`"
                                     style="background-color: #F4EFE6; color: #7D684E; font-weight: bold; border: none; padding: 15px 20px;">
                                     {{ new Date(tm.date).toLocaleString('en-US', {
-                                    day: '2-digit', month: 'short', year:
-                                    'numeric'
+                                        day: '2-digit', month: 'short', year:
+                                            'numeric'
                                     }) }}
                                 </button>
                             </h2>
@@ -133,7 +138,7 @@
                         </div>
 
                         <div class="text-end">
-                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                            <button type="submit" class="btn main-btn">Save Changes</button>
                         </div>
                     </form>
                 </div>
@@ -206,7 +211,8 @@ const updateAppointment = async () => {
         await axios.post(`/api/updateAppStatus`, form.value)
         const modal = bootstrap.Modal.getInstance(document.getElementById('changeModal'))
         modal.hide()
-        alert('Appointment updated successfully!')
+        fetchAppointments();
+        alert('Appointment time updated successfully!')
     } catch (error) {
         console.error("Error updating appointment:", error)
     }

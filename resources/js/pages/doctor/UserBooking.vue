@@ -4,7 +4,12 @@
             <h3>User Appointments</h3>
 
             <!-- Show loading -->
-            <div v-if="loading">Loading appointments...</div>
+            <div v-if="loading" class="loading-container">
+                <div class="loading-bar">
+                    <div class="loading-progress"></div>
+                </div>
+                <p class="loading-text">Loading Practitioner...</p>
+            </div>
 
             <!-- Show when no data -->
             <div v-else-if="appointments.length === 0">
