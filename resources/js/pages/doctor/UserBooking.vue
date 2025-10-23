@@ -33,7 +33,8 @@
                     <tr v-for="(appt, index) in appointments" :key="appt.id">
                         <td>{{ index + 1 }}</td>
                         <td>
-                            <img :src="'/storage/' + appt.user.image" alt="" style="width: 100px;border-radius: 50%;">
+                            <img :src="'/storage/' + appt.user.image" alt=""
+                                style="width: 100px;height: 100px;object-fit: cover;border-radius: 50%;">
                         </td>
                         <td>{{ appt.user?.name }}</td>
                         <td>{{ appt.user?.email }}</td>
