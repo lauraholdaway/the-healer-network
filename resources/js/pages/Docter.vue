@@ -79,7 +79,7 @@ h5 {
     right: -10%;
     width: 200px;
     height: 200px;
-  
+
     background-size: contain;
     z-index: 1;
 }
@@ -149,8 +149,7 @@ h5 {
 }
 
 .book-session-btn:hover {
-    background: #8A7356
-    ;
+    background: #8A7356;
     color: white;
     text-decoration: none;
     transform: translateY(-2px);
@@ -165,7 +164,7 @@ h5 {
     display: flex;
     align-items: center;
     gap: 16px;
-   
+
     transition: all 0.3s ease;
 }
 
@@ -206,11 +205,11 @@ h5 {
         padding: 10px 20px;
         gap: 12px;
     }
-    
+
     .rating-number {
         font-size: 1.3rem;
     }
-    
+
     .rating-stars i {
         font-size: 1.1rem;
     }
@@ -223,11 +222,11 @@ h5 {
         flex-direction: column;
         border-radius: 25px;
     }
-    
+
     .rating-number {
         font-size: 1.2rem;
     }
-    
+
     .rating-stars i {
         font-size: 1rem;
     }
@@ -241,361 +240,366 @@ h5 {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease;
     border: none;
-    height: 400px; /* Fixed height for all cards */
-    display: flex;
-    flex-direction: column;
-}
-
-.testimonial-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-}
-
-.testimonial-content {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-}
-
-.testimonial-image {
-    flex-shrink: 0;
-    height: 220px; /* Increased height for better image display */
-    overflow: hidden;
-    position: relative;
-    background-color: #f0f0f0;
-}
-
-.testimonial-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center top;
-    transition: transform 0.3s ease;
-}
-
-.testimonial-image:hover img {
-    transform: scale(1.05);
-}
-
-.testimonial-text {
-    padding: 20px;
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    background-color: #E5D9CB;
-    min-height: 180px; /* Minimum height for text area */
-}
-
-.testimonial-title {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: #2E2D29;
-    margin-bottom: 12px;
-    line-height: 1.3;
-}
-
-.testimonial-description {
-    font-size: 0.95rem;
-    color: #555;
-    line-height: 1.5;
-    margin-bottom: 15px;
-    flex-grow: 1;
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 4;
-    line-clamp: 4;
-    -webkit-box-orient: vertical;
-}
-
-.testimonial-rating {
-    display: flex;
-    gap: 3px;
-    margin-top: auto;
-    padding-top: 10px;
-}
-
-.testimonial-rating i {
-    color: #5B4C3A;
-    font-size: 1.1rem;
-}
-
-/* Responsive adjustments for testimonial cards */
-@media (max-width: 768px) {
-    .testimonial-card {
-        height: 380px; /* Slightly smaller for tablets */
-    }
-    
-    .testimonial-image {
-        height: 200px;
-    }
-    
-    .testimonial-text {
-        padding: 15px;
-        min-height: 180px;
-    }
-    
-    .testimonial-title {
-        font-size: 1rem;
-    }
-    
-    .testimonial-description {
-        font-size: 0.9rem;
-        -webkit-line-clamp: 3;
-        line-clamp: 3;
-    }
-}
-
-@media (max-width: 576px) {
-    .testimonial-card {
-        height: 360px; /* Smaller for mobile */
-    }
-    
-    .testimonial-image {
-        height: 180px;
-    }
-    
-    .testimonial-text {
-        padding: 12px;
-        min-height: 180px;
-    }
-    
-    .testimonial-description {
-        -webkit-line-clamp: 3;
-        line-clamp: 3;
-    }
-}
-
-/* Horizontal Scroll Swiper Styles */
-.horizontal-scroll-swiper {
-    padding: 10px 0 30px 0;
-    overflow: hidden;
-    max-width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.swiper-slide-auto {
-    width: 320px !important;
-    height: auto;
-}
-
-/* Scrollbar hidden but scroll functionality maintained */
-.horizontal-scroll-swiper .swiper-scrollbar {
-    display: none;
-}
-
-/* Prevent page scroll and enable only cards section scroll */
-body {
-    overflow-x: hidden;
-}
-
-.testimonial-section {
-    overflow-x: hidden;
-}
-
-.container-fluid {
-    overflow-x: hidden;
-}
-
-/* Enable smooth scrolling only in swiper */
-.horizontal-scroll-swiper .swiper-wrapper {
-    transition-timing-function: ease-in-out;
-    display: flex;
-    align-items: center;
-}
-
-/* Center the swiper container */
-.horizontal-scroll-swiper .swiper {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-/* Responsive adjustments for horizontal scroll */
-@media (max-width: 768px) {
-    .swiper-slide-auto {
-        width: 280px !important;
-    }
-}
-
-@media (max-width: 576px) {
-    .swiper-slide-auto {
-        width: 260px !important;
-    }
-}
-
-/* Mobile Responsive Styles */
-@media (max-width: 991px) {
-    .doctor-name {
-        font-size: 1.75rem;
-    }
-    
-    .cards {
-        padding: 15px;
-    }
-}
-
-@media (max-width: 768px) {
-    .doctor-name {
-        font-size: 1.5rem;
-        margin-top: 1rem;
-    }
-    
-    .doctor-description {
-        font-size: 0.9rem;
-    }
-    
-    .book-session-btn {
-        width: 100%;
-        text-align: center;
-        margin-top: 1rem;
-    }
-    
-    .rating-section {
+    height: 400px;
+        /* Fixed height for all cards */
+        display: flex;
         flex-direction: column;
-        align-items: flex-start;
-        gap: 0.5rem;
     }
-    
-    .cards {
-        padding: 12px;
-    }
-    
-    .service-card {
-        margin-bottom: 1rem;
-    }
-    
-    .service-card h5 {
-        font-size: 1.1rem;
-    }
-    
-    .service-card p {
-        font-size: 0.9rem;
-    }
-    
-    .subheading {
-        font-size: 1.3rem !important;
-        line-height: 1.5;
-    }
-}
 
-@media (max-width: 576px) {
-    .doctor-name {
-        font-size: 1.25rem;
-    }
-    
-    .doctor-type-tag {
-        font-size: 0.75rem;
-        padding: 5px 12px;
-        margin-bottom: 0.5rem;
-    }
-    
-    .rating-section .stars {
-        font-size: 1rem;
-    }
-    
-    .rating-text {
-        font-size: 0.8rem;
-        padding: 5px 10px;
-    }
-    
-    .doctor-description {
-        font-size: 0.85rem;
-        line-height: 1.4;
-    }
-    
-    .book-session-btn {
-        padding: 10px 20px;
-        font-size: 0.9rem;
-    }
-    
-    .cards {
-        padding: 10px;
-        margin: 1rem 0 !important;
-    }
-    
-    .service-card {
-        padding: 1rem !important;
-    }
-    
-    .service-card h5 {
-        font-size: 1rem;
-    }
-    
-    .service-card p {
-        font-size: 0.85rem;
-    }
-    
-    .subheading {
-        font-size: 1.1rem !important;
-        padding: 0 15px;
-    }
-    
-    .testimonial-section {
-        padding: 2rem 0 !important;
-    }
-    
-    .container-fluid.mt-5.py-5 {
-        padding: 2rem 0 !important;
-        margin-top: 2rem !important;
-    }
-}
-
-/* Info Bar Responsive */
-@media (max-width: 768px) {
-    .info-box .col-md-3 {
-        border-right: none !important;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-        padding-bottom: 1rem;
-        margin-bottom: 1rem;
-    }
-    
-    .info-box .col-md-3:last-child {
-        border-bottom: none;
-        margin-bottom: 0;
-    }
-    
-    .info-box h6 {
-        font-size: 0.95rem;
-    }
-    
-    .info-box p {
-        font-size: 0.85rem;
-    }
-}
-
-@media (max-width: 576px) {
-    .info-box {
-        padding: 1.5rem 1rem !important;
-    }
-    
-    .info-box h6 {
-        font-size: 0.9rem;
-    }
-    
-    .info-box p {
-        font-size: 0.8rem;
-    }
-    
-    .info-box .col-6 {
-        margin-bottom: 1rem !important;
-    }
-}
-
-/* Service Card Price Section Responsive */
-@media (max-width: 576px) {
-    .service-card .my-3.d-flex {
-        flex-direction: column;
-        align-items: flex-start !important;
-        gap: 0.5rem;
-    }
-    
-    .service-card svg {
-        width: 30px;
-        height: 30px;
-    }
-}
+                                .testimonial-card:hover {
+                                    transform: translateY(-5px);
+                                    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+                                }
+                
+                                .testimonial-content {
+                                    display: flex;
+                                    flex-direction: column;
+                                    height: 100%;
+                                }
+                
+                                .testimonial-image {
+                                    flex-shrink: 0;
+                                    height: 220px;
+                                    /* Increased height for better image display */
+                                    overflow: hidden;
+                                    position: relative;
+                                    background-color: #f0f0f0;
+                                }
+                
+                                .testimonial-image img {
+                                    width: 100%;
+                                    height: 100%;
+                                    object-fit: cover;
+                                    object-position: center top;
+                                    transition: transform 0.3s ease;
+                                }
+                
+                                .testimonial-image:hover img {
+                                    transform: scale(1.05);
+                                }
+                
+                                .testimonial-text {
+                                    padding: 20px;
+                                    flex-grow: 1;
+                                    display: flex;
+                                    flex-direction: column;
+                                    background-color: #E5D9CB;
+                                    min-height: 180px;
+                                    /* Minimum height for text area */
+                                }
+                
+                                .testimonial-title {
+                                    font-size: 1.1rem;
+                                    font-weight: 600;
+                                    color: #2E2D29;
+                                    margin-bottom: 12px;
+                                    line-height: 1.3;
+                                }
+                
+                                .testimonial-description {
+                                    font-size: 0.95rem;
+                                    color: #555;
+                                    line-height: 1.5;
+                                    margin-bottom: 15px;
+                                    flex-grow: 1;
+                                    overflow: hidden;
+                                    display: -webkit-box;
+                                    -webkit-line-clamp: 4;
+                                    line-clamp: 4;
+                                    -webkit-box-orient: vertical;
+                                }
+                
+                                .testimonial-rating {
+                                    display: flex;
+                                    gap: 3px;
+                                    margin-top: auto;
+                                    padding-top: 10px;
+                                }
+                
+                                .testimonial-rating i {
+                                    color: #5B4C3A;
+                                    font-size: 1.1rem;
+                                }
+                
+                                /* Responsive adjustments for testimonial cards */
+                                @media (max-width: 768px) {
+                                    .testimonial-card {
+                                        height: 380px;
+                                        /* Slightly smaller for tablets */
+                                    }
+                
+                                    .testimonial-image {
+                                        height: 200px;
+                                    }
+                
+                                    .testimonial-text {
+                                        padding: 15px;
+                                        min-height: 180px;
+                                    }
+                
+                                    .testimonial-title {
+                                        font-size: 1rem;
+                                    }
+                
+                                    .testimonial-description {
+                                        font-size: 0.9rem;
+                                        -webkit-line-clamp: 3;
+                                        line-clamp: 3;
+                                    }
+                                }
+                
+                                @media (max-width: 576px) {
+                                    .testimonial-card {
+                                        height: 360px;
+                                        /* Smaller for mobile */
+                                    }
+                
+                                    .testimonial-image {
+                                        height: 180px;
+                                    }
+                
+                                    .testimonial-text {
+                                        padding: 12px;
+                                        min-height: 180px;
+                                    }
+                
+                                    .testimonial-description {
+                                        -webkit-line-clamp: 3;
+                                        line-clamp: 3;
+                                    }
+                                }
+                
+                                /* Horizontal Scroll Swiper Styles */
+                                .horizontal-scroll-swiper {
+                                    padding: 10px 0 30px 0;
+                                    overflow: hidden;
+                                    max-width: 100%;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center;
+                                }
+                
+                                .swiper-slide-auto {
+                                    width: 320px !important;
+                                    height: auto;
+                                }
+                
+                                /* Scrollbar hidden but scroll functionality maintained */
+                                .horizontal-scroll-swiper .swiper-scrollbar {
+                                    display: none;
+                                }
+                
+                                /* Prevent page scroll and enable only cards section scroll */
+                                body {
+                                    overflow-x: hidden;
+                                }
+                
+                                .testimonial-section {
+                                    overflow-x: hidden;
+                                }
+                
+                                .container-fluid {
+                                    overflow-x: hidden;
+                                }
+                
+                                /* Enable smooth scrolling only in swiper */
+                                .horizontal-scroll-swiper .swiper-wrapper {
+                                    transition-timing-function: ease-in-out;
+                                    display: flex;
+                                    align-items: center;
+                                }
+                
+                                /* Center the swiper container */
+                                .horizontal-scroll-swiper .swiper {
+                                    width: 100%;
+                                    display: flex;
+                                    justify-content: center;
+                                }
+                
+                                /* Responsive adjustments for horizontal scroll */
+                                @media (max-width: 768px) {
+                                    .swiper-slide-auto {
+                                        width: 280px !important;
+                                    }
+                                }
+                
+                                @media (max-width: 576px) {
+                                    .swiper-slide-auto {
+                                        width: 260px !important;
+                                    }
+                                }
+                
+                                /* Mobile Responsive Styles */
+                                @media (max-width: 991px) {
+                                    .doctor-name {
+                                        font-size: 1.75rem;
+                                    }
+                
+                                    .cards {
+                                        padding: 15px;
+                                    }
+                                }
+                
+                                @media (max-width: 768px) {
+                                    .doctor-name {
+                                        font-size: 1.5rem;
+                                        margin-top: 1rem;
+                                    }
+                
+                                    .doctor-description {
+                                        font-size: 0.9rem;
+                                    }
+                
+                                    .book-session-btn {
+                                        width: 100%;
+                                        text-align: center;
+                                        margin-top: 1rem;
+                                    }
+                
+                                    .rating-section {
+                                        flex-direction: column;
+                                        align-items: flex-start;
+                                        gap: 0.5rem;
+                                    }
+                
+                                    .cards {
+                                        padding: 12px;
+                                    }
+                
+                                    .service-card {
+                                        margin-bottom: 1rem;
+                                    }
+                
+                                    .service-card h5 {
+                                        font-size: 1.1rem;
+                                    }
+                
+                                    .service-card p {
+                                        font-size: 0.9rem;
+                                    }
+                
+                                    .subheading {
+                                        font-size: 1.3rem !important;
+                                        line-height: 1.5;
+                                    }
+                                }
+                
+                                @media (max-width: 576px) {
+                                    .doctor-name {
+                                        font-size: 1.25rem;
+                                    }
+                
+                                    .doctor-type-tag {
+                                        font-size: 0.75rem;
+                                        padding: 5px 12px;
+                                        margin-bottom: 0.5rem;
+                                    }
+                
+                                    .rating-section .stars {
+                                        font-size: 1rem;
+                                    }
+                
+                                    .rating-text {
+                                        font-size: 0.8rem;
+                                        padding: 5px 10px;
+                                    }
+                
+                                    .doctor-description {
+                                        font-size: 0.85rem;
+                                        line-height: 1.4;
+                                    }
+                
+                                    .book-session-btn {
+                                        padding: 10px 20px;
+                                        font-size: 0.9rem;
+                                    }
+                
+                                    .cards {
+                                        padding: 10px;
+                                        margin: 1rem 0 !important;
+                                    }
+                
+                                    .service-card {
+                                        padding: 1rem !important;
+                                    }
+                
+                                    .service-card h5 {
+                                        font-size: 1rem;
+                                    }
+                
+                                    .service-card p {
+                                        font-size: 0.85rem;
+                                    }
+                
+                                    .subheading {
+                                        font-size: 1.1rem !important;
+                                        padding: 0 15px;
+                                    }
+                
+                                    .testimonial-section {
+                                        padding: 2rem 0 !important;
+                                    }
+                
+                                    .container-fluid.mt-5.py-5 {
+                                        padding: 2rem 0 !important;
+                                        margin-top: 2rem !important;
+                                    }
+                                }
+                
+                                /* Info Bar Responsive */
+                                @media (max-width: 768px) {
+                                    .info-box .col-md-3 {
+                                        border-right: none !important;
+                                        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+                                        padding-bottom: 1rem;
+                                        margin-bottom: 1rem;
+                                    }
+                
+                                    .info-box .col-md-3:last-child {
+                                        border-bottom: none;
+                                        margin-bottom: 0;
+                                    }
+                
+                                    .info-box h6 {
+                                        font-size: 0.95rem;
+                                    }
+                
+                                    .info-box p {
+                                        font-size: 0.85rem;
+                                    }
+                                }
+                
+                                @media (max-width: 576px) {
+                                    .info-box {
+                                        padding: 1.5rem 1rem !important;
+                                    }
+                
+                                    .info-box h6 {
+                                        font-size: 0.9rem;
+                                    }
+                
+                                    .info-box p {
+                                        font-size: 0.8rem;
+                                    }
+                
+                                    .info-box .col-6 {
+                                        margin-bottom: 1rem !important;
+                                    }
+                                }
+                
+                                /* Service Card Price Section Responsive */
+                                @media (max-width: 576px) {
+                                    .service-card .my-3.d-flex {
+                                        flex-direction: column;
+                                        align-items: flex-start !important;
+                                        gap: 0.5rem;
+                                    }
+                
+                                    .service-card svg {
+                                        width: 30px;
+                                        height: 30px;
+                                    }
+                                }
 </style>
 <template>
     <section>
@@ -606,9 +610,11 @@ body {
                 <div class="row" v-if="doctor">
                     <!-- Left image only -->
                     <div class="col-md-4 col-12 mb-3 mb-md-0">
-                        <div class="rounded-4 text-center" style="background: linear-gradient(180deg, #c4b39a 0%, rgb(91 76 58 / 41%) 100%); padding:0px;">
-                            <img src="/public/asset/images/docter.png"
-                                class="doctorImages img-fluid rounded-4" alt="practitioner" style="display: inline-block;">
+                        <div class="rounded-4 text-center"
+                            style="background: linear-gradient(180deg, #c4b39a 0%, rgb(91 76 58 / 41%) 100%); padding:0px;">
+                            <img :src="doctor?.user?.image ? '/storage/' + doctor.user.image : '/default-image.png'"
+                                class="doctorImages img-fluid rounded-4" alt="practitioner"
+                                style="display: inline-block;" />
                         </div>
                     </div>
 
@@ -616,12 +622,14 @@ body {
                     <div class="col-md-8 col-12 d-flex align-items-center">
                         <div class="w-100">
                             <!-- Doctor Type Tag -->
-                            <div class="doctor-type-tag me-2 mb-2 d-inline-block" v-for="(s, index) in doctor.modalities" :key="index" style="background:#C4B39A;">
+                            <div class="doctor-type-tag me-2 mb-2 d-inline-block"
+                                v-for="(s, index) in doctor.modalities" :key="index" style="background:#C4B39A;">
                                 {{ s?.title }}
                             </div>
 
                             <!-- Doctor Name -->
-                            <h1 style="font-size: 30px; font-weight: 300;" class="doctor-name">{{ doctor?.user?.name }} {{ doctor?.user?.last_name }} {{ doctor?.user?.specialization }}</h1>
+                            <h1 style="font-size: 30px; font-weight: 300;" class="doctor-name">{{ doctor?.user?.name }}
+                                {{ doctor?.user?.last_name }} {{ doctor?.user?.specialization }}</h1>
 
                             <!-- Rating Section -->
                             <div class="rating-section">
@@ -632,20 +640,23 @@ body {
                                     <i class="bi bi-star-fill me-1"></i>
                                     <i class="bi bi-star-fill"></i>
                                 </div>
-                                <div class="rating-text" style="background: #5B4C3A; color: white; padding: 6px 12px; border-radius: 8px; font-weight: 500; font-size: 0.9rem;">
+                                <div class="rating-text"
+                                    style="background: #5B4C3A; color: white; padding: 6px 12px; border-radius: 8px; font-weight: 500; font-size: 0.9rem;">
                                     5.0 162 Reviews
                                 </div>
                             </div>
 
                             <!-- Doctor Description -->
                             <p class="doctor-description">
-                                {{ doctor?.about || "Hi, I'm Darrell Steward, a Meditation Therapist dedicated to helping you find peace and balance through meditation. Using techniques like mindfulness, guided visualization, and breathing exercises, I tailor each session to meet your personal needs, whether it's managing stress, gaining clarity, or fostering emotional well-being." }}
+                            <p class="doctor-description">
+                                {{ doctor?.about || "-" }}
+                            </p>
+
+
                             </p>
 
                             <!-- Book Session Button -->
-                            <router-link 
-                                v-if="doctor?.user?.id" 
-                                :to="`/booksession/${doctor.user.id}`"
+                            <router-link v-if="doctor?.user?.id" :to="`/booksession/${doctor.user.id}`"
                                 class="book-session-btn">
                                 Book A Session
                             </router-link>
@@ -745,7 +756,8 @@ body {
             <div class="container-fluid text-center">
 
                 <!-- Heading -->
-                <p class="subheading fw-bold" style="font-size: 28px;">Our mission is to help over 100,000 people worldwide improve  <br class="d-none d-md-block"> their mental health and wellbeing
+                <p class="subheading fw-bold" style="font-size: 28px;">Our mission is to help over 100,000 people
+                    worldwide improve <br class="d-none d-md-block"> their mental health and wellbeing
                 </p>
 
                 <!-- Rating -->
@@ -763,22 +775,13 @@ body {
                 </div>
                 <!-- <p class="text-muted">Excellent rating from 200 reviews</p> -->
                 <div class="container-fluid mt-5 py-5    d-flex justify-content-center">
-                    <Swiper 
-                        :slides-per-view="'auto'" 
-                        :space-between="20" 
-                        :loop="true" 
-                        class="mySwiper horizontal-scroll-swiper" 
-                        :autoplay="{ delay: 3000 }"
-                        :free-mode="true"
-                        :grab-cursor="true"
-                        :mousewheel="{ 
+                    <Swiper :slides-per-view="'auto'" :space-between="20" :loop="true"
+                        class="mySwiper horizontal-scroll-swiper" :autoplay="{ delay: 3000 }" :free-mode="true"
+                        :grab-cursor="true" :mousewheel="{
                             forceToAxis: true,
                             sensitivity: 1,
                             releaseOnEdges: true
-                        }"
-                        :keyboard="true"
-                        :resistance-ratio="0.85"
-                        :breakpoints="{
+                        }" :keyboard="true" :resistance-ratio="0.85" :breakpoints="{
                             320: { slidesPerView: 1.2, spaceBetween: 15 },
                             576: { slidesPerView: 1.5, spaceBetween: 20 },
                             768: { slidesPerView: 2.2, spaceBetween: 20 },
@@ -793,12 +796,12 @@ body {
                                 <div v-if="index % 2 === 0" class="testimonial-content">
                                     <!-- Image on top -->
                                     <div class="testimonial-image">
-                                        <img src="/public/asset/images/demo1.png"
-                                            alt="User" />
+                                        <img src="/public/asset/images/demo1.png" alt="User" />
                                     </div>
                                     <div class="testimonial-text">
                                         <h6 class="testimonial-title">Accessible and open.</h6>
-                                        <p class="testimonial-description">{{ doctor?.about || "I've been meaning to seek help from a psychologist for a long time, but have been put off seeing one in person due to inconvenient times and large gap fees. Someone makes the..." }}</p>
+                                        <p class="testimonial-description">{{ doctor?.about || "_" }}
+                                        </p>
                                         <div class="testimonial-rating">
                                             <i class="bi bi-star-fill"></i>
                                             <i class="bi bi-star-fill"></i>
@@ -812,7 +815,7 @@ body {
                                 <div v-else class="testimonial-content">
                                     <!-- Text on top -->
                                     <div class="testimonial-text">
-                                        <p class="testimonial-description">{{ doctor?.about || "Makes dealing with mental health a bit easier. Dealing with mental health can be overwhelming, daunting and expensive. Although there's many reasons to go, there's just as many..." }}</p>
+                                        <p class="testimonial-description">{{ doctor?.about || "_" }}</p>
                                         <div class="testimonial-rating">
                                             <i class="bi bi-star-fill"></i>
                                             <i class="bi bi-star-fill"></i>
@@ -822,8 +825,7 @@ body {
                                         </div>
                                     </div>
                                     <div class="testimonial-image">
-                                        <img src="/public/asset/images/demo1.png"
-                                            alt="User" />
+                                        <img src="/public/asset/images/demo1.png" alt="User" />
                                     </div>
                                 </div>
                             </div>

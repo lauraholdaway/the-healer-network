@@ -370,7 +370,7 @@ function limitWords(text, wordLimit) {
 const showFull = ref(false)
 
 function toggleText() {
-    showFull.value = !showFull.value
+  showFull.value = !showFull.value
 }
 </script>
 

@@ -23,7 +23,7 @@
                         <div class="position-relative rounded-4"
                             style="background: linear-gradient(180deg, rgb(91 76 58 / 41%) 50.9%, #5B4C3A 100%);">
                             <img :src="doctor.user.image ? '/storage/' + doctor.user.image : '/default-image.png'"
-                                class="card-img-top rounded-4" alt="practitioner">
+                                class="card-img-top rounded-4 img-fluid" alt="practitioner">
                             <div class="position-absolute top-0 end-0 p-2">
                                 <svg width="30" height="30" viewBox="0 0 46 46" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -33,7 +33,6 @@
                                         stroke="#FBF9F7" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round" />
                                 </svg>
-
                             </div>
                             <div class="position-absolute  bottom-0 mb-3" style="left: 3%;">
 
