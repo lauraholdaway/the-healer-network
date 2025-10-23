@@ -4,8 +4,7 @@
             <h2 class="h4 mb-0">Appointment Details</h2>
             <div>
                 <button class="btn btn-sm main-btn2 me-2" @click="goBack">Back</button>
-                <button v-if="resultdatas.payment_id" class="btn btn-sm btn-outline-custome"
-                    @click="">Print</button>
+                <button v-if="resultdatas.payment_id" class="btn btn-sm btn-outline-custome" @click="">Print</button>
             </div>
         </div>
         <hr>
@@ -21,7 +20,6 @@
                                 <small class="text-muted">Status: <span :class="statusClass">{{ resultdatas.status ||
                                         '—' }}</span></small>
                             </div>
-
                             <div class="col-md-6">
                                 <h5>Appointment Date & time</h5>
                                 <ul class="list-unstyled mb-0">
@@ -31,12 +29,12 @@
                                     <li><strong>Type:</strong> {{ resultdatas.type || '—' }}</li>
                                 </ul>
                             </div>
-
                             <div class="col-md-6">
                                 <ul class="list-unstyled mb-0">
                                     <li><strong>Country:</strong> {{ resultdatas.country || '—' }}</li>
                                     <li><strong>Payment Method:</strong> {{ resultdatas.payment_method || '—' }}</li>
-                                    <li><strong>Payment:</strong> {{ formatMoney(resultdatas.payment) }} {{ resultdatas.currency || '—' }}</li>
+                                    <li><strong>Payment:</strong> {{ formatMoney(resultdatas.payment) }} {{
+                                        resultdatas.currency || '—' }}</li>
                                 </ul>
                             </div>
 
@@ -65,14 +63,16 @@
                                 <hr />
                                 <h6>User</h6>
                                 <div class="d-flex gap-3 align-items-center">
-                                    <img :src="user?.image ? '/storage/' + user.image : '/default-avatar.png'" alt="user image" class="avatar rounded-circle">
+                                    <img :src="user?.image ? '/storage/' + user.image : '/default-avatar.png'"
+                                        alt="user image" class="avatar rounded-circle">
                                     <div>
                                         <div class="fw-semibold">{{ resultdatas.user?.name || resultdatas.name || '—' }}
                                         </div>
                                         <div class="small text-muted">{{ resultdatas.user?.email || resultdatas.email ||
                                             '—' }}</div>
                                         <div class="small text-muted">Phone: {{ resultdatas.user?.number || '—' }}</div>
-                                        <div class="small text-muted">Address: {{ resultdatas.user?.address || '—' }}</div>
+                                        <div class="small text-muted">Address: {{ resultdatas.user?.address || '—' }}
+                                        </div>
                                         <div class="small text-muted">Zip: {{ resultdatas.user?.zip || resultdatas.zip
                                             || '—' }}</div>
                                     </div>
@@ -114,21 +114,22 @@
                                 <div class="mb-3">
                                     <div class="d-flex justify-content-between">
                                         <strong>Doctor Name</strong>
-                                    <div class="small text-muted ">{{ resultdatas.doctor?.name || '—' }} {{ resultdatas.doctor?.last_name || '-' }}</div>
+                                        <div class="small text-muted ">{{ resultdatas.doctor?.name || '—' }} {{
+                                            resultdatas.doctor?.last_name || '-' }}</div>
                                     </div>
-                                  <div class="d-flex justify-content-between">
-                                      <strong>Doctor Email</strong>
-                                    <div class="small text-muted">{{ resultdatas.doctor?.email || '-' }}</div>
-                                  </div>
+                                    <div class="d-flex justify-content-between">
+                                        <strong>Doctor Email</strong>
+                                        <div class="small text-muted">{{ resultdatas.doctor?.email || '-' }}</div>
+                                    </div>
                                 </div>
 
                                 <div class="mb-3">
                                     <div class="d-flex justify-content-between">
-                                    <strong>Payment Status</strong>
-                                    <span :class="paymentBadgeClass" class="badge">{{ resultdatas.payment ? 'Paid' :
+                                        <strong>Payment Status</strong>
+                                        <span :class="paymentBadgeClass" class="badge">{{ resultdatas.payment ? 'Paid' :
                                             'Pending' }}</span>
-                                            </div>
-                                    <div class="mt-1" >
+                                    </div>
+                                    <div class="mt-1">
 
                                         <div class="small text-muted mt-1">Payment ID: {{ resultdatas.payment_id || '—'
                                             }}</div>

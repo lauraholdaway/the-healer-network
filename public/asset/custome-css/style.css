@@ -37,7 +37,7 @@ h4,
 h5,
 h6 {
     font-family: 'Cormorant Garamond' !important;
-    font-weight: 600;
+    /* font-weight: 400; */
     color: #2E2D29;
     /* adjust if needed */
 }
@@ -1483,3 +1483,9 @@ footer ul li a:hover {
     }
 }
 
+
+.btn-check:checked+.btn-outline-custom {
+    background-color: #7D684E !important;
+    border-color: #7D684E !important;
+    color: white !important;
+}

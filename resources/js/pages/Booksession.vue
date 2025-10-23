@@ -126,7 +126,6 @@
                         <div class="d-flex justify-content-center">
                             <h5 class="fw-boldd mb-4 mt-3 text-center"
                                 style="font-size: 20px; font-weight: bolder;   color: #7D684E;">Book a session</h5>
-
                         </div>
 
                         <!-- Stepper -->
@@ -144,8 +143,8 @@
                             <div class="d-flex justify-content-center">
                                 <h5 class="fw-bold mb-3 mt-3 text-center" style="font-size: 28px; color: #7D684E;">
                                     {{ step === 2 ? 'Select a session date & time' : step === 3 ? 'Confirm your details'
-                                        :
-                                        'Select a session' }}</h5>
+                                    :
+                                    'Select a session' }}</h5>
 
                             </div>
 
@@ -231,8 +230,8 @@
                                             aria-expanded="false" :aria-controls="`collapse${index}`"
                                             style="background-color: #F4EFE6; color: #7D684E; font-weight: bold; border: none; padding: 15px 20px;">
                                             {{ new Date(tm.date).toLocaleString('en-US', {
-                                                day: '2-digit', month: 'short', year:
-                                                    'numeric'
+                                            day: '2-digit', month: 'short', year:
+                                            'numeric'
                                             }) }}
                                         </button>
                                     </h2>
@@ -655,11 +654,6 @@ function formatTime(time) {
     border: 2px solid #E8E2D5 !important;
 }
 
-.btn-check:checked+.btn-outline-custom {
-    background-color: #7D684E !important;
-    border-color: #7D684E !important;
-    color: white !important;
-}
 
 /* Step 3 styling */
 .user-details-container {

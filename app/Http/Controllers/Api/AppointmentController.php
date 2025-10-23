@@ -135,6 +135,17 @@ try {
         $appointment->save();
         return response()->json(['message' => 'Status updated', 'data' => $appointment]);
     }
+
+    public function updateAppStatus(Request $request,)
+    {
+        dd($request->all());
+        $appointment = Appointment::findOrFail($request->id);
+        $appointment->status = $request->status;
+        $appointment->replay = $request->message;
+        $appointment->save();
+        return response()->json(['message' => 'Status updated', 'data' => $appointment]);
+    }
+
     public function createZoomMeeting(Request $request, $id)
     {
         $appointment = Appointment::with('doctor', 'user')->findOrFail($id);

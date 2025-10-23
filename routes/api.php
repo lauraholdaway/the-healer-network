@@ -81,6 +81,7 @@ Route::middleware('auth:sanctum')->group(function () {
 
     Route::get('/doctor/userappointments', [AppointmentController::class, 'doctorBooking']);
     Route::get('/doctor/oneappointment/{id}', [AppointmentController::class, 'oneappointment']);
+    Route::post('/updateAppStatus', [AppointmentController::class, 'updateAppStatus']);
 
     Route::put('/doctor/update-appointment-status/{id}', [AppointmentController::class, 'updateStatus']);
     Route::post('/doctor/createZoomMeeting/{id}', [AppointmentController::class, 'createZoomMeeting'])->name('doctor.createZoomMeeting');

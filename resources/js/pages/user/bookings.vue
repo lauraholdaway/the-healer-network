@@ -2,7 +2,6 @@
     <div class=" p-2 m-2">
         <h4>Practitioner Appointments</h4>
         <hr>
-
         <div v-if="loading">Loading appointments...</div>
         <div v-else-if="appointments.length === 0">No appointments found.</div>
 
@@ -53,12 +52,93 @@
                         </div>
                     </td>
                     <td>
-                        <router-link class="btn btn-outline-custome "
-                            :to="`Appointmentview/${appt.id}`">View</router-link>
+                        <div class="d-flex">
+                            <!-- <router-link class="btn btn-outline-custome "
+                                :to="`Appointmentview/${appt.id}`">View</router-link> -->
+                            <div v-if="appt.status === 'cancelled'">
+                                <b class="badge bg-danger  p-1">Cancelled</b>
+                            </div>
+                            <div v-else>
+                                <button class=" btn btn-sm btn-outline-custome"
+                                    @click="openmodal(appt.id, appt.doctor_id)">
+                                    Change Appointment
+                                </button>
+                            </div>
+                        </div>
                     </td>
                 </tr>
             </tbody>
         </table>
+    </div>
+
+
+    <!-- open model here  -->
+    <div class="modal fade" id="changeModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title">Change Appointment</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <form @submit.prevent="updateAppointment">
+                        <div class="mb-3">
+                            <label class="form-label">Status</label>
+                            <select v-model="form.status" class="form-select">
+                                <option value="">Select Status</option>
+                                <option value="cancelled">Cancelled</option>
+                            </select>
+                        </div>
+
+                        <div class="accordion-item mb-3" v-for="(tm, index) in doctortime" :key="index"
+                            style="border: 1px solid #E8E2D5; border-radius: 12px; overflow: hidden;">
+                            <h2 class="accordion-header" :id="`heading${index}`">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    :data-bs-target="`#collapse${index}`" aria-expanded="false"
+                                    :aria-controls="`collapse${index}`"
+                                    style="background-color: #F4EFE6; color: #7D684E; font-weight: bold; border: none; padding: 15px 20px;">
+                                    {{ new Date(tm.date).toLocaleString('en-US', {
+                                    day: '2-digit', month: 'short', year:
+                                    'numeric'
+                                    }) }}
+                                </button>
+                            </h2>
+
+                            <div :id="`collapse${index}`" class="accordion-collapse collapse"
+                                :aria-labelledby="`heading${index}`" data-bs-parent="#accordionExample">
+                                <div class="accordion-body" style="background-color: #FFFFFF; padding: 20px;">
+                                    <div class="d-flex flex-wrap gap-3" role="group" aria-label="Time Slot">
+                                        <template v-for="(time, tIndex) in tm.times" :key="tIndex">
+                                            <input type="radio" class="btn-check" :name="`time-group-${index}`"
+                                                :id="`time${index}-${tIndex}`" :value="time" v-model="selectedTime"
+                                                @change="selectedDate = tm.date" />
+
+                                            <label class="btn btn-outline-custom" :for="`time${index}-${tIndex}`"
+                                                style="border: 2px solid #E8E2D5; color: #7D684E; background-color: #F4EFE6; border-radius: 8px; padding: 10px 20px; font-weight: 500; min-width: 100px;">
+                                                {{ formatTime(time) }}
+                                            </label>
+                                        </template>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Message</label>
+                            <textarea v-model="form.message" class="form-control" rows="3"
+                                placeholder="Write a message..."></textarea>
+                        </div>
+
+                        <div class="text-end">
+                            <button type="submit" class="btn btn-primary">Save Changes</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
     </div>
 </template>
 
@@ -70,6 +150,54 @@ import dayjs from "dayjs";
 const appointments = ref([]);
 const loading = ref(true);
 let intervalId = null;
+const doctortime = ref([])
+const selectedTime = ref(null)
+const selectedDate = ref(null)
+
+
+const form = ref({
+    id: null,
+    status: '',
+    message: '',
+    selectedTime: selectedTime.value,
+    selectedDate: selectedDate.value,
+})
+
+
+function openmodal(id, doctorid) {
+    form.value.id = id
+    form.value.message = ''
+    form.value.status = ''
+
+
+    const modal = new bootstrap.Modal(document.getElementById('changeModal'))
+    modal.show()
+
+    checkDoctortime(doctorid)
+}
+
+const checkDoctortime = async (doctorid) => {
+    try {
+        const res = await axios.get(`/api/availability/${doctorid}`) // ✅ correct usage
+        doctortime.value = res.data
+    } catch (error) {
+        console.error("Error fetching doctor time:", error)
+    }
+}
+
+
+const updateAppointment = async () => {
+
+    try {
+        await axios.post(`/api/updateAppStatus`, form.value)
+        const modal = bootstrap.Modal.getInstance(document.getElementById('changeModal'))
+        modal.hide()
+        alert('Appointment updated successfully!')
+
+    } catch (error) {
+        console.error("Error fetching appointments:", error);
+    }
+}
 
 const fetchAppointments = async () => {
     try {
