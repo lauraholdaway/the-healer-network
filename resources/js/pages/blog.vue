@@ -34,18 +34,15 @@
                     <!-- Featured Image -->
                     <div class="blog-featured-image mb-4">
                         <div class="image-wrapper rounded overflow-hidden shadow">
-                            <img 
-                                :src="`/storage/${datas.image}`" 
-                                :alt="datas.title" 
-                                class="img-fluid w-100 blog-main-img"
-                            >
+                            <img :src="`/storage/${datas.image}`" :alt="datas.title"
+                                class="img-fluid w-100 blog-main-img">
                         </div>
                     </div>
 
                     <!-- Blog Header -->
                     <div class="blog-header mb-4">
                         <h1 class="blog-title fw-bold m-color mb-3">{{ datas.title }}</h1>
-                        
+
                         <!-- Blog Meta -->
                         <div class="blog-meta d-flex flex-wrap align-items-center gap-3 mb-4 pb-4 border-bottom">
                             <div class="meta-item d-flex align-items-center">
@@ -73,29 +70,29 @@
                         <div class="d-flex align-items-center justify-content-between flex-wrap gap-3">
                             <h5 class="mb-0 fw-semibold m-color">Share this article</h5>
                             <div class="social-share d-flex gap-2">
-                                <button 
-                                    @click="shareOnFacebook" 
+                                <button
+                                    @click="shareOnFacebook"
                                     class="btn btn-outline-primary btn-sm rounded-circle share-btn"
                                     title="Share on Facebook"
                                 >
                                     <i class="bi bi-facebook"></i>
                                 </button>
-                                <button 
-                                    @click="shareOnTwitter" 
+                                <button
+                                    @click="shareOnTwitter"
                                     class="btn btn-outline-info btn-sm rounded-circle share-btn"
                                     title="Share on Twitter"
                                 >
                                     <i class="bi bi-twitter"></i>
                                 </button>
-                                <button 
-                                    @click="shareOnLinkedIn" 
+                                <button
+                                    @click="shareOnLinkedIn"
                                     class="btn btn-outline-primary btn-sm rounded-circle share-btn"
                                     title="Share on LinkedIn"
                                 >
                                     <i class="bi bi-linkedin"></i>
                                 </button>
-                                <button 
-                                    @click="copyLink" 
+                                <button
+                                    @click="copyLink"
                                     class="btn btn-outline-secondary btn-sm rounded-circle share-btn"
                                     title="Copy Link"
                                 >
@@ -107,7 +104,7 @@
 
                     <!-- Back to Blogs Button -->
                     <div class="text-center">
-                        <router-link to="/blogs" class="btn btn-outline-custome px-4 py-2">
+                        <router-link to="/Allblog" class="btn btn-outline-custome px-4 py-2">
                             <i class="bi bi-arrow-left me-2"></i>
                             Back to All Blogs
                         </router-link>
@@ -246,7 +243,7 @@ onMounted(fetchdata);
     .blog-main-img {
         height: 250px;
     }
-    
+
     .blog-featured-image {
         max-height: 250px;
     }
