@@ -9,10 +9,11 @@
                         stroke="#8A7356" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
 
-                <h4 class="mb-3 ms-2">Add New Services</h4>
+                <h4 class="mb-3 ms-2 Seasons-fonts">Add New Services</h4>
             </div>
             <hr>
-            <p class="m-color">Please provide the service title, a detailed description, the rate per session, and specify the ideal audience or use case for this service.</p>
+            <p class="m-color">Please provide the service title, a detailed description, the rate per session, and
+                specify the ideal audience or use case for this service.</p>
             <form @submit.prevent="saveService">
                 <div class="row mb-3">
                     <div class="col-md-6">

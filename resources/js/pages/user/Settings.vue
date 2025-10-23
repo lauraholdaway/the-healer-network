@@ -23,7 +23,7 @@
 
             <!-- Update Password Card -->
             <div class="settings-card">
-                <h5 class="card-title">Update Password</h5>
+                <h5 class="Seasons-fonts">Update Password</h5>
                 <form @submit.prevent="updatePassword">
                     <div class="form-group">
                         <label class="form-label">Your Current Password</label>

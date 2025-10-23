@@ -16,7 +16,7 @@ const IMAGES = {
                     d="M16.75 1V6.33333M6.25 1V6.33333M1 11.6667H22M4.9375 15.6667H4.95456M8.88814 15.6667H8.8947M12.8256 15.6667H12.8322M16.7695 15.6667H16.7761M12.832 19.6667H12.8386M4.95064 19.6667H4.9572M8.88814 19.6667H8.8947M1 6.33333C1 5.62609 1.27656 4.94781 1.76884 4.44772C2.26113 3.94762 2.92881 3.66667 3.625 3.66667H19.375C20.0712 3.66667 20.7389 3.94762 21.2312 4.44772C21.7234 4.94781 22 5.62609 22 6.33333V22.3333C22 23.0406 21.7234 23.7189 21.2312 24.219C20.7389 24.719 20.0712 25 19.375 25H3.625C2.92881 25 2.26113 24.719 1.76884 24.219C1.27656 23.7189 1 23.0406 1 22.3333V6.33333Z"
                     stroke="#8A7356" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
-            <h5 class="" style="color: #2E2D29; font-weight: 600; font-size: 28px; font-family: 'Avenir', sans-serif;">
+            <h5 class="Seasons-fonts" style="color: #2E2D29;">
                 Upcoming Bookings</h5>
         </div>
         <hr>
@@ -26,7 +26,7 @@ const IMAGES = {
                 <img :src="IMAGES.slider1" class="booking-thumb" alt="Natural Healing thumbnail">
             </div>
             <div class="booking-middle">
-                <h4 class="booking-title">Natural Healing</h4>
+                <h4 class="booking-title Seasons-fonts">Natural Healing</h4>
                 <div class="practitioner">
                     <img :src="IMAGES.practitioner1" class="practitioner-avatar" alt="Darrell Steward">
                     <div class="ms-3">
@@ -139,7 +139,7 @@ const IMAGES = {
                     d="M16.75 1V6.33333M6.25 1V6.33333M1 11.6667H22M4.9375 15.6667H4.95456M8.88814 15.6667H8.8947M12.8256 15.6667H12.8322M16.7695 15.6667H16.7761M12.832 19.6667H12.8386M4.95064 19.6667H4.9572M8.88814 19.6667H8.8947M1 6.33333C1 5.62609 1.27656 4.94781 1.76884 4.44772C2.26113 3.94762 2.92881 3.66667 3.625 3.66667H19.375C20.0712 3.66667 20.7389 3.94762 21.2312 4.44772C21.7234 4.94781 22 5.62609 22 6.33333V22.3333C22 23.0406 21.7234 23.7189 21.2312 24.219C20.7389 24.719 20.0712 25 19.375 25H3.625C2.92881 25 2.26113 24.719 1.76884 24.219C1.27656 23.7189 1 23.0406 1 22.3333V6.33333Z"
                     stroke="#8A7356" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
             </svg>
-            <h5 class="" style="color: #2E2D29; font-weight: 600; font-size: 28px; font-family: 'Avenir', sans-serif;">
+            <h5 class="Seasons-fonts" style="color: #2E2D29;">
                 Past Bookings</h5>
         </div>
         <hr>

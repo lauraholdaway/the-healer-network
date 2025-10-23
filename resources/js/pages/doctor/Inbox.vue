@@ -1,95 +1,73 @@
 <template>
-  <div class="container py-2">
-    <div class="cards chat-container shadow-sm">
-      <div class="row g-0">
-        <!-- LEFT SIDEBAR -->
-        <div class="col-md-4 border-end chat-sidebar">
-          <div class="p-3 border-bottom">
-            <h5 class="fw-semibold mb-0">Inbox</h5>
-          </div>
+    <div class="container py-2">
+        <div class="cards chat-container shadow-sm">
+            <div class="row g-0">
+                <!-- LEFT SIDEBAR -->
+                <div class="col-md-4 border-end chat-sidebar">
+                    <div class="p-3 border-bottom">
+                        <h5 class="fw-semibold mb-0 Seasons-fonts">Inbox</h5>
+                    </div>
 
-          <div class="list-group list-group-flush chat-list">
-            <div
-              v-for="(msg, index) in messages"
-              :key="index"
-              class="list-group-item list-group-item-action d-flex align-items-start"
-              :class="{ active: selectedUser?.id === msg.id }"
-              @click="selectUser(msg)"
-            >
-              <img
-                :src="msg.avatar"
-                class="rounded-circle me-3"
-                width="45"
-                height="45"
-                alt="User Avatar"
-              />
-              <div class="flex-grow-1">
-                <div class="d-flex justify-content-between">
-                  <strong class="name-text">{{ msg.name }}</strong>
-                  <small class="text-muted">{{ msg.time }}</small>
+                    <div class="list-group list-group-flush chat-list">
+                        <div v-for="(msg, index) in messages" :key="index"
+                            class="list-group-item list-group-item-action d-flex align-items-start"
+                            :class="{ active: selectedUser?.id === msg.id }" @click="selectUser(msg)">
+                            <img :src="msg.avatar" class="rounded-circle me-3" width="45" height="45"
+                                alt="User Avatar" />
+                            <div class="flex-grow-1">
+                                <div class="d-flex justify-content-between">
+                                    <strong class="name-text Seasons-fonts">{{ msg.name }}</strong>
+                                    <small class="text-muted Seasons-fonts">{{ msg.time }}</small>
+                                </div>
+                                <small class="text-muted Seasons-fonts">{{ msg.preview }}</small>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <small class="text-muted">{{ msg.preview }}</small>
-              </div>
+
+                <!-- RIGHT CHAT PANEL -->
+                <div class="col-md-8 chat-main d-flex flex-column">
+                    <div v-if="selectedUser" class="chat-header p-3 border-bottom d-flex align-items-center">
+                        <img :src="selectedUser.avatar" class="rounded-circle me-3" width="45" height="45"
+                            alt="Avatar" />
+                        <div>
+                            <h6 class="mb-0 fw-semibold">{{ selectedUser.name }}</h6>
+                            <small class="text-muted">{{ selectedUser.email }}</small>
+                        </div>
+                        <button class="btn btn-sm btn-link ms-auto text-danger">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                    </div>
+
+                    <div class="chat-body flex-grow-1 p-4">
+                        <div v-for="(chat, index) in selectedUser.chats" :key="index">
+                            <div class="chat-message mb-3" :class="chat.sentByUser ? 'text-end' : 'text-start'">
+                                <div class="d-inline-block px-3 py-2 rounded-4"
+                                    :class="chat.sentByUser ? 'msg-user' : 'msg-other'">
+                                    {{ chat.text }}
+                                </div>
+                                <div class="small text-muted mt-1">
+                                    {{ chat.time }}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- MESSAGE INPUT -->
+                    <div class="chat-footer border-top p-3">
+                        <form @submit.prevent="sendMessage" class="d-flex align-items-center">
+                            <input v-model="newMessage" type="text"
+                                class="form-control border-0 bg-light rounded-pill px-3 me-2"
+                                placeholder="Type your message..." />
+                            <button type="submit" class="btn send-btn rounded-circle">
+                                <i class="bi bi-send"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-
-        <!-- RIGHT CHAT PANEL -->
-        <div class="col-md-8 chat-main d-flex flex-column">
-          <div v-if="selectedUser" class="chat-header p-3 border-bottom d-flex align-items-center">
-            <img
-              :src="selectedUser.avatar"
-              class="rounded-circle me-3"
-              width="45"
-              height="45"
-              alt="Avatar"
-            />
-            <div>
-              <h6 class="mb-0 fw-semibold">{{ selectedUser.name }}</h6>
-              <small class="text-muted">{{ selectedUser.email }}</small>
-            </div>
-            <button class="btn btn-sm btn-link ms-auto text-danger">
-              <i class="bi bi-trash"></i>
-            </button>
-          </div>
-
-          <div class="chat-body flex-grow-1 p-4">
-            <div v-for="(chat, index) in selectedUser.chats" :key="index">
-              <div
-                class="chat-message mb-3"
-                :class="chat.sentByUser ? 'text-end' : 'text-start'"
-              >
-                <div
-                  class="d-inline-block px-3 py-2 rounded-4"
-                  :class="chat.sentByUser ? 'msg-user' : 'msg-other'"
-                >
-                  {{ chat.text }}
-                </div>
-                <div class="small text-muted mt-1">
-                  {{ chat.time }}
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- MESSAGE INPUT -->
-          <div class="chat-footer border-top p-3">
-            <form @submit.prevent="sendMessage" class="d-flex align-items-center">
-              <input
-                v-model="newMessage"
-                type="text"
-                class="form-control border-0 bg-light rounded-pill px-3 me-2"
-                placeholder="Type your message..."
-              />
-              <button type="submit" class="btn send-btn rounded-circle">
-                <i class="bi bi-send"></i>
-              </button>
-            </form>
-          </div>
-        </div>
-      </div>
     </div>
-  </div>
 </template>
 
 <script setup>

@@ -1,6 +1,6 @@
 <template>
     <div class=" p-2 m-2">
-        <h4>Practitioner Appointments</h4>
+        <h4 class="Seasons-fonts">Practitioner Appointments</h4>
         <hr>
         <div v-if="loading" class="loading-container">
             <div class="loading-bar">
@@ -13,15 +13,15 @@
         <table v-else class="table table-bordered">
             <thead>
                 <tr>
-                    <th>#</th>
-                    <th>Image</th>
-                    <th>Healar</th>
-                    <th>Package</th>
-                    <th>Payment</th>
-                    <th>Date</th>
-                    <th>Status</th>
-                    <th>Meeting</th>
-                    <th>Actions</th>
+                    <th class="Seasons-fonts">#</th>
+                    <th class="Seasons-fonts">Image</th>
+                    <th class="Seasons-fonts">Healar</th>
+                    <th class="Seasons-fonts">Package</th>
+                    <th class="Seasons-fonts">Payment</th>
+                    <th class="Seasons-fonts">Date</th>
+                    <th class="Seasons-fonts">Status</th>
+                    <th class="Seasons-fonts">Meeting</th>
+                    <th class="Seasons-fonts">Actions</th>
                 </tr>
             </thead>
             <tbody>

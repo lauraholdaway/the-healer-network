@@ -212,7 +212,7 @@ onMounted(() => {
 <template>
     <div class="flex-grow-1">
         <div class="cards shadow-sm p-4">
-            <h4 class="mb-4">Basic Information</h4>
+            <h4 class="mb-4 Seasons-fonts">Basic Information</h4>
             <hr>
             <!-- Profile Image -->
             <div class="text-center mb-4">

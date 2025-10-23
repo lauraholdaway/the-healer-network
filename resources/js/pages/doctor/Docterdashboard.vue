@@ -151,8 +151,9 @@ function logout() {
             <div class="d-flex justify-content-center">
                 <div class="card" style="width: 30rem;">
                     <div class="card-body">
-                        <h5 class="card-title">Hi : {{ auth?.user?.name }} {{ auth?.user?.last_name }}</h5>
-                        <p class="card-text">
+                        <h5 class="card-title Seasons-fonts">Hi : {{ auth?.user?.name }} {{ auth?.user?.last_name }}
+                        </h5>
+                        <p class="card-text Seasons-fonts">
                             Please waiting ......
                         <h4>Admin Verifying .....</h4>
                         </p>
@@ -176,7 +177,7 @@ function logout() {
                             stroke="#8A7356" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                 </div>
-                <h4 class="modal-title">Logout</h4>
+                <h4 class="Seasons-fonts">Logout</h4>
                 <p class="modal-message">Are you sure you want to end this session?</p>
                 <div class="modal-buttons">
                     <button class="btn cancel-btn" @click="showModal = false">Cancel</button>

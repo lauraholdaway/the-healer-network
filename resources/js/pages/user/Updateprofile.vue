@@ -1,8 +1,7 @@
 <template>
     <div class="container d-flex justify-content-center align-items-center py-5">
         <div class="card shadow-sm border-0 rounded-4 p-4 user-profile-card w-100" style="max-width: 900px;">
-            <h5 class="mb-4 "
-                style="color: #5B4C3A; font-family: Arial, Helvetica, sans-serif, serif; font-weight: 300; font-size: 25px;">
+            <h5 class="mb-4 Seasons-fonts" style="color: #5B4C3A;">
                 Basic Information</h5>
 
             <form @submit.prevent="updateProfile" enctype="multipart/form-data">
@@ -38,8 +37,6 @@
                                     <input type="text" v-model="form.number" class="phone-number-input"
                                         placeholder="321 586 97 378" />
                                 </div>
-
-
                             </div>
 
                             <!-- Location -->
@@ -603,7 +600,7 @@ const updateProfile = async () => {
                                                                                                                                     align-items: center;
                                                                                                                                     justify-content: center;
                                                                                                                                 }
-                                                                
+
                                                                                                                                 .outer-circle {
                                                                                                                                     width: 280px;
                                                                                                                                     height: 280px;
@@ -612,9 +609,9 @@ const updateProfile = async () => {
                                                                                                                                     display: flex;
                                                                                                                                     align-items: center;
                                                                                                                                     justify-content: center;
-                                                                
+
                                                                                                                                 }
-                                                                
+
                                                                                                                                 .inner-circle {
                                                                                                                                     width: 150px;
                                                                                                                                     height: 150px;
@@ -625,21 +622,21 @@ const updateProfile = async () => {
                                                                                                                                     justify-content: center;
                                                                                                                                     overflow: hidden;
                                                                                                                                 }
-                                                                
+
                                                                                                                                 .profile-image {
                                                                                                                                     width: 100%;
                                                                                                                                     height: 100%;
                                                                                                                                     object-fit: cover;
                                                                                                                                 }
-                                                                
+
                                                                                                                                 .user-icon-svg {
                                                                                                                                     width: 96px;
                                                                                                                                     height: 96px;
                                                                                                                                     color: #F4EFE6;
                                                                                                                                 }
-                                                                
+
                                                                                                                                 .upload-button {
-                                                                
+
                                                                                                                                     position: absolute;
                                                                                                                                     bottom: 0px;
                                                                                                                                     display: flex;
@@ -647,38 +644,38 @@ const updateProfile = async () => {
                                                                                                                                     justify-content: center;
                                                                                                                                     gap: 8px;
                                                                                                                                     padding: 10px 14px;
-                                                                
+
                                                                                                                                     background-color: #C1B39D;
                                                                                                                                     color: #695D51;
                                                                                                                                     border: 3px solid white;
                                                                                                                                     border-radius: 8px;
-                                                                
+
                                                                                                                                     cursor: pointer;
                                                                                                                                     transition: all 0.3s ease;
                                                                                                                                     transform: scale(1);
                                                                                                                                 }
-                                                                
+
                                                                                                                                 .upload-button:hover {
                                                                                                                                     background-color: #C1B39D;
                                                                                                                                     transform: scale(1.05);
                                                                                                                                 }
-                                                                
+
                                                                                                                                 .camera-icon {
                                                                                                                                     width: 20px;
                                                                                                                                     height: 20px;
                                                                                                                                 }
-                                                                
+
                                                                                                                                 .upload-text {
                                                                                                                                     font-family: 'Cormorant Garamond', serif;
                                                                                                                                     font-size: 16px;
                                                                                                                                     color: #5B4C3A;
                                                                                                                                     font-weight: 400;
                                                                                                                                 }
-                                                                
+
                                                                                                                                 .hidden-input {
                                                                                                                                     display: none;
                                                                                                                                 }
-                                                                
+
                                                                                                                                 /* Phone Input Container Styles */
                                                                                                                                 .phone-input-container {
                                                                                                                                     display: flex;
@@ -687,7 +684,7 @@ const updateProfile = async () => {
                                                                                                                                     background-color: white;
                                                                                                                                     overflow: hidden;
                                                                                                                                 }
-                                                                
+
                                                                                                                                 .country-selector {
                                                                                                                                     display: flex;
                                                                                                                                     align-items: center;
@@ -699,32 +696,32 @@ const updateProfile = async () => {
                                                                                                                                     cursor: pointer;
                                                                                                                                     user-select: none;
                                                                                                                                 }
-                                                                
+
                                                                                                                                 .country-flag {
                                                                                                                                     width: 20px;
                                                                                                                                     height: 15px;
                                                                                                                                     margin-right: 8px;
                                                                                                                                     border-radius: 2px;
                                                                                                                                 }
-                                                                
+
                                                                                                                                 .country-code {
                                                                                                                                     color: #5B4C3A;
                                                                                                                                     font-size: 14px;
                                                                                                                                     font-weight: 500;
                                                                                                                                     margin-right: 8px;
                                                                                                                                 }
-                                                                
+
                                                                                                                                 .dropdown-arrow {
                                                                                                                                     width: 16px;
                                                                                                                                     height: 16px;
                                                                                                                                     color: #5B4C3A;
                                                                                                                                     transition: transform 0.3s ease;
                                                                                                                                 }
-                                                                
+
                                                                                                                                 .dropdown-arrow.rotated {
                                                                                                                                     transform: rotate(180deg);
                                                                                                                                 }
-                                                                
+
                                                                                                                                 .country-dropdown {
                                                                                                                                     position: absolute;
                                                                                                                                     top: 100%;
@@ -739,13 +736,13 @@ const updateProfile = async () => {
                                                                                                                                     z-index: 1000;
                                                                                                                                     min-width: 300px;
                                                                                                                                 }
-                                                                
+
                                                                                                                                 .search-container {
                                                                                                                                     padding: 8px;
                                                                                                                                     border-bottom: 1px solid #D4C6B5;
                                                                                                                                     background-color: #F4EFE6;
                                                                                                                                 }
-                                                                
+
                                                                                                                                 .search-input {
                                                                                                                                     width: 100%;
                                                                                                                                     padding: 8px 12px;
@@ -756,21 +753,21 @@ const updateProfile = async () => {
                                                                                                                                     background: white;
                                                                                                                                     outline: none;
                                                                                                                                 }
-                                                                
+
                                                                                                                                 .search-input:focus {
                                                                                                                                     border-color: #C1B39D;
                                                                                                                                     box-shadow: 0 0 0 2px rgba(193, 179, 157, 0.2);
                                                                                                                                 }
-                                                                
+
                                                                                                                                 .search-input::placeholder {
                                                                                                                                     color: #B9A997;
                                                                                                                                 }
-                                                                
+
                                                                                                                                 .countries-list {
                                                                                                                                     max-height: 240px;
                                                                                                                                     overflow-y: auto;
                                                                                                                                 }
-                                                                
+
                                                                                                                                 .country-option {
                                                                                                                                     display: flex;
                                                                                                                                     align-items: center;
@@ -779,20 +776,20 @@ const updateProfile = async () => {
                                                                                                                                     transition: background-color 0.2s ease;
                                                                                                                                     border-bottom: 1px solid #F4EFE6;
                                                                                                                                 }
-                                                                
+
                                                                                                                                 .country-option:last-child {
                                                                                                                                     border-bottom: none;
                                                                                                                                 }
-                                                                
+
                                                                                                                                 .country-option:hover {
                                                                                                                                     background-color: #F4EFE6;
                                                                                                                                 }
-                                                                
+
                                                                                                                                 .country-option.selected {
                                                                                                                                     background-color: #C1B39D;
                                                                                                                                     color: white;
                                                                                                                                 }
-                                                                
+
                                                                                                                                 .option-flag {
                                                                                                                                     width: 20px;
                                                                                                                                     height: 15px;
@@ -800,7 +797,7 @@ const updateProfile = async () => {
                                                                                                                                     border-radius: 2px;
                                                                                                                                     flex-shrink: 0;
                                                                                                                                 }
-                                                                
+
                                                                                                                                 .option-code {
                                                                                                                                     font-size: 14px;
                                                                                                                                     font-weight: 600;
@@ -808,7 +805,7 @@ const updateProfile = async () => {
                                                                                                                                     min-width: 50px;
                                                                                                                                     flex-shrink: 0;
                                                                                                                                 }
-                                                                
+
                                                                                                                                 .option-name {
                                                                                                                                     font-size: 14px;
                                                                                                                                     color: #5B4C3A;
@@ -817,18 +814,18 @@ const updateProfile = async () => {
                                                                                                                                     text-overflow: ellipsis;
                                                                                                                                     white-space: nowrap;
                                                                                                                                 }
-                                                                
+
                                                                                                                                 .country-option.selected .option-name {
                                                                                                                                     color: white;
                                                                                                                                 }
-                                                                
+
                                                                                                                                 .no-results {
                                                                                                                                     padding: 20px;
                                                                                                                                     text-align: center;
                                                                                                                                     color: #B9A997;
                                                                                                                                     font-style: italic;
                                                                                                                                 }
-                                                                
+
                                                                                                                                 .phone-number-input {
                                                                                                                                     flex: 1;
                                                                                                                                     border: none;
@@ -838,16 +835,16 @@ const updateProfile = async () => {
                                                                                                                                     font-size: 16px;
                                                                                                                                     outline: none;
                                                                                                                                 }
-                                                                
+
                                                                                                                                 .phone-number-input::placeholder {
                                                                                                                                     color: #B9A997;
                                                                                                                                 }
-                                                                
+
                                                                                                                                 .phone-input-container:focus-within {
                                                                                                                                     border-color: #C1B39D;
                                                                                                                                     box-shadow: 0 0 0 0.2rem rgba(193, 179, 157, 0.25);
                                                                                                                                 }
-                                                                
+
                                                                                                                                 /* Location Input Container Styles */
                                                                                                                                 .location-input-container {
                                                                                                                                     display: flex;
@@ -856,7 +853,7 @@ const updateProfile = async () => {
                                                                                                                                     background-color: white;
                                                                                                                                     overflow: hidden;
                                                                                                                                 }
-                                                                
+
                                                                                                                                 .location-selector {
                                                                                                                                     display: flex;
                                                                                                                                     align-items: center;
@@ -867,7 +864,7 @@ const updateProfile = async () => {
                                                                                                                                     cursor: pointer;
                                                                                                                                     user-select: none;
                                                                                                                                 }
-                                                                
+
                                                                                                                                 .location-icon {
                                                                                                                                     width: 16px;
                                                                                                                                     height: 16px;
@@ -875,7 +872,7 @@ const updateProfile = async () => {
                                                                                                                                     color: #737373;
                                                                                                                                     flex-shrink: 0;
                                                                                                                                 }
-                                                                
+
                                                                                                                                 .location-text {
                                                                                                                                     color: #737373;
                                                                                                                                     font-size: 16px;
@@ -883,7 +880,7 @@ const updateProfile = async () => {
                                                                                                                                     flex: 1;
                                                                                                                                     text-align: left;
                                                                                                                                 }
-                                                                
+
                                                                                                                                 .location-dropdown {
                                                                                                                                     position: absolute;
                                                                                                                                     top: 100%;
@@ -898,12 +895,12 @@ const updateProfile = async () => {
                                                                                                                                     z-index: 1000;
                                                                                                                                     min-width: 100%;
                                                                                                                                 }
-                                                                
+
                                                                                                                                 .locations-list {
                                                                                                                                     max-height: 240px;
                                                                                                                                     overflow-y: auto;
                                                                                                                                 }
-                                                                
+
                                                                                                                                 .location-option {
                                                                                                                                     display: flex;
                                                                                                                                     align-items: center;
@@ -912,20 +909,20 @@ const updateProfile = async () => {
                                                                                                                                     transition: background-color 0.2s ease;
                                                                                                                                     border-bottom: 1px solid #F4EFE6;
                                                                                                                                 }
-                                                                
+
                                                                                                                                 .location-option:last-child {
                                                                                                                                     border-bottom: none;
                                                                                                                                 }
-                                                                
+
                                                                                                                                 .location-option:hover {
                                                                                                                                     background-color: #F4EFE6;
                                                                                                                                 }
-                                                                
+
                                                                                                                                 .location-option.selected {
                                                                                                                                     background-color: #C1B39D;
                                                                                                                                     color: white;
                                                                                                                                 }
-                                                                
+
                                                                                                                                 .option-location-icon {
                                                                                                                                     width: 16px;
                                                                                                                                     height: 16px;
@@ -933,11 +930,11 @@ const updateProfile = async () => {
                                                                                                                                     color: #737373;
                                                                                                                                     flex-shrink: 0;
                                                                                                                                 }
-                                                                
+
                                                                                                                                 .location-option.selected .option-location-icon {
                                                                                                                                     color: white;
                                                                                                                                 }
-                                                                
+
                                                                                                                                 .location-option .option-name {
                                                                                                                                     font-size: 16px;
                                                                                                                                     color: #737373;
@@ -946,16 +943,16 @@ const updateProfile = async () => {
                                                                                                                                     text-overflow: ellipsis;
                                                                                                                                     white-space: nowrap;
                                                                                                                                 }
-                                                                
+
                                                                                                                                 .location-option.selected .option-name {
                                                                                                                                     color: white;
                                                                                                                                 }
-                                                                
+
                                                                                                                                 .location-input-container:focus-within {
                                                                                                                                     border-color: #C1B39D;
                                                                                                                                     box-shadow: 0 0 0 0.2rem rgba(193, 179, 157, 0.25);
                                                                                                                                 }
-                                                                
+
                                                                                                                                 /* Save And Update Button Styles */
                                                                                                                                 .save-update-btn {
                                                                                                                                     background-color: #C1B39D;
@@ -971,217 +968,217 @@ const updateProfile = async () => {
                                                                                                                                     transition: all 0.3s ease;
                                                                                                                                     box-shadow: none;
                                                                                                                                 }
-                                                                
+
                                                                                                                                 .save-update-btn:hover {
                                                                                                                                     background-color: #B8A892;
                                                                                                                                     color: #737373;
                                                                                                                                     transform: translateY(-1px);
                                                                                                                                     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
                                                                                                                                 }
-                                                                
+
                                                                                                                                 .save-update-btn:active {
                                                                                                                                     transform: translateY(0);
                                                                                                                                     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
                                                                                                                                 }
-                                                                
+
                                                                                                                                 .save-update-btn:focus {
                                                                                                                                     outline: none;
                                                                                                                                     box-shadow: 0 0 0 3px rgba(193, 179, 157, 0.3);
                                                                                                                                 }
-                                                                
+
                                                                                                                                 /* Mobile Responsive Styles */
                                                                                                                                 @media (max-width: 768px) {
                                                                                                                                     .container {
                                                                                                                                         padding: 1rem !important;
                                                                                                                                     }
-                                                                
+
                                                                                                                                     .user-profile-card {
                                                                                                                                         max-width: 100% !important;
                                                                                                                                         margin: 0 !important;
                                                                                                                                         padding: 1.5rem !important;
                                                                                                                                     }
-                                                                
+
                                                                                                                                     .row.g-4 {
                                                                                                                                         --bs-gutter-x: 1rem;
                                                                                                                                         --bs-gutter-y: 1rem;
                                                                                                                                     }
-                                                                
+
                                                                                                                                     .row.g-3 {
                                                                                                                                         --bs-gutter-x: 0.75rem;
                                                                                                                                         --bs-gutter-y: 0.75rem;
                                                                                                                                     }
-                                                                
+
                                                                                                                                     /* Profile Image Section */
                                                                                                                                     .col-md-4 {
                                                                                                                                         margin-top: 2rem;
                                                                                                                                     }
-                                                                
+
                                                                                                                                     .outer-circle {
                                                                                                                                         width: 200px !important;
                                                                                                                                         height: 200px !important;
                                                                                                                                     }
-                                                                
+
                                                                                                                                     .inner-circle {
                                                                                                                                         width: 120px !important;
                                                                                                                                         height: 120px !important;
                                                                                                                                     }
-                                                                
+
                                                                                                                                     .user-icon-svg {
                                                                                                                                         width: 72px !important;
                                                                                                                                         height: 72px !important;
                                                                                                                                     }
-                                                                
+
                                                                                                                                     .upload-button {
                                                                                                                                         padding: 8px 12px !important;
                                                                                                                                         font-size: 14px !important;
                                                                                                                                     }
-                                                                
+
                                                                                                                                     .camera-icon {
                                                                                                                                         width: 16px !important;
                                                                                                                                         height: 16px !important;
                                                                                                                                     }
-                                                                
+
                                                                                                                                     /* Form Inputs */
                                                                                                                                     .form-control {
                                                                                                                                         font-size: 16px !important;
                                                                                                                                         /* Prevents zoom on iOS */
                                                                                                                                     }
-                                                                
+
                                                                                                                                     /* Phone Input */
                                                                                                                                     .phone-input-container {
                                                                                                                                         flex-direction: column;
                                                                                                                                     }
-                                                                
+
                                                                                                                                     .country-selector {
                                                                                                                                         min-width: 100% !important;
                                                                                                                                         border-right: none !important;
                                                                                                                                         border-bottom: 1px solid #D4C6B5;
                                                                                                                                         padding: 12px !important;
                                                                                                                                     }
-                                                                
+
                                                                                                                                     .phone-number-input {
                                                                                                                                         padding: 12px 16px !important;
                                                                                                                                     }
-                                                                
+
                                                                                                                                     .country-dropdown {
                                                                                                                                         min-width: 100% !important;
                                                                                                                                         left: 0 !important;
                                                                                                                                         right: 0 !important;
                                                                                                                                     }
-                                                                
+
                                                                                                                                     /* Location Input */
                                                                                                                                     .location-dropdown {
                                                                                                                                         min-width: 100% !important;
                                                                                                                                         left: 0 !important;
                                                                                                                                         right: 0 !important;
                                                                                                                                     }
-                                                                
+
                                                                                                                                     /* Button */
                                                                                                                                     .save-update-btn {
                                                                                                                                         width: 100% !important;
                                                                                                                                         padding: 14px 24px !important;
                                                                                                                                         font-size: 16px !important;
                                                                                                                                     }
-                                                                
+
                                                                                                                                     /* Typography */
                                                                                                                                     h5 {
                                                                                                                                         font-size: 20px !important;
                                                                                                                                         text-align: center;
                                                                                                                                     }
-                                                                
+
                                                                                                                                     .form-label {
                                                                                                                                         font-size: 14px !important;
                                                                                                                                     }
-                                                                
+
                                                                                                                                     /* Dropdown Lists */
                                                                                                                                     .countries-list,
                                                                                                                                     .locations-list {
                                                                                                                                         max-height: 200px !important;
                                                                                                                                     }
-                                                                
+
                                                                                                                                     .country-option,
                                                                                                                                     .location-option {
                                                                                                                                         padding: 12px 16px !important;
                                                                                                                                     }
-                                                                
+
                                                                                                                                     .option-name {
                                                                                                                                         font-size: 14px !important;
                                                                                                                                     }
-                                                                
+
                                                                                                                                     .option-code {
                                                                                                                                         font-size: 13px !important;
                                                                                                                                     }
                                                                                                                                 }
-                                                                
+
                                                                                                                                 @media (max-width: 576px) {
                                                                                                                                     .container {
                                                                                                                                         padding: 0.5rem !important;
                                                                                                                                     }
-                                                                
+
                                                                                                                                     .user-profile-card {
                                                                                                                                         padding: 1rem !important;
                                                                                                                                         border-radius: 12px !important;
                                                                                                                                     }
-                                                                
+
                                                                                                                                     .outer-circle {
                                                                                                                                         width: 160px !important;
                                                                                                                                         height: 160px !important;
                                                                                                                                     }
-                                                                
+
                                                                                                                                     .inner-circle {
                                                                                                                                         width: 100px !important;
                                                                                                                                         height: 100px !important;
                                                                                                                                     }
-                                                                
+
                                                                                                                                     .user-icon-svg {
                                                                                                                                         width: 60px !important;
                                                                                                                                         height: 60px !important;
                                                                                                                                     }
-                                                                
+
                                                                                                                                     .upload-button {
                                                                                                                                         padding: 6px 10px !important;
                                                                                                                                         font-size: 13px !important;
                                                                                                                                     }
-                                                                
+
                                                                                                                                     .upload-text {
                                                                                                                                         font-size: 14px !important;
                                                                                                                                     }
-                                                                
+
                                                                                                                                     h5 {
                                                                                                                                         font-size: 18px !important;
                                                                                                                                     }
-                                                                
+
                                                                                                                                     .form-label {
                                                                                                                                         font-size: 13px !important;
                                                                                                                                     }
-                                                                
+
                                                                                                                                     .form-control {
                                                                                                                                         font-size: 15px !important;
                                                                                                                                         padding: 10px 12px !important;
                                                                                                                                     }
-                                                                
+
                                                                                                                                     .save-update-btn {
                                                                                                                                         padding: 12px 20px !important;
                                                                                                                                         font-size: 15px !important;
                                                                                                                                     }
-                                                                
+
                                                                                                                                     .country-selector,
                                                                                                                                     .location-selector {
                                                                                                                                         padding: 10px 12px !important;
                                                                                                                                     }
-                                                                
+
                                                                                                                                     .phone-number-input {
                                                                                                                                         padding: 10px 12px !important;
                                                                                                                                     }
-                                                                
+
                                                                                                                                     .location-text {
                                                                                                                                         font-size: 15px !important;
                                                                                                                                     }
-                                                                
+
                                                                                                                                     .country-code {
                                                                                                                                         font-size: 13px !important;
                                                                                                                                     }
-                                                                
+
                                                                                                                                     .search-input {
                                                                                                                                         font-size: 13px !important;
                                                                                                                                         padding: 6px 10px !important;

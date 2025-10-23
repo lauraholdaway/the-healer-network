@@ -1,7 +1,7 @@
 <template>
     <section>
         <div class="container mt-4">
-            <h5>
+            <h5 class="Seasons-fonts">
                 Packages
             </h5>
             <hr>

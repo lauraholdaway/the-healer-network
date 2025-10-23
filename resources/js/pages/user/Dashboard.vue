@@ -151,7 +151,7 @@ function logout() {
                                 class="btn menu-btn logout-btn d-flex align-items-center justify-content-between">
                                 <span class="d-flex align-items-center gap-2">
                                     <img :src="ICONS.logout" alt="Logout" class="menu-icon" />
-                                    <span>Logout</span>
+                                    <span class="Seasons-fonts">Logout</span>
                                 </span>
                             </button>
                         </div>
@@ -178,11 +178,11 @@ function logout() {
                     </svg>
                 </div>
 
-                <h4 class="modal-title">Logout</h4>
+                <h4 class=" Seasons-fonts">Logout</h4>
                 <p class="modal-message">Are you sure you want to end this session?</p>
                 <div class="modal-buttons">
-                    <button class="btn cancel-btn" @click="showModal = false">Cancel</button>
-                    <button class="btn confirm-btn" @click="logout">Confirm, Logout</button>
+                    <button class="btn cancel-btn Seasons-fonts" @click="showModal = false">Cancel</button>
+                    <button class="btn confirm-btn Seasons-fonts text-white" @click="logout">Confirm, Logout</button>
                 </div>
             </div>
         </div>

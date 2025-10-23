@@ -1,7 +1,7 @@
 <template>
     <div class="container my-4">
         <div class="d-flex justify-content-between align-items-center mb-3">
-            <h2 class="h4 mb-0">Appointment Details</h2>
+            <h2 class="h4 mb-0 Seasons-fonts">Appointment Details</h2>
             <div>
                 <button class="btn btn-sm main-btn2 me-2" @click="goBack">Back</button>
                 <button v-if="resultdatas.payment_id" class="btn btn-sm btn-outline-custome" @click="">Print</button>
