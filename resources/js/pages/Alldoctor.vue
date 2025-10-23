@@ -3,8 +3,10 @@
         <div class="container my-3 my-md-5 px-2 px-md-3">
 
             <div class="container my-3 my-md-5 text-center px-2">
-                <h1 class="fw-bold m-color mt-3 fs-3 fs-md-1" style="font-family: 'Cormorant Garamond', serif !important; color: #2E2D29 ;">Book A Session</h1>
-                <p class="m-color px-2 px-md-0" style="color: #5B4C3A; font-size: 14px;">Embark on a transformative journey to rejuvenate your body, mind, and spirit. Whether
+                <h1 class="fw-bold m-color mt-3 fs-3 fs-md-1"
+                    style="font-family: 'Cormorant Garamond', serif !important; color: #2E2D29 ;">Book A Session</h1>
+                <p class="m-color px-2 px-md-0" style="color: #5B4C3A; font-size: 14px;">Embark on a transformative
+                    journey to rejuvenate your body, mind, and spirit. Whether
                     you're aiming to detox, break free from unhelpful habits, or elevate your overall well-being, we
                     offer tailored sessions to support your unique needs and goals.</p>
 
@@ -15,15 +17,15 @@
 
             <div class="my-4 my-md-5 px-2 px-md-5">
                 <div class="d-flex flex-wrap gap-2">
-                    <button class="btn btn-outline-success border-0 rounded-5 text-white mb-2" @click="GetDoctorByModality('')"
-                        style="background-color: #C1B39D; height: 40px; display: inline-flex; align-items: center; white-space: nowrap; padding: 0 15px; transition: all 0.3s ease;" 
-                        onmouseover="this.style.backgroundColor='#5B4C3A'" 
+                    <button class="btn btn-outline-success border-0 rounded-5 text-white mb-2"
+                        @click="GetDoctorByModality('')"
+                        style="background-color: #C1B39D; height: 40px; display: inline-flex; align-items: center; white-space: nowrap; padding: 0 15px; transition: all 0.3s ease;"
+                        onmouseover="this.style.backgroundColor='#5B4C3A'"
                         onmouseout="this.style.backgroundColor='#C1B39D'">View ALL</button>
 
                     <button v-for="modalitie in modalities" @click="GetDoctorByModality(modalitie.id)"
-                        class="btn btn-outline-success btn-outline-custome mb-2"
-                        style="transition: all 0.3s ease;"
-                        onmouseover="this.style.backgroundColor='#5B4C3A'; this.style.color='white'; this.style.borderColor='#5B4C3A'" 
+                        class="btn btn-outline-success btn-outline-custome mb-2" style="transition: all 0.3s ease;"
+                        onmouseover="this.style.backgroundColor='#5B4C3A'; this.style.color='white'; this.style.borderColor='#5B4C3A'"
                         onmouseout="this.style.backgroundColor='transparent'; this.style.color='#4B4032'; this.style.borderColor='#C1B39D'">{{
                         modalitie?.title }}</button>
                 </div>
@@ -42,10 +44,9 @@
                 <div class="card mx-2 mx-md-5 mb-3" v-for="(doctor, index) in doctors">
                     <div class="row g-0">
                         <div class="col-12 col-md-3">
-                            <div class="position-relative rounded-4 p-3 p-md-4"
-                                style="background-color: #C1B39D;">
-                                <img :src="getDoctorImage(index)"
-                                    class="card-img-top rounded-4" alt="practitioner" style="width: 100%; height: 200px; object-fit: cover; overflow: hidden;">
+                            <div class="position-relative rounded-4 p-3 p-md-4" style="background-color: #C1B39D;">
+                                <img :src="getDoctorImage(index)" class="card-img-top rounded-4" alt="practitioner"
+                                    style="width: 100%; height: 200px; object-fit: cover; overflow: hidden;">
                                 <div class="position-absolute top-0 end-0 p-2">
                                     <svg width="30" height="30" viewBox="0 0 46 46" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -92,36 +93,46 @@
                         </div>
                         <div class="col-12 col-md-8">
                             <div class="p-3 p-md-3">
-                                <h3 class="fw-bold mt-2 mt-md-4 fs-5 fs-md-3">{{ doctor.user?.name }} {{ doctor.user?.last_name }}</h3>
+                                <h3 class="fw-bold mt-2 mt-md-4 fs-5 fs-md-3">{{ doctor.user?.name }} {{
+                                    doctor.user?.last_name }}</h3>
 
-                                <div class="d-flex flex-column flex-md-row justify-content-between align-items-start my-3">
+                                <div
+                                    class="d-flex flex-column flex-md-row justify-content-between align-items-start my-3">
                                     <div class="d-flex flex-wrap gap-1 mb-2 mb-md-0">
-                                        <p class="docter-type px-2 px-md-3 py-1 m-0" style="font-size: 12px;" v-for="(s, index) in doctor.modalities">
+                                        <p class="docter-type px-2 px-md-3 py-1 m-0" style="font-size: 12px;"
+                                            v-for="(s, index) in doctor.modalities">
                                             {{ s?.title }}
                                         </p>
                                     </div>
                                     <p class="price fw-bold mb-0 mt-2 mt-md-0">${{ doctor.price }}</p>
 
                                 </div>
-                                <p class="card-text mb-2" style="margin-top: -8px; font-family: roboto; font-size: 14px;">{{ doctor.about }} <router-link :to="`/docter/${doctor.user.id}`"
-                                        class="m-color">See
-                                        more</router-link></p>
+                                <p class="card-text mb-2"
+                                    style="margin-top: -8px; font-family: roboto; font-size: 14px;">{{ doctor.about }}
+                                    <router-link :to="`/docter/${doctor.user?.id}`" class="m-color">See
+                                        more</router-link>
+                                </p>
 
                                 <div class="d-flex flex-column flex-md-row gap-2 mb-3">
-                                    <router-link :to="`/booksession/${doctor.user.id}`" class="btn main-btn2 w-100" style="padding: 6px 12px; align-self: flex-start; font-size: 14px; max-width: 200px;">Book
+                                    <router-link :to="`/booksession/${doctor.user?.id}`" class="btn main-btn2 w-100"
+                                        style="padding: 6px 12px; align-self: flex-start; font-size: 14px; max-width: 200px;">Book
                                         Session Now
-                                        <svg width="14" class="main-btn2-icon" height="14" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M11.5 1.5L19 9L11.5 1.5ZM19 9L11.5 16.5L19 9ZM19 9L1 9L19 9Z" fill="#ffffff"/>
-                                                    <path d="M11.5 1.5L19 9M19 9L11.5 16.5M19 9L1 9" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                                </svg>
+                                        <svg width="14" class="main-btn2-icon" height="14" viewBox="0 0 20 18"
+                                            fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M11.5 1.5L19 9L11.5 1.5ZM19 9L11.5 16.5L19 9ZM19 9L1 9L19 9Z"
+                                                fill="#ffffff" />
+                                            <path d="M11.5 1.5L19 9M19 9L11.5 16.5M19 9L1 9" stroke="#ffffff"
+                                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
                                     </router-link>
-                                    <router-link :to="`/docter/${doctor.user.id}`" class="btn main-btn3 w-100" style="padding: 6px 12px; font-size: 14px; max-width: 150px;">View
+                                    <router-link :to="`/docter/${doctor.user?.id}`" class="btn main-btn3 w-100"
+                                        style="padding: 6px 12px; font-size: 14px; max-width: 150px;">View
                                         Profile</router-link>
                                 </div>
 
                                 <div class="mt-2">
-                                    <span class="d-flex align-items-center"><svg width="14" height="17" viewBox="0 0 18 21" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
+                                    <span class="d-flex align-items-center"><svg width="14" height="17"
+                                            viewBox="0 0 18 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path
                                                 d="M6 9.25763C6 10.0533 6.31607 10.8163 6.87868 11.379C7.44129 11.9416 8.20435 12.2576 9 12.2576C9.79565 12.2576 10.5587 11.9416 11.1213 11.379C11.6839 10.8163 12 10.0533 12 9.25763C12 8.46198 11.6839 7.69892 11.1213 7.13631C10.5587 6.5737 9.79565 6.25763 9 6.25763C8.20435 6.25763 7.44129 6.5737 6.87868 7.13631C6.31607 7.69892 6 8.46198 6 9.25763Z"
                                                 stroke="#2E2D29" stroke-width="2" stroke-linecap="round"
@@ -131,7 +142,8 @@
                                                 stroke="#2E2D29" stroke-width="2" stroke-linecap="round"
                                                 stroke-linejoin="round" />
                                         </svg>
-                                        <span class="ms-2" style="color: #8A7356; font-size: 12px;">{{ doctor.practice_location }}</span>
+                                        <span class="ms-2" style="color: #8A7356; font-size: 12px;">{{
+                                            doctor.practice_location }}</span>
                                     </span>
                                 </div>
                             </div>
