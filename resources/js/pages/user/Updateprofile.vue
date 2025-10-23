@@ -44,7 +44,6 @@
                                                 d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
                                                 clip-rule="evenodd" />
                                         </svg>
-
                                         <!-- Custom Dropdown -->
                                         <div v-if="isDropdownOpen" class="country-dropdown">
                                             <!-- Search Input -->
@@ -53,7 +52,6 @@
                                                     placeholder="Search countries..." class="search-input"
                                                     @click.stop />
                                             </div>
-
                                             <!-- Countries List -->
                                             <div class="countries-list">
                                                 <div v-for="country in filteredCountries" :key="country.code"
@@ -63,7 +61,6 @@
                                                     <span class="option-code">{{ country.code }}</span>
                                                     <span class="option-name">{{ country.name }}</span>
                                                 </div>
-
                                                 <!-- No results message -->
                                                 <div v-if="filteredCountries.length === 0" class="no-results">
                                                     No countries found
@@ -71,56 +68,19 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <input type="text" v-model="phoneNumber" class="phone-number-input"
+                                    <input type="text" v-model="form.number" class="phone-number-input"
                                         placeholder="321 586 97 378" />
                                 </div>
                             </div>
 
                             <!-- Location -->
+                            <!-- Last Name -->
                             <div class="col-md-12">
                                 <label class="form-label"
-                                    style="color: #737373; font-family: Arial, Helvetica, sans-serif, serif; font-weight: 300; font-size: 15px;">Location</label>
-                                <div class="location-input-container">
-                                    <div class="location-selector" @click="toggleLocationDropdown">
-                                        <svg class="location-icon" viewBox="0 0 24 24" fill="currentColor">
-                                            <path
-                                                d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
-                                        </svg>
-                                        <span class="location-text">{{ selectedLocation }}</span>
-                                        <svg class="dropdown-arrow" :class="{ 'rotated': isLocationDropdownOpen }"
-                                            viewBox="0 0 20 20" fill="currentColor">
-                                            <path fill-rule="evenodd"
-                                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
-                                                clip-rule="evenodd" />
-                                        </svg>
-                                        <!-- Custom Location Dropdown -->
-                                        <div v-if="isLocationDropdownOpen" class="location-dropdown">
-                                            <!-- Search Input -->
-                                            <div class="search-container">
-                                                <input v-model="locationSearchQuery" type="text"
-                                                    placeholder="Search locations..." class="search-input"
-                                                    @click.stop />
-                                            </div>
-                                            <!-- Locations List -->
-                                            <div class="locations-list">
-                                                <div v-for="location in filteredLocations" :key="location.value"
-                                                    @click="selectLocation(location)" class="location-option"
-                                                    :class="{ 'selected': location.value === selectedLocation }">
-                                                    <svg class="option-location-icon" viewBox="0 0 24 24"
-                                                        fill="currentColor">
-                                                        <path
-                                                            d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z" />
-                                                    </svg>
-                                                    <span class="option-name">{{ location.label }}</span>
-                                                </div>
-                                                <!-- No results message -->
-                                                <div v-if="filteredLocations.length === 0" class="no-results">
-                                                    No locations found
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                    style="color: #737373; font-family: Arial, Helvetica, sans-serif, serif; font-weight: 300; font-size: 15px;">
+                                    Location</label>
+                                <input type="text" v-model="form.address" class="form-control rounded-3"
+                                    placeholder="Address" />
                             </div>
                         </div>
 
@@ -139,8 +99,10 @@
                             <div class="outer-circle">
                                 <!-- Inner Circle -->
                                 <div class="inner-circle">
-                                    <img v-if="imagePreview" :src="imagePreview" alt="Profile Preview"
-                                        class="profile-image" />
+                                    <img v-if="imagePreview || auth.user.image"
+                                        :src="imagePreview || (auth.user?.image ? '/storage/' + auth.user?.image : '/default-avatar.png')"
+                                        alt="Profile Preview" class="profile-image" />
+
                                     <svg v-else xmlns="http://www.w3.org/2000/svg" class="user-icon-svg"
                                         viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                                         <path fill-rule="evenodd"
@@ -151,7 +113,7 @@
                             </div>
 
                             <!-- Upload Button -->
-                            <button @click="triggerFileInput" class="upload-button">
+                            <button @click="triggerFileInput" type="button" class="upload-button">
                                 <svg width="21" height="18" viewBox="0 0 21 18" fill="none"
                                     xmlns="http://www.w3.org/2000/svg" class="camera-icon">
                                     <path
@@ -597,15 +559,11 @@ const form = ref({
     name: auth.user?.name || "",
     last_name: auth.user?.last_name || "",
     number: auth.user?.number || "",
-    password: "",
     address: auth.user?.address || "",
     image: null,
 });
 
-// Initialize selectedLocation with user's current address
-if (auth.user?.address) {
-    selectedLocation.value = auth.user.address;
-}
+
 
 // Watch for changes and update form.number
 watch([selectedCountryCode, phoneNumber], () => {
@@ -650,9 +608,7 @@ const updateProfile = async () => {
         formData.append("last_name", form.value.last_name);
         formData.append("number", form.value.number);
         formData.append("address", form.value.address);
-        if (form.value.password) {
-            formData.append("password", form.value.password);
-        }
+
         if (form.value.image) {
             formData.append("image", form.value.image);
         }

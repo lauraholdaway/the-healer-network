@@ -19,6 +19,9 @@ import Verifyemail from '../pages/Verifyemail.vue';
 import Verifyemailcomplete from '../pages/Verifyemailcomplete.vue';
 import blog from '../pages/blog.vue';
 import Allblog from '../pages/Allblog.vue';
+import Corporate from '../pages/Corporate.vue';
+import Resources from '../pages/Resources.vue';
+import Consultation from '../pages/Consultation.vue';
 
 
 import Docter from '../pages/docter.vue'
@@ -76,6 +79,10 @@ const routes = [
     { path: '/Verifyemailcomplete', name: 'Verifyemailcomplete', component: Verifyemailcomplete, meta: { hideFooter: true, hideNav: true, } },
     { path: '/blog/:id', name: 'blog', component: blog, },
     { path: '/Allblog', name: 'Allblog', component: Allblog, },
+    { path: '/corporate', name: 'Corporate', component: Corporate, },
+    { path: '/resources', name: 'Resources', component: Resources, },
+    { path: '/consultation', name: 'Consultation', component: Consultation, },
+
 
 
     // update User profile
