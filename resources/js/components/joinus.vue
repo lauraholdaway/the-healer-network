@@ -3,12 +3,8 @@
         <div class=" container">
             <div class="row d-flex align-items-center">
                 <div class="col-md-8 mt-4">
-                    <h1 class='text-white'>Are you a therapist?</h1>
-                    <p class="joinUs-p">Whether it's ayurveda or astrology, naturopathy or Acupuncture - if you're a
-                        holistic specialist
-                        devoted to your practice and looking to share your wisdom, grow your audience and get more
-                        bookings,
-                        we can help.</p>
+                    <h1 class='text-white'  style="font-size: 34px; font-weight: 100;">Are you a therapist?</h1>
+                    <p class="joinUs-p">Whether it’s ayurveda or astrology, naturopathy or Acupuncture - if you’re a holistic specialist devoted to your practice and looking to share your wisdom, grow your audience and get more bookings, we can help.</p>
                 </div>
                 <div class="col-md-4 d-flex justify-content-end position-relative" style="z-index: 20;">
                     <router-link to="/PractitionerIndex" class="btn btn-join-us" style="position: relative; z-index: 25;">

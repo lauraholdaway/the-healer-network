@@ -6,10 +6,10 @@
             <!-- Left Section -->
             <div class="left-section col-12 col-md-6 p-3 p-md-4">
                 <div class="ms-md-5 ps-md-5">
-                    <div class="heading-title fw-bold">
+                    <div class="heading-title " style="font-family:'Cormorant Garamond'; font-weight: 500; font-size: 34px; max-width: 300px;" >
                         {{ slides[currentIndex].title }}
                     </div>
-                    <div class="heading-text mb-3 mb-md-4">
+                    <div class="heading-text mb-3 mb-md-4" style="font-size: 12px; color: #5B4C3A; max-width: 330px;">
                         {{ slides[currentIndex].text }}
                     </div>
 
