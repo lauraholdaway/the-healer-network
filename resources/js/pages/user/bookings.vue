@@ -92,7 +92,8 @@
                             </select>
                         </div>
 
-                        <div class="accordion-item mb-3" v-for="(tm, index) in doctortime" :key="index"
+                        <div v-if="form.status !== 'cancelled'" class="accordion-item mb-3"
+                            v-for="(tm, index) in doctortime" :key="index"
                             style="border: 1px solid #E8E2D5; border-radius: 12px; overflow: hidden;">
                             <h2 class="accordion-header" :id="`heading${index}`">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -112,8 +113,8 @@
                                     <div class="d-flex flex-wrap gap-3" role="group" aria-label="Time Slot">
                                         <template v-for="(time, tIndex) in tm.times" :key="tIndex">
                                             <input type="radio" class="btn-check" :name="`time-group-${index}`"
-                                                :id="`time${index}-${tIndex}`" :value="time" v-model="selectedTime"
-                                                @change="selectedDate = tm.date" />
+                                                :id="`time${index}-${tIndex}`" :value="time" v-model="form.selectedTime"
+                                                @change="handleTimeSelect(time, tm.date)" />
 
                                             <label class="btn btn-outline-custom" :for="`time${index}-${tIndex}`"
                                                 style="border: 2px solid #E8E2D5; color: #7D684E; background-color: #F4EFE6; border-radius: 8px; padding: 10px 20px; font-weight: 500; min-width: 100px;">
@@ -155,20 +156,25 @@ const selectedTime = ref(null)
 const selectedDate = ref(null)
 
 
+
+// Form and data refs
 const form = ref({
     id: null,
     status: '',
     message: '',
-    selectedTime: selectedTime.value,
-    selectedDate: selectedDate.value,
+    selectedTime: null,
+    selectedDate: null,
 })
 
 
+
+// Open modal and load doctor availability
 function openmodal(id, doctorid) {
     form.value.id = id
     form.value.message = ''
     form.value.status = ''
-
+    form.value.selectedTime = null
+    form.value.selectedDate = null
 
     const modal = new bootstrap.Modal(document.getElementById('changeModal'))
     modal.show()
@@ -176,27 +182,39 @@ function openmodal(id, doctorid) {
     checkDoctortime(doctorid)
 }
 
+// Fetch doctor available times
 const checkDoctortime = async (doctorid) => {
     try {
-        const res = await axios.get(`/api/availability/${doctorid}`) // ✅ correct usage
+        const res = await axios.get(`/api/availability/${doctorid}`)
         doctortime.value = res.data
     } catch (error) {
         console.error("Error fetching doctor time:", error)
     }
 }
 
+// When user selects a time
+function handleTimeSelect(time, date) {
+    selectedTime.value = time
+    selectedDate.value = date
+    form.value.selectedTime = time
+    form.value.selectedDate = date
+}
 
+// Save appointment changes
 const updateAppointment = async () => {
-
     try {
         await axios.post(`/api/updateAppStatus`, form.value)
         const modal = bootstrap.Modal.getInstance(document.getElementById('changeModal'))
         modal.hide()
         alert('Appointment updated successfully!')
-
     } catch (error) {
-        console.error("Error fetching appointments:", error);
+        console.error("Error updating appointment:", error)
     }
+}
+
+// Format time display
+function formatTime(time) {
+    return new Date(`1970-01-01T${time}`).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
 }
 
 const fetchAppointments = async () => {
@@ -231,11 +249,5 @@ onBeforeUnmount(() => {
     if (intervalId) clearInterval(intervalId);
 });
 
-function formatTime(time) {
-    const [hours, minutes] = time.split(":");
-    let h = parseInt(hours);
-    const ampm = h >= 12 ? "PM" : "AM";
-    h = h % 12 || 12;
-    return `${h}:${minutes} ${ampm}`;
-}
+
 </script>

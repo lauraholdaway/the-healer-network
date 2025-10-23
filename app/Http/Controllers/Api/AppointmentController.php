@@ -138,10 +138,23 @@ try {
 
     public function updateAppStatus(Request $request,)
     {
-        dd($request->all());
+        // dd($request->all());
         $appointment = Appointment::findOrFail($request->id);
-        $appointment->status = $request->status;
-        $appointment->replay = $request->message;
+        if ($request->filled('status')) {
+            $appointment->status = $request->status;
+        }
+
+        if ($request->filled('message')) {
+            $appointment->replay = $request->message;
+        }
+
+        if ($request->filled('selectedTime')) {
+            $appointment->time = $request->selectedTime;
+        }
+
+        if ($request->filled('selectedDate')) {
+            $appointment->date = $request->selectedDate;
+        }
         $appointment->save();
         return response()->json(['message' => 'Status updated', 'data' => $appointment]);
     }

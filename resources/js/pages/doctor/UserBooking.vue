@@ -48,19 +48,30 @@
                         </td>
                         <td>{{ appt.type }}</td>
                         <td>
-                            <div v-if="appt.type === 'offline'">
-                                <b>User Address</b> : {{ appt.user?.address }} <br>
+
+                            <div v-if="appt.status === 'cancelled'">
+
+                                <b class="badge bg-danger  p-1">Cancelled</b>
+
                             </div>
                             <div v-else>
-                                <p v-if="appt.zoom_start_url">
-                                    <a :href="appt.zoom_start_url" target="_blank" class="btn main-btn2">
-                                        Join Meeting
-                                    </a>
-                                </p>
-                                <p v-else>
-                                    <button @click="startMeeting(appt.id)" class="btn main-btn">Start Meeting</button>
-                                </p>
+                                <div v-if="appt.type === 'offline'">
+                                    <b>User Address</b> : {{ appt.user?.address }} <br>
+                                </div>
+                                <div v-else>
+                                    <p v-if="appt.zoom_start_url">
+                                        <a :href="appt.zoom_start_url" target="_blank" class="btn main-btn2">
+                                            Join Meeting
+                                        </a>
+                                    </p>
+                                    <p v-else>
+                                        <button @click="startMeeting(appt.id)" class="btn main-btn">Start
+                                            Meeting</button>
+                                    </p>
+                                </div>
                             </div>
+
+
                         </td>
                     </tr>
                 </tbody>
