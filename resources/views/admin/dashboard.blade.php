@@ -63,12 +63,12 @@
                     <tbody>
                         @forelse($appointments as $appointment)
                         <tr>
-                            <td>{{ $appointment->id }}</td>
-                            <td>{{ $appointment->user->name }}</td>
-                            <td>{{ $appointment->doctor->name }}</td>
-                            <td>{{ $appointment->date }}</td>
+                            <td>{{ $appointment->id  ?? ""}}</td>
+                            <td>{{ $appointment->user->name  ?? ''}}</td>
+                            <td>{{ $appointment->doctor->name ?? '' }}</td>
+                            <td>{{ $appointment->date ??'' }}</td>
                             <td>
-                                <span class="badge badge-{{ $appointment->status == 'completed' ? 'success' : 'warning' }}">
+                                <span class="text-dark badge badge-{{ $appointment->status == 'completed' ? 'success' : 'warning' }}">
                                     {{ ucfirst($appointment->status) }}
                                 </span>
                             </td>
