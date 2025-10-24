@@ -99,7 +99,23 @@ function logout() {
                                 </span>
                             </router-link>
 
+                            <router-link to="/Docterdashboard/DoctorTime" exact
+                                class="btn menu-btn d-flex align-items-center justify-content-between"
+                                @click="closeSidebar">
+                                <span class="d-flex align-items-center gap-2">
+                                    <img :src="ICONS.package" alt="My Managetime" class="menu-icon" />
+                                    <span>Manage time</span>
+                                </span>
+                            </router-link>
 
+                            <router-link to="/Docterdashboard/setSesion" exact
+                                class="btn menu-btn d-flex align-items-center justify-content-between"
+                                @click="closeSidebar">
+                                <span class="d-flex align-items-center gap-2">
+                                    <img :src="ICONS.package" alt="My Packages" class="menu-icon" />
+                                    <span>Packages</span>
+                                </span>
+                            </router-link>
 
                             <router-link to="/Docterdashboard/Inbox" exact
                                 class="btn menu-btn d-flex align-items-center justify-content-between"
