@@ -11,6 +11,8 @@ use App\Models\Practitioner;
 use App\Models\Modalitypivot;
 use App\Models\doctorCerticate;
 use App\Models\User;
+use App\Models\Rating;
+use App\Models\Appointment;
 use App\Models\Modality;
 
 
@@ -288,5 +290,34 @@ class DoctorController extends Controller
         });
 
         return response()->json($practitioners);
+    }
+    public function saverating(Request $request)
+    {
+        $rating = $request->validate([
+            'doctor_id' => 'required',
+            'user_id' => 'required',
+            'appt_id' => 'required',
+            'msg' => 'required',
+            'rating' => 'required',
+        ]);
+        $data = Appointment::find($request->appt_id);
+        if ($data) {
+            $data->rating = 1; // ✅ update rating value
+            $data->save();
+            Rating::create($rating);
+            return response()->json(['message' => 'Rating save successfully']);
+        } else {
+            return response()->json(['message' => 'Appointment not found'], 404);
+        }
+    }
+
+    public function getRating($id)
+    {
+        $data['data'] = Rating::where('doctor_id', $id)->with('user')->get();
+        $data['avg'] = Rating::where('doctor_id', $id)->avg('rating');
+        $data['count'] = Rating::where('doctor_id', $id)->count();
+
+        // dd($data);
+        return response()->json($data);
     }
 }

@@ -108,7 +108,7 @@ try {
 
         $user = $request->user();
         // dd($user);
-        $appointments = Appointment::with(['user', 'doctorpackage']) // eager load relations
+        $appointments = Appointment::with(['user', 'doctorpackage', 'rating']) // eager load relations
             ->where('doctor_id', $user->id)
             ->latest()
             ->get();

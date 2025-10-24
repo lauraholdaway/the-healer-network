@@ -98,6 +98,5 @@ class BlogsController extends Controller
     {
         $blog = Blog::where('id',$id)->first();
         return response()->json($blog);
-
     }
 }

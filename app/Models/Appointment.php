@@ -42,8 +42,13 @@ class Appointment extends Model
     {
         return $this->belongsTo(User::class, 'user_id');
     }
+
     public function doctorpackage()
     {
         return $this->hasOne(DoctorPackage::class, 'id', 'session');
+    }
+    public function rating()
+    {
+        return $this->hasOne(Rating::class, 'appt_id', 'id');
     }
 }

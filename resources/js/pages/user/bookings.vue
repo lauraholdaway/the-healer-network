@@ -21,6 +21,7 @@
                     <th class="Seasons-fonts">Date</th>
                     <th class="Seasons-fonts">Status</th>
                     <th class="Seasons-fonts">Meeting</th>
+                    <!-- <th class="Seasons-fonts">Rating</th> -->
                     <th class="Seasons-fonts">Actions</th>
                 </tr>
             </thead>
@@ -36,7 +37,6 @@
                     <td>
                         {{ dayjs(appt.date).format('D MMM YYYY') }}
                         <br> {{ formatTime(appt.time) }}
-
                     </td>
                     <td>{{ appt.type }}</td>
                     <td>
@@ -56,6 +56,12 @@
                             </p>
                         </div>
                     </td>
+                    <!-- <td>
+                        <button class=" btn btn-sm btn-outline-custome"
+                            @click="modelRating(appt.id, appt.doctor_id, appt.user_id, appt.id)">
+                            Give me rating
+                        </button>
+                    </td> -->
                     <td>
                         <div class="d-flex">
                             <!-- <router-link class="btn btn-outline-custome "
@@ -74,6 +80,50 @@
                 </tr>
             </tbody>
         </table>
+    </div>
+
+    <!-- Rating Modal -->
+    <div class="modal fade" id="modelRating" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title">Save Rating</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+
+                <div class="modal-body">
+                    <form @submit.prevent="ratingSave">
+
+                        <div v-if="errorMessage" class="alert alert-danger py-2 ">
+                            {{ errorMessage }}
+                        </div>
+                        <!-- Star Rating -->
+                        <div class="mb-3 text-center">
+                            <label class="form-label d-block mb-2">Select Rating</label>
+                            <div>
+                                <i v-for="star in 5" :key="star" class="bi"
+                                    :class="star <= ratingform.rating ? 'bi-star-fill text-warning fs-3' : 'bi-star fs-3 text-secondary'"
+                                    style="cursor: pointer;" @click="ratingform.rating = star">
+                                </i>
+                            </div>
+                        </div>
+
+                        <!-- Message -->
+                        <div class="mb-3">
+                            <label class="form-label">Message</label>
+                            <textarea v-model="ratingform.msg" class="form-control" rows="3"
+                                placeholder="Write a message..."></textarea>
+                        </div>
+
+                        <div class="text-end">
+                            <button type="submit" class="btn main-btn">Save Rating</button>
+                        </div>
+                    </form>
+                </div>
+
+            </div>
+        </div>
     </div>
 
 
@@ -159,6 +209,7 @@ let intervalId = null;
 const doctortime = ref([])
 const selectedTime = ref(null)
 const selectedDate = ref(null)
+const errorMessage = ref(null)
 
 
 
@@ -170,8 +221,6 @@ const form = ref({
     selectedTime: null,
     selectedDate: null,
 })
-
-
 
 // Open modal and load doctor availability
 function openmodal(id, doctorid) {
@@ -185,6 +234,25 @@ function openmodal(id, doctorid) {
     modal.show()
 
     checkDoctortime(doctorid)
+}
+
+const ratingform = ref({
+    id: null,
+    doctor_id: null,
+    user_id: null,
+    appt_id: null,
+    msg: '',
+    rating: '',
+})
+function modelRating(id, doctor_id, user_id, appt_id) {
+    ratingform.value.id = id;
+    ratingform.value.doctor_id = doctor_id;
+    ratingform.value.user_id = user_id;
+    ratingform.value.appt_id = appt_id;
+    ratingform.value.rating = '';
+    ratingform.value.msg = '';
+    const modal = new bootstrap.Modal(document.getElementById('modelRating'));
+    modal.show();
 }
 
 // Fetch doctor available times
@@ -215,6 +283,28 @@ const updateAppointment = async () => {
         alert('Appointment time updated successfully!')
     } catch (error) {
         console.error("Error updating appointment:", error)
+    }
+}
+
+const ratingSave = async () => {
+    errorMessage.value = null // clear previous error
+    try {
+        await axios.post(`/api/saverating`, ratingform.value)
+        const model = bootstrap.Modal.getInstance(document.getElementById('modelRating'))
+        model.hide()
+        alert('Save rating')
+    } catch (error) {
+        // Handle validation or server error
+        if (error.response && error.response.data && error.response.data.message) {
+            errorMessage.value = error.response.data.message
+        } else if (error.response && error.response.data && typeof error.response.data === 'object') {
+            // Laravel validation errors
+            const errors = Object.values(error.response.data.errors || {}).flat()
+            errorMessage.value = errors.join(', ')
+        } else {
+            errorMessage.value = 'Something went wrong while saving the rating.'
+        }
+        console.error('Error saving rating:', error)
     }
 }
 

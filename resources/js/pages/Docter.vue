@@ -241,365 +241,365 @@ h5 {
     transition: all 0.3s ease;
     border: none;
     height: 400px;
-        /* Fixed height for all cards */
+    /* Fixed height for all cards */
         display: flex;
         flex-direction: column;
     }
 
-                                .testimonial-card:hover {
-                                    transform: translateY(-5px);
-                                    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-                                }
-                
-                                .testimonial-content {
-                                    display: flex;
-                                    flex-direction: column;
-                                    height: 100%;
-                                }
-                
-                                .testimonial-image {
-                                    flex-shrink: 0;
-                                    height: 220px;
-                                    /* Increased height for better image display */
-                                    overflow: hidden;
-                                    position: relative;
-                                    background-color: #f0f0f0;
-                                }
-                
-                                .testimonial-image img {
-                                    width: 100%;
-                                    height: 100%;
-                                    object-fit: cover;
-                                    object-position: center top;
-                                    transition: transform 0.3s ease;
-                                }
-                
-                                .testimonial-image:hover img {
-                                    transform: scale(1.05);
-                                }
-                
-                                .testimonial-text {
-                                    padding: 20px;
-                                    flex-grow: 1;
-                                    display: flex;
-                                    flex-direction: column;
-                                    background-color: #E5D9CB;
-                                    min-height: 180px;
-                                    /* Minimum height for text area */
-                                }
-                
-                                .testimonial-title {
-                                    font-size: 1.1rem;
-                                    font-weight: 600;
-                                    color: #2E2D29;
-                                    margin-bottom: 12px;
-                                    line-height: 1.3;
-                                }
-                
-                                .testimonial-description {
-                                    font-size: 0.95rem;
-                                    color: #555;
-                                    line-height: 1.5;
-                                    margin-bottom: 15px;
-                                    flex-grow: 1;
-                                    overflow: hidden;
-                                    display: -webkit-box;
-                                    -webkit-line-clamp: 4;
-                                    line-clamp: 4;
-                                    -webkit-box-orient: vertical;
-                                }
-                
-                                .testimonial-rating {
-                                    display: flex;
-                                    gap: 3px;
-                                    margin-top: auto;
-                                    padding-top: 10px;
-                                }
-                
-                                .testimonial-rating i {
-                                    color: #5B4C3A;
-                                    font-size: 1.1rem;
-                                }
-                
-                                /* Responsive adjustments for testimonial cards */
-                                @media (max-width: 768px) {
-                                    .testimonial-card {
-                                        height: 380px;
-                                        /* Slightly smaller for tablets */
-                                    }
-                
-                                    .testimonial-image {
-                                        height: 200px;
-                                    }
-                
-                                    .testimonial-text {
-                                        padding: 15px;
-                                        min-height: 180px;
-                                    }
-                
-                                    .testimonial-title {
-                                        font-size: 1rem;
-                                    }
-                
-                                    .testimonial-description {
-                                        font-size: 0.9rem;
-                                        -webkit-line-clamp: 3;
-                                        line-clamp: 3;
-                                    }
-                                }
-                
-                                @media (max-width: 576px) {
-                                    .testimonial-card {
-                                        height: 360px;
-                                        /* Smaller for mobile */
-                                    }
-                
-                                    .testimonial-image {
-                                        height: 180px;
-                                    }
-                
-                                    .testimonial-text {
-                                        padding: 12px;
-                                        min-height: 180px;
-                                    }
-                
-                                    .testimonial-description {
-                                        -webkit-line-clamp: 3;
-                                        line-clamp: 3;
-                                    }
-                                }
-                
-                                /* Horizontal Scroll Swiper Styles */
-                                .horizontal-scroll-swiper {
-                                    padding: 10px 0 30px 0;
-                                    overflow: hidden;
-                                    max-width: 100%;
-                                    display: flex;
-                                    justify-content: center;
-                                    align-items: center;
-                                }
-                
-                                .swiper-slide-auto {
-                                    width: 320px !important;
-                                    height: auto;
-                                }
-                
-                                /* Scrollbar hidden but scroll functionality maintained */
-                                .horizontal-scroll-swiper .swiper-scrollbar {
-                                    display: none;
-                                }
-                
-                                /* Prevent page scroll and enable only cards section scroll */
-                                body {
-                                    overflow-x: hidden;
-                                }
-                
-                                .testimonial-section {
-                                    overflow-x: hidden;
-                                }
-                
-                                .container-fluid {
-                                    overflow-x: hidden;
-                                }
-                
-                                /* Enable smooth scrolling only in swiper */
-                                .horizontal-scroll-swiper .swiper-wrapper {
-                                    transition-timing-function: ease-in-out;
-                                    display: flex;
-                                    align-items: center;
-                                }
-                
-                                /* Center the swiper container */
-                                .horizontal-scroll-swiper .swiper {
-                                    width: 100%;
-                                    display: flex;
-                                    justify-content: center;
-                                }
-                
-                                /* Responsive adjustments for horizontal scroll */
-                                @media (max-width: 768px) {
-                                    .swiper-slide-auto {
-                                        width: 280px !important;
-                                    }
-                                }
-                
-                                @media (max-width: 576px) {
-                                    .swiper-slide-auto {
-                                        width: 260px !important;
-                                    }
-                                }
-                
-                                /* Mobile Responsive Styles */
-                                @media (max-width: 991px) {
-                                    .doctor-name {
-                                        font-size: 1.75rem;
-                                    }
-                
-                                    .cards {
-                                        padding: 15px;
-                                    }
-                                }
-                
-                                @media (max-width: 768px) {
-                                    .doctor-name {
-                                        font-size: 1.5rem;
-                                        margin-top: 1rem;
-                                    }
-                
-                                    .doctor-description {
-                                        font-size: 0.9rem;
-                                    }
-                
-                                    .book-session-btn {
-                                        width: 100%;
-                                        text-align: center;
-                                        margin-top: 1rem;
-                                    }
-                
-                                    .rating-section {
-                                        flex-direction: column;
-                                        align-items: flex-start;
-                                        gap: 0.5rem;
-                                    }
-                
-                                    .cards {
-                                        padding: 12px;
-                                    }
-                
-                                    .service-card {
-                                        margin-bottom: 1rem;
-                                    }
-                
-                                    .service-card h5 {
-                                        font-size: 1.1rem;
-                                    }
-                
-                                    .service-card p {
-                                        font-size: 0.9rem;
-                                    }
-                
-                                    .subheading {
-                                        font-size: 1.3rem !important;
-                                        line-height: 1.5;
-                                    }
-                                }
-                
-                                @media (max-width: 576px) {
-                                    .doctor-name {
-                                        font-size: 1.25rem;
-                                    }
-                
-                                    .doctor-type-tag {
-                                        font-size: 0.75rem;
-                                        padding: 5px 12px;
-                                        margin-bottom: 0.5rem;
-                                    }
-                
-                                    .rating-section .stars {
-                                        font-size: 1rem;
-                                    }
-                
-                                    .rating-text {
-                                        font-size: 0.8rem;
-                                        padding: 5px 10px;
-                                    }
-                
-                                    .doctor-description {
-                                        font-size: 0.85rem;
-                                        line-height: 1.4;
-                                    }
-                
-                                    .book-session-btn {
-                                        padding: 10px 20px;
-                                        font-size: 0.9rem;
-                                    }
-                
-                                    .cards {
-                                        padding: 10px;
-                                        margin: 1rem 0 !important;
-                                    }
-                
-                                    .service-card {
-                                        padding: 1rem !important;
-                                    }
-                
-                                    .service-card h5 {
-                                        font-size: 1rem;
-                                    }
-                
-                                    .service-card p {
-                                        font-size: 0.85rem;
-                                    }
-                
-                                    .subheading {
-                                        font-size: 1.1rem !important;
-                                        padding: 0 15px;
-                                    }
-                
-                                    .testimonial-section {
-                                        padding: 2rem 0 !important;
-                                    }
-                
-                                    .container-fluid.mt-5.py-5 {
-                                        padding: 2rem 0 !important;
-                                        margin-top: 2rem !important;
-                                    }
-                                }
-                
-                                /* Info Bar Responsive */
-                                @media (max-width: 768px) {
-                                    .info-box .col-md-3 {
-                                        border-right: none !important;
-                                        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
-                                        padding-bottom: 1rem;
-                                        margin-bottom: 1rem;
-                                    }
-                
-                                    .info-box .col-md-3:last-child {
-                                        border-bottom: none;
-                                        margin-bottom: 0;
-                                    }
-                
-                                    .info-box h6 {
-                                        font-size: 0.95rem;
-                                    }
-                
-                                    .info-box p {
-                                        font-size: 0.85rem;
-                                    }
-                                }
-                
-                                @media (max-width: 576px) {
-                                    .info-box {
-                                        padding: 1.5rem 1rem !important;
-                                    }
-                
-                                    .info-box h6 {
-                                        font-size: 0.9rem;
-                                    }
-                
-                                    .info-box p {
-                                        font-size: 0.8rem;
-                                    }
-                
-                                    .info-box .col-6 {
-                                        margin-bottom: 1rem !important;
-                                    }
-                                }
-                
-                                /* Service Card Price Section Responsive */
-                                @media (max-width: 576px) {
-                                    .service-card .my-3.d-flex {
-                                        flex-direction: column;
-                                        align-items: flex-start !important;
-                                        gap: 0.5rem;
-                                    }
-                
-                                    .service-card svg {
-                                        width: 30px;
-                                        height: 30px;
-                                    }
-                                }
+.testimonial-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.testimonial-content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.testimonial-image {
+    flex-shrink: 0;
+    height: 220px;
+    /* Increased height for better image display */
+    overflow: hidden;
+    position: relative;
+    background-color: #f0f0f0;
+}
+
+.testimonial-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    transition: transform 0.3s ease;
+}
+
+.testimonial-image:hover img {
+    transform: scale(1.05);
+}
+
+.testimonial-text {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #E5D9CB;
+    min-height: 180px;
+    /* Minimum height for text area */
+}
+
+.testimonial-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2E2D29;
+    margin-bottom: 12px;
+    line-height: 1.3;
+}
+
+.testimonial-description {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    flex-grow: 1;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    -webkit-box-orient: vertical;
+}
+
+.testimonial-rating {
+    display: flex;
+    gap: 3px;
+    margin-top: auto;
+    padding-top: 10px;
+}
+
+.testimonial-rating i {
+    color: #5B4C3A;
+    font-size: 1.1rem;
+}
+
+/* Responsive adjustments for testimonial cards */
+@media (max-width: 768px) {
+    .testimonial-card {
+        height: 380px;
+        /* Slightly smaller for tablets */
+    }
+
+    .testimonial-image {
+        height: 200px;
+    }
+
+    .testimonial-text {
+        padding: 15px;
+        min-height: 180px;
+    }
+
+    .testimonial-title {
+        font-size: 1rem;
+    }
+
+    .testimonial-description {
+        font-size: 0.9rem;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+    }
+}
+
+@media (max-width: 576px) {
+    .testimonial-card {
+        height: 360px;
+        /* Smaller for mobile */
+    }
+
+    .testimonial-image {
+        height: 180px;
+    }
+
+    .testimonial-text {
+        padding: 12px;
+        min-height: 180px;
+    }
+
+    .testimonial-description {
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
+    }
+}
+
+/* Horizontal Scroll Swiper Styles */
+.horizontal-scroll-swiper {
+    padding: 10px 0 30px 0;
+    overflow: hidden;
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide-auto {
+    width: 320px !important;
+    height: auto;
+}
+
+/* Scrollbar hidden but scroll functionality maintained */
+.horizontal-scroll-swiper .swiper-scrollbar {
+    display: none;
+}
+
+/* Prevent page scroll and enable only cards section scroll */
+body {
+    overflow-x: hidden;
+}
+
+.testimonial-section {
+    overflow-x: hidden;
+}
+
+.container-fluid {
+    overflow-x: hidden;
+}
+
+/* Enable smooth scrolling only in swiper */
+.horizontal-scroll-swiper .swiper-wrapper {
+    transition-timing-function: ease-in-out;
+    display: flex;
+    align-items: center;
+}
+
+/* Center the swiper container */
+.horizontal-scroll-swiper .swiper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* Responsive adjustments for horizontal scroll */
+@media (max-width: 768px) {
+    .swiper-slide-auto {
+        width: 280px !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .swiper-slide-auto {
+        width: 260px !important;
+    }
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 991px) {
+    .doctor-name {
+        font-size: 1.75rem;
+    }
+
+    .cards {
+        padding: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+    .doctor-name {
+        font-size: 1.5rem;
+        margin-top: 1rem;
+    }
+
+    .doctor-description {
+        font-size: 0.9rem;
+    }
+
+    .book-session-btn {
+        width: 100%;
+        text-align: center;
+        margin-top: 1rem;
+    }
+
+    .rating-section {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .cards {
+        padding: 12px;
+    }
+
+    .service-card {
+        margin-bottom: 1rem;
+    }
+
+    .service-card h5 {
+        font-size: 1.1rem;
+    }
+
+    .service-card p {
+        font-size: 0.9rem;
+    }
+
+    .subheading {
+        font-size: 1.3rem !important;
+        line-height: 1.5;
+    }
+}
+
+@media (max-width: 576px) {
+    .doctor-name {
+        font-size: 1.25rem;
+    }
+
+    .doctor-type-tag {
+        font-size: 0.75rem;
+        padding: 5px 12px;
+        margin-bottom: 0.5rem;
+    }
+
+    .rating-section .stars {
+        font-size: 1rem;
+    }
+
+    .rating-text {
+        font-size: 0.8rem;
+        padding: 5px 10px;
+    }
+
+    .doctor-description {
+        font-size: 0.85rem;
+        line-height: 1.4;
+    }
+
+    .book-session-btn {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    .cards {
+        padding: 10px;
+        margin: 1rem 0 !important;
+    }
+
+    .service-card {
+        padding: 1rem !important;
+    }
+
+    .service-card h5 {
+        font-size: 1rem;
+    }
+
+    .service-card p {
+        font-size: 0.85rem;
+    }
+
+    .subheading {
+        font-size: 1.1rem !important;
+        padding: 0 15px;
+    }
+
+    .testimonial-section {
+        padding: 2rem 0 !important;
+    }
+
+    .container-fluid.mt-5.py-5 {
+        padding: 2rem 0 !important;
+        margin-top: 2rem !important;
+    }
+}
+
+/* Info Bar Responsive */
+@media (max-width: 768px) {
+    .info-box .col-md-3 {
+        border-right: none !important;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
+    }
+
+    .info-box .col-md-3:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+    }
+
+    .info-box h6 {
+        font-size: 0.95rem;
+    }
+
+    .info-box p {
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .info-box {
+        padding: 1.5rem 1rem !important;
+    }
+
+    .info-box h6 {
+        font-size: 0.9rem;
+    }
+
+    .info-box p {
+        font-size: 0.8rem;
+    }
+
+    .info-box .col-6 {
+        margin-bottom: 1rem !important;
+    }
+}
+
+/* Service Card Price Section Responsive */
+@media (max-width: 576px) {
+    .service-card .my-3.d-flex {
+        flex-direction: column;
+        align-items: flex-start !important;
+        gap: 0.5rem;
+    }
+
+    .service-card svg {
+        width: 30px;
+        height: 30px;
+    }
+}
 </style>
 <template>
     <section>
@@ -634,15 +634,13 @@ h5 {
                             <!-- Rating Section -->
                             <div class="rating-section">
                                 <div class="stars" style="color: #5B4C3A; ">
-                                    <i class="bi bi-star-fill me-1"></i>
-                                    <i class="bi bi-star-fill me-1"></i>
-                                    <i class="bi bi-star-fill me-1"></i>
-                                    <i class="bi bi-star-fill me-1"></i>
-                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill me-1" v-for="star in 5" key="star"
+                                        :class="star <= avg ? 'bi-star-fill' : 'bi-star-fill text-secondary'"></i>
+
                                 </div>
-                                <div class="rating-text"
+                                <div class="rating-text" v-if="avg && count"
                                     style="background: #5B4C3A; color: white; padding: 6px 12px; border-radius: 8px; font-weight: 500; font-size: 0.9rem;">
-                                    5.0 162 Reviews
+                                    {{ avg.toFixed(1) || '0' }} {{ count }} Reviews
                                 </div>
                             </div>
 
@@ -762,19 +760,21 @@ h5 {
 
                 <!-- Rating -->
                 <div class="d-flex justify-content-center align-items-center mb-3">
-                    <div class="modern-rating-container">
-                        <div class="rating-number">5.00</div>
+                    <div class="modern-rating-container" v-if="avg">
+
+                        <div class="rating-number">{{ avg.toFixed(1) }}</div>
+
                         <div class="rating-stars">
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
-                            <i class="bi bi-star-fill"></i>
+
+
+                            <i class="bi" v-for="star in 5" :key="star"
+                                :class="star <= avg ? 'bi-star-fill' : 'bi-star-fill text-secondary'"></i>
                         </div>
+
                     </div>
                 </div>
                 <!-- <p class="text-muted">Excellent rating from 200 reviews</p> -->
-                <div class="container-fluid mt-5 py-5    d-flex justify-content-center">
+                <div class="container-fluid mt-5 py-5    d-flex justify-content-center" v-if="Ratings">
                     <Swiper :slides-per-view="'auto'" :space-between="20" :loop="true"
                         class="mySwiper horizontal-scroll-swiper" :autoplay="{ delay: 3000 }" :free-mode="true"
                         :grab-cursor="true" :mousewheel="{
@@ -789,25 +789,26 @@ h5 {
                             1200: { slidesPerView: 3.2, spaceBetween: 20 }
                         }">
 
-                        <SwiperSlide v-for="(doctor, index) in doctors" :key="index" class="swiper-slide-auto">
+                        <SwiperSlide v-for="(Rating, index) in Ratings" :key="index" class="swiper-slide-auto">
                             <div class="testimonial-card h-100">
 
                                 <!-- Alternate layout -->
                                 <div v-if="index % 2 === 0" class="testimonial-content">
                                     <!-- Image on top -->
                                     <div class="testimonial-image">
-                                        <img src="/public/asset/images/demo1.png" alt="User" />
+                                        <img :src="Rating?.user?.image ? '/storage/' + Rating.user.image : '/default-image.png'"
+                                            alt="User" />
                                     </div>
                                     <div class="testimonial-text">
-                                        <h6 class="testimonial-title">Accessible and open.</h6>
-                                        <p class="testimonial-description">{{ doctor?.about || "_" }}
+                                        <h6 class="testimonial-title">
+                                            {{ Rating?.user?.name }} {{
+                                                Rating?.user?.last_name
+                                            }}</h6>
+                                        <p class="testimonial-description">{{ Rating?.msg || "_" }}
                                         </p>
                                         <div class="testimonial-rating">
-                                            <i class="bi bi-star-fill"></i>
-                                            <i class="bi bi-star-fill"></i>
-                                            <i class="bi bi-star-fill"></i>
-                                            <i class="bi bi-star-fill"></i>
-                                            <i class="bi bi-star-fill"></i>
+                                            <i class="bi" v-for="star in 5" :key="star"
+                                                :class="star <= Rating.rating ? 'bi-star-fill' : 'bi-star-fill text-secondary'"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -815,17 +816,17 @@ h5 {
                                 <div v-else class="testimonial-content">
                                     <!-- Text on top -->
                                     <div class="testimonial-text">
-                                        <p class="testimonial-description">{{ doctor?.about || "_" }}</p>
+                                        <p class="testimonial-description">{{ Rating?.msg || "_" }}</p>
                                         <div class="testimonial-rating">
-                                            <i class="bi bi-star-fill"></i>
-                                            <i class="bi bi-star-fill"></i>
-                                            <i class="bi bi-star-fill"></i>
-                                            <i class="bi bi-star-fill"></i>
-                                            <i class="bi bi-star-fill"></i>
+
+                                            <i v-for="star in 5" :key="star" class="bi"
+                                                :class="star <= Rating.rating ? 'bi-star-fill ' : 'bi-star text-secondary'">
+                                            </i>
                                         </div>
                                     </div>
                                     <div class="testimonial-image">
-                                        <img src="/public/asset/images/demo1.png" alt="User" />
+                                        <img :src="Rating?.user?.image ? '/storage/' + Rating.user.image : '/default-image.png'"
+                                            alt="User" />
                                     </div>
                                 </div>
                             </div>
@@ -854,6 +855,9 @@ const route = useRoute();
 const router = useRouter();
 const doctors = ref(null);
 const GetCert = ref(null);
+const Ratings = ref(null);
+const avg = ref(null);
+const count = ref(null);
 
 async function loaddoctor() {
     try {
@@ -880,6 +884,19 @@ onMounted(async () => {
 
     } catch (error) {
         console.error('Doctor  Serivece APi'.error);
+
+    }
+});
+
+onMounted(async () => {
+    try {
+        const res = await axios.get(`/api/getRating/${route.params.id}`);
+        Ratings.value = res.data.data;
+        avg.value = res.data.avg;
+        count.value = res.data.count;
+
+    } catch (error) {
+        console.error('Doctor  Ratings APi'.error);
 
     }
 });

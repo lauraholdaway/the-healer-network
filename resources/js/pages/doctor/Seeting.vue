@@ -197,7 +197,7 @@ const updatePassword = async () => {
                                     flex-direction: column;
                                     gap: 30px;
                                 }
-                
+
                                 .settings-card {
                                     background: #fefcf9;
                                     border-radius: 16px;
@@ -205,7 +205,7 @@ const updatePassword = async () => {
                                     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
                                     border: none;
                                 }
-                
+
                                 .card-title {
         font-size: 24px;
   margin-bottom: 24px;

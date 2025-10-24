@@ -162,3 +162,6 @@ Route::get('/searchdoctor', [DoctorController::class, 'searchdoctor']);
 Route::post('/quiz', [DoctorController::class, 'quiz']);
 Route::get('/blogs', [BlogsController::class, 'blogs']);
 Route::get('/blog/{id?}', [BlogsController::class, 'blogone']);
+
+Route::post('/saverating', [DoctorController::class, 'saverating']);
+Route::get('/getRating/{id}', [DoctorController::class, 'getRating']);
