@@ -64,7 +64,7 @@
                                 <td>{{ $doctor->address ?? '' }}</td>
                                 <td>{{ $doctor->practice_location ?? '' }}</td>
 
-                                <td>{{ \Illuminate\Support\Str::words($doctor->about ?? '', 20, '...') }}</td>
+                                <td>{{ \Illuminate\Support\Str::words($doctor->about ?? '', 10, '...') }}</td>
                                 <td>{{ $doctor->clients_per_month ?? '' }}</td>
                                 <td>{{ $doctor->free_trial_sessions ?? '' }}</td>
                                 <td>{{ $doctor->happy_to_provide_free_session ? 'Yes' : 'No' }}</td>
