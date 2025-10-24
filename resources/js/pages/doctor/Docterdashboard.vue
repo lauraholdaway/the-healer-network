@@ -155,6 +155,7 @@ function logout() {
                         </p>
                         <h4>Admin Verifying ..... </h4>
 
+                        <h1>this</h1>
                         <div class="text-end">
                             <a href="#" @click="logout" class="logout-btn btn">Logout</a>
                         </div>
