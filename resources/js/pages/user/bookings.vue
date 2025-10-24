@@ -21,7 +21,7 @@
                     <th class="Seasons-fonts">Date</th>
                     <th class="Seasons-fonts">Status</th>
                     <th class="Seasons-fonts">Meeting</th>
-                    <!-- <th class="Seasons-fonts">Rating</th> -->
+                    <th class="Seasons-fonts">Rating</th>
                     <th class="Seasons-fonts">Actions</th>
                 </tr>
             </thead>
@@ -56,12 +56,12 @@
                             </p>
                         </div>
                     </td>
-                    <!-- <td>
+                    <td>
                         <button class=" btn btn-sm btn-outline-custome"
                             @click="modelRating(appt.id, appt.doctor_id, appt.user_id, appt.id)">
-                            Give me rating
+                            Submit Rating
                         </button>
-                    </td> -->
+                    </td>
                     <td>
                         <div class="d-flex">
                             <!-- <router-link class="btn btn-outline-custome "

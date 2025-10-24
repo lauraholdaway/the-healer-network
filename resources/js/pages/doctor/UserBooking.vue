@@ -30,9 +30,9 @@
                         <th>Date</th>
                         <th>Time</th>
                         <th>Status</th>
-                        <!-- <th>
+                        <th>
                             rating
-                        </th> -->
+                        </th>
                         <th>Action</th>
                     </tr>
                 </thead>
@@ -40,7 +40,7 @@
                     <tr v-for="(appt, index) in appointments" :key="appt.id">
                         <td>{{ index + 1 }}</td>
                         <td>
-                            <img :src="'/storage/' + appt.user.image" alt=""
+                            <img :src="'/storage/' + appt.user?.image" alt=""
                                 style="width: 100px;height: 100px;object-fit: cover;border-radius: 50%;">
                         </td>
                         <td>{{ appt.user?.name }}</td>
@@ -48,15 +48,14 @@
                         <td>{{ appt.user?.number }}</td>
                         <td>{{ appt.doctorpackage?.type }}</td>
                         <td>{{ appt.doctorpackage?.price }}</td>
-                        <td>{{ dayjs(appt.date).format('D MMM YYYY') }}
+                        <td>{{ dayjs(appt?.date).format('D MMM YYYY') }}
                         </td>
                         <td>
-                            {{ formatTime(appt.time) }}
+                            {{ formatTime(appt?.time) }}
                         </td>
                         <td>{{ appt.type }}</td>
-                        <!-- <td>
+                        <td>
                             <div v-if="appt.rating">
-
                                 <div class="stars" style="color: #5B4C3A; ">
                                     <i class="bi bi-star-fill me-1" v-for="star in 5" key="star"
                                         :class="star <= appt.rating.rating ? 'bi-star-fill' : 'bi-star-fill text-secondary'"></i>
@@ -65,7 +64,7 @@
                                     {{ appt.rating.msg }}
                                 </p>
                             </div>
-                        </td> -->
+                        </td>
                         <td>
 
                             <div v-if="appt.status === 'cancelled'">
