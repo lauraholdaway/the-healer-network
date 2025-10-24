@@ -60,12 +60,11 @@ class DashboardController extends Controller
     public function Appointmentslist(Request $request)
     {
 
-        // dd($user);
         $appointments = Appointment::with(['user', 'doctor', 'doctorpackage']) // eager load relations
             ->latest()
             ->get();
         // dd($appointments);
-        return view('admin.booking.index', compact('appointments'));
+        return view('admin.Booking.index', compact('appointments'));
     }
 
     public function toggleStatus($id)
