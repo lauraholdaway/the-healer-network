@@ -70,17 +70,22 @@
                                 <td>{{ $doctor->happy_to_provide_free_session ? 'Yes' : 'No' }}</td>
                                 <td>{{ $doctor->referred_by ?? '' }}</td>
                                 <td>
+                                    @if($doctor->user->id)
                                     <span id="status-{{ $doctor->user->id ?? '0' }}"
                                         class="{{ $doctor->user->status ? 'text-success' : 'text-danger' }}">
                                         {{ $doctor->user->status ? 'Active' : 'Inactive' }}
                                     </span>
+                                    @endif
                                 </td>
                                 <td>
+                                    @if($doctor->user->id)
 
                                     <button class="btn btn-sm btn-outline-danger toggle-status"
                                         data-id="{{ $doctor->user->id }}">
                                         {{ $doctor->user->status ? 'Deactivate' : 'Activate' }}
                                     </button>
+                                    @endif
+
                                 </td>
 
                             </tr>
