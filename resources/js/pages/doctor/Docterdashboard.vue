@@ -55,7 +55,7 @@ function logout() {
 <template>
     <section>
         <!-- Mobile Hamburger Button -->
-        <button v-if="auth.user.status === 1" class="mobile-menu-toggle" @click="toggleSidebar"
+        <button v-if="auth.user.status === '1'" class="mobile-menu-toggle" @click="toggleSidebar"
             :class="{ active: sidebarOpen }">
             <span></span>
             <span></span>
@@ -63,10 +63,10 @@ function logout() {
         </button>
 
         <!-- Mobile Sidebar Overlay -->
-        <div v-if="auth.user.status === 1" class="sidebar-overlay" :class="{ active: sidebarOpen }"
+        <div v-if="auth.user.status === '1'" class="sidebar-overlay" :class="{ active: sidebarOpen }"
             @click="closeSidebar"></div>
 
-        <div class="container-fluid userdashboard-container p-0" v-if="auth.user.status === 1">
+        <div class="container-fluid userdashboard-container p-0" v-if="auth.user.status === '1'">
             <div class="row">
                 <!-- Sidebar -->
                 <div class="col-md-3 sidebar-wrapper" :class="{ active: sidebarOpen }">
@@ -126,9 +126,6 @@ function logout() {
                                     <span>Settings</span>
                                 </span>
                             </router-link>
-
-
-
                             <button @click="showModal = true; closeSidebar()"
                                 class="btn menu-btn logout-btn d-flex align-items-center justify-content-between">
                                 <span class="d-flex align-items-center gap-2">
