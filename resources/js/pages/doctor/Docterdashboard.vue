@@ -152,8 +152,9 @@ function logout() {
                         </h5>
                         <p class="card-text Seasons-fonts">
                             Please waiting ......
-                        <h4>Admin Verifying ..... </h4>
                         </p>
+                        <h4>Admin Verifying ..... </h4>
+
                         <div class="text-end">
                             <a href="#" @click="logout" class="logout-btn btn">Logout</a>
                         </div>
