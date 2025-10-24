@@ -40,9 +40,9 @@
         <!-- Add your content here if needed -->
     </section>
 
-    <br>
+    
 
-    <section class="container my-md-5 pt-md--10" id="below">
+    <section class="container my-md-5  pt-md--10" id="below" >
         <h2 class="section-heading">Your Path to Healing</h2>
         <p class="section-subtext">
             The Healer Network connects you with certified online therapists, providing the tools and support you need
@@ -73,8 +73,8 @@
                     <img :src="cardicon2" alt="card icon" class="position-absolute"
                         style="width: 180px; height: 180px; bottom: -20px; right: 0;">
                     <div class="position-relative" style="z-index: 2;">
-                        <h5 class="feature-title text-white">Personalized Search</h5>
-                        <p class="feature-content text-white">
+                        <h5 class="feature-title text-white ">Personalized Search</h5>
+                        <p class="feature-content text-white " style="font-size: 14px;">
                             You can search for therapists based on your specific concerns, availability, preferred
                             communication methods, and location. Additionally, you can explore reviews and testimonials
                             from past clients to find the best match for your therapy needs.
@@ -89,10 +89,9 @@
                     <img :src="cardicon3" alt="card icon" class="position-absolute"
                         style="width: 180px; height: 180px; bottom: 0; left: 50%; transform: translateX(-50%);">
                     <div class="position-relative" style="z-index: 2;">
-                        <h5 class="feature-title">In-Depth Learning</h5>
+                        <h5 class="feature-title">Monthly Membership'</h5>
                         <p class="feature-content">
-                            THN is more than just a therapy booking platform. Our monthly membership empowers you with
-                            valuable resources such as yoga classes, meditation, and live monthly group healings.
+                            The Healer Network is more than just a therapy booking platform. Our monthly membership empowers you with valuable resources such as yoga classes, meditation, and live monthly group healings.
                         </p>
                     </div>
                 </div>
@@ -108,7 +107,7 @@
         <div class="container py-1">
             <!-- Title -->
             <h2 class="section-title">Book A Session Revitalize Your Health And Wellbeing</h2>
-            <p class="section-subtitle">
+            <p class="section-subtitle" style="font-size: 13px; color:#5B4C3A; font-weight: 400;">
                 Embark on a transformative journey to rejuvenate your mind, body and soul. Whether you're aiming to
                 heal, improve your mental health, or unlock your full potential, we offer tailored sessions to support
                 your unique needs and goals
@@ -125,14 +124,14 @@
                     <!-- Left Arrow Button -->
                     <button @click="swiperPrev"
                         class="btn btn-arrow-left rounded-circle d-flex align-items-center justify-content-center"
-                        style="width: 31px; height: 31px; background-color: transparent; border: none;">
+                        style="width: 30px; height: 30px; background-color: transparent; border: none;">
                         <img src="/public/asset/images/arrowlift.svg" alt="Previous" class="arrow-icon"
                             style="width: 32px; height: 32px;">
                     </button>
                     <!-- Right Arrow Button -->
                     <button @click="swiperNext"
                         class="btn btn-arrow-right rounded-circle d-flex align-items-center justify-content-center"
-                        style="width: 31px; height: 31px; background-color: transparent; border: none;">
+                        style="width: 30px; height: 30px; background-color: transparent; border: none;">
                         <img src="/public/asset/images/arrowright.svg" alt="Next" class="arrow-icon"
                             style="width: 32px; height: 32px;">
                     </button>
@@ -202,7 +201,7 @@
                             <div class="card-body" style="display: flex; flex-direction: column; flex-grow: 1;">
                                 <div class="d-flex justify-content-between my-3">
                                     <div class="d-flex">
-                                        <p class="docter-type px-3 ms-1"
+                                        <p class="docter-type px-3 py-1 ms-1"
                                             v-for="(s, index) in doctor.modalities.slice(0, 2)" :key="index">
                                             {{ s?.title }}
                                         </p>
@@ -210,8 +209,8 @@
                                     <p class="price">${{ doctor?.price }}</p>
                                 </div>
 
-                                <h5 class="card-title fw-bold">{{ doctor.user?.name }} {{ doctor.user?.last_name }}</h5>
-                                <p class="card-text">
+                                <h5 class="card-title fw-bold" style="font-size: 24px;  font-weight: 600;">{{ doctor.user?.name }} {{ doctor.user?.last_name }}</h5>
+                                <p class="card-text" style=" color:#5B4C3A; ">
                                     {{ showFull ? doctor.about : limitWords(doctor.about, 10) }}
                                     <a href="#" class="m-color" @click.prevent="toggleText">
                                         {{ showFull ? 'See less' : 'See more' }}
@@ -250,11 +249,11 @@
         <div class="container py-5 blog-container mt-md-5 px-4 px-md-0">
             <div class="blog-header d-flex justify-content-between align-items-center">
                 <div class="blog-header-text">
-                    <small class="section-sub m-color" style="font-family: 'Cormorant Garamond', serif;">Our
+                    <small class="section-sub " style="font-family: 'Cormorant Garamond', serif; color: #8A7356;">Our
                         Blogs</small>
-                    <h1 class="blog-section-title m-color fw-bold">Latest Blog And Reads</h1>
+                    <h1 class="blog-section-title  " style="font-size: 40px; font-family: 'Courier New', Courier, monospace; color:#5B4C3A;">Latest Blog And Reads</h1>
                 </div>
-                <router-link to="/Allblog" class="btn-view btn btn-info border-0">
+                <router-link to="/Allblog" class="btn-view btn btn-info border-0" style="border-radius: 12px;">
                     View All Reads
                     <svg width="14" height="14" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M11.5 1.5L19 9L11.5 1.5ZM19 9L11.5 16.5L19 9ZM19 9L1 9L19 9Z" fill="#2E2D29" />
@@ -404,7 +403,7 @@ function toggleText() {
 }
 
 .blog-card-img {
-    height: 200px;
+    height: 240px;
     width: 95%;
     object-fit: cover;
     border-radius: 20px;
@@ -541,7 +540,7 @@ function toggleText() {
     }
 
     .blog-card-img {
-        height: 180px;
+        height: 10px;
     }
 }
 
