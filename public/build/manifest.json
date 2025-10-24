@@ -91,10 +91,6 @@
     "file": "assets/dark-logo-J4faPVfN.png",
     "src": "public/asset/images/dark-logo.png"
   },
-  "public/asset/images/demo1.png": {
-    "file": "assets/demo1-CiVTxZQ8.png",
-    "src": "public/asset/images/demo1.png"
-  },
   "public/asset/images/facebookicon.svg": {
     "file": "assets/facebookicon-CGUtrek3.svg",
     "src": "public/asset/images/facebookicon.svg"
@@ -124,12 +120,12 @@
     "src": "public/asset/images/xicon.svg"
   },
   "resources/js/app.js": {
-    "file": "assets/app-14mlxvXV.js",
+    "file": "assets/app-DJNZnMH2.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
     "css": [
-      "assets/app-DSfoI5oJ.css"
+      "assets/app-B6WxV4q-.css"
     ],
     "assets": [
       "assets/arrowlift-jUjrU256.svg",
@@ -158,7 +154,6 @@
       "assets/quiz-WZI6A8r1.png",
       "assets/back-arrow-t1xPhXEN.svg",
       "assets/d-C5_a7i-z.png",
-      "assets/demo1-CiVTxZQ8.png",
       "assets/facebookicon-CGUtrek3.svg",
       "assets/instagramicon-nuiD9KB1.svg",
       "assets/xicon-BF_hrDOE.svg",
