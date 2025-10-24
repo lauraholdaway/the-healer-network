@@ -41,11 +41,11 @@
                         @foreach ($appointments as $item)
                             <tr>
                                 <td>1</td>
-                                <td>{{ $item->doctor->name }}</td>
-                                <td>{{ $item->user->name }}</td>
-                                <td>{{ $item->time }} {{ $item->date }}</td>
-                                <td>{{ $item->doctorpackage->type }}</td>
-                                <td>{{ $item->doctorpackage->price }}</td>
+                                <td>{{ $item->doctor->name ?? "_" }}</td>
+                                <td>{{ $item->user->name ?? "" }}</td>
+                                <td>{{ $item->time ?? "" }} {{ $item->date ??"-" }}</td>
+                                <td>{{ $item->doctorpackage->type  ?? "-"}}</td>
+                                <td>{{ $item->doctorpackage->price  ?? "-"}}</td>
                             </tr>
                         @endforeach
                     </tbody>
