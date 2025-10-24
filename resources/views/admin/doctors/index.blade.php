@@ -70,7 +70,7 @@
                                 <td>{{ $doctor->happy_to_provide_free_session ? 'Yes' : 'No' }}</td>
                                 <td>{{ $doctor->referred_by ?? '' }}</td>
                                 <td>
-                                    <span id="status-{{ $doctor->user->id }}"
+                                    <span id="status-{{ $doctor->user->id ?? '0' }}"
                                         class="{{ $doctor->user->status ? 'text-success' : 'text-danger' }}">
                                         {{ $doctor->user->status ? 'Active' : 'Inactive' }}
                                     </span>
