@@ -11,6 +11,7 @@ class BlogsController extends Controller
 {
     public function index()
     {
+        dd('testing Online server');
         $blogs = Blog::latest()->paginate(12);
         return view('admin.blogs.index', compact('blogs'));
     }
