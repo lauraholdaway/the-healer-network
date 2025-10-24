@@ -29,7 +29,8 @@
                 <tr v-for="(appt, index) in appointments" :key="appt.id">
                     <td>{{ index + 1 }}</td>
                     <td>
-                        <img :src="'/storage/' + appt.doctor.image" alt="" style="width: 100px; border-radius: 50%" />
+                        <img :src="'/storage/' + appt.doctor?.image || '/default-image.png'" alt=""
+                            style="width: 100px; border-radius: 50%" />
                     </td>
                     <td>{{ appt.doctor?.name }}</td>
                     <td>{{ appt.doctorpackage?.type }}</td>
