@@ -6,7 +6,7 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Api\DoctorController;
 use App\Http\Controllers\Api\AppointmentController;
 use App\Http\Controllers\ModalityController;
-use App\Http\controllers\BlogsController;
+use App\Http\Controllers\BlogsController;
 use Illuminate\Support\Facades\Artisan;
 
 use Illuminate\Support\Facades\Auth;
