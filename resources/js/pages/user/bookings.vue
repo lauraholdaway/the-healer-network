@@ -42,7 +42,6 @@
                     <td>{{ appt.type }}</td>
                     <td>
                         <div v-if="appt.type === 'offline'">
-
                             <b>Healar Address</b> : {{ appt.doctor_details?.practice_location }} <br>
                             <b>Phone number</b> : {{ appt.doctor_details?.primary_contact_number }}
                         </div>
@@ -87,15 +86,12 @@
     <div class="modal fade" id="modelRating" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
-
                 <div class="modal-header">
                     <h5 class="modal-title">Save Rating</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
-
                 <div class="modal-body">
                     <form @submit.prevent="ratingSave">
-
                         <div v-if="errorMessage" class="alert alert-danger py-2 ">
                             {{ errorMessage }}
                         </div>
@@ -109,14 +105,12 @@
                                 </i>
                             </div>
                         </div>
-
                         <!-- Message -->
                         <div class="mb-3">
                             <label class="form-label">Message</label>
                             <textarea v-model="ratingform.msg" class="form-control" rows="3"
                                 placeholder="Write a message..."></textarea>
                         </div>
-
                         <div class="text-end">
                             <button type="submit" class="btn main-btn">Save Rating</button>
                         </div>
@@ -126,8 +120,6 @@
             </div>
         </div>
     </div>
-
-
     <!-- open model here  -->
     <div class="modal fade" id="changeModal" tabindex="-1" aria-hidden="true">
         <div class="modal-dialog">
@@ -211,8 +203,6 @@ const doctortime = ref([])
 const selectedTime = ref(null)
 const selectedDate = ref(null)
 const errorMessage = ref(null)
-
-
 
 // Form and data refs
 const form = ref({

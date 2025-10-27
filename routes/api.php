@@ -33,7 +33,8 @@ Route::get('/email/verify/{id}/{hash}', function (Request $request, $id, $hash) 
 
     // Check if already verified
     if ($user->hasVerifiedEmail()) {
-        return redirect('http://127.0.0.1:8000/Verifyemailcomplete');
+
+        return redirect(url('/Verifyemailcomplete'));
     }
 
     // Verify hash (security)
@@ -46,7 +47,8 @@ Route::get('/email/verify/{id}/{hash}', function (Request $request, $id, $hash) 
     event(new Verified($user));
 
     // Redirect to Vue app
-    return redirect('http://127.0.0.1:8000/Verifyemailcomplete');
+
+    return redirect(url('/Verifyemailcomplete'));
 })->middleware(['signed'])->name('verification.verify');
 
 Route::post('/findLogin', function (Request $request) {
@@ -56,19 +58,15 @@ Route::post('/findLogin', function (Request $request) {
     if (!$user) {
         return response()->json(['message' => 'Email not found'], 404);
     }
-
     // Generate 6-digit OTP
     $otp = rand(100000, 999999);
-
     // Store OTP in cache for 10 minutes
     Cache::put('password_reset_' . $request->email, $otp, now()->addMinutes(10));
-
     // Send OTP via email
     Mail::raw("Your password reset OTP is: $otp", function ($message) use ($user) {
         $message->to($user->email)
             ->subject('Password Reset OTP');
     });
-
     return response()->json(['message' => 'OTP sent to your email']);
 });
 

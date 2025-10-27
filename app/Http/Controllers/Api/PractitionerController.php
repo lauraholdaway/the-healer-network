@@ -77,7 +77,6 @@ class PractitionerController extends Controller
             ]);
         }
 
-
         return response()->json([
         'message' => 'Registration successful!',
         'user' => $user,
