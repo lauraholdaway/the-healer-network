@@ -120,12 +120,12 @@
     "src": "public/asset/images/xicon.svg"
   },
   "resources/js/app.js": {
-    "file": "assets/app-KtjADJ-8.js",
+    "file": "assets/app-DeCpq5E7.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
     "css": [
-      "assets/app-BUHFkuJE.css"
+      "assets/app-DGwgZoK_.css"
     ],
     "assets": [
       "assets/arrowlift-jUjrU256.svg",

@@ -139,6 +139,7 @@ async function onSubmit() {
     error.value = null
     try {
         await auth.register(form)
+        alert('Registration successful!')
         await router.push('/login')
     } catch (e) {
         error.value =

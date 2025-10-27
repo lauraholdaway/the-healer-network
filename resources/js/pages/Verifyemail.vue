@@ -67,7 +67,7 @@ export default {
       if (auth.user.email_verified_at) {
         verified.value = true;
         alert("✅ Email verified successfully!");
-          router.push("/home");
+          router.push("/");
       } else {
         alert("❌ Not verified yet. Please check your inbox.");
       }
