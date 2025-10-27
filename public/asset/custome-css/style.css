@@ -121,21 +121,226 @@ b {
 }
 
 .hero-section {
-    min-height: 120vh;
-    background: url('/asset/images/hero1.png') center center/cover no-repeat;
-    /* 🔥 Replace with your image */
+    min-height: 100vh;
+    background-image: url('/asset/images/hero.png');
+    background-position: 50%;
+    background-size: cover;
+    background-repeat: no-repeat;
     position: relative;
 }
 
 .hero-section-2 {
-    min-height: 12vh;
+   
+    min-height: 10vh;
     background: url('/asset/images/hero2.png') center center/cover no-repeat;
     position: relative;
 }
 
 .search-box {
-    max-width: 900px;
-    margin: 0 auto;
+    max-width: 1000px;
+    margin: 0px auto 100px auto;
+}
+
+/* Remove borders from all input fields in search box */
+.search-box input {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+.search-box input:focus {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* Large screens - 1920x1080 and similar */
+@media (min-width: 1700px) {
+    .hero-section h1 {
+        font-size: 4.5rem !important;
+        line-height: 1.2 !important;
+    }
+    
+    .hero-section .hero-subtext {
+        font-size: 1.4rem !important;
+        line-height: 1.6 !important;
+    }
+    
+    .heroButtons button {
+        font-size: 1.1rem !important;
+        padding: 12px 24px !important;
+    }
+    
+    .search-box {
+        max-width: 1100px !important;
+    }
+    
+    .search-box input {
+        font-size: 1.1rem !important;
+        padding: 15px 20px !important;
+    }
+    
+    .search-box button {
+        font-size: 1.1rem !important;
+        padding: 15px 30px !important;
+    }
+}
+
+/* Specific for 1728x1117 screen size */
+@media (min-width: 1720px) and (max-width: 1730px) {
+    .hero-section {
+        align-items: flex-start !important;
+        padding-top: 80px !important;
+    }
+    
+    .hero-section .container {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+    
+    .hero-section h1 {
+        font-size: 5rem !important;
+        line-height: 1.1 !important;
+        margin-bottom: 2rem !important;
+    }
+    
+    .hero-section .hero-subtext {
+        font-size: 1.6rem !important;
+        line-height: 1.5 !important;
+        margin-bottom: 3rem !important;
+    }
+    
+    .heroButtons button {
+        font-size: 1.2rem !important;
+        padding: 15px 30px !important;
+        margin-bottom: 2rem !important;
+    }
+    
+    .search-box {
+        max-width: 1400px !important;
+        height: 160px;
+    }
+    
+    .search-box input[placeholder*="Locations"] {
+        width: 200px !important;
+        height: 45px !important;
+        font-size: 0.9rem !important;
+        padding: 10px 15px !important;
+    }
+    
+    .search-box input[placeholder*="Concern"] {
+        font-size: 1.2rem !important;
+        padding: 18px 25px !important;
+    }
+    
+    .search-box button[title*="Current Location"] {
+        width: 120px !important;
+        height: 35px !important;
+        font-size: 0.8rem !important;
+        padding: 8px 12px !important;
+    }
+    
+    .search-box button:not([title*="Current Location"]) {
+        font-size: 1.2rem !important;
+        padding: 3px 10px !important;
+    }
+    .search-box button:not([title*="Search here..."]) {
+        font-size: 1.2rem !important;
+        padding: 10px 20px !important;
+    }
+}
+
+/* Specific for 1728 screen size - Bigger Mainslider */
+@media (min-width: 1720px) and (max-width: 1730px) {
+    .left-section {
+        height: 60vh !important;
+        padding: 80px 60px !important;
+    }
+    
+    .right-section {
+        height: 60vh !important;
+    }
+    
+}
+@media (min-width: 1920px) and (max-width: 2400px) {
+    .left-section {
+        height: 60vh !important;
+        padding: 80px 60px !important;
+    }
+    
+    .right-section {
+        height: 60vh !important;
+    }
+    
+    .joinUs {
+        height: 20vh; 
+    }
+    
+    .joinUs h1 {
+        font-size: 48px !important;
+        font-weight: 300 !important;
+    }
+    
+    .joinUs-p {
+        font-size: 20px !important;
+        line-height: 1.6 !important;
+        max-width: 800px !important;
+    }
+    
+    .btn-join-us {
+        font-size: 18px !important;
+        padding: 15px 35px !important;
+        border-radius: 10px !important;
+        min-width: 130px !important;
+    }
+    
+    .joinus-bg-image img {
+        width: 400px !important;
+        height: 400px !important;
+        bottom: -100px !important;
+    }
+}
+
+/* Specific for 1728 screen size - Reduce joinUs height */
+@media (min-width: 1720px) and (max-width: 1730px) {
+    .joinUs {
+        height: 20vh; 
+    }
+    
+    .joinUs h1 {
+        font-size: 42px !important;
+        font-weight: 300 !important;
+    }
+    
+    .joinUs-p {
+        font-size: 18px !important;
+        line-height: 1.5 !important;
+        max-width: 700px !important;
+    }
+    
+    .btn-join-us {
+        font-size: 16px !important;
+        padding: 12px 30px !important;
+        border-radius: 10px !important;
+        min-width: 120px !important;
+    }
+    
+    .joinus-bg-image img {
+        width: 350px !important;
+        height: 350px !important;
+        bottom: -80px !important;
+    }
+    
+    .current-location-btn {
+        font-size: 0.7rem !important;
+        padding: 1px 2px !important;
+        min-width: 10px !important;
+    }
+    
+    .current-location-btn img {
+        width: 12px !important;
+        height: 12px !important;
+    }
 }
 
 .herotaxt {
@@ -301,7 +506,7 @@ b {
 .split-section {
     display: flex;
     flex-wrap: wrap;
-    min-height: 100vh;
+    min-height: 60vh;
 }
 
 .left-section {
@@ -311,7 +516,7 @@ b {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    height: 100vh;
+    height: 90vh;
 }
 
 .right-section {
@@ -320,7 +525,7 @@ b {
     background-color: #fff;
     background-size: cover;
     background-position: center;
-    height: 100vh;
+    height: 90vh;
 }
 
 .right-section img {
@@ -873,7 +1078,7 @@ b {
 
 .joinUs {
     background-color: #8A7356;
-    height: 50vh;
+    height: 35vh;
 }
 
 .joinUs-p {

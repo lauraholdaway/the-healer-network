@@ -4,9 +4,9 @@
             <!-- Concern or Practice -->
             <div class="col-12 col-md-4 text-start search-box-section">
                 <div class="d-flex flex-column">
-                    <span class="fw-bold mb-1 search-box-title">Concern or Practice</span>
+                    <span class=" mb-1 search-box-title">What support are you looking for?</span>
                     <input type="text" v-model="form.modality" class="form-control border-0 shadow-none"
-                        placeholder='Try "Anxiety" or "Naturopathy"' />
+                        placeholder='Find a healer near you or&#10;book online sessions from anywhere in the world."' />
                 </div>
 
             </div>
@@ -16,12 +16,12 @@
 
                 <div class="d-flex justify-content-between">
                     <div>
-                        <label class="form-label fw-bold mb-0 text-start search-box-title">Locations</label>
+                        <label class="form-label  mb-0 text-start search-box-title">Locations</label>
                         <input type="text" v-model="form.location"
-                            class="location-text form-control border-0 shadow-none" placeholder="Anywhere" />
+                            class="location-text form-control border-0 shadow-none" placeholder="Anywhere / Online" />
                     </div>
                     <div>
-                        <button type="button" class="btn rounded-pill btn-sm location-btn mt-4 ms-1"
+                        <button type="button" class="btn rounded-pill btn-sm location-btn current-location-btn mt-4 ms-1"
                             @click="getCurrentLocation">
                             My Current Location
                             <img :src="Location" alt="Location" class="ms-1"
@@ -119,7 +119,7 @@ const getCurrentLocation = () => {
 .search-box-title {
     color: #5B4C3A;
     font-size: 16px;
-    font-weight: 800;
+    font-weight: bold;
 }
 
 .search-box-text {

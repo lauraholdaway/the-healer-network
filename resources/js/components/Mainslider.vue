@@ -79,8 +79,8 @@ const currentIndex = ref(0)
 
 const slides = [
     {
-        title: 'Discover the holistic therapy that is right for you',
-        text: "THN's practitioners provide expertise across a wide range of holistic modalities going beyond just the physical body to cover all aspects of health, well-being and self-development.",
+        title: 'Discover the Right Healing for You',
+        text: "Explore holistic approaches that enhance your mind, body, and soul.",
         heading: 'Energy Therapy',
         description: 'Explore transformative modalities like Reiki, Kinesiology, and more to restore harmony and balance to your body\'s energy systems.',
         image: '/asset/images/slider1.jpg'

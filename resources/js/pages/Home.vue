@@ -1,6 +1,6 @@
 <template>
-    <section class="hero-section d-flex align-items-start text-center text-white position-relative">
-        <div class="container mt-5 pt-5">
+    <section class="hero-section d-flex align-items-center justify-content-center text-center text-white position-relative">
+        <div class="container">
             <!-- Heading -->
             <h1 class="display-4 fw-bold my-2 text-[#A0704C] herotaxt mt-0 pt-11">
                 BOOK A HOLISTIC HEALER <br /> THAT YOU LOVE
@@ -23,21 +23,24 @@
             <Searchbox />
         </div>
 
-        <br>
+       
+        
 
         <!-- Scroll Down -->
-        <div class="scroll-down mt-5 position-absolute" style="bottom:4%; left: 50%; transform: translateX(-50%);">
+        <div class="scroll-down position-absolute" style="bottom:20px; left: 50%; transform: translateX(-50%);">
             <a class="btn btn-light shadow" href="#below">
-                <p class="mt-2">Scroll to discover</p>
-                <img :src="Barrow" alt="icon" class="ms-1"
-                    style="width: 18px; height: 18px; position: relative; top: -6px;">
+                <p class="mt-2 color-black">Scroll to discover</p>
+                <img :src="Barrow" alt="icon" class="ms-1" style="width: 18px; height: 18px; position: relative; top: -6px;">
             </a>
         </div>
+
+    
     </section>
+  
 
     <!-- Hero Section 2 -->
     <section class="hero-section-2 d-flex align-items-center justify-content-center text-center">
-        <!-- Add your content here if needed -->
+     
     </section>
 
     
@@ -57,11 +60,9 @@
                     <img :src="cardicon" alt="card icon" class="position-absolute"
                         style="width: 180px; height: 180px; bottom: 0; left: 0;">
                     <div class="position-relative" style="z-index: 2;">
-                        <h5 class="feature-title">Trusted Therapists</h5>
+                        <h5 class="feature-title">Trusted Healers</h5>
                         <p class="feature-content">
-                            Our therapists are carefully selected, highly rated, and certified in their respective
-                            fields, ensuring that you receive professional and compassionate care from the most skilled
-                            providers.
+                            Every healer is carefully verified for experience, professionalism, and genuine care.
                         </p>
                     </div>
                 </div>
@@ -73,11 +74,9 @@
                     <img :src="cardicon2" alt="card icon" class="position-absolute"
                         style="width: 180px; height: 180px; bottom: -20px; right: 0;">
                     <div class="position-relative" style="z-index: 2;">
-                        <h5 class="feature-title text-white ">Personalized Search</h5>
+                        <h5 class="feature-title text-white ">Personalised Search</h5>
                         <p class="feature-content text-white " style="font-size: 14px;">
-                            You can search for therapists based on your specific concerns, availability, preferred
-                            communication methods, and location. Additionally, you can explore reviews and testimonials
-                            from past clients to find the best match for your therapy needs.
+                            Find healers who align with your goals and preferred healing methods.
                         </p>
                     </div>
                 </div>
@@ -91,7 +90,7 @@
                     <div class="position-relative" style="z-index: 2;">
                         <h5 class="feature-title">Monthly Membership'</h5>
                         <p class="feature-content">
-                            The Healer Network is more than just a therapy booking platform. Our monthly membership empowers you with valuable resources such as yoga classes, meditation, and live monthly group healings.
+                            Gain access to exclusive resources and monthly healing ceremonies designed to support your ongoing wellbeing.
                         </p>
                     </div>
                 </div>
@@ -106,11 +105,9 @@
     <section>
         <div class="container py-1">
             <!-- Title -->
-            <h2 class="section-title">Book A Session Revitalize Your Health And Wellbeing</h2>
+            <h2 class="section-title">Book a Session</h2>
             <p class="section-subtitle" style="font-size: 13px; color:#5B4C3A; font-weight: 400;">
-                Embark on a transformative journey to rejuvenate your mind, body and soul. Whether you're aiming to
-                heal, improve your mental health, or unlock your full potential, we offer tailored sessions to support
-                your unique needs and goals
+                Embark on your journey to improved wellbeing and inner peace.
             </p>
 
             <!-- Button and Navigation -->
