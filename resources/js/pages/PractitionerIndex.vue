@@ -1,42 +1,37 @@
 <template>
+  
+
     <section>
         <div class="container-fluid practitionerindex">
             <div class="container p-5">
                 <div class="row mt-md-5">
                     <div class="col-md-6">
-                        <p class="fw-bold  practitionerindextext mt-md-3">
-                            Let’s build a world where holistic practices are embraced by everyone.
+                        <p class="  practitionerindextext mt-md-3" style="font-size: 50px; line-height: 1.2; font-family: 'Cormorant Garamond', serif !important;">
+                            Join Us as a <br> Healer
                         </p>
-                        <button class="btn  btn-outline-custome ms-0  px-3">Continue
-                            <svg width="30" height="30" viewBox="0 0 41 42" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <rect x="0.7" y="1.2" width="39.6" height="39.6" rx="19.8" fill="#5B4C3A" />
-                                <rect x="0.7" y="1.2" width="39.6" height="39.6" rx="19.8" stroke="#5B4C3A"
-                                    stroke-width="1.4" />
-                                <path
-                                    d="M29.4094 15.0607L29.4094 29.91M29.4094 29.91L14.5601 29.91M29.4094 29.91L11.5903 12.0909"
-                                    stroke="#FBF9F7" stroke-width="2.1" stroke-linecap="round"
-                                    stroke-linejoin="round" />
-                            </svg>
-
-                        </button>
+                        <p class="" style="font-size: 18px; margin-top: 30px; max-width: 340px; font-family: 'Cormorant Garamond'; font-weight: 500; color: #2E2D29;">
+                            Join Us as a Healer  Let’s build a world where holistic healing is embraced, respected, and accessible to all.
+                        </p>
+                        <button class=" apply-now-btn ms-0 px-4 py-2" style="border-radius: 12px;">Apply Now</button>
                     </div>
                     <div class="col-md-6">
-                        <div class="practitionerindeximage ">
+                        <div class="practitionerindeximage1 ">
                             <img src="/public/asset/images/slider1.jpg" class="img-fluid rounded" alt="">
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        
+        <!-- Practitioner Index Image -->
+        <div class="container-fluid p-0">
+            <img src="/public/asset/images/practitionerindex.png" class="img-fluid w-100" alt="Practitioner Index" style="display: block;">
+        </div>
+        
         <br>
         <div class="container p-4">
-            <div class="practitionerindexBox">
-                <p>
-                    Hi there, we’re so happy you’re interested in joining
-                    <br>
-                    our community of trusted holistic practitioners.
-                </p>
+            <div class="practitionerindexBox text-center">
+                <img src="/public/asset/images/practitionerindtext.svg" class="img-fluid practitioner-text-svg" alt="Practitioner Text">
             </div>
         </div>
 
@@ -53,12 +48,13 @@
                         </svg>
                     </p>
                     <b>Who we are</b>
-                    <p class="m-color">
-                        A platform bringing together the best and most loved holistic practitioners.
-                        Find out more about us and the team behind Bodhi Holistic Hub below.
+                    <p class="" style="color: #5B4C3A; font-size: 14;">
+                        A trusted community connecting the most skilled and heart-led healers with people seeking support.
                     </p>
-                    <button class="btn btn-light main-btn2 px-3">
-                        About Us →
+                    <button class=" btn-light main-btn2 px-3" style="font-family: 'Courier New', Courier, monospace; color: #4F3C1E; background:#C1B39D;">
+                        About Us <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+  <path d="M5 12h14M12 5l7 7-7 7"/>
+</svg>
                     </button>
                 </div>
 
@@ -91,114 +87,96 @@
                         everyone. Right now, we're mostly looking for practitioners based in NSW. However, we welcome
                         applications from anywhere in Australia.
                     </p>
-                    <button class="btn btn-light main-btn2 px-3">
-                        About Us →
+                    <button class=" btn-light main-btn2 px-3" style="font-family: 'Courier New', Courier, monospace; color: #4F3C1E; background:#C1B39D;">
+                        About Us <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+  <path d="M5 12h14M12 5l7 7-7 7"/>
+</svg>
                     </button>
                 </div>
             </div>
             <br><br>
             <div class="container py-5">
 
-                <!-- Top Features Section -->
-                <div class="row g-4 mb-5">
-                    <div class="col-md-6 col-lg-6">
-                        <div class="feature-card shadow-sm p-4 h-100 rounded-4">
-                            <div>
-                                <svg width="40" height="41" viewBox="0 0 40 41" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M16.6667 16.6921C15.8333 15.0254 12.5 15.0254 11.6667 16.6921M28.3333 16.6921C27.5 15.0254 24.1667 15.0254 23.3333 16.6921M24.1667 25.0254C23.6235 25.5797 22.9753 26.0201 22.2598 26.3207C21.5443 26.6214 20.7761 26.7762 20 26.7762C19.2239 26.7762 18.4557 26.6214 17.7402 26.3207C17.0247 26.0201 16.3765 25.5797 15.8333 25.0254M20 35.0254C18.0302 35.0254 16.0796 34.6374 14.2597 33.8836C12.4399 33.1298 10.7863 32.0249 9.3934 30.632C8.00052 29.2391 6.89563 27.5855 6.14181 25.7656C5.38799 23.9458 5 21.9952 5 20.0254C5 18.0556 5.38799 16.105 6.14181 14.2851C6.89563 12.4653 8.00052 10.8117 9.3934 9.41879C10.7863 8.02591 12.4399 6.92102 14.2597 6.1672C16.0796 5.41338 18.0302 5.02539 20 5.02539C23.9782 5.02539 27.7936 6.60574 30.6066 9.41879C33.4196 12.2318 35 16.0471 35 20.0254C35 24.0036 33.4196 27.8189 30.6066 30.632C27.7936 33.445 23.9782 35.0254 20 35.0254Z"
-                                        stroke="#2E2D29" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                </svg>
-
-                            </div>
-                            <h3 class="fw-bold my-4">Join a community of like minded practitioners</h3>
-                            <p class="mb-0">Ability to connect and collaborate with carefully selected holistic
-                                practitioners in your local area.</p>
+                <!-- Benefits Section -->
+                <div class="benefits-container">
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <img src="/public/asset/images/tabler-icon-mood-smile-beam.svg" alt="Smile" class="benefit-svg-icon">
                         </div>
+                        <div class="benefit-text">Be part of a supportive and growing healer network</div>
                     </div>
-
-                    <div class="col-md-6 col-lg-6">
-                        <div class="feature-card shadow-sm p-4 h-100 rounded-4">
-                            <div>
-                                <svg width="40" height="41" viewBox="0 0 40 41" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M18.3333 20.0251V7.52507C18.3333 6.86202 18.0699 6.22614 17.6011 5.7573C17.1323 5.28846 16.4964 5.02507 15.8333 5.02507C15.1703 5.02507 14.5344 5.28846 14.0656 5.7573C13.5967 6.22614 13.3333 6.86202 13.3333 7.52507V21.6917L10.8832 19.2417C10.3925 18.7515 9.75198 18.4394 9.0635 18.3548C8.37502 18.2703 7.67803 18.4182 7.08323 18.7751C6.52481 19.1099 6.11903 19.6493 5.9522 20.2787C5.78537 20.908 5.87065 21.5776 6.1899 22.1451C9.32157 27.7117 11.1466 30.8934 11.6666 31.6917L11.9932 32.1917C12.9041 33.5749 14.1442 34.7101 15.6022 35.4955C17.0602 36.281 18.6905 36.692 20.3466 36.6917H19.9999H23.3332C25.9854 36.6917 28.5289 35.6382 30.4043 33.7628C32.2797 31.8874 33.3332 29.3439 33.3332 26.6917V19.1917C33.3332 18.5287 33.0698 17.8928 32.601 17.424C32.1322 16.9551 31.4963 16.6917 30.8332 16.6917C30.1702 16.6917 29.5343 16.9551 29.0655 17.424C28.5966 17.8928 28.3332 18.5287 28.3332 19.1917M18.3333 19.1917V15.8584C18.3333 15.1954 18.5967 14.5595 19.0656 14.0906C19.5344 13.6218 20.1703 13.3584 20.8333 13.3584C21.4964 13.3584 22.1323 13.6218 22.6011 14.0906C23.0699 14.5595 23.3333 15.1954 23.3333 15.8584V20.0251M23.3333 17.5251C23.3333 16.862 23.5967 16.2261 24.0656 15.7573C24.5344 15.2885 25.1703 15.0251 25.8333 15.0251C26.4964 15.0251 27.1323 15.2885 27.6011 15.7573C28.0699 16.2261 28.3333 16.862 28.3333 17.5251V20.0251M8.33333 5.02507L6.66667 3.3584M6.66667 11.6917H5M23.3333 5.02507L25 3.3584M25 10.0251H26.6667"
-                                        stroke="#2E2D29" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                </svg>
-
-                            </div>
-                            <h3 class="fw-bold my-4">Showcase your practice and sessions</h3>
-                            <p class="mb-0">No subscription or listings fee. A simple commission when a session is
-                                booked and confirmed.</p>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <img src="/public/asset/images/tabler-icon-hand-click.svg" alt="Hand Click" class="benefit-svg-icon">
                         </div>
+                        <div class="benefit-text">Showcase your sessions to our huge community</div>
                     </div>
-
-                    <div class="col-md-6 col-lg-6">
-                        <div class="feature-card shadow-sm p-4 h-100 rounded-4">
-                            <div>
-                                <svg width="40" height="41" viewBox="0 0 40 41" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M20 20.0254H25C27.6522 20.0254 30.1957 18.9718 32.0711 17.0965C33.9464 15.2211 35 12.6776 35 10.0254V8.35872H30C27.3478 8.35872 24.8043 9.41229 22.9289 11.2877C21.0536 13.163 20 15.7066 20 18.3587H15C12.3478 18.3587 9.8043 17.3052 7.92893 15.4298C6.05357 13.5544 5 11.0109 5 8.35872V5.02539H10C12.6522 5.02539 15.1957 6.07896 17.0711 7.95432C18.9464 9.82969 20 12.3732 20 15.0254V25.0254M11.6667 25.0254H28.3333V31.6921C28.3333 32.5761 27.9821 33.424 27.357 34.0491C26.7319 34.6742 25.8841 35.0254 25 35.0254H15C14.1159 35.0254 13.2681 34.6742 12.643 34.0491C12.0179 33.424 11.6667 32.5761 11.6667 31.6921V25.0254Z"
-                                        stroke="#2E2D29" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                </svg>
-
-                            </div>
-                            <h3 class="fw-bold my-4">Grow your audience and visibility</h3>
-                            <p class="mb-0">Gain exposure to engaged and new clients and expand your business.</p>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <img src="/public/asset/images/tabler-icon-plant.svg" alt="Plant" class="benefit-svg-icon">
                         </div>
+                        <div class="benefit-text">Reach more clients through our paid marketing and SEO support</div>
                     </div>
-
-                    <div class="col-md-6 col-lg-6">
-                        <div class="feature-card shadow-sm p-4 h-100 rounded-4">
-                            <div>
-                                <svg width="32" height="33" viewBox="0 0 32 33" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path
-                                        d="M6 29.4421V29.3587C6 27.5906 6.70238 25.8949 7.95262 24.6447C9.20286 23.3944 10.8986 22.6921 12.6667 22.6921H19.3333C21.1014 22.6921 22.7971 23.3944 24.0474 24.6447C25.2976 25.8949 26 27.5906 26 29.3587V29.4421M16 17.6921C17.3261 17.6921 18.5979 17.1653 19.5355 16.2276C20.4732 15.2899 21 14.0181 21 12.6921C21 11.366 20.4732 10.0942 19.5355 9.15652C18.5979 8.21884 17.3261 7.69206 16 7.69206C14.6739 7.69206 13.4021 8.21884 12.4645 9.15652C11.5268 10.0942 11 11.366 11 12.6921C11 14.0181 11.5268 15.2899 12.4645 16.2276C13.4021 17.1653 14.6739 17.6921 16 17.6921ZM16 1.02539C28 1.02539 31 4.02539 31 16.0254C31 28.0254 28 31.0254 16 31.0254C4 31.0254 1 28.0254 1 16.0254C1 4.02539 4 1.02539 16 1.02539Z"
-                                        stroke="#2E2D29" stroke-width="2" stroke-linecap="round"
-                                        stroke-linejoin="round" />
-                                </svg>
-
-                            </div>
-                            <h3 class="fw-bold my-4">Take advantage of collective marketing</h3>
-                            <p class="mb-0">Social media, paid ads, local partnerships and public events.</p>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <img src="/public/asset/images/tabler-icon-mood-smile-beam.svg" alt="Smile" class="benefit-svg-icon">
+                        </div>
+                        <div class="benefit-text">Get paid automatically after each session</div>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <img src="/public/asset/images/tabler-icon-user-square-rounded.svg" alt="User" class="benefit-svg-icon">
+                        </div>
+                        <div class="benefit-text">One centralised platform that keeps all your client information in one place</div>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <img src="/public/asset/images/tabler-icon-mood-smile-beam.svg" alt="Smile" class="benefit-svg-icon">
+                        </div>
+                        <div class="benefit-text">Make your life easier as we manage the backend software and marketing for you, so you can just show up and do what you do best</div>
+                    </div>
+                    
+                    <div class="benefit-card">
+                        <div class="benefit-icon">
+                            <img src="/public/asset/images/tabler-icon-mood-smile-beam.svg" alt="Smile" class="benefit-svg-icon">
+                        </div>
+                        <div class="benefit-text">
+                            <div class="benefit-main-text">Cancel subscriptions you no longer need</div>
+                            <div class="benefit-sub-text">zoom, calendly, acuity scheduling and CRM systems</div>
                         </div>
                     </div>
                 </div>
 
                 <br><br>
                 <!-- How It Works Section -->
-                <div class="text-center my-5 ">
-                    <h3 class="fw-bold" style="font-size: 50px;color:#2E2D29">How it works</h3>
+                <div class="text-center my-5">
+                    <h3 class="how-it-works-title" style="font-size: 50px;color:#2E2D29">How it works</h3>
                 </div>
 
-                <div class="row g-4 ">
-                    <div class="col-md-4">
-                        <div class="step-card p-4 rounded-3 h-100">
-                            <h2 class="fw-bold">01</h2>
-                            <p class="mb-0">Once approved, you create a profile, add your session details, price and set
-                                your availability.</p>
-                        </div>
+                <div class="how-it-works-container">
+                    <div class="how-it-works-card">
+                        <h4 class="card-heading">Apply and get approved</h4>
+                        <p class="card-text">We review your details and credentials.</p>
                     </div>
-                    <div class="col-md-4">
-                        <div class="step-card p-4 rounded-3 h-100">
-                            <h2 class="fw-bold">02</h2>
-                            <p class="mb-0">Clients visit your profile, book a session with you and pay directly through
-                                the platform.</p>
-                        </div>
+                    
+                    <div class="how-it-works-card">
+                        <h4 class="card-heading">Create your healer profile</h4>
+                        <p class="card-text">Add your sessions, price, and availability.</p>
                     </div>
-                    <div class="col-md-4">
-                        <div class="step-card p-4 rounded-3 h-100">
-                            <h2 class="fw-bold">03</h2>
-                            <p class="mb-0">You receive the confirmation, facilitate your client session and get paid
-                                automatically.</p>
-                        </div>
+                    
+                    <div class="how-it-works-card">
+                        <h4 class="card-heading">Start sessions</h4>
+                        <p class="card-text">Clients book through the site, pay securely, and you get notified instantly.</p>
+                    </div>
+                    
+                    <div class="how-it-works-card">
+                        <h4 class="card-heading">Add client notes</h4>
+                        <p class="card-text">Keep track of all your clients in one centralized place.</p>
                     </div>
                 </div>
 
@@ -206,24 +184,21 @@
 
         </div>
     </section>
-        <section class="joinUs my-5">
-        <div class=" container">
-            <div class="text-center py-4">
-                <div class=" mt-4">
-                <h1 class ='text-white fw-bold'>Ready to start growing your business?</h1>
-                <div class="my-4">
-                    <router-link to ="practitor_register" class="btn btn-light px-3 mx-2">Apply Now</router-link>
-                <router-link to ="PractitionerIndex" class="btn btn-light px-3 mx-1">Book Demo</router-link>
+        <section class="cta-section position-relative d-flex align-items-center" style="overflow: hidden; min-height: 300px;">
+            <div class="container">
+                <div class="cta-content text-center">
+                    <h1 class="cta-title">Ready to start growing your business?</h1>
+                    <div class="cta-buttons">
+                        <router-link to="practitor_register" class="cta-btn cta-btn-primary">Apply Now</router-link>
+                        <router-link to="PractitionerIndex" class="cta-btn cta-btn-secondary">Book A Demo</router-link>
+                    </div>
+                    <p class="cta-subtext">Any questions? Check out our <a href="#" class="cta-link">Practitioner FAQs</a> or <a href="#" class="cta-link">get in touch</a>.</p>
                 </div>
-                <div>
-                    <p class="text-white fw-bold">Any questions? Check out our Practitioner FAQs or get in touch .</p>
-                </div>
-
             </div>
-
+            <div class="cta-bg-image">
+                <img src="/public/asset/images/PractitionerIndex (2).png" alt="background" style="width: 500px; height: 500px; position: absolute; bottom: -50px; left:  0px; z-index: 10;">
             </div>
-        </div>
-    </section>
+        </section>
 </template>
 
 <style>
@@ -253,5 +228,464 @@
     color: #2E2D29;
     font-family: 'Cormorant Garamond' !important;
 
+}
+
+.apply-now-btn {
+    background-color: #8A7356;
+    color: #FBF9F7;
+    border: none;
+    border-radius: 25px;
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: 16px;
+    padding: 12px 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    text-transform: none;
+    letter-spacing: 0.5px;
+}
+
+.apply-now-btn:hover {
+    background-color: #6B5B47;
+    color: #FBF9F7;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+/* Practitioner Index Image Height */
+.practitionerindeximage1 {
+    height: 500px;
+    overflow: hidden;
+    border-radius: 15px;
+}
+
+.practitionerindeximage1 img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.practitionerindeximage1:hover img {
+    transform: scale(1.05);
+}
+
+/* Responsive height adjustments */
+@media (max-width: 768px) {
+    .practitionerindeximage1 {
+        height: 400px;
+        margin-top: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .practitionerindeximage1 {
+        height: 300px;
+        margin-top: 1.5rem;
+    }
+}
+
+/* Big Screen Enhancements */
+@media (min-width: 1200px) {
+    .practitionerindextext {
+        font-size: 65px !important;
+        line-height: 1.1 !important;
+    }
+    
+    .practitionerindextext + p {
+        font-size: 22px !important;
+        max-width: 450px !important;
+        margin-top: 40px !important;
+    }
+    
+    .apply-now-btn {
+        font-size: 18px !important;
+        padding: 15px 40px !important;
+        margin-top: 20px !important;
+    }
+    
+ 
+}
+
+@media (min-width: 1400px) {
+    .practitionerindextext {
+        font-size: 75px !important;
+        line-height: 1.1 !important;
+    }
+    
+    .practitionerindextext + p {
+        font-size: 24px !important;
+        max-width: 500px !important;
+        margin-top: 50px !important;
+    }
+    
+    .apply-now-btn {
+        font-size: 20px !important;
+        padding: 18px 45px !important;
+        margin-top: 25px !important;
+    }
+}
+
+/* Practitioner Text SVG Styling */
+.practitioner-text-svg {
+    max-width: 90%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.practitionerindexBox {
+    padding: 3rem 2rem;
+    background: #5B4C3A;
+    border-radius: 20px;
+    margin: 2rem 0;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive SVG sizing */
+@media (max-width: 768px) {
+    .practitioner-text-svg {
+        max-width: 90%;
+    }
+}
+
+@media (max-width: 576px) {
+    .practitioner-text-svg {
+        max-width: 85%;
+    }
+}
+
+/* How It Works Section Styling */
+.how-it-works-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    margin-bottom: 3rem;
+}
+
+.how-it-works-container {
+    display: flex;
+    gap: 1.5rem;
+    max-width: 100%;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.how-it-works-card {
+    background: #F7F4EF;
+    padding: 3rem 1.5rem;
+    border-radius: 15px;
+    flex: 1;
+    min-width: 200px;
+    max-width: 250px;
+    text-align: left;
+    transition: all 0.3s ease;
+    min-height: 180px;
+}
+
+.how-it-works-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+}
+
+.card-heading {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2E2D29;
+    margin-bottom: 0.8rem;
+    line-height: 1.3;
+}
+
+.card-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 0.95rem;
+    color: #2E2D29;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Responsive How It Works */
+@media (max-width: 1200px) {
+    .how-it-works-container {
+        gap: 1.2rem;
+    }
+    
+    .how-it-works-card {
+        padding: 2.5rem 1.3rem;
+        min-width: 180px;
+        min-height: 160px;
+    }
+}
+
+@media (max-width: 992px) {
+    .how-it-works-container {
+        flex-direction: column;
+        gap: 1rem;
+        max-width: 600px;
+    }
+    
+    .how-it-works-card {
+        max-width: 100%;
+        padding: 2rem 1.5rem;
+        min-height: 140px;
+    }
+}
+
+@media (max-width: 768px) {
+    .how-it-works-title {
+        font-size: 2.5rem !important;
+        margin-bottom: 2rem;
+    }
+    
+    .how-it-works-card {
+        padding: 1.8rem 1.2rem;
+        min-height: 120px;
+    }
+    
+    .card-heading {
+        font-size: 1.1rem;
+    }
+    
+    .card-text {
+        font-size: 0.9rem;
+    }
+}
+
+/* Call-to-Action Section Styling */
+.cta-section {
+    padding: 4rem 0;
+    margin: 3rem 0 0.5rem 0;
+    position: relative;
+    background-color: #8A7356;
+}
+
+.cta-content {
+    position: relative;
+    z-index: 2;
+    padding: 2rem 0;
+}
+
+.cta-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 3.5rem;
+    font-weight: 400;
+    color: #F7F4EF;
+    margin-bottom: 2.5rem;
+    line-height: 1.2;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+}
+
+.cta-btn {
+    padding: 1rem 2.5rem;
+    border-radius: 12px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+    display: inline-block;
+    min-width: 200px;
+    text-align: center;
+}
+
+.cta-btn-primary {
+    background-color: #F7F4EF;
+    color: #2E2D29;
+}
+
+.cta-btn-primary:hover {
+    background-color: #EFE3D6;
+    color: #2E2D29;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.cta-btn-secondary {
+    background-color: #F7F4EF;
+    color: #2E2D29;
+}
+
+.cta-btn-secondary:hover {
+    background-color: #EFE3D6;
+    color: #2E2D29;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.cta-subtext {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1rem;
+    color: #F7F4EF;
+    margin: 0;
+    line-height: 1.5;
+}
+
+.cta-link {
+    color: #F7F4EF;
+    text-decoration: underline;
+    transition: color 0.3s ease;
+}
+
+.cta-link:hover {
+    color: #EFE3D6;
+}
+
+/* Responsive CTA Section */
+@media (max-width: 768px) {
+    .cta-section {
+        padding: 3rem 0;
+        margin: 2rem 0;
+    }
+    
+    .cta-title {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .cta-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+    
+    .cta-btn {
+        width: 200px;
+        padding: 0.9rem 2rem;
+        font-size: 1rem;
+    }
+    
+    .cta-subtext {
+        font-size: 0.9rem;
+        padding: 0 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .cta-title {
+        font-size: 1.8rem;
+    }
+    
+    .cta-btn {
+        width: 180px;
+        padding: 0.8rem 1.5rem;
+    }
+}
+
+/* Benefits Section Styling */
+.benefits-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    max-width: 80%;
+    margin: 0 auto;
+    width: 80%;
+    
+}
+
+.benefit-card {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 1rem 2rem;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 1px solid #f0f0f0;
+    width: 100%;
+}
+
+.benefit-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.benefit-icon {
+    margin-right: 1.5rem;
+    min-width: 3rem;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* SVG Icon Styling */
+.benefit-svg-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.benefit-main-text {
+    font-size: 1rem;
+    color: #2E2D29;
+    font-weight: 500;
+    line-height: 1.5;
+    font-family: 'Cormorant Garamond', serif !important;
+}
+
+.benefit-sub-text {
+    font-size: 0.9rem;
+    color: #2E2D29;
+    font-weight: 400;
+    line-height: 1.4;
+    margin-top: 0.3rem;
+    font-family: 'Cormorant Garamond', serif !important;
+}
+
+.benefit-text {
+    font-size: 1rem;
+    color: #2E2D29;
+    font-weight: 500;
+    line-height: 1.5;
+    flex: 1;
+    font-family: 'Cormorant Garamond', serif !important;
+}
+
+/* Responsive Benefits */
+@media (max-width: 768px) {
+    .benefits-container {
+        gap: 0.8rem;
+    }
+    
+    .benefit-card {
+        padding: 1.2rem 1.5rem;
+    }
+    
+    .benefit-icon {
+        font-size: 1.8rem;
+        margin-right: 1.2rem;
+        min-width: 2.5rem;
+    }
+    
+    .benefit-text {
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .benefit-card {
+        padding: 1rem 1.2rem;
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .benefit-icon {
+        margin-right: 0;
+        margin-bottom: 0.8rem;
+        font-size: 1.6rem;
+    }
+    
+    .benefit-text {
+        font-size: 0.9rem;
+    }
 }
 </style>
