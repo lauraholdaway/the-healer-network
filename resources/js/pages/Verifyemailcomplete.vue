@@ -13,7 +13,7 @@
 
                 </div>
                 <br>
-                <div v-if="auth.user.role">
+                <div v-if="auth.user?.role">
                     <div v-if="auth.user.role === '2'">
                         <router-link class="btn main-btn px-4 mx-1" to="/profile/Chart">Continue</router-link>
                     </div>
