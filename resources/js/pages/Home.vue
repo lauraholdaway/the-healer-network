@@ -470,7 +470,7 @@ function toggleText() {
 }
 
 .whitedark {
-    width: 50% !important;
+    width: 30% !important;
     display: flex;
     gap: 8px;
     margin-bottom: 10px;
