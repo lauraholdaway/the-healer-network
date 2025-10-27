@@ -66,7 +66,10 @@
                             <td>{{ $appointment->id  ?? ""}}</td>
                             <td>{{ $appointment->user->name  ?? ''}}</td>
                             <td>{{ $appointment->doctor->name ?? '' }}</td>
-                            <td>{{ $appointment->date ??'' }}</td>
+                            <td>
+                                {{ \Carbon\Carbon::parse($appointment->date ?? '')->format('d M Y') }} |
+{{ \Carbon\Carbon::parse($appointment->time ?? '')->format('h:i A') }}
+                            </td>
                             <td>
                                 <span class="text-dark badge badge-{{ $appointment->status == 'completed' ? 'success' : 'warning' }}">
                                     {{ ucfirst($appointment->status) }}

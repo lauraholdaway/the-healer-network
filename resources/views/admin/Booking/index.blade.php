@@ -31,21 +31,29 @@
                             <th>#</th>
                             <th>Doctor</th>
                             <th>User</th>
-                            <th>Date & Time</th>
-                            <th>Type</th>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Package</th>
                             <th>Payment</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody>
 
                         @foreach ($appointments as $item)
                             <tr>
-                                <td>1</td>
-                                <td>{{ $item->doctor->name ?? "_" }}</td>
-                                <td>{{ $item->user->name ?? "" }}</td>
-                                <td>{{ $item->time ?? "" }} {{ $item->date ??"-" }}</td>
-                                <td>{{ $item->doctorpackage->type  ?? "-"}}</td>
-                                <td>{{ $item->doctorpackage->price  ?? "-"}}</td>
+                                <td></td>
+                                <td>{{ $item->doctor->name ?? '_' }}</td>
+                                <td>{{ $item->user->name ?? '' }}</td>
+                                <td>{{ \Carbon\Carbon::parse($item->date ?? '')->format('d M Y') }}</td>
+                                <td>{{ \Carbon\Carbon::parse($item->time ?? '')->format('h:i A') }}</td>
+                                <td>{{ $item->doctorpackage->type ?? '-' }} ({{ $item->doctorpackage->time ?? '-' }})</td>
+                                <td>{{ $item->payment ?? '-' }} {{ $item->currency ?? 'usd' }}
+                                </td>
+                                <td>
+                                    <p>{{ $item->status ?? '-' }}</p>
+                                </td>
+
                             </tr>
                         @endforeach
                     </tbody>
