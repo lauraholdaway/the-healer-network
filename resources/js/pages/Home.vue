@@ -1,5 +1,6 @@
 <template>
-    <section class="hero-section d-flex align-items-center justify-content-center text-center text-white position-relative">
+    <section
+        class="hero-section d-flex align-items-center justify-content-center text-center text-white position-relative">
         <div class="container">
             <!-- Heading -->
             <h1 class="display-4 fw-bold my-2 text-[#A0704C] herotaxt mt-0 pt-11">
@@ -23,29 +24,30 @@
             <Searchbox />
         </div>
 
-       
-        
+
+
 
         <!-- Scroll Down -->
         <div class="scroll-down position-absolute" style="bottom:20px; left: 50%; transform: translateX(-50%);">
             <a class="btn btn-light shadow" href="#below">
                 <p class="mt-2 color-black">Scroll to discover</p>
-                <img :src="Barrow" alt="icon" class="ms-1" style="width: 18px; height: 18px; position: relative; top: -6px;">
+                <img :src="Barrow" alt="icon" class="ms-1"
+                    style="width: 18px; height: 18px; position: relative; top: -6px;">
             </a>
         </div>
 
-    
+
     </section>
-  
+
 
     <!-- Hero Section 2 -->
     <section class="hero-section-2 d-flex align-items-center justify-content-center text-center">
-     
+
     </section>
 
-    
 
-    <section class="container my-md-5  pt-md--10" id="below" >
+
+    <section class="container my-md-5  pt-md--10" id="below">
         <h2 class="section-heading">Your Path to Healing</h2>
         <p class="section-subtext">
             The Healer Network connects you with certified online therapists, providing the tools and support you need
@@ -90,7 +92,8 @@
                     <div class="position-relative" style="z-index: 2;">
                         <h5 class="feature-title">Monthly Membership'</h5>
                         <p class="feature-content">
-                            Gain access to exclusive resources and monthly healing ceremonies designed to support your ongoing wellbeing.
+                            Gain access to exclusive resources and monthly healing ceremonies designed to support your
+                            ongoing wellbeing.
                         </p>
                     </div>
                 </div>
@@ -144,7 +147,7 @@
                         1024: { slidesPerView: 3 }    // Desktop
 }" class="mySwiper">
 
-                    <SwiperSlide class="col-md-4 col-12" v-for="(doctor, index) in doctors" :key="doctor.id">
+                    <SwiperSlide class="col-md-4 col-12" v-for="(doctor, index) in doctors" :key="index">
                         <div class="card card-custom">
                             <div class="position-relative d-flex justify-content-center"
                                 style="background: linear-gradient(180deg, #c4b39a 0%, rgb(91 76 58 / 41%) 100%); border-radius: 20px; overflow: hidden; padding: 10px;">
@@ -206,11 +209,12 @@
                                     <p class="price">${{ doctor?.price }}</p>
                                 </div>
 
-                                <h5 class="card-title fw-bold" style="font-size: 24px;  font-weight: 600;">{{ doctor.user?.name }} {{ doctor.user?.last_name }}</h5>
+                                <h5 class="card-title fw-bold" style="font-size: 24px;  font-weight: 600;">{{
+                                    doctor.user?.name }} {{ doctor.user?.last_name }}</h5>
                                 <p class="card-text" style=" color:#5B4C3A; ">
-                                    {{ showFull ? doctor.about : limitWords(doctor.about, 10) }}
-                                    <a href="#" class="m-color" @click.prevent="toggleText">
-                                        {{ showFull ? 'See less' : 'See more' }}
+                                    {{ showFull[index] ? doctor.about : limitWords(doctor.about, 10) }}
+                                    <a href="#" class="m-color" @click.prevent="toggleText(index)">
+                                        {{ showFull[index] ? 'See less' : 'See more' }}
                                     </a>
                                 </p>
 
@@ -248,7 +252,9 @@
                 <div class="blog-header-text">
                     <small class="section-sub " style="font-family: 'Cormorant Garamond', serif; color: #8A7356;">Our
                         Blogs</small>
-                    <h1 class="blog-section-title  " style="font-size: 40px; font-family: 'Courier New', Courier, monospace; color:#5B4C3A;">Latest Blog And Reads</h1>
+                    <h1 class="blog-section-title  "
+                        style="font-size: 40px; font-family: 'Courier New', Courier, monospace; color:#5B4C3A;">Latest
+                        Blog And Reads</h1>
                 </div>
                 <router-link to="/Allblog" class="btn-view btn btn-info border-0" style="border-radius: 12px;">
                     View All Reads
@@ -310,6 +316,7 @@ import Barrow from '/public/asset/images/Barrow.svg';
 import cardicon from '/public/asset/images/cardicon.svg';
 import cardicon2 from '/public/asset/images/cardicon2.svg';
 import cardicon3 from '/public/asset/images/cardicon3.svg';
+import { reactive } from 'vue'
 
 const doctors = ref(null);
 const swiperRef = ref(null);
@@ -355,18 +362,22 @@ function stripHtml(html) {
     // Remove all HTML tags and extra spaces
     return html ? html.replace(/<[^>]*>/g, '').trim() : '';
 }
-function limitWords(text, wordLimit) {
-    if (!text) return '';
-    const words = text.split(' ');
-    return words.length > wordLimit
-        ? words.slice(0, wordLimit).join(' ') + '...'
-        : text;
+
+
+const showFull = reactive([])
+
+function toggleText(index) {
+    // initialize the index if undefined
+    if (showFull[index] === undefined) {
+        showFull[index] = false
+    }
+
+    showFull[index] = !showFull[index]
+    // alert(`Toggled doctor ${index}, showFull = ${showFull[index]}`) // for testing
 }
-
-const showFull = ref(false)
-
-function toggleText() {
-    showFull.value = !showFull.value
+function limitWords(text, count) {
+    const words = text.split(' ')
+    return words.length > count ? words.slice(0, count).join(' ') + '...' : text
 }
 </script>
 

@@ -47,7 +47,7 @@
                         </div>
                         <div v-else>
                             <p v-if="appt.zoom_join_url">
-                                <a :href="appt.zoom_join_url" target="_blank" class="btn main-btn2">
+                                <a :href="appt.zoom_join_url" target="_blank" class="">
                                     Join Meeting
                                 </a>
                             </p>

@@ -54,7 +54,7 @@
                         <td>{{ appt.user?.email }}</td>
                         <td>{{ appt.user?.number }}</td>
                         <td>{{ appt.doctorpackage?.type }}</td>
-                        <td>{{ appt.doctorpackage?.price }}</td>
+                        <td>{{ appt?.payment }} {{ appt?.currency }}</td>
                         <td>{{ dayjs(appt?.date).format('D MMM YYYY') }}
                         </td>
                         <td>

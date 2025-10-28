@@ -626,11 +626,9 @@ body {
                                 v-for="(s, index) in doctor.modalities" :key="index" style="background:#C4B39A;">
                                 {{ s?.title }}
                             </div>
-
                             <!-- Doctor Name -->
                             <h1 style="font-size: 30px; font-weight: 300;" class="doctor-name">{{ doctor?.user?.name }}
                                 {{ doctor?.user?.last_name }} {{ doctor?.user?.specialization }}</h1>
-
                             <!-- Rating Section -->
                             <div class="rating-section">
                                 <div class="stars" style="color: #5B4C3A; ">
@@ -646,11 +644,7 @@ body {
 
                             <!-- Doctor Description -->
                             <p class="doctor-description">
-                            <p class="doctor-description">
                                 {{ doctor?.about || "-" }}
-                            </p>
-
-
                             </p>
 
                             <!-- Book Session Button -->
@@ -802,7 +796,7 @@ body {
                                     <div class="testimonial-text">
                                         <h6 class="testimonial-title">
                                             {{ Rating?.user?.name }} {{
-                                                Rating?.user?.last_name
+    Rating?.user?.last_name
                                             }}</h6>
                                         <p class="testimonial-description">{{ Rating?.msg || "_" }}
                                         </p>
