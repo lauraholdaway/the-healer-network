@@ -6,7 +6,7 @@
                 <div class="d-flex flex-column">
                     <span class=" mb-1 search-box-title">What support are you looking for?</span>
                     <input type="text" v-model="form.modality" class="form-control border-0 shadow-none"
-                        placeholder='Find a healer near you or&#10;book online sessions from anywhere in the world."' />
+                        placeholder="Find a healer near you or&#10;book online sessions from anywhere in the world." />
                 </div>
 
             </div>

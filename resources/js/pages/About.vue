@@ -380,7 +380,7 @@ margin-bottom: 50px;
 }
 
 .founder-name {
-    margin-top: 120px;
+    margin-top: 100px;
     font-size: 30px;
     color: #2E2D29;
     font-weight: 300;
