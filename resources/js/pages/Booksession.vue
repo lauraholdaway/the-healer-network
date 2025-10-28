@@ -201,8 +201,8 @@
 
                                 <!-- Buttons -->
                                 <div class="d-flex justify-content-between">
-                                    <button class="btn btn-outline-dark btn-outline-custome px-5"
-                                        style="border-radius: 999px;">Back</button>
+                                    <router-link to="/" class="btn btn-outline-dark btn-outline-custome px-5"
+                                        style="border-radius: 999px;">Back</router-link>
 
                                     <button v-if="auth?.user?.id" class="btn btn-dark main-btn2 px-5 ms-3"
                                         style="border-radius: 999px;" @click="handleNext">
@@ -216,11 +216,6 @@
                             </div>
                         </div>
                         <div v-if="step === 2" style=" padding: 2px;">
-
-                            <!-- <div class="text-center mb-4">
-                                <h5 class="fw-bold mb-3" style="font-size: 22px; color: #7D684E; text-shadow: 0 1px 2px rgba(0,0,0,0.1);">Select a session date & time</h5>
-                            </div> -->
-
                             <div class="accordion" id="accordionExample">
                                 <div class="accordion-item mb-3" v-for="(tm, index) in doctortime" :key="index"
                                     style="border: 1px solid #E8E2D5; border-radius: 12px; overflow: hidden;">
@@ -235,7 +230,6 @@
                                             }) }}
                                         </button>
                                     </h2>
-
                                     <div :id="`collapse${index}`" class="accordion-collapse collapse"
                                         :aria-labelledby="`heading${index}`" data-bs-parent="#accordionExample">
                                         <div class="accordion-body" style="background-color: #FFFFFF; padding: 20px;">
@@ -362,16 +356,16 @@
                                     <div class="combined-input-container">
                                         <div class="country-section">
                                             <select v-model="setcountry" class="form-select-custom country-select">
-                                                <option value="US" selected>United States</option>
-                                                <option value="AU">Australia</option>
-                                                <option value="PK">Pakistan</option>
+                                                <option value="United States" selected>United States</option>
+                                                <option value="Australia">Australia</option>
+                                                <option value="Pakistan">Pakistan</option>
                                             </select>
                                         </div>
                                         <div class="separator-line"></div>
-                                        <div class="zip-section">
+                                        <!-- <div class="zip-section">
                                             <input type="text" v-model="zip" class="form-input-custom zip-input"
                                                 placeholder="ZIP" />
-                                        </div>
+                                        </div> -->
                                     </div>
                                 </div>
 
@@ -382,6 +376,9 @@
                                             {{ message }}
                                         </li>
                                     </ul>
+                                </div>
+                                <div v-if="cus_message.text" :class="['alert', message.type]" class="mt-3 p-3 rounded">
+                                    {{ cus_message.text }}
                                 </div>
 
                                 <!-- Pay Button -->
@@ -420,22 +417,12 @@ const doctor = ref(null);
 const route = useRoute();
 const router = useRouter();
 const auth = useAuthStore();
+const doctortime = ref([]);
 
 
 // 👀 Watch when step changes
 const step = ref(1);
-watch(step, async (newStep) => {
-    if (newStep === 4) {
-        const stripe = await stripePromise;
-        if (!elements) {
-            elements = stripe.elements();
-        }
-        if (!cardElement) {
-            cardElement = elements.create("card");
-            cardElement.mount("#card-element");
-        }
-    }
-});
+
 
 
 
@@ -443,9 +430,7 @@ watch(step, async (newStep) => {
 const setimezone = ref("AU")
 const paymenttype = ref("credit")
 const timezone = ref('Australia (GMT+10)')
-const zip = ref('')
 const type = ref("Online")
-const doctortime = ref([]);
 const packagesdata = ref([]);
 const docterPackage = ref(null);
 const selectedDate = ref(null);
@@ -459,6 +444,7 @@ const user_id = ref(auth?.user?.id);
 const token = ref({}); // Stripe token for example
 const currency = ref('');
 const errors = ref({});
+const cus_message = ref({ text: "", type: "" });
 
 // ✅ Validation function
 const validateForm = () => {
@@ -472,7 +458,6 @@ const validateForm = () => {
     if (!email.value) errors.value.email = "Email is required";
     if (!name.value) errors.value.name = "Name is required";
     if (!setcountry.value) errors.value.country = "Country is required";
-    if (!zip.value) errors.value.zip = "Zip is required";
 
     return Object.keys(errors.value).length === 0;
 };
@@ -492,7 +477,6 @@ const payNow = async () => {
             user_id: user_id.value,
             doctortime: docterPackage.value,
             currency: currency.value,
-            amount: 150,
             date: selectedDate.value,
             time: selectedTime.value,
             token: token.id,
@@ -501,7 +485,6 @@ const payNow = async () => {
             country: setcountry.value,
             type: type.value,
             payment_method: paymenttype.value,
-            zip: zip.value,
             timezone: timezone.value,
         };
         loading.value = true;
@@ -511,22 +494,27 @@ const payNow = async () => {
             body: JSON.stringify(payload),
         });
         const data = await response.json();
-        console.log("Server response:", data);
 
         if (response.ok) {
             alert("✅ Payment successful!");
             router.push("/");
 
         } else {
-            alert("❌ Payment failed: " + (data.message || "Unknown error"));
+            cus_message.value = {
+                text: "❌ Payment failed: " + (data.message || "Unknown error"),
+                type: "alert-danger",
+            }; alert("❌ Payment failed: " + (data.message || "Unknown error"));
         }
     } catch (error) {
-        console.error(error);
-        alert("❌ Payment failed: " + error.message);
+        cus_message.value = {
+            text: "⚠️ Network error. Please try again." + (error || "Unknown error"),
+            type: "alert-warning",
+        };
     } finally {
         loading.value = false;
     }
 };
+
 
 
 function handleNext() {
@@ -539,6 +527,25 @@ function handleNext() {
 function handleBack() {
     if (step.value > 1) step.value--;
 }
+
+watch(step, async (newStep) => {
+    if (newStep === 4) {
+        const stripe = await stripePromise;
+        if (!elements) {
+            elements = stripe.elements();
+        }
+        if (!cardElement) {
+            cardElement = elements.create("card");
+            cardElement.mount("#card-element");
+        }
+    }
+    if (newStep === 2) {
+        if (!doctortime.value || doctortime.value.length === 0) {
+            alert("⚠️ This doctor has no available time slots!");
+            step.value-- // 🚫 stop here — do not move to next step
+        }
+    }
+});
 async function loaddoctor() {
     try {
         axios.get(`/api/doctor/${route.params.id}`).then(({ data }) => {

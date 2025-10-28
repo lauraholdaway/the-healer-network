@@ -41,7 +41,8 @@ class DoctorSessionController extends Controller
     public function GetDateForDoctor($doctor_id)
     {
 
-        return DoctorAvailability::where('doctor_id', $doctor_id)
+        $today = Carbon::today();
+        return DoctorAvailability::where('doctor_id', $doctor_id)->whereDate('date', '>=', $today)
             ->get();
     }
     public function TimeDocotroinMOnth($doctor_id, $month, $year)

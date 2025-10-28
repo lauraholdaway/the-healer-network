@@ -14,7 +14,6 @@
                         <h2 class="text-primary">{{ $doctorCount }}</h2>
                     </div>
                 </div>
-
                 <div class="col-md-4 mb-4">
                     <div class="card shadow-sm text-center p-4">
                         <h5>Total Users</h5>
@@ -29,7 +28,6 @@
                     </div>
                 </div>
             </div>
-
             <div class="row">
                 <!-- Chart Section -->
                 <div class="col-md-6 mb-4">
@@ -66,7 +64,10 @@
                             <td>{{ $appointment->id  ?? ""}}</td>
                             <td>{{ $appointment->user->name  ?? ''}}</td>
                             <td>{{ $appointment->doctor->name ?? '' }}</td>
-                            <td>{{ $appointment->date ??'' }}</td>
+                            <td>
+                                {{ \Carbon\Carbon::parse($appointment->date ?? '')->format('d M Y') }} |
+{{ \Carbon\Carbon::parse($appointment->time ?? '')->format('h:i A') }}
+                            </td>
                             <td>
                                 <span class="text-dark badge badge-{{ $appointment->status == 'completed' ? 'success' : 'warning' }}">
                                     {{ ucfirst($appointment->status) }}
