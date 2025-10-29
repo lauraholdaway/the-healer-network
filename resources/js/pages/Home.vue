@@ -283,7 +283,7 @@
                             <div class="blog-card-body">
                                 <div class="whitedark w-100">
                                     <span class="tag">{{ blog.time }} read</span>
-                                    <span class="">T/N</span>
+                                    <span class="thn-text">THN</span>
                                 </div>
 
                                 <h6 class="blog-card-title">{{ limitWords(blog.title, 5) }}</h6>
@@ -429,10 +429,13 @@ function limitWords(text, count) {
 .blog-card-title {
     font-family: 'Cormorant Garamond', serif;
     font-size: 24px;
-    font-weight: 600;
+    font-weight: 500;
     color: #5B4C3A;
     margin-bottom: 15px;
     margin-top: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .blog-card-text {
@@ -481,7 +484,7 @@ function limitWords(text, count) {
 }
 
 .whitedark {
-    width: 30% !important;
+    width: 50% !important;
     display: flex;
     gap: 8px;
     margin-bottom: 10px;
@@ -496,6 +499,15 @@ function limitWords(text, count) {
     font-weight: 500;
     font-family: 'Cormorant Garamond', serif;
     white-space: nowrap;
+}
+
+.thn-text {
+    font-size: 10px;
+    
+    font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 /* Blog Section Header Responsive */

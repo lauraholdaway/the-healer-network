@@ -4,11 +4,8 @@
 
             <div class="container my-3 my-md-5 text-center px-2">
                 <h1 class="fw-bold m-color mt-3 fs-3 fs-md-1"
-                    style="font-family: 'Cormorant Garamond', serif !important; color: #2E2D29 ;">Book A Session</h1>
-                <p class="m-color px-2 px-md-0" style="color: #5B4C3A; font-size: 14px;">Embark on a transformative
-                    journey to rejuvenate your body, mind, and spirit. Whether
-                    you're aiming to detox, break free from unhelpful habits, or elevate your overall well-being, we
-                    offer tailored sessions to support your unique needs and goals.</p>
+                    style="font-family: 'Cormorant Garamond', serif !important; color: #2E2D29 ;">Book a Session with a Trusted Healer</h1>
+                <p class="m-color px-2 px-md-0 mx-auto" style="color: #5B4C3A; font-size: 14px; max-width: 800px;">Find healers by specialty, location and availability. Each healer profile includes experience, areas of expertise, and testimonials from real clients.</p>
 
             </div>
             <div class="my-3 my-md-4 py-2 py-md-4">
@@ -93,7 +90,7 @@
                         </div>
                         <div class="col-12 col-md-8">
                             <div class="p-3 p-md-3">
-                                <h3 class="fw-bold mt-2 mt-md-4 fs-5 fs-md-3">{{ doctor.user?.name }} {{
+                                <h3 class=" mt-2 mt-md-4 fs-5 fs-md-3">{{ doctor.user?.name }} {{
                                     doctor.user?.last_name }}</h3>
 
                                 <div

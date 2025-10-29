@@ -379,6 +379,8 @@ const quizpost = async () => {
 
 /* Quiz start button */
 .quiz-start-btn {
+    font-family: 
+    'FONTSPRING DEMO - The Seasons', serif !important;
     background: #8A7356;
     border-radius: 10px;
     padding: 12px 24px;
