@@ -19,6 +19,10 @@
     "file": "assets/Location-BAyvMgiS.svg",
     "src": "public/asset/images/Location.svg"
   },
+  "public/asset/images/PractitionerIndex (2).png": {
+    "file": "assets/PractitionerIndex (2)-D4gOOSF7.png",
+    "src": "public/asset/images/PractitionerIndex (2).png"
+  },
   "public/asset/images/Searchicon.svg": {
     "file": "assets/Searchicon-VAnbr2JD.svg",
     "src": "public/asset/images/Searchicon.svg"
@@ -107,6 +111,14 @@
     "file": "assets/practitionerimage2-BLJfarF6.png",
     "src": "public/asset/images/practitionerimage2.png"
   },
+  "public/asset/images/practitionerindex.png": {
+    "file": "assets/about-DXo_w4qg.png",
+    "src": "public/asset/images/about.png"
+  },
+  "public/asset/images/practitionerindtext.svg": {
+    "file": "assets/practitionerindtext-C8_Y1ZnD.svg",
+    "src": "public/asset/images/practitionerindtext.svg"
+  },
   "public/asset/images/quiz.png": {
     "file": "assets/quiz-WZI6A8r1.png",
     "src": "public/asset/images/quiz.png"
@@ -115,17 +127,33 @@
     "file": "assets/slider1-BkayiFir.jpg",
     "src": "public/asset/images/slider1.jpg"
   },
+  "public/asset/images/tabler-icon-hand-click.svg": {
+    "file": "assets/tabler-icon-hand-click-DbyOFIM1.svg",
+    "src": "public/asset/images/tabler-icon-hand-click.svg"
+  },
+  "public/asset/images/tabler-icon-mood-smile-beam.svg": {
+    "file": "assets/tabler-icon-mood-smile-beam-qnOdBMu5.svg",
+    "src": "public/asset/images/tabler-icon-mood-smile-beam.svg"
+  },
+  "public/asset/images/tabler-icon-plant.svg": {
+    "file": "assets/tabler-icon-plant-RssfhGfb.svg",
+    "src": "public/asset/images/tabler-icon-plant.svg"
+  },
+  "public/asset/images/tabler-icon-user-square-rounded.svg": {
+    "file": "assets/tabler-icon-user-square-rounded-DAjVT8_p.svg",
+    "src": "public/asset/images/tabler-icon-user-square-rounded.svg"
+  },
   "public/asset/images/xicon.svg": {
     "file": "assets/xicon-BF_hrDOE.svg",
     "src": "public/asset/images/xicon.svg"
   },
   "resources/js/app.js": {
-    "file": "assets/app-fbzHFMx0.js",
+    "file": "assets/app-4FqLydOm.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
     "css": [
-      "assets/app-CLJE989E.css"
+      "assets/app-6rl04GbQ.css"
     ],
     "assets": [
       "assets/arrowlift-jUjrU256.svg",
@@ -148,8 +176,14 @@
       "assets/CEO-MwLccKtD.png",
       "assets/Touch With Us-DbZzjehi.svg",
       "assets/slider1-BkayiFir.jpg",
+      "assets/practitionerindtext-C8_Y1ZnD.svg",
       "assets/practitionerimage1-C1o0mHoZ.png",
       "assets/practitionerimage2-BLJfarF6.png",
+      "assets/tabler-icon-mood-smile-beam-qnOdBMu5.svg",
+      "assets/tabler-icon-hand-click-DbyOFIM1.svg",
+      "assets/tabler-icon-plant-RssfhGfb.svg",
+      "assets/tabler-icon-user-square-rounded-DAjVT8_p.svg",
+      "assets/PractitionerIndex (2)-D4gOOSF7.png",
       "assets/contactpage-C3bcTxdE.png",
       "assets/quiz-WZI6A8r1.png",
       "assets/back-arrow-t1xPhXEN.svg",
