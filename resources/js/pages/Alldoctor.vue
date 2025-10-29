@@ -108,9 +108,8 @@
 
                                 </div>
                                 <p class="card-text mb-2"
-                                    style="margin-top: -8px; font-family: roboto; font-size: 14px;">{{ doctor.about }}
-                                    <router-link :to="`/docter/${doctor.user?.id}`" class="m-color">See
-                                        more</router-link>
+                                    style="margin-top: -8px; font-family: roboto; font-size: 14px;">{{
+                                    limitWords(doctor.about ,20) }}
                                 </p>
 
                                 <div class="d-flex flex-column flex-md-row gap-2 mb-3">
@@ -212,4 +211,9 @@ onMounted(async () => {
 });
 
 onMounted(GetDoctorByModality);
+
+function limitWords(text, count) {
+    const words = text.split(' ')
+    return words.length > count ? words.slice(0, count).join(' ') + '...' : text
+}
 </script>
