@@ -29,7 +29,7 @@
                     <thead class="table-light">
                         <tr>
                             <th>#</th>
-                            <th>Doctor</th>
+                            <th>Healar</th>
                             <th>User</th>
                             <th>Date</th>
                             <th>Time</th>

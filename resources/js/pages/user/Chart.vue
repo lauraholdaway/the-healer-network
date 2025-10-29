@@ -78,7 +78,7 @@ function formatTime(time) {
                         <div class="ms-3">
                             <span class="practitioner-name">{{ appointment.doctor?.name }}{{
                                 appointment.doctor?.last_name
-                            }}</span><br>
+                                }}</span><br>
                             <span class="rating">
                                 <svg width="13" height="12" viewBox="0 0 13 12" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -179,7 +179,7 @@ function formatTime(time) {
                             <div class="ms-3">
                                 <span class="practitioner-name">{{ appointment.doctor?.name }}{{
                                     appointment.doctor?.last_name
-                                    }}</span><br>
+                                }}</span><br>
                                 <span class="rating">
                                     <svg width="13" height="12" viewBox="0 0 13 12" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
