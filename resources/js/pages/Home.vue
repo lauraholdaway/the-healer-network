@@ -117,7 +117,7 @@
             <div class="d-flex justify-content-between align-items-center mb-4 mt-4">
                 <div class="text-start">
                     <router-link to="/Alldoctor" class="btn btn-outline-dark btn-outline-custome rounded-pill">
-                        View All Practitioners
+                        View All Healar
                     </router-link>
                 </div>
                 <div class="d-flex gap-2">
@@ -487,7 +487,7 @@ function limitWords(text, count) {
 
 .thn-text {
     font-size: 10px;
-    
+
     font-weight: 400;
     display: flex;
     align-items: center;
