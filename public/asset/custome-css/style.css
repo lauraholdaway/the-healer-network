@@ -121,7 +121,7 @@ b {
 }
 
 .hero-section {
-    min-height: 100vh;
+    /* min-height: 100vh; */
     background-image: url('/asset/images/hero.png');
     background-position: 50%;
     background-size: cover;
@@ -191,6 +191,8 @@ b {
     .hero-section {
         align-items: flex-start !important;
         padding-top: 80px !important;
+        min-height: 70vh !important;
+       
     }
     
     .hero-section .container {
@@ -995,6 +997,16 @@ b {
     height: 300px;
     object-fit: cover;
 }
+.tagb {
+    font-size: 12px;
+    background: #dac19c;
+    color: #444;
+    border-radius: 50px;
+    padding: 5px 12px;
+    margin-right: 8px;
+    width: fit-content;
+    display: inline-block;
+}
 
 .tag {
     font-size: 12px;
@@ -1003,6 +1015,28 @@ b {
     border-radius: 50px;
     padding: 5px 12px;
     margin-right: 8px;
+    width: fit-content;
+    display: inline-block;
+}
+
+.whitedark {
+    width: fit-content !important;
+    display: flex;
+    padding: 0 10px;
+    gap: 8px;
+    margin-bottom: 10px;
+}
+
+.tag {
+    background-color: #E8DDD4;
+    color: #5B4C3A;
+    padding: 4px 10px;
+    border-radius: 12px;
+    margin-left: -9px;
+    font-size: 10px;
+    font-weight: 500;
+    font-family: 'Cormorant Garamond', serif;
+    white-space: nowrap;
 }
 
 .btn-book {
@@ -1027,7 +1061,7 @@ b {
 
 .btn-join-us {
     border: none;
-    border-radius: 50px;
+    border-radius: 10px;
     padding: 12px 24px;
     font-size: 16px;
     background-color: #F4EFE6;
@@ -1042,8 +1076,11 @@ b {
 }
 
 .btn-join-us:hover {
-    background-color: #E8E0D3;
-    color: #2E2D29;
+    border: 1px solid #FFFFFF;
+    border-radius: 10px;
+
+    background-color: transparent;
+    color: #FFFFFF;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
@@ -1118,7 +1155,7 @@ b {
 .whitedark {
     background-color: white;
     border-radius: 2rem;
-    padding: 4px;
+    padding: 4px 15px;
     width: 9rem;
     margin-bottom: 20px;
 }

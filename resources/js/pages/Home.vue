@@ -8,11 +8,11 @@
             </h1>
 
             <!-- Buttons -->
-            <div class="d-flex justify-content-center gap-3 mb-4 heroButtons">
+            <!-- <div class="d-flex justify-content-center gap-3 mb-4 heroButtons">
                 <button class="btn btn-outline-light rounded-pill px-4">Highly Rated</button>
                 <button class="btn btn-outline-light rounded-pill px-4">Proven Expertise</button>
                 <button class="btn btn-outline-light rounded-pill px-4">Genuine Care</button>
-            </div>
+            </div> -->
 
             <!-- Subtext -->
             <p class="mb-5 px-lg-5 hero-subtext">
@@ -181,7 +181,7 @@
                                                     stroke="#2E2D29" stroke-width="1.5" stroke-linecap="round"
                                                     stroke-linejoin="round" />
                                             </svg>
-                                            <span class="tag">Online</span>
+                                            <span class="tagb">Online</span>
                                         </div>
                                         <div>
                                             <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
@@ -192,7 +192,7 @@
                                                     stroke="#2E2D29" stroke-width="1.5" stroke-linecap="round"
                                                     stroke-linejoin="round" />
                                             </svg>
-                                            <span class="tag">30 Minutes</span>
+                                            <span class="tagb">30 Minutes</span>
                                         </div>
                                     </div>
                                 </div>
@@ -483,23 +483,7 @@ function limitWords(text, count) {
     text-decoration: underline;
 }
 
-.whitedark {
-    width: 50% !important;
-    display: flex;
-    gap: 8px;
-    margin-bottom: 10px;
-}
 
-.tag {
-    background-color: #E8DDD4;
-    color: #5B4C3A;
-    padding: 4px 10px;
-    border-radius: 12px;
-    font-size: 10px;
-    font-weight: 500;
-    font-family: 'Cormorant Garamond', serif;
-    white-space: nowrap;
-}
 
 .thn-text {
     font-size: 10px;
