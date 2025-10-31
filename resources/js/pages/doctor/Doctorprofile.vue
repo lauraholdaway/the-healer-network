@@ -33,6 +33,7 @@ const happyToProvideFreeSession = ref(false);
 const referredBy = ref("");
 const Showmodel = ref(false);
 const modalitiesdata = ref([]);
+const cus_message = ref({ text: '', type: '' })
 
 // image handling
 const image = ref(null);
@@ -133,8 +134,10 @@ async function updateImage() {
         preview.value = null
         alert('Image updated successfully!')
     } catch (err) {
-        alert('Image not updated!')
-        console.error('Image update failed:', err)
+        cus_message.value = {
+            text: "⚠️." + (err?.response?.data?.message || "Unknown error"),
+            type: "alert-warning",
+        };
     }
 }
 
@@ -248,6 +251,9 @@ onMounted(() => {
                     <!-- Hidden Input -->
                     <input type="file" ref="fileInput" @change="handleImageUpload" accept="image/*"
                         class="hidden-input" />
+                </div>
+                <div v-if="cus_message.text" :class="['alert', cus_message?.type]" class="mt-3 p-3 rounded">
+                    {{ cus_message.text }}
                 </div>
                 <div class="mt-3">
                     <button class="btn save-update-btn" @click="updateImage" type="button">

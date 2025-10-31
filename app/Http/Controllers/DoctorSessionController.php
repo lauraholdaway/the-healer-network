@@ -38,6 +38,20 @@ class DoctorSessionController extends Controller
         return response()->json(['message' => 'Availability saved successfully']);
     }
 
+    public function Doctoravailable(Request $request, $doctor_id)
+    {
+
+        $query = DoctorAvailability::where('doctor_id', $doctor_id);
+
+        // If both from and to dates are provided
+        if ($request->has(['from', 'to']) && $request->from && $request->to) {
+            $query->whereBetween('date', [$request->from, $request->to]);
+        }
+
+        $data = $query->orderBy('date', 'asc')->get();
+
+        return response()->json($data);
+    }
     public function GetDateForDoctor($doctor_id)
     {
 

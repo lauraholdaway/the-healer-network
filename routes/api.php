@@ -144,6 +144,7 @@ Route::get('/doctorCertificate/{id}', [DoctorController::class, 'doctorCertifica
 Route::get('/GetDoctorByModality/{id}', [DoctorController::class, 'GetDoctorByModality']);
 Route::post('/userpayment', [AppointmentController::class, 'store']);
 
+Route::get("/Doctoravailable/{doctor_id}", [DoctorSessionController::class, "Doctoravailable"]);
 Route::get("/availability/{doctor_id}", [DoctorSessionController::class, "GetDateForDoctor"]);
 
 Route::get("/availability/{doctor_id}/{time}/{year}", [DoctorSessionController::class, "TimeDocotroinMOnth"]);
