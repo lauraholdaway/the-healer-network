@@ -66,15 +66,15 @@ function formatTime(time) {
 
         <div v-if="upcomingAppointments.length">
             <div class="booking-card my-2" v-for="(appointment, index) in upcomingAppointments">
-                <!-- <div class="booking-left">
-                <img :src="'/storage/' + appointment.doctor?.image || '/default-image.png'" class="booking-thumb"
-                    alt="Natural Healing thumbnail">
-            </div> -->
+                <div class="booking-left">
+                    <img :src="'/storage/' + appointment.doctor?.image || '/default-image.png'" class="booking-thumb"
+                        alt="Natural Healing thumbnail">
+                </div>
                 <div class="booking-middle">
                     <h4 class="booking-title Seasons-fonts">{{ appointment.doctorpackage?.type }}</h4>
                     <div class="practitioner">
-                        <img :src="'/storage/' + appointment.doctor?.image || '/default-image.png'"
-                            class="practitioner-avatar" alt="Darrell Steward">
+                        <!-- <img :src="'/storage/' + appointment.doctor?.image || '/default-image.png'"
+                            class="practitioner-avatar" alt="Darrell Steward"> -->
                         <div class="ms-3">
                             <span class="practitioner-name">{{ appointment.doctor?.name }}{{
                                 appointment.doctor?.last_name
@@ -167,15 +167,15 @@ function formatTime(time) {
         <div class="empty-state">
             <div v-if="pastAppointments.length">
                 <div class="booking-card my-2" v-for="(appointment, index) in pastAppointments">
-                    <!-- <div class="booking-left">
-                <img :src="'/storage/' + appointment.doctor?.image || '/default-image.png'" class="booking-thumb"
-                    alt="Natural Healing thumbnail">
-            </div> -->
+                    <div class="booking-left">
+                        <img :src="'/storage/' + appointment.doctor?.image || '/default-image.png'"
+                            class="booking-thumb" alt="Natural Healing thumbnail">
+                    </div>
                     <div class="booking-middle">
                         <h4 class="booking-title Seasons-fonts">{{ appointment.doctorpackage?.type }}</h4>
                         <div class="practitioner">
-                            <img :src="'/storage/' + appointment.doctor?.image || '/default-image.png'"
-                                class="practitioner-avatar" alt="Darrell Steward">
+                            <!-- <img :src="'/storage/' + appointment.doctor?.image || '/default-image.png'"
+                                class="practitioner-avatar" alt="Darrell Steward"> -->
                             <div class="ms-3">
                                 <span class="practitioner-name">{{ appointment.doctor?.name }}{{
                                     appointment.doctor?.last_name

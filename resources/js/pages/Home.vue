@@ -117,19 +117,19 @@
             <div class="d-flex justify-content-between align-items-center mb-4 mt-4">
                 <div class="text-start">
                     <router-link to="/Alldoctor" class="btn btn-outline-dark btn-outline-custome rounded-pill">
-                        View All Practitioners
+                        View All Healar
                     </router-link>
                 </div>
                 <div class="d-flex gap-2">
                     <!-- Left Arrow Button -->
-                    <button @click="swiperPrev"
+                    <button @click="swiperPrev" ref="prevEl"
                         class="btn btn-arrow-left rounded-circle d-flex align-items-center justify-content-center"
                         style="width: 30px; height: 30px; background-color: transparent; border: none;">
                         <img src="/public/asset/images/arrowlift.svg" alt="Previous" class="arrow-icon"
                             style="width: 32px; height: 32px;">
                     </button>
                     <!-- Right Arrow Button -->
-                    <button @click="swiperNext"
+                    <button @click="swiperNext" ref="nextBtn"
                         class="btn btn-arrow-right rounded-circle d-flex align-items-center justify-content-center"
                         style="width: 30px; height: 30px; background-color: transparent; border: none;">
                         <img src="/public/asset/images/arrowright.svg" alt="Next" class="arrow-icon"
@@ -140,12 +140,14 @@
 
             <!-- Cards -->
             <div class="row g-4 px-3 px-md-0 py-3 py-md-0 ">
-                <Swiper ref="swiperRef" :slides-per-view="3" :space-between="20" :loop="true"
-                    :autoplay="{ delay: 3000 }" :breakpoints="{
-                        0: { slidesPerView: 1 },      // Mobile
-                        768: { slidesPerView: 2 },    // Tablet
-                        1024: { slidesPerView: 3 }    // Desktop
-}" class="mySwiper">
+                <Swiper ref="swiperRef" :slides-per-view="3" :space-between="20" :loop="true" :navigation="{
+                    nextEl: nextBtn,
+                    prevEl: prevBtn,
+                }" :autoplay="{ delay: 3000 }" :breakpoints="{
+                    0: { slidesPerView: 1 },      // Mobile
+                    768: { slidesPerView: 2 },    // Tablet
+                    1024: { slidesPerView: 3 }    // Desktop
+                }" class="mySwiper">
 
                     <SwiperSlide class="col-md-4 col-12" v-for="(doctor, index) in doctors" :key="index">
                         <div class="card card-custom">
@@ -321,7 +323,8 @@ import { reactive } from 'vue'
 const doctors = ref(null);
 const swiperRef = ref(null);
 const blogs = ref(null);
-
+const nextBtn = ref(null)
+const prevBtn = ref(null)
 // Function to get doctor image based on index
 const getDoctorImage = (index) => {
     const images = ['/asset/images/docter3.png', '/asset/images/docter2.png', '/asset/images/docter.png'];
@@ -487,7 +490,7 @@ function limitWords(text, count) {
 
 .thn-text {
     font-size: 10px;
-    
+
     font-weight: 400;
     display: flex;
     align-items: center;
