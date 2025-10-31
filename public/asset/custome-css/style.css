@@ -253,7 +253,7 @@ b {
 }
 
 /* Specific for 1728 screen size - Bigger Mainslider */
-@media (min-width: 1720px) and (max-width: 1730px) {
+@media (min-width: 1720px) and (max-width: 1830px) {
     .left-section {
         height: 60vh !important;
         padding: 80px 60px !important;
