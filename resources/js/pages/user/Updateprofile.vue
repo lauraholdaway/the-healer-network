@@ -3,9 +3,7 @@
         <div class="card shadow-sm border-0 rounded-4 p-4 user-profile-card w-100" style="max-width: 900px;">
             <h5 class="mb-4 Seasons-fonts" style="color: #5B4C3A;">
                 Basic Information</h5>
-            <div v-if="cus_message.text" :class="['alert', cus_message?.type]" class="mt-3 p-3 rounded">
-                {{ cus_message.text }}
-            </div>
+
             <form @submit.prevent="updateProfile" enctype="multipart/form-data">
                 <div class="row g-4">
                     <!-- Left Column (Inputs) -->
@@ -112,7 +110,10 @@ import { ref, computed, watch, onMounted, onUnmounted } from "vue";
 import axios from "axios";
 import { useAuthStore } from "@/stores/auth";
 import { reactive } from "vue";
+import { useNotification } from "@kyvg/vue3-notification";
+
 // import { getCountries, getCountryData } from 'country-list';
+const { notify } = useNotification()
 
 const auth = useAuthStore();
 const preview = ref(null);
@@ -129,7 +130,6 @@ const selectedCountryCode = ref('+92');
 const phoneNumber = ref('');
 const isDropdownOpen = ref(false);
 const searchQuery = ref('');
-const cus_message = ref({ text: "", type: "" });
 
 // Location selector variables
 const selectedLocation = ref('Perth, Australia');
@@ -267,12 +267,17 @@ const updateProfile = async () => {
         });
 
         auth.user = data.user;
-        alert("Profile updated successfully!");
+        notify({
+            title: "Success",
+            text: "Profile updated successfully!",
+        });
     } catch (error) {
-        cus_message.value = {
-            text: "⚠️." + (error?.response?.data?.message || "Unknown error"),
-            type: "alert-warning",
-        };
+
+        notify({
+            title: "Error",
+            type: "error",
+            text: error?.response?.data?.message || "Unknown error",
+        });
     }
 };
 const getCurrentLocation = () => {

@@ -89,6 +89,9 @@
                             <a href="{{ url('/UserContact') }}"
                                 class="dropdown-item m-1 {{ request()->is('heropages') ? 'active' : '' }}">
                                 Contact</a>
+                            <a href="{{ url('/newsletter') }}"
+                                class="dropdown-item m-1 {{ request()->is('heropages') ? 'active' : '' }}">
+                                News Letters</a>
 
                         </div>
                     </div>

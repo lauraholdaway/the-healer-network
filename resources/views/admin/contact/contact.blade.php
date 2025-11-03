@@ -25,9 +25,9 @@
                     </thead>
                     <tbody>
 
-                        @foreach ($contacts as $item)
+                        @foreach ($contacts as $index => $item)
                             <tr>
-                                <td>1</td>
+                                <td>{{ $index + 1 }}</td>
                                 <td>{{ $item->first_name }}</td>
                                 <td>{{ $item->second_name }}</td>
                                 <td>{{ $item->email ?? "" }}</td>

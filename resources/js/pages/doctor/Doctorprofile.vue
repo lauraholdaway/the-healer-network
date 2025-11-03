@@ -2,8 +2,11 @@
 import { ref, onMounted } from "vue";
 import axios from "axios";
 import { useAuthStore } from "../../stores/auth";
+import { useNotification } from "@kyvg/vue3-notification";
+
 
 const auth = useAuthStore();
+const { notify } = useNotification()
 
 // --- refs ---
 const user = ref(null);
@@ -33,7 +36,6 @@ const happyToProvideFreeSession = ref(false);
 const referredBy = ref("");
 const Showmodel = ref(false);
 const modalitiesdata = ref([]);
-const cus_message = ref({ text: '', type: '' })
 
 // image handling
 const image = ref(null);
@@ -110,10 +112,14 @@ async function updateProfile() {
             referred_by: referredBy.value,
         });
 
-        alert("Profile updated successfully!");
-    } catch (err) {
-        console.error("Update failed:", err);
-        alert("Error updating profile!");
+        notify({
+            title: "Succes",
+            text: "You have been Update Profile",
+        });
+    } catch (error) {
+        notify({ type: "error", text: "" + error?.response?.data?.message || 'Unknown error' });
+
+
     }
 }
 
@@ -132,12 +138,15 @@ async function updateImage() {
         user.value.image = res.data.image
         image.value = null
         preview.value = null
-        alert('Image updated successfully!')
-    } catch (err) {
-        cus_message.value = {
-            text: "⚠️." + (err?.response?.data?.message || "Unknown error"),
-            type: "alert-warning",
-        };
+
+        notify({
+            title: "Succes",
+            text: "You have been Update Image",
+        });
+
+    } catch (error) {
+        notify({ type: "error", text: "" + error?.response?.data?.message || 'Unknown error' });
+
     }
 }
 
@@ -180,9 +189,14 @@ const saveCertificate = async () => {
         form.value.title = ''
         form.value.certificate = null
         Showmodel.value = false
+        notify({
+            title: "Succes",
+            text: "You have been Save Certificate",
+        });
 
     } catch (error) {
-        console.error('Error saving certificate:', error)
+        notify({ type: "error", text: "" + error?.response?.data?.message || 'Unknown error' });
+
     }
 }
 
@@ -195,6 +209,10 @@ const deleteCertificate = async (id) => {
     if (confirm('Are you sure you want to delete this certificate?')) {
         await axios.delete(`/api/doctor/deletecertificate/${id}`)
         await fetchCertificates()
+        notify({
+            title: "Deleted",
+            text: "You have been Deleted Certificate",
+        });
     }
 }
 onMounted(async () => {
@@ -252,9 +270,7 @@ onMounted(() => {
                     <input type="file" ref="fileInput" @change="handleImageUpload" accept="image/*"
                         class="hidden-input" />
                 </div>
-                <div v-if="cus_message.text" :class="['alert', cus_message?.type]" class="mt-3 p-3 rounded">
-                    {{ cus_message.text }}
-                </div>
+
                 <div class="mt-3">
                     <button class="btn save-update-btn" @click="updateImage" type="button">
                         Save And Update

@@ -8,6 +8,8 @@ use App\Http\Controllers\Api\AppointmentController;
 use App\Http\Controllers\ModalityController;
 use App\Http\Controllers\BlogsController;
 use Illuminate\Support\Facades\Artisan;
+use App\Http\Controllers\Api\SubscriptionController;
+
 
 use Illuminate\Support\Facades\Auth;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -35,6 +37,7 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/userstatus/{id}/toggle-status', [DashboardController::class, 'toggleStatus']);
     Route::resource('modalities', ModalityController::class);
     Route::resource('/Blogs', BlogsController::class);
+    Route::resource('/newsletter', SubscriptionController::class);
 });
 
 Route::get('/clear-cache', function () {

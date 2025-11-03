@@ -40,9 +40,9 @@
                     </thead>
                     <tbody>
 
-                        @foreach ($appointments as $item)
+                        @foreach ($appointments as $index => $item)
                             <tr>
-                                <td></td>
+                                <td>{{ $index + 1 }}</td>
                                 <td>{{ $item->doctor->name ?? '_' }}</td>
                                 <td>{{ $item->user->name ?? '' }}</td>
                                 <td>{{ \Carbon\Carbon::parse($item->date ?? '')->format('d M Y') }}</td>

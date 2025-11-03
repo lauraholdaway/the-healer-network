@@ -46,9 +46,9 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach ($doctors as $doctor)
+                        @foreach ($doctors as $index => $doctor)
                             <tr>
-                                <td>{{ $doctor->id }}</td>
+                                <td>{{ $index + 1 }}</td>
                                 <td>
                                     @if (!empty($doctor->user->image))
                                         <img src="{{ asset('storage/' . $doctor->user->image) }}" width="50"
