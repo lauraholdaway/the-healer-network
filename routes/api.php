@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\PractitionerController;
 use App\Http\Controllers\Api\DoctorController;
+use App\Http\Controllers\Api\SubscriptionController;
 use App\Http\Controllers\Api\AppointmentController;
 use App\Http\Controllers\DoctorSessionController;
 use App\Http\Controllers\ServiceController;
@@ -144,6 +145,7 @@ Route::get('/doctorCertificate/{id}', [DoctorController::class, 'doctorCertifica
 Route::get('/GetDoctorByModality/{id}', [DoctorController::class, 'GetDoctorByModality']);
 Route::post('/userpayment', [AppointmentController::class, 'store']);
 
+Route::get("/Doctoravailable/{doctor_id}", [DoctorSessionController::class, "Doctoravailable"]);
 Route::get("/availability/{doctor_id}", [DoctorSessionController::class, "GetDateForDoctor"]);
 
 Route::get("/availability/{doctor_id}/{time}/{year}", [DoctorSessionController::class, "TimeDocotroinMOnth"]);
@@ -163,3 +165,4 @@ Route::get('/blog/{id?}', [BlogsController::class, 'blogone']);
 
 Route::post('/saverating', [DoctorController::class, 'saverating']);
 Route::get('/getRating/{id}', [DoctorController::class, 'getRating']);
+Route::post('/saveEmail', [SubscriptionController::class, 'store']);

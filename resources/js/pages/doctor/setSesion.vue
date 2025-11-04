@@ -30,12 +30,19 @@
 
             <!-- Save -->
             <div class="text-end">
-                <button class="btn btn-primary px-4 main-btn Seasons-fonts" @click="saveAvailability">Save
+                <button class="btn btn-primary px-4 main-btn Seasons-fonts text-white" @click="saveAvailability">Save
                     Availability</button>
             </div>
         </div>
 
         <hr>
+        <div>
+            <div class="d-flex align-items-center gap-2 mb-3">
+                <input type="date" v-model="fromDate" class="form-control" style="max-width: 200px;" />
+                <input type="date" v-model="toDate" class="form-control" style="max-width: 200px;" />
+                <button class="btn main-btn2" @click="getime">Filter</button>
+            </div>
+        </div>
         <div>
             <table class="table table-bordered table-hover">
                 <thead class="table-light">
@@ -58,7 +65,8 @@
                             </div>
 
                         </td>
-                        <td> <button class="btn btn-sm btn-danger" @click="deletePackage(tm.id)"> Delete </button>
+                        <td> <button class="btn btn-sm btn-danger" @click="deletePackage(tm.id)"> <i
+                                    class="bi bi-trash3"></i></button>
                         </td>
                     </tr>
                     <tr v-if="timedata.length === 0">
@@ -123,13 +131,23 @@ async function saveAvailability() {
 
 
 const timedata = ref([]);
-async function getime() {
+const fromDate = ref(null);
+const toDate = ref(null);
+const getime = async () => {
     try {
-        const res = await axios.get(`/api/availability/${auth.user.id}`);
+        let url = `/api/Doctoravailable/${auth.user.id}`;
+
+        // Add from/to filters if both are selected
+        if (fromDate.value && toDate.value) {
+            url += `?from=${fromDate.value}&to=${toDate.value}`;
+        }
+
+        const res = await axios.get(url);
         timedata.value = res.data;
+    } catch (err) {
+        console.error("Failed to load doctor availability:", err);
     }
-    catch (err) { console.error("Failed to load packages:", err); }
-}
+};
 
 async function deletePackage(id) {
     if (!confirm("Are you sure you want to delete this Date?"))
@@ -142,10 +160,8 @@ async function deletePackage(id) {
     catch (err) { console.error("Failed to delete package:", err); }
 }
 
+onMounted(getime);
 
-onMounted(() => {
-    getime();
-});
 
 
 function formatTime(time) {

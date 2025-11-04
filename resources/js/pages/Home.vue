@@ -122,14 +122,14 @@
                 </div>
                 <div class="d-flex gap-2">
                     <!-- Left Arrow Button -->
-                    <button @click="swiperPrev" ref="prevEl"
+                    <button ref="prevEl"
                         class="btn btn-arrow-left rounded-circle d-flex align-items-center justify-content-center"
                         style="width: 30px; height: 30px; background-color: transparent; border: none;">
                         <img src="/public/asset/images/arrowlift.svg" alt="Previous" class="arrow-icon"
                             style="width: 32px; height: 32px;">
                     </button>
                     <!-- Right Arrow Button -->
-                    <button @click="swiperNext" ref="nextBtn"
+                    <button @click="swiperNext"
                         class="btn btn-arrow-right rounded-circle d-flex align-items-center justify-content-center"
                         style="width: 30px; height: 30px; background-color: transparent; border: none;">
                         <img src="/public/asset/images/arrowright.svg" alt="Next" class="arrow-icon"
@@ -269,7 +269,7 @@
             </div>
 
             <div class="row g-4 mt-3">
-                <Swiper ref="swiperRef" :slides-per-view="3" :space-between="20" :loop="true"
+                <Swiper ref="swiperRef2" :slides-per-view="3" :space-between="20" :loop="true"
                     :autoplay="{ delay: 3000 }" :breakpoints="{
                         0: { slidesPerView: 1 },      // Mobile
                         768: { slidesPerView: 2 },    // Tablet
@@ -322,14 +322,14 @@ import { reactive } from 'vue'
 
 const doctors = ref(null);
 const swiperRef = ref(null);
+const swiperRef2 = ref(null);
 const blogs = ref(null);
 const nextBtn = ref(null)
 const prevBtn = ref(null)
 // Function to get doctor image based on index
-const getDoctorImage = (index) => {
-    const images = ['/asset/images/docter3.png', '/asset/images/docter2.png', '/asset/images/docter.png'];
-    return images[index % images.length];
-};
+
+
+
 
 // Swiper navigation functions
 const swiperNext = () => {

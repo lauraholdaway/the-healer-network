@@ -1,69 +1,109 @@
 <template>
-  <footer class="footer-container">
-    <div class="container">
-      <div class="footer-main">
-        <!-- Logo Section -->
-        <div class="footer-logo">
-          <img src="/public/asset/images/dark-logo.png" width="100px" alt="THN Logo">
-        </div>
+    <footer class="footer-container">
+        <div class="container">
+            <div class="footer-main">
+                <!-- Logo Section -->
+                <div class="footer-logo">
+                    <img src="/public/asset/images/dark-logo.png" width="100px" alt="THN Logo">
+                </div>
 
-        <!-- Wellbeing Articles -->
-        <div class="footer-section">
-          <h6 class="section-title">Wellbeing articles</h6>
-          <hr class="section-divider">
-          <ul class="footer-links">
-            <li><a href="#">Free meditation & resources</a></li>
-            <li><a href="#">Monthly membership portal</a></li>
-          </ul>
-        </div>
+                <!-- Wellbeing Articles -->
+                <div class="footer-section">
+                    <h6 class="section-title">Wellbeing articles</h6>
+                    <hr class="section-divider">
+                    <ul class="footer-links">
+                        <li v-for="blog in blogs"><router-link :to="`/blog/${blog.id}`">{{ limitWords(blog?.title, 3)
+                        }}</router-link>
+                        </li>
+                    </ul>
+                </div>
 
-        <!-- Support -->
-        <div class="footer-section">
-          <h6 class="section-title">Support</h6>
-          <hr class="section-divider">
-          <ul class="footer-links">
-            <li><a href="#">Client FAQs</a></li>
-            <li><a href="#">Healer FAQs</a></li>
-            <li><a href="#">Get In Touch</a></li>
-          </ul>
-        </div>
+                <!-- Support -->
+                <div class="footer-section">
+                    <h6 class="section-title">Support</h6>
+                    <hr class="section-divider">
+                    <ul class="footer-links">
+                        <li><a href="#">Client FAQs</a></li>
+                        <li><a href="#">Healer FAQs</a></li>
+                        <li><a href="#">Get In Touch</a></li>
+                    </ul>
+                </div>
 
-        <!-- Subscribe -->
-        <div class="footer-section subscribe-section">
-          <h6 class="section-title">Subscribe</h6>
-          <hr class="section-divider">
-          <p class="subscribe-description">
-            Subscribe to our newsletter to receive monthly updates of upcoming events, newly added holistic healers and top tips to enhance your wellbeing.
-          </p>
-          <form class="subscribe-form">
-            <input type="email" class="email-input" placeholder="Your email address">
-            <button type="submit" class="subscribe-btn">Subscribe</button>
-          </form>
+                <!-- Subscribe -->
+                <div class="footer-section subscribe-section">
+                    <h6 class="section-title">Subscribe</h6>
+                    <hr class="section-divider">
+                    <p class="subscribe-description">
+                        Subscribe to our newsletter to receive monthly updates of upcoming events, newly added holistic
+                        healers and top tips to enhance your wellbeing.
+                    </p>
+                    <form @submit.prevent='savEmail' class="subscribe-form">
+                        <input type="email" v-model="form.email" class="email-input" placeholder="Your email address">
+                        <button type="submit" class="subscribe-btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+            <!-- Footer Bottom -->
+            <hr class="footer-separator">
+            <div class="footer-bottom">
+                <div class="copyright">© All copyrights reserved - THN 2025</div>
+                <div class="social-section">
+                    <span class="social-text">Follow Us On Socials</span>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon facebook">
+                            <img src="/public/asset/images/facebookicon.svg" alt="Facebook">
+                        </a>
+                        <a href="#" class="social-icon instagram">
+                            <img src="/public/asset/images/instagramicon.svg" alt="Instagram">
+                        </a>
+                        <a href="#" class="social-icon twitter">
+                            <img src="/public/asset/images/xicon.svg" alt="X">
+                        </a>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-
-      <!-- Footer Bottom -->
-      <hr class="footer-separator">
-      <div class="footer-bottom">
-        <div class="copyright">© All copyrights reserved - THN 2025</div>
-        <div class="social-section">
-          <span class="social-text">Follow Us On Socials</span>
-          <div class="social-icons">
-            <a href="#" class="social-icon facebook">
-              <img src="/public/asset/images/facebookicon.svg" alt="Facebook">
-            </a>
-            <a href="#" class="social-icon instagram">
-              <img src="/public/asset/images/instagramicon.svg" alt="Instagram">
-            </a>
-            <a href="#" class="social-icon twitter">
-              <img src="/public/asset/images/xicon.svg" alt="X">
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
+    </footer>
 </template>
+<script setup>
+import { ref, onMounted } from 'vue';
+import axios from 'axios';
+import { useNotification } from "@kyvg/vue3-notification";
+const blogs = ref([])
+const { notify } = useNotification()
+const form = ref({
+    email: ''
+})
+
+const savEmail = async () => {
+    try {
+
+        await axios.post('/api/saveEmail', form.value)
+
+        notify({
+            title: "Email",
+            text: "You have been Subscrib Newsleter",
+        });
+
+    } catch (error) {
+        notify({ type: "error", text: "" + error?.response?.data?.message || 'Unknown error' });
+    }
+}
+
+onMounted(async () => {
+    try {
+        const res = await axios.get('/api/blogs');
+        blogs.value = res.data;
+    } catch (error) {
+        console.error('Blogs API', error);
+    }
+});
+
+function limitWords(text, count) {
+    const words = text.split(' ')
+    return words.length > count ? words.slice(0, count).join(' ') + '...' : text
+}
+</script>
 
 <style scoped>
 .footer-container {

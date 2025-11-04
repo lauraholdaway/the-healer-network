@@ -7,8 +7,8 @@
             <div class="d-flex justify-content-between align-items-center">
                 <h3 class="mb-0"><b>Blogs List</b></h3>
                 <div>
-                  <a href="{{ route('Blogs.create') }}" class="btn btn-primary mb-3">Create Blog</a>
-            </div>
+                    <a href="{{ route('Blogs.create') }}" class="btn btn-primary mb-3">Create Blog</a>
+                </div>
             </div>
 
         </div>
@@ -43,9 +43,9 @@
                     </thead>
                     <tbody>
 
-                        @foreach ($blogs as $blog)
+                        @foreach ($blogs as $index => $blog)
                             <tr>
-                                <td>1</td>
+                                <td>{{ $index + 1 }}</td>
                                 <td>
                                     @if ($blog->image)
                                         <img src="{{ asset('storage/' . $blog->image) }}" class="card-img-top"
@@ -73,7 +73,7 @@
                     </tbody>
                 </table>
 
-{{ $blogs->links() }}
+                {{ $blogs->links() }}
             </div>
 
         </div>

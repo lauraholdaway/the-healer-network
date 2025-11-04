@@ -13,6 +13,7 @@ const route = useRoute();
         <router-view />
         <Footer v-if="!route.meta.hideFooter" />
     </div>
+    <notifications />
 </template>
 
 

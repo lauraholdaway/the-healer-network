@@ -5,11 +5,13 @@ import router from './router'
 import { useAuthStore } from './stores/auth'
 import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
+import Notifications from '@kyvg/vue3-notification'
 
 const app = createApp(App)
 const pinia = createPinia()
 app.use(pinia)
 app.use(router)
+app.use(Notifications)
 
 const auth = useAuthStore()
 auth.initialize() // ✅ restore user on refresh

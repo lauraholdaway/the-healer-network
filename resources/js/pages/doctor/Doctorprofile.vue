@@ -2,8 +2,11 @@
 import { ref, onMounted } from "vue";
 import axios from "axios";
 import { useAuthStore } from "../../stores/auth";
+import { useNotification } from "@kyvg/vue3-notification";
+
 
 const auth = useAuthStore();
+const { notify } = useNotification()
 
 // --- refs ---
 const user = ref(null);
@@ -109,10 +112,14 @@ async function updateProfile() {
             referred_by: referredBy.value,
         });
 
-        alert("Profile updated successfully!");
-    } catch (err) {
-        console.error("Update failed:", err);
-        alert("Error updating profile!");
+        notify({
+            title: "Succes",
+            text: "You have been Update Profile",
+        });
+    } catch (error) {
+        notify({ type: "error", text: "" + error?.response?.data?.message || 'Unknown error' });
+
+
     }
 }
 
@@ -131,10 +138,15 @@ async function updateImage() {
         user.value.image = res.data.image
         image.value = null
         preview.value = null
-        alert('Image updated successfully!')
-    } catch (err) {
-        alert('Image not updated!')
-        console.error('Image update failed:', err)
+
+        notify({
+            title: "Succes",
+            text: "You have been Update Image",
+        });
+
+    } catch (error) {
+        notify({ type: "error", text: "" + error?.response?.data?.message || 'Unknown error' });
+
     }
 }
 
@@ -177,9 +189,14 @@ const saveCertificate = async () => {
         form.value.title = ''
         form.value.certificate = null
         Showmodel.value = false
+        notify({
+            title: "Succes",
+            text: "You have been Save Certificate",
+        });
 
     } catch (error) {
-        console.error('Error saving certificate:', error)
+        notify({ type: "error", text: "" + error?.response?.data?.message || 'Unknown error' });
+
     }
 }
 
@@ -192,6 +209,10 @@ const deleteCertificate = async (id) => {
     if (confirm('Are you sure you want to delete this certificate?')) {
         await axios.delete(`/api/doctor/deletecertificate/${id}`)
         await fetchCertificates()
+        notify({
+            title: "Deleted",
+            text: "You have been Deleted Certificate",
+        });
     }
 }
 onMounted(async () => {
@@ -249,6 +270,7 @@ onMounted(() => {
                     <input type="file" ref="fileInput" @change="handleImageUpload" accept="image/*"
                         class="hidden-input" />
                 </div>
+
                 <div class="mt-3">
                     <button class="btn save-update-btn" @click="updateImage" type="button">
                         Save And Update

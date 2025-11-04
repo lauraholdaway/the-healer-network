@@ -121,9 +121,8 @@ class DoctorController extends Controller
     public function updateImage(Request $request)
     {
 
-
         $request->validate([
-            'profile_image' => 'required',
+            'profile_image' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
         ]);
 
         $user = User::find(Auth::id());

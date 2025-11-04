@@ -45,7 +45,8 @@
                         <td>{{ pkg.price }}</td>
                         <td>{{ pkg.type }}</td>
                         <td>{{ pkg.time }}</td>
-                        <td> <button class="btn btn-sm btn-danger" @click="deletePackage(pkg.id)"> Delete </button>
+                        <td> <button class="btn btn-sm btn-danger" @click="deletePackage(pkg.id)"><i
+                                    class="bi bi-trash3"></i></button>
                         </td>
                     </tr>
                     <tr v-if="packagesdata.length === 0">

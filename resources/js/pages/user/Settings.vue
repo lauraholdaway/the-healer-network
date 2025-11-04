@@ -118,6 +118,9 @@
 import { ref } from "vue";
 import axios from "axios";
 import { useAuthStore } from "@/stores/auth";
+import { useNotification } from "@kyvg/vue3-notification";
+const { notify } = useNotification()
+
 
 const auth = useAuthStore();
 
@@ -166,7 +169,10 @@ const updateEmail = async () => {
 const updatePassword = async () => {
   try {
       await axios.post("/api/update-password", passwordForm.value);
-    alert("Password updated successfully!");
+      notify({
+          title: "Succes",
+          text: "You have been Update Password",
+      });
     // reset password form
     passwordForm.value = {
       current_password: "",
@@ -175,7 +181,8 @@ const updatePassword = async () => {
     };
   } catch (error) {
     console.error(error);
-    alert("Failed to update password.");
+      notify({ type: "error", text: "" + error?.response?.data?.message || 'Unknown error' });
+
   }
 };
 </script>
