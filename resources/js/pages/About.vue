@@ -185,12 +185,12 @@
             <!-- Susie -->
             <div class="row mt-4 mb-5">
                 <div class="col-md-3 mb-3 mb-md-0">
-                    <img src="/public/asset/images/CEO.png" class="img-fluid founder-image" alt="Susie">
+                    <img src="/public/asset/images/CEO1.png" class="img-fluid founder-image" alt="Susie">
                 </div>
                 <div class="col-md-9">
                     <div class="mb-4">
                         <p class="founder-text">
-                            Susie is a quantum energy healer who works globally, running transformational retreats in Bali. She's passionate about helping people step into their power and live their most authentic lives. A self-confessed crazy cat lady, Susie is devoted to making healing visible, accessible, and joy-filled through The Healer Network.
+                            Susie is a quantum energy healer who has worked with clients around the world. Living in Bali, she runs transformational retreats and is passionate about helping people remember who they truly are. A self-confessed crazy cat lady, Susie brings warmth, humour, and heart to everything she creates. Through The Healer Network, she’s devoted to making healing more visible, accessible, and joy-filled for all.
                         </p>
                         <hr style="border: 1px solid #2E2D29; margin-top: 20px;">
                         <h3 class="founder-name">Susie</h3>
@@ -202,13 +202,12 @@
             <!-- Pia -->
             <div class="row mt-4 mb-5">
                 <div class="col-md-3 mb-3 mb-md-0">
-                    <img src="/public/asset/images/CEO.png" class="img-fluid founder-image" alt="Pia">
+                    <img src="/public/asset/images/CEO2.png" class="img-fluid founder-image" alt="Pia">
                 </div>
                 <div class="col-md-9">
                     <div class="mb-4">
                         <p class="founder-text">
-                            Pia is a trained hypnotherapist, energy healer, counsellor, and founder of a nationwide therapy company. She's passionate about holistic approaches to healing and loves adventure, travel, and deep connection. Pia is dedicated to making holistic therapies widely available and is a proud mum to Max, her Pomeranian sidekick.
-                        </p>
+                            Pia is a trained hypnotherapist, energy healer, and counsellor, and the founder of a nationwide therapy company. While she’s long worked within traditional therapeutic frameworks, she’s felt the call to help the world embrace holistic approaches to healing. A free spirit who loves adventure, travel, and deep connection, Pia is passionate about making holistic therapies more widely available and creating the kind of world where Heaven truly exists on Earth. She’s also mum to Max, her adorable Pomeranian sidekick.                        </p>
                         <hr style="border: 1px solid #2E2D29; margin-top: 20px;">
                         <h3 class="founder-name">Pia</h3>
                         <p style="font-size: 13px; color: #5B4C3A;">Founder THN</p>
@@ -224,8 +223,7 @@
                 <div class="col-md-9">
                     <div class="mb-4">
                         <p class="founder-text">
-                            Laura is a holistic healer, coach, and mental health expert with a background in psychology. She empowers leaders in wellness and NDIS with her compassionate approach and strong leadership. Laura is a gifted connector and community builder, running her own holistic hub in Sydney. She's a mother, mentor, and visionary dedicated to transforming lives.
-                        </p>
+                            Laura is a holistic healer, coach, and mental health expert with a background in psychology. She empowers leaders in the wellness and NDIS space and is known for her compassionate approach and strong leadership. A gifted connector and community builder, she runs a beautiful holistic hub in Sydney where clients can explore art therapy, nutrition, wellness classes, and more, all designed to help people unlock their potential. As a mother, mentor, and visionary, Laura brings love, leadership, and grounded wisdom to everything she touches.                        </p>
                         <hr style="border: 1px solid #2E2D29; margin-top: 20px;">
                         <h3 class="founder-name">Laura</h3>
                         <p style="font-size: 13px; color: #5B4C3A;">Founder THN</p>
