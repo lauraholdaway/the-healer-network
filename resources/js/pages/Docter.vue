@@ -84,6 +84,28 @@ h5 {
     z-index: 1;
 }
 
+.doctor-image-wrapper {
+    background: linear-gradient(180deg, #c4b39a 0%, rgba(91, 76, 58, 0.41) 100%);
+    border-radius: 20px;
+    overflow: hidden;
+    padding: 0;
+    width: 100%;
+    min-height: 360px;
+    height: 100%;
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    flex: 1 1 auto;
+}
+
+.doctor-image-wrapper .doctorImages {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
 .doctor-type-tag {
     background: #5B4C3A;
     color: white;
@@ -610,11 +632,9 @@ body {
                 <div class="row" v-if="doctor">
                     <!-- Left image only -->
                     <div class="col-md-4 col-12 mb-3 mb-md-0">
-                        <div class="rounded-4 text-center"
-                            style="background: linear-gradient(180deg, #c4b39a 0%, rgb(91 76 58 / 41%) 100%); padding:0px;">
+                        <div class="doctor-image-wrapper rounded-4">
                             <img :src="doctor?.user?.image ? '/storage/' + doctor.user.image : '/default-image.png'"
-                                class="doctorImages img-fluid rounded-4" alt="practitioner"
-                                style="display: inline-block;" />
+                                class="doctorImages" alt="practitioner" />
                         </div>
                     </div>
 

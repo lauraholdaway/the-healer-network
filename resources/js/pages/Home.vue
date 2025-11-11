@@ -151,10 +151,9 @@
 
                     <SwiperSlide class="col-md-4 col-12" v-for="(doctor, index) in doctors" :key="index">
                         <div class="card card-custom">
-                            <div class="position-relative d-flex justify-content-center"
-                                style="background: linear-gradient(180deg, #c4b39a 0%, rgb(91 76 58 / 41%) 100%); border-radius: 20px; overflow: hidden; padding: 10px;">
+                            <div class="position-relative d-flex justify-content-center card-image-wrapper">
                                 <img :src="doctor?.user?.image ? '/storage/' + doctor.user.image : '/default-image.png'"
-                                    class="card-img-top" alt="practitioner">
+                                    class="card-img-top card-image" alt="practitioner">
 
                                 <div class="position-absolute top-0 end-0 p-2">
                                     <router-link :to="`/docter/${doctor.user.id}`">
@@ -213,9 +212,14 @@
 
                                 <h5 class="card-title fw-bold" style="font-size: 24px;  font-weight: 600;">{{
                                     doctor.user?.name }} {{ doctor.user?.last_name }}</h5>
-                                <p class="card-text" style=" color:#5B4C3A; ">
-                                    {{ showFull[index] ? doctor.about : limitWords(doctor.about, 10) }}
-                                    <a href="#" class="m-color" @click.prevent="toggleText(index)">
+                                <p class="card-text doctor-card-summary" :class="{ 'expanded': showFull[index] }">
+                                    <span>
+                                        {{ truncatedSummary(doctor.about, index) }}
+                                        <span v-if="isSummaryTruncated(doctor.about, index)">...</span>
+                                    </span>
+                                    <a href="#"
+                                        class="m-color doctor-card-toggle ms-2"
+                                        @click.prevent="toggleText(index)">
                                         {{ showFull[index] ? 'See less' : 'See more' }}
                                     </a>
                                 </p>
@@ -382,6 +386,21 @@ function limitWords(text, count) {
     const words = text.split(' ')
     return words.length > count ? words.slice(0, count).join(' ') + '...' : text
 }
+
+const maxSummaryLength = 40
+
+const truncatedSummary = (text, index) => {
+    if (!text) return '-'
+    if (showFull[index]) {
+        return text
+    }
+    return text.length > maxSummaryLength ? text.substring(0, maxSummaryLength) : text
+}
+
+const isSummaryTruncated = (text, index) => {
+    if (!text) return false
+    return !showFull[index] && text.length > maxSummaryLength
+}
 </script>
 
 <style scoped>
@@ -395,6 +414,47 @@ function limitWords(text, count) {
 .btn-arrow-right:hover .arrow-icon {
     filter: brightness(0) invert(1);
     transition: filter 0.3s ease;
+}
+
+.card-image-wrapper {
+    background: linear-gradient(180deg, #c4b39a 0%, rgba(91, 76, 58, 0.41) 100%);
+    border-radius: 20px;
+    overflow: hidden;
+    display: block !important;
+    width: 100%;
+    height: 280px;
+}
+
+.card-image-wrapper .card-image {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border-radius: 0;
+    object-fit: cover;
+    object-position: center;
+}
+
+.doctor-card-summary {
+    color: #5B4C3A;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+}
+
+.doctor-card-summary.expanded {
+    display: block;
+    -webkit-line-clamp: unset;
+    line-clamp: unset;
+    overflow: visible;
+    text-overflow: initial;
 }
 
 /* Blog Cards Styles */
