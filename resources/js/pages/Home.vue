@@ -28,11 +28,10 @@
 
 
         <!-- Scroll Down -->
-        <div class="scroll-down position-absolute" style="bottom:20px; left: 50%; transform: translateX(-50%);">
-            <a class="btn btn-light shadow" href="#below">
-                <p class="mt-2 color-black">Scroll to discover</p>
-                <img :src="Barrow" alt="icon" class="ms-1"
-                    style="width: 18px; height: 18px; position: relative; top: -6px;">
+        <div class="scroll-down">
+            <a class="scroll-down__btn" href="#below">
+                <span class="scroll-down__label scroll-down__label--display">View All Healer</span>
+               
             </a>
         </div>
 
@@ -47,7 +46,7 @@
 
 
 
-    <section class="container my-md-5  pt-md--10" id="below">
+    <section class="container my-md-5  pt-md--10" >
         <h2 class="section-heading">Your Path to Healing</h2>
         <p class="section-subtext">
             The Healer Network connects you with certified online therapists, providing the tools and support you need
@@ -101,12 +100,12 @@
         </div>
     </section>
 
-    <Mainslider />
+    <Mainslider style="margin-bottom: 140px; " />
 
     <br>
 
     <section>
-        <div class="container py-1">
+        <div class="container py-1"  id="below">
             <!-- Title -->
             <h2 class="section-title">Book a Session</h2>
             <p class="section-subtitle" style="font-size: 13px; color:#5B4C3A; font-weight: 400;">
@@ -137,7 +136,7 @@
                     </button>
                 </div>
             </div>
-
+            
             <!-- Cards -->
             <div class="row g-4 px-3 px-md-0 py-3 py-md-0 ">
                 <Swiper ref="swiperRef" :slides-per-view="3" :space-between="20" :loop="true" :navigation="{
@@ -253,7 +252,7 @@
     <br>
 
     <section>
-        <div class="container py-5 blog-container mt-md-5 px-4 px-md-0">
+        <div class="container py-5 blog-container mt-md-5 px-4 px-md-0 ">
             <div class="blog-header d-flex justify-content-between align-items-center">
                 <div class="blog-header-text">
                     <small class="section-sub " style="font-family: 'Cormorant Garamond', serif; color: #8A7356;">Our
@@ -404,6 +403,99 @@ const isSummaryTruncated = (text, index) => {
 </script>
 
 <style scoped>
+.scroll-down {
+    position: absolute;
+    bottom: 24px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.scroll-down__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.65rem 1.72rem;
+    border-radius: 999px;
+    background: rgba(255, 248, 240, 0.92);
+    color: #2D2013;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-decoration: none;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.scroll-down__label--display {
+    font-family: 'FONTSPRING DEMO - The Seasons', serif;
+    font-weight: 400;
+    letter-spacing: 0.08em;
+}
+
+.scroll-down__btn:hover,
+.scroll-down__btn:focus {
+    transform: translateY(-2px);
+    background: #5B4C3A;
+    /* box-shadow: 0 18px 40px rgba(0, 0, 0, 0.2); */
+    color: #fff;
+    transition: all 0.5s ease;
+}
+
+.scroll-down__btn:focus {
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(160, 112, 76, 0.25);
+}
+
+.scroll-down__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(45, 32, 19, 0.35);
+    background: rgba(209, 180, 150, 0.35);
+    transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.scroll-down__btn:hover .scroll-down__icon,
+.scroll-down__btn:focus .scroll-down__icon {
+    border-color: rgba(45, 32, 19, 0.55);
+    background: rgba(209, 180, 150, 0.55);
+}
+
+@media (max-width: 768px) {
+    .scroll-down__btn {
+        padding: 0.55rem 1.4rem;
+        font-size: 0.8rem;
+        gap: 0.6rem;
+    }
+
+    .scroll-down__icon {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media (max-width: 480px) {
+    .scroll-down {
+        bottom: 18px;
+    }
+
+    .scroll-down__btn {
+        padding: 0.5rem 1.1rem;
+        font-size: 0.75rem;
+        gap: 0.5rem;
+    }
+
+    .scroll-down__icon {
+        width: 26px;
+        height: 26px;
+    }
+}
+
 .btn-arrow-left:hover,
 .btn-arrow-right:hover {
     background-color: #5B4C3A !important;
