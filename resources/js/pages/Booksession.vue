@@ -5,12 +5,10 @@
                 <!-- Left Profile Card -->
                 <div class="col-md-4" v-if="doctor">
                     <div class="card card-custom">
-                        <div class="position-relative d-flex justify-content-center"
-                            style="background: linear-gradient(180deg, #c4b39a 0%, rgb(91 76 58 / 41%) 100%); border-radius: 20px; overflow: hidden; padding: 6px; min-height: 100px;">
+                        <div class="position-relative d-flex justify-content-center profile-image-wrapper">
                             <!-- ✅ safe optional chaining -->
                             <img :src="doctor?.user?.image ? '/storage/' + doctor.user.image : '/public/asset/images/docter.png'"
-                                class="card-img-top" alt="Doctor Image"
-                                style="width: 100%; height: 100%; object-fit: contain;" />
+                                class="card-img-top profile-image" alt="Doctor Image" />
                             <div class="position-absolute top-0 end-0 p-2">
                                 <!-- avatar svg -->
                             </div>
@@ -669,6 +667,27 @@ function formatDate(date) {
 
 .profile-card {
     background: #fff;
+}
+
+.profile-image-wrapper {
+    background: linear-gradient(180deg, #c4b39a 0%, rgba(91, 76, 58, 0.41) 100%);
+    border-radius: 20px;
+    overflow: hidden;
+    padding: 0;
+    width: 100%;
+    min-height: 200px;
+    height: 100%;
+    display: flex;
+    align-items: stretch;
+}
+
+.profile-image-wrapper .profile-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    flex: 1 1 auto;
 }
 
 .stepper .step {
