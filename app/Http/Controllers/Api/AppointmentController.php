@@ -23,6 +23,7 @@ class AppointmentController extends Controller
 
     public function store(Request $request)
     {
+        // dd($request->all());
         $request->validate([
             'doctor_id' => 'required',
             'user_id' => 'required',

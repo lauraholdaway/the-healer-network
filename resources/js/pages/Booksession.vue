@@ -216,46 +216,47 @@
                             </div>
                         </div>
                         <div v-if="step === 2" style=" padding: 2px;">
-                            <div class="accordion" id="accordionExample">
-                                <div class="accordion-item mb-3" v-for="(tm, index) in doctortime" :key="index"
-                                    style="border: 1px solid #E8E2D5; border-radius: 12px; overflow: hidden;">
-                                    <h2 class="accordion-header" :id="`heading${index}`">
-                                        <button class="accordion-button collapsed" type="button"
-                                            data-bs-toggle="collapse" :data-bs-target="`#collapse${index}`"
-                                            aria-expanded="false" :aria-controls="`collapse${index}`"
-                                            style="background-color: #F4EFE6; color: #7D684E; font-weight: bold; border: none; padding: 15px 20px;">
-                                            {{ new Date(tm.date).toLocaleString('en-US', {
-                                            day: '2-digit', month: 'short', year:
-                                            'numeric'
-                                            }) }}
-                                        </button>
-                                    </h2>
-                                    <div :id="`collapse${index}`" class="accordion-collapse collapse"
-                                        :aria-labelledby="`heading${index}`" data-bs-parent="#accordionExample">
-                                        <div class="accordion-body" style="background-color: #FFFFFF; padding: 20px;">
-                                            <div class="d-flex flex-wrap gap-3" role="group" aria-label="Time Slot">
-                                                <template v-for="(time, tIndex) in tm.times" :key="tIndex">
-                                                    <input type="radio" class="btn-check" :name="`time-group-${index}`"
-                                                        :id="`time${index}-${tIndex}`" :value="time"
-                                                        v-model="selectedTime" @change="selectedDate = tm.date" />
+                            <div class="mt-4">
+                                <div class="row justify-content-center">
+                                    <!-- Loop through two months -->
+                                    <div class="col-md-6" v-for="(m, mIndex) in [currentMonth, nextMonth]"
+                                        :key="mIndex">
+                                        <div class="calendar border rounded p-3 shadow-sm">
+                                            <h4 class="text-center mb-3" style="color:#7D684E;">
+                                                {{ m.monthName }} {{ m.year }}
+                                            </h4>
 
-                                                    <label class="btn btn-outline-custom"
-                                                        :for="`time${index}-${tIndex}`"
-                                                        style="border: 2px solid #E8E2D5; color: #7D684E; background-color: #F4EFE6; border-radius: 8px; padding: 10px 20px; font-weight: 500; min-width: 100px;">
-                                                        {{ formatTime(time) }}
-                                                    </label>
-                                                </template>
+                                            <div class="calendar-grid">
+                                                <div class="day-name" v-for="d in days" :key="d">{{ d }}</div>
+
+                                                <div v-for="(day, index) in m.daysArray" :key="index" class="day-cell"
+                                                    :class="{
+                                                        'disabled': !day.isAvailable,
+                                                        'selected': selectedDate === day.fullDate
+                                                    }" @click="day.isAvailable && selectDate(day.fullDate)">
+                                                    {{ day.date }}
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
-                                <!-- <div class="form-check mb-4 d-flex justify-content-center align-items-center mt-4">
-                                    <input type="radio" class="form-check-input me-2" name="sessionType2" value="online"
-                                        checked style="accent-color: #7D684E;">
-                                    <label class="form-check-label" style="color: #7D684E; font-weight: 500;">Online
-                                        session</label>
-                                </div> -->
+                                <!-- Time Slots -->
+                                <div v-if="selectedTimes.length" class="time-slots mt-4 text-center shadow-sm  p-3 ">
+                                    <h5 class="mb-3" style="color:#7D684E;">
+                                        Time Slots for {{ formatDate(selectedDate) }}
+                                    </h5>
+                                    <div class="d-flex flex-wrap justify-content-center gap-2">
+                                        <template v-for="(time, index) in selectedTimes" :key="index">
+                                            <input type="radio" class="btn-check" :id="'time' + index" :value="time"
+                                                v-model="selectedTime" />
+                                            <label class="btn btn-outline-custom" :for="'time' + index"
+                                                style="border: 2px solid #E8E2D5; color: #7D684E; background-color: #F4EFE6; border-radius: 8px; padding: 10px 20px; font-weight: 500;">
+                                                {{ formatTime(time) }}
+                                            </label>
+                                        </template>
+                                    </div>
+                                </div>
                             </div>
 
                             <!-- Buttons -->
@@ -404,7 +405,7 @@
 </template>
 
 <script setup>
-import { ref, watch, onMounted } from "vue";
+import { ref, watch, onMounted, computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import axios from "axios";
 import { useAuthStore } from "../stores/auth";
@@ -583,6 +584,8 @@ onMounted(() => {
 });
 
 
+const today = new Date();
+const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
 function formatTime(time) {
     const [hours, minutes] = time.split(":");
@@ -590,6 +593,68 @@ function formatTime(time) {
     const ampm = h >= 12 ? "PM" : "AM";
     h = h % 12 || 12; // convert 0 -> 12
     return `${h}:${minutes} ${ampm}`;
+}
+
+
+
+const availableDates = computed(() =>
+    doctortime.value.map((t) => t.date)
+);
+
+function getMonthData(monthOffset = 0) {
+    const date = new Date(today.getFullYear(), today.getMonth() + monthOffset, 1);
+    const year = date.getFullYear();
+    const month = date.getMonth();
+    const monthName = date.toLocaleString("en-US", { month: "long" });
+
+    const start = new Date(year, month, 1);
+    const end = new Date(year, month + 1, 0);
+    const totalDays = end.getDate();
+    const firstDayIndex = start.getDay();
+
+    const daysArray = [];
+
+    // Empty cells for alignment
+    for (let i = 0; i < firstDayIndex; i++) {
+        daysArray.push({ date: "", isAvailable: false });
+    }
+
+    // Actual days
+    for (let d = 1; d <= totalDays; d++) {
+        const fullDate = new Date(year, month, d)
+            .toISOString()
+            .split("T")[0];
+        daysArray.push({
+            date: d,
+            fullDate,
+            isAvailable: availableDates.value.includes(fullDate),
+        });
+    }
+
+    return { monthName, year, daysArray };
+}
+
+const currentMonth = computed(() => getMonthData(0));
+const nextMonth = computed(() => getMonthData(1));
+
+const selectedTimes = computed(() => {
+    const found = doctortime.value.find((d) => d.date === selectedDate.value);
+    return found ? found.times : [];
+});
+
+function selectDate(date) {
+    selectedDate.value = date;
+    selectedTime.value = null;
+}
+
+
+
+function formatDate(date) {
+    return new Date(date).toLocaleDateString("en-US", {
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+    });
 }
 </script>
 
@@ -1140,5 +1205,44 @@ function formatTime(time) {
     font-family: 'Cormorant Garamond', serif !important;
     font-size: 14px !important;
     transition: all 0.3s ease !important;
+}
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+}
+
+.day-name {
+    font-weight: bold;
+    text-align: center;
+    color: #7d684e;
+}
+
+.day-cell {
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    border-radius: 8px;
+    cursor: pointer;
+    background-color: #f4efe6;
+    color: #7d684e;
+    transition: 0.3s;
+}
+
+.day-cell:hover:not(.disabled) {
+    background-color: #e8e2d5;
+}
+
+.day-cell.disabled {
+    background-color: #f9f8f4;
+    color: #c5bba5;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.day-cell.selected {
+    background-color: #7d684e;
+    color: white;
+    font-weight: bold;
 }
 </style>
