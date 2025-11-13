@@ -8,6 +8,7 @@ use Stripe\Stripe;
 use Stripe\Charge;
 use App\Models\Appointment;
 use App\Models\DoctorPackage;
+use App\Models\Note;
 use Illuminate\Support\Facades\Auth;
 use App\Services\ZoomService;
 use Illuminate\Support\Facades\Mail;
@@ -235,5 +236,24 @@ class AppointmentController extends Controller
         });
 
         return back()->with('success', 'Meeting created and link sent!');
+    }
+
+
+    public function createNote(Request $request)
+    {
+        // dd($request->all());
+        $data = $request->validate([
+            'app_id' => 'required|max:255',
+            'message' => 'required',
+        ]);
+
+        Note::create($data);
+        return response()->json(['message' => 'Status updated', 'data' => $data]);
+    }
+
+    public function GetNote($id)
+    {
+        $data = Note::where('app_id', $id)->get();
+        return response()->json(['message' => 'Success Get Notes', 'data' => $data]);
     }
 }

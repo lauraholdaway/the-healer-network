@@ -1776,3 +1776,148 @@ footer ul li a:hover {
     border-color: #7D684E !important;
     color: white !important;
 }
+
+.booking-card {
+    background: #FFFFFF;
+    border: 1px solid #DED1BA;
+    border-radius: 12px;
+    padding: 14px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.booking-left {
+    flex: 0 0 auto;
+}
+
+.booking-thumb {
+    width: 110px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.booking-middle {
+    flex: 1 1 auto;
+}
+
+.booking-title {
+    margin: 0 0 8px 0;
+    color: #2E2D29;
+}
+
+.practitioner {
+    display: flex;
+    align-items: center;
+}
+
+.practitioner-avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+}
+
+.practitioner-name {
+    font-weight: 500;
+    font-size: 15px;
+    color: #2E2D29;
+    line-height: 1.4;
+
+}
+
+.rating {
+    color: #5B4C3A;
+    font-weight: 600;
+}
+
+.booking-right {
+    flex: 0 0 auto;
+    text-align: right;
+}
+
+.date-chip {
+    background: #2E2D29;
+    color: #fff;
+    border-radius: 24px;
+    padding: 6px 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+}
+
+.chips {
+    margin-top: 10px;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+}
+
+.chip {
+
+    border-radius: 24px;
+    padding: 4px 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 1px;
+}
+
+.tag {
+    color: #2E2D29;
+    font-weight: 600;
+    font-size: 12px;
+}
+
+.empty-state {
+    margin-bottom: 30px;
+    background: #FFFFFF;
+    border: 1px solid #DED1BA;
+    border-radius: 12px;
+}
+
+.empty-card {
+    padding: 40px 20px;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 992px) {
+    .section-header h5 {
+        font-size: 24px !important;
+    }
+
+    .booking-card {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .booking-left {
+        width: 100%;
+    }
+
+    .booking-thumb {
+        width: 100%;
+        height: 180px;
+    }
+
+    .booking-middle {
+        width: 100%;
+    }
+
+    .booking-right {
+        width: 100%;
+        text-align: left;
+    }
+
+    .date-chip {
+        font-size: 11px;
+        padding: 8px 12px;
+        width: 100%;
+        justify-content: center;
+    }
+
+    .chips {
+        justify-content: flex-start;
+        margin-top: 12px;
+    }
+}

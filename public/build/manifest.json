@@ -11,6 +11,14 @@
     "file": "assets/CEO-MwLccKtD.png",
     "src": "public/asset/images/CEO.png"
   },
+  "public/asset/images/CEO1.png": {
+    "file": "assets/CEO1-DwOBsPc0.png",
+    "src": "public/asset/images/CEO1.png"
+  },
+  "public/asset/images/CEO2.png": {
+    "file": "assets/CEO2-QgNotuzI.png",
+    "src": "public/asset/images/CEO2.png"
+  },
   "public/asset/images/JoinUsicon.svg": {
     "file": "assets/JoinUsicon-CIY6I1VY.svg",
     "src": "public/asset/images/JoinUsicon.svg"
@@ -63,9 +71,17 @@
     "file": "assets/arrowlift-jUjrU256.svg",
     "src": "public/asset/images/arrowlift.svg"
   },
+  "public/asset/images/arrowliftt.svg": {
+    "file": "assets/arrowliftt-DA226ypi.svg",
+    "src": "public/asset/images/arrowliftt.svg"
+  },
   "public/asset/images/arrowright.svg": {
     "file": "assets/arrowright-Cc1mowo0.svg",
     "src": "public/asset/images/arrowright.svg"
+  },
+  "public/asset/images/arrowrightt.svg": {
+    "file": "assets/arrowrightt-DT_REm6i.svg",
+    "src": "public/asset/images/arrowrightt.svg"
   },
   "public/asset/images/back-arrow.svg": {
     "file": "assets/back-arrow-t1xPhXEN.svg",
@@ -148,20 +164,21 @@
     "src": "public/asset/images/xicon.svg"
   },
   "resources/js/app.js": {
-    "file": "assets/app-BfwmdlTE.js",
+    "file": "assets/app-DHlMsJT-.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
     "css": [
-      "assets/app-C5f6W3F3.css"
+      "assets/app-C5r35BL3.css"
     ],
     "assets": [
       "assets/arrowlift-jUjrU256.svg",
       "assets/arrowright-Cc1mowo0.svg",
       "assets/JoinUsicon-CIY6I1VY.svg",
+      "assets/arrowliftt-DA226ypi.svg",
+      "assets/arrowrightt-DT_REm6i.svg",
       "assets/Searchicon-VAnbr2JD.svg",
       "assets/Location-BAyvMgiS.svg",
-      "assets/Barrow-B6BsKFbG.svg",
       "assets/cardicon-BsIJ8Maw.svg",
       "assets/cardicon2-CJGp68Hz.svg",
       "assets/cardicon3-D_V4qjpk.svg",
@@ -173,6 +190,8 @@
       "assets/about2-CZqEpCIo.png",
       "assets/aboutbg-bt-R8_vHoXv.png",
       "assets/about3-CExJ-Soz.png",
+      "assets/CEO1-DwOBsPc0.png",
+      "assets/CEO2-QgNotuzI.png",
       "assets/CEO-MwLccKtD.png",
       "assets/Touch With Us-DbZzjehi.svg",
       "assets/slider1-BkayiFir.jpg",
