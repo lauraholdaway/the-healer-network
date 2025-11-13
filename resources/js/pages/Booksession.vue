@@ -217,26 +217,28 @@
                             <div class="mt-4">
                                 <div class="row justify-content-center">
                                     <!-- Loop through two months -->
-                                    <div class="col-md-6" v-for="(m, mIndex) in [currentMonth, nextMonth]"
-                                        :key="mIndex">
-                                        <div class="calendar border rounded p-3 shadow-sm">
-                                            <h4 class="text-center mb-3" style="color:#7D684E;">
-                                                {{ m.monthName }} {{ m.year }}
-                                            </h4>
+                                    <swiper :modules="[Navigation]" navigation class="mySwiper"
+                                        style="max-width: 600px;">
+                                        <swiper-slide v-for="(m, mIndex) in months" :key="mIndex">
+                                            <div class="calendar border rounded p-3 shadow-sm">
+                                                <h4 class="text-center mb-3" style="color:#7D684E;">
+                                                    {{ m.monthName }} {{ m.year }}
+                                                </h4>
 
-                                            <div class="calendar-grid">
-                                                <div class="day-name" v-for="d in days" :key="d">{{ d }}</div>
+                                                <div class="calendar-grid">
+                                                    <div class="day-name" v-for="d in days" :key="d">{{ d }}</div>
 
-                                                <div v-for="(day, index) in m.daysArray" :key="index" class="day-cell"
-                                                    :class="{
-                                                        'disabled': !day.isAvailable,
-                                                        'selected': selectedDate === day.fullDate
-                                                    }" @click="day.isAvailable && selectDate(day.fullDate)">
-                                                    {{ day.date }}
+                                                    <div v-for="(day, index) in m.daysArray" :key="index"
+                                                        class="day-cell" :class="{
+                                                            'disabled': !day.isAvailable,
+                                                            'selected': selectedDate === day.fullDate
+                                                        }" @click="day.isAvailable && selectDate(day.fullDate)">
+                                                        {{ day.date }}
+                                                    </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </div>
+                                        </swiper-slide>
+                                    </swiper>
                                 </div>
 
                                 <!-- Time Slots -->
@@ -407,7 +409,11 @@ import { ref, watch, onMounted, computed } from "vue";
 import { useRoute, useRouter } from "vue-router";
 import axios from "axios";
 import { useAuthStore } from "../stores/auth";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import { Navigation } from "swiper/modules";
 import { loadStripe } from "@stripe/stripe-js";
+import "swiper/css";
+import "swiper/css/navigation";
 
 const stripePromise = loadStripe("pk_test_51RxKS91z2jyYxDbYk2b5OEAEMATsWughmWumjqLOOMLvaou30ylrtQuvqzegUeux9XMJntbx3b8zd7miFtjzf5cf002mfUnCby");
 let elements, cardElement;
@@ -595,10 +601,6 @@ function formatTime(time) {
 
 
 
-const availableDates = computed(() =>
-    doctortime.value.map((t) => t.date)
-);
-
 function getMonthData(monthOffset = 0) {
     const date = new Date(today.getFullYear(), today.getMonth() + monthOffset, 1);
     const year = date.getFullYear();
@@ -609,19 +611,16 @@ function getMonthData(monthOffset = 0) {
     const end = new Date(year, month + 1, 0);
     const totalDays = end.getDate();
     const firstDayIndex = start.getDay();
-
+    const availableDates = computed(() => doctortime.value.map((t) => t.date));
     const daysArray = [];
 
-    // Empty cells for alignment
     for (let i = 0; i < firstDayIndex; i++) {
         daysArray.push({ date: "", isAvailable: false });
     }
 
-    // Actual days
+
     for (let d = 1; d <= totalDays; d++) {
-        const fullDate = new Date(year, month, d)
-            .toISOString()
-            .split("T")[0];
+        const fullDate = new Date(year, month, d).toISOString().split("T")[0];
         daysArray.push({
             date: d,
             fullDate,
@@ -632,8 +631,7 @@ function getMonthData(monthOffset = 0) {
     return { monthName, year, daysArray };
 }
 
-const currentMonth = computed(() => getMonthData(0));
-const nextMonth = computed(() => getMonthData(1));
+const months = computed(() => [getMonthData(0), getMonthData(1)]);
 
 const selectedTimes = computed(() => {
     const found = doctortime.value.find((d) => d.date === selectedDate.value);
@@ -1225,6 +1223,7 @@ function formatDate(date) {
     font-size: 14px !important;
     transition: all 0.3s ease !important;
 }
+
 .calendar-grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);

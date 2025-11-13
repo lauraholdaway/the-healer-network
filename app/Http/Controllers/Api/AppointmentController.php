@@ -251,8 +251,15 @@ class AppointmentController extends Controller
         return response()->json(['message' => 'Status updated', 'data' => $data]);
     }
 
-    public function GetNote($id)
+    public function GetNote(Request $request, $id = null)
     {
+        // allow id to come from route parameter or request payload/query
+        $id = $id ?? request()->route('id') ?? request()->id ?? request()->input('app_id');
+
+        if (empty($id)) {
+            return response()->json(['message' => 'Missing appointment id'], 400);
+        }
+
         $data = Note::where('app_id', $id)->get();
         return response()->json(['message' => 'Success Get Notes', 'data' => $data]);
     }

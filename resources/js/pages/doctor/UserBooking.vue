@@ -31,7 +31,7 @@
                             <div class="ms-3">
                                 <span class="practitioner-name">{{ appointment.user?.name }} {{
                                     appointment.user?.last_name }} <br> {{
-                                        appointment.user?.email
+    appointment.user?.email
                                     }} <br>
                                     {{ appointment.user?.number }}</span><br>
                                 <span>{{ appointment?.payment }} {{ appointment?.currency }}</span> <br>
@@ -137,14 +137,12 @@
 
 
         <div class="modal fade" id="changeModal" tabindex="-1" aria-hidden="true">
-            <div class="modal-dialog">
+            <div class="modal-dialog modal-lg">
                 <div class="modal-content">
-
                     <div class="modal-header">
                         <h5 class="modal-title">Note</h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
-
                     <div class="modal-body">
                         <div class="shadow-sm">
                             <div v-for="Note in Getnote">
