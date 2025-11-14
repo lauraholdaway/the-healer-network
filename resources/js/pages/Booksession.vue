@@ -216,15 +216,31 @@
                         <div v-if="step === 2" style=" padding: 2px;">
                             <div class="mt-4">
                                 <div class="row justify-content-center">
+
                                     <!-- Loop through two months -->
-                                    <swiper :modules="[Navigation]" navigation class="mySwiper"
-                                        style="max-width: 600px;">
+                                    <swiper ref="swiperRef" :navigation="{
+                                        nextEl: nextBtn,
+                                        prevEl: prevBtn,
+                                    }" class="mySwiper" style="max-width: 600px;">
                                         <swiper-slide v-for="(m, mIndex) in months" :key="mIndex">
                                             <div class="calendar border rounded p-3 shadow-sm">
-                                                <h4 class="text-center mb-3" style="color:#7D684E;">
-                                                    {{ m.monthName }} {{ m.year }}
-                                                </h4>
-
+                                                <div class="d-flex gap-2 justify-content-between">
+                                                    <button @click="swiperPrev"
+                                                        class="btn btn-arrow-left rounded-circle d-flex align-items-center justify-content-center"
+                                                        style="width: 30px; height: 30px; background-color: transparent; border: none;">
+                                                        <img src="/public/asset/images/arrowlift.svg" alt="Previous"
+                                                            class="arrow-icon" style="width: 32px; height: 32px;">
+                                                    </button>
+                                                    <h4 class="text-center mb-3" style="color:#7D684E;">
+                                                        {{ m.monthName }} {{ m.year }}
+                                                    </h4>
+                                                    <button @click="swiperNext"
+                                                        class="btn btn-arrow-right rounded-circle d-flex align-items-center justify-content-center"
+                                                        style="width: 30px; height: 30px; background-color: transparent; border: none;">
+                                                        <img src="/public/asset/images/arrowright.svg" alt="Next"
+                                                            class="arrow-icon" style="width: 32px; height: 32px;">
+                                                    </button>
+                                                </div>
                                                 <div class="calendar-grid">
                                                     <div class="day-name" v-for="d in days" :key="d">{{ d }}</div>
 
@@ -579,6 +595,7 @@ async function getPackages() {
     }
     catch (err) { console.error("Failed to load packages:", err); }
 }
+const swiperRef = ref(null);
 
 
 onMounted(() => {
@@ -587,7 +604,17 @@ onMounted(() => {
     loaddoctor();
 });
 
+const swiperNext = () => {
+    if (swiperRef.value && swiperRef.value.$el) {
+        swiperRef.value.$el.swiper.slideNext();
+    }
+};
 
+const swiperPrev = () => {
+    if (swiperRef.value && swiperRef.value.$el) {
+        swiperRef.value.$el.swiper.slidePrev();
+    }
+};
 const today = new Date();
 const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 

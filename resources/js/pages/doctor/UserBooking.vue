@@ -266,4 +266,5 @@ onMounted(fetchAppointments);
 th {
     font-family: 'TheSeasons', serif !important;
 }
+
 </style>
