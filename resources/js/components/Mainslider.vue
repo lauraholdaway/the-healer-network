@@ -43,6 +43,9 @@
         </div>
   
         <div class="image-block">
+          <router-link to="/Booksession" class="book-now">
+            Book Now <span aria-hidden="true"><img src="/public/asset/images/arowright.svg" alt="" class="book-now-icon" /></span>
+          </router-link>
           <Swiper
             class="healing-swiper"
             :modules="swiperModules"
@@ -56,10 +59,6 @@
               <img :src="slide.image" :alt="slide.alt" loading="lazy" />
             </SwiperSlide>
           </Swiper>
-  
-          <router-link to="/Booksession" class="book-now">
-            Book Now <span aria-hidden="true">&rarr;</span>
-          </router-link>
         </div>
       </div>
     </section>
@@ -72,11 +71,11 @@
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 
-const topDecoration = "/build/assets/aboutbg-top.png";
-const bottomDecoration = "/build/assets/aboutbg-bt.png";
+const topDecoration = "/asset/images/aboutbg-top.svg";
+const bottomDecoration = "/asset/images/aboutbg-bt.svg";
   
-  const slides = [
-    {
+const slides = [
+  {
       id: 1,
     //   eyebrow: "Discover the Right Healing for You",
       title: "Discover the Right Healing for You",
@@ -189,9 +188,11 @@ const swiperModules = [];
 .slider-top-image,
 .slider-bottom-image {
   width: 100%;
-  height: 70px;
+  height: 85px;
   object-fit: cover;
   display: block;
+  margin: -5px 0px;
+  padding: 0;
 }
 
 .healing-slider {
@@ -215,7 +216,7 @@ const swiperModules = [];
   
 .copy-block {
     padding: 1.5rem;
-    background: linear-gradient(180deg, rgba(234, 214, 187, 0.95), rgba(225, 205, 175, 0.95));
+    background:#DED1BA;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -376,19 +377,60 @@ const swiperModules = [];
   
   .book-now {
     position: absolute;
-    bottom: 1rem;
-    right: 1rem;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
     background: #fbf7f1;
-    color: #2d2013;
-    padding: 0.6rem 1.2rem;
-    border-radius: 999px;
+    color: #2E2D29;
+    padding: 12px 24px;
+    border-radius: 12px;
     font-weight: 600;
     font-size: 0.9rem;
+    font-family: 'FONTSPRING DEMO - The Seasons', serif;
     transition: 0.3s;
+    font-size: 12px;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .book-now-icon {
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+  }
+  @media (min-width: 1300px) {
+    .book-now {
+    position: absolute;
+    bottom: 140px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    background: #fbf7f1;
+    color: #2E2D29;
+    padding: 1.6rem 3.2rem;
+    border-radius: 16px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    font-family: 'FONTSPRING DEMO - The Seasons', serif;
+    transition: 0.3s;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    }
+    .book-now-icon {
+      width: 14px;
+      height: 14px;
+    }
   }
   
   .book-now:hover {
-    transform: translateY(-3px);
+    background: #C4B39A;
+    color: #2E2D29;
+    transform: translateX(-50%) translateY(-3px);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
   }
   
@@ -538,3 +580,57 @@ const swiperModules = [];
 }
   </style>
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
