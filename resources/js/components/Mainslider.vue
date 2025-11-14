@@ -188,10 +188,10 @@ const swiperModules = [];
 .slider-top-image,
 .slider-bottom-image {
   width: 100%;
-  height: 70px;
+  height: 85px;
   object-fit: cover;
   display: block;
-  margin: 0;
+  margin: -5px 0px;
   padding: 0;
 }
 
@@ -580,3 +580,57 @@ const swiperModules = [];
 }
   </style>
   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

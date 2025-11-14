@@ -1,3 +1,4 @@
+
 <template>
     <section>
         <div class="container my-3 my-md-5 px-2 px-md-3">
@@ -39,11 +40,12 @@
 
 
                 <div class="card mx-2 mx-md-5 mb-3" v-for="(doctor, index) in doctors">
-                    <div class="row g-0">
-                        <div class="col-12 col-md-3">
-                            <div class="position-relative rounded-4 p-3 p-md-4" style="background-color: #C1B39D;">
-                                <img :src="getDoctorImage(index)" class="card-img-top rounded-4" alt="practitioner"
-                                    style="width: 100%; height: 200px; object-fit: cover; overflow: hidden;">
+                    <div class="row g-0 align-items-stretch">
+                        <div class="col-12 col-md-3 d-flex">
+                            <div
+                                class="position-relative rounded-4 p-3 p-md-4 w-100 h-100 doctor-image-wrapper"
+                                :style="getDoctorBackground(index)"
+                            >
                                 <div class="position-absolute top-0 end-0 p-2">
                                     <svg width="30" height="30" viewBox="0 0 46 46" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -55,41 +57,42 @@
                                     </svg>
 
                                 </div>
-                                <div class="position-absolute bottom-0 mb-3" style="left: 5%;">
+                               
+<div class="position-absolute bottom-0 mb-3" style="left: 5%;">
 
-                                    <div class="d-flex justify-content-center gap-2">
-                                        <div class="d-flex align-items-center">
-                                            <svg width="28" height="28" viewBox="0 0 32 32" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <rect width="32" height="32" rx="16" fill="#DED1BA" />
-                                                <path d="M19.8974 14.0388V17.8847L23 20.5V11.5L19.8974 14.0388Z"
-                                                    stroke="#2E2D29" stroke-width="1.5" stroke-linecap="round"
-                                                    stroke-linejoin="round" />
-                                                <path
-                                                    d="M9.68989 11.5H17.5299C18.6717 11.5 19.8889 12.4023 19.8889 13.6023V19.7493C19.8908 19.9455 19.8121 20.1345 19.67 20.275C19.528 20.4155 19.334 20.4961 19.1306 20.4993H11.0627C9.76611 20.4993 9 19.3742 9 18.2492L9.00778 12.2493C8.99315 12.1545 9.00003 12.0578 9.02797 11.9659C9.0559 11.8739 9.10421 11.7889 9.16956 11.7168C9.23411 11.6455 9.31447 11.5891 9.40467 11.5519C9.49488 11.5146 9.59263 11.4974 9.69067 11.5015L9.68989 11.5Z"
-                                                    stroke="#2E2D29" stroke-width="1.5" stroke-linecap="round"
-                                                    stroke-linejoin="round" />
-                                            </svg>
-                                            <span class="tag ms-1" style="font-size: 11px;">Online</span>
-                                        </div>
-                                        <div class="d-flex align-items-center">
-                                            <svg width="28" height="28" viewBox="0 0 32 32" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <rect width="32" height="32" rx="16" fill="#DED1BA" />
-                                                <path
-                                                    d="M18.7222 16H16V12.1111M9 16C9 16.9193 9.18106 17.8295 9.53284 18.6788C9.88463 19.5281 10.4002 20.2997 11.0503 20.9497C11.7003 21.5998 12.4719 22.1154 13.3212 22.4672C14.1705 22.8189 15.0807 23 16 23C16.9193 23 17.8295 22.8189 18.6788 22.4672C19.5281 22.1154 20.2997 21.5998 20.9497 20.9497C21.5998 20.2997 22.1154 19.5281 22.4672 18.6788C22.8189 17.8295 23 16.9193 23 16C23 15.0807 22.8189 14.1705 22.4672 13.3212C22.1154 12.4719 21.5998 11.7003 20.9497 11.0503C20.2997 10.4002 19.5281 9.88463 18.6788 9.53284C17.8295 9.18106 16.9193 9 16 9C15.0807 9 14.1705 9.18106 13.3212 9.53284C12.4719 9.88463 11.7003 10.4002 11.0503 11.0503C10.4002 11.7003 9.88463 12.4719 9.53284 13.3212C9.18106 14.1705 9 15.0807 9 16Z"
-                                                    stroke="#2E2D29" stroke-width="1.5" stroke-linecap="round"
-                                                    stroke-linejoin="round" />
-                                            </svg><span class="tag ms-1" style="font-size: 11px;">30 Min</span>
+<div class="d-flex justify-content-center gap-2">
+    <div class="d-flex align-items-center">
+        <svg width="28" height="28" viewBox="0 0 32 32" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <rect width="32" height="32" rx="16" fill="#DED1BA" />
+            <path d="M19.8974 14.0388V17.8847L23 20.5V11.5L19.8974 14.0388Z"
+                stroke="#2E2D29" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+            <path
+                d="M9.68989 11.5H17.5299C18.6717 11.5 19.8889 12.4023 19.8889 13.6023V19.7493C19.8908 19.9455 19.8121 20.1345 19.67 20.275C19.528 20.4155 19.334 20.4961 19.1306 20.4993H11.0627C9.76611 20.4993 9 19.3742 9 18.2492L9.00778 12.2493C8.99315 12.1545 9.00003 12.0578 9.02797 11.9659C9.0559 11.8739 9.10421 11.7889 9.16956 11.7168C9.23411 11.6455 9.31447 11.5891 9.40467 11.5519C9.49488 11.5146 9.59263 11.4974 9.69067 11.5015L9.68989 11.5Z"
+                stroke="#2E2D29" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+        </svg>
+        <span class="tag ms-1" style="font-size: 11px;">Online</span>
+    </div>
+    <div class="d-flex align-items-center">
+        <svg width="28" height="28" viewBox="0 0 32 32" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <rect width="32" height="32" rx="16" fill="#DED1BA" />
+            <path
+                d="M18.7222 16H16V12.1111M9 16C9 16.9193 9.18106 17.8295 9.53284 18.6788C9.88463 19.5281 10.4002 20.2997 11.0503 20.9497C11.7003 21.5998 12.4719 22.1154 13.3212 22.4672C14.1705 22.8189 15.0807 23 16 23C16.9193 23 17.8295 22.8189 18.6788 22.4672C19.5281 22.1154 20.2997 21.5998 20.9497 20.9497C21.5998 20.2997 22.1154 19.5281 22.4672 18.6788C22.8189 17.8295 23 16.9193 23 16C23 15.0807 22.8189 14.1705 22.4672 13.3212C22.1154 12.4719 21.5998 11.7003 20.9497 11.0503C20.2997 10.4002 19.5281 9.88463 18.6788 9.53284C17.8295 9.18106 16.9193 9 16 9C15.0807 9 14.1705 9.18106 13.3212 9.53284C12.4719 9.88463 11.7003 10.4002 11.0503 11.0503C10.4002 11.7003 9.88463 12.4719 9.53284 13.3212C9.18106 14.1705 9 15.0807 9 16Z"
+                stroke="#2E2D29" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+        </svg><span class="tag ms-1" style="font-size: 11px;">30 Min</span>
 
-                                        </div>
-                                    </div>
+    </div>
+</div>
 
-                                </div>
+</div>
                             </div>
                         </div>
                         <div class="col-12 col-md-8">
-                            <div class="p-3 p-md-3">
+                            <div class="p-3 p-md-3 h-100">
                                 <h3 class=" mt-2 mt-md-4 fs-5 fs-md-3">{{ doctor.user?.name }} {{
                                     doctor.user?.last_name }}</h3>
 
@@ -178,6 +181,12 @@ const getDoctorImage = (index) => {
     return doctorImages[index % doctorImages.length];
 };
 
+const getDoctorBackground = (index) => {
+    return {
+        backgroundImage: `linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.25) 100%), url(${getDoctorImage(index)})`
+    };
+};
+
 const GetDoctorByModality = async (id) => {
 
     loading.value = true;
@@ -214,3 +223,13 @@ function limitWords(text, count) {
     return words.length > count ? words.slice(0, count).join(' ') + '...' : text
 }
 </script>
+
+<style scoped>
+.doctor-image-wrapper {
+    background-color: #C1B39D;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 220px;
+}
+</style>

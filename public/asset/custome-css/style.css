@@ -184,11 +184,11 @@ b {
 }
 
 /* Specific for 1728x1117 screen size */
-@media (min-width: 1700px) and (max-width: 2430px) {
+@media (min-width: 1400px) and (max-width: 2430px) {
     .hero-section {
         align-items: flex-start !important;
         padding-top: 80px !important;
-        min-height: 66vh !important;
+        min-height: 64vh !important;
 
     }
 
@@ -1918,3 +1918,9 @@ footer ul li a:hover {
         margin-top: 12px;
     }
 }
+
+
+
+
+
+
