@@ -220,7 +220,7 @@ const swiperModules = [];
 @media (min-width: 1300px) {
   .healing-center-overlay {
   position: absolute;
-  top: -10px;
+  top: -20px;
   left: 0;
   width: 100%;
   height: 120px;
