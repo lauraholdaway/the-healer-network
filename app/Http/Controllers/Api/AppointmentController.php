@@ -251,6 +251,7 @@ class AppointmentController extends Controller
         return response()->json(['message' => 'Status updated', 'data' => $data]);
     }
 
+    
     public function GetNote(Request $request, $id = null)
     {
         // allow id to come from route parameter or request payload/query

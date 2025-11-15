@@ -1,659 +1,3 @@
-<template>
-    <section class="booking-section py-5 ">
-        <div class="container">
-            <div class="row g-4 align-items-stretch mb-5 mt-3">
-                <!-- Left Profile Card -->
-                <div class="col-md-4" v-if="doctor">
-                    <div class="card card-custom">
-                        <div class="position-relative d-flex justify-content-center profile-image-wrapper">
-                            <!-- ✅ safe optional chaining -->
-                            <img :src="doctor?.user?.image ? '/storage/' + doctor.user.image : '/public/asset/images/docter.png'"
-                                class="card-img-top profile-image" alt="Doctor Image" />
-                            <div class="position-absolute top-0 end-0 p-2">
-                                <!-- avatar svg -->
-                            </div>
-                            <!-- tags -->
-                            <div class="position-absolute bottom-0 mb-3" style="left: 20%;">
-                                <div class="d-flex justify-content-center">
-                                    <div>
-                                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <rect width="32" height="32" rx="16" fill="#DED1BA" />
-                                            <path d="M19.8974 14.0388V17.8847L23 20.5V11.5L19.8974 14.0388Z"
-                                                stroke="#2E2D29" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path
-                                                d="M9.68989 11.5H17.5299C18.6717 11.5 19.8889 12.4023 19.8889 13.6023V19.7493C19.8908 19.9455 19.8121 20.1345 19.67 20.275C19.528 20.4155 19.334 20.4961 19.1306 20.4993H11.0627C9.76611 20.4993 9 19.3742 9 18.2492L9.00778 12.2493C8.99315 12.1545 9.00003 12.0578 9.02797 11.9659C9.0559 11.8739 9.10421 11.7889 9.16956 11.7168C9.23411 11.6455 9.31447 11.5891 9.40467 11.5519C9.49488 11.5146 9.59263 11.4974 9.69067 11.5015L9.68989 11.5Z"
-                                                stroke="#2E2D29" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>
-                                        <span class="tagb">Online</span>
-                                    </div>
-                                    <div>
-                                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <rect width="32" height="32" rx="16" fill="#DED1BA" />
-                                            <path
-                                                d="M18.7222 16H16V12.1111M9 16C9 16.9193 9.18106 17.8295 9.53284 18.6788C9.88463 19.5281 10.4002 20.2997 11.0503 20.9497C11.7003 21.5998 12.4719 22.1154 13.3212 22.4672C14.1705 22.8189 15.0807 23 16 23C16.9193 23 17.8295 22.8189 18.6788 22.4672C19.5281 22.1154 20.2997 21.5998 20.9497 20.9497C21.5998 20.2997 22.1154 19.5281 22.4672 18.6788C22.8189 17.8295 23 16.9193 23 16C23 15.0807 22.8189 14.1705 22.4672 13.3212C22.1154 12.4719 21.5998 11.7003 20.9497 11.0503C20.2997 10.4002 19.5281 9.88463 18.6788 9.53284C17.8295 9.18106 16.9193 9 16 9C15.0807 9 14.1705 9.18106 13.3212 9.53284C12.4719 9.88463 11.7003 10.4002 11.0503 11.0503C10.4002 11.7003 9.88463 12.4719 9.53284 13.3212C9.18106 14.1705 9 15.0807 9 16Z"
-                                                stroke="#2E2D29" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg><span class="tagb">30 Minutes</span>
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="card-body">
-                            <!-- Original Content for Steps 1-3 -->
-                            <div v-if="step !== 4">
-                                <!-- ✅ safe name -->
-                                <div class="text-center">
-                                    <h5 class="card-title fw-bold">{{ doctor?.user?.name }}</h5>
-
-                                </div>
-                                <div class="d-flex justify-content-center mt-1 flex-wrap gap-2"
-                                    style="max-height: 60px; overflow: hidden;">
-                                    <p class="docter-type px-2 py-1 text-center" v-for="item in doctor.modalities"
-                                        style="width:auto; margin: 2px;">{{ item.title }}</p>
-                                </div>
-                                <div class="d-flex justify-content-between my-1">
-                                </div>
-                                <!-- ✅ limit to 20 words -->
-                                <p class="card-text m-color fw-bold text-center">
-                                    Wednesday 8 October 2025 11:30 am
-                                </p>
-
-                                <div
-                                    style="background-color: #5B4C3A;border-radius: 10px; padding: 8px 8px;color:white; text-align: center;">
-
-                                    <p class="text-[#F4EFE6] mb-1" style="font-size: 12px;">Freshwater NSW 2096,
-                                        Australia</p>
-                                    <hr class="my-1">
-                                    <b class="text-white" style="font-size: 14px;">
-                                        ${{ doctor?.price }}
-                                    </b>
-                                </div>
-                                <br>
-                                <div>
-                                    <p
-                                        style="background-color: #F4EFE6;border-radius: 10px; font-size: 12px; padding: 4px 10px;">
-                                        Every practitioner on Bodhi Holistic Hub is carefully vetted, highly rated and a
-                                        certified expert in their fields.
-                                    </p>
-                                </div>
-                            </div>
-
-                            <!-- Session Details Content for Step 4 -->
-                            <div v-if="step === 4">
-                                <!-- Category and Price -->
-                                <div class="category-price-row">
-                                    <div class="category-tag">Meditation</div>
-                                    <div class="price-tag">$300.00</div>
-                                </div>
-
-                                <!-- Session Title -->
-                                <div class="session-title">
-                                    <h4>Your Child's Soul Essence Akashic Record Reading</h4>
-                                </div>
-
-                                <!-- Session Description -->
-                                <div class="session-description">
-                                    <p>Enhancing your parenting wisdom: Supporting your child's aut... <a href="#"
-                                            class="see-more-link">See more</a></p>
-                                </div>
-
-                                <!-- Book Session Button -->
-                                <div class="book-session-btn-local">
-                                    <button class="btn-book-session">
-                                        Book Session Now
-                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                            <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5"
-                                                stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right Booking Form -->
-                <div class="col-md-8">
-                    <div class="booking-wrapper shadow-sm rounded-4 bg-white p-4 h-100">
-                        <div class="d-flex justify-content-center">
-                            <h5 class="fw-boldd mb-4 mt-3 text-center"
-                                style="font-size: 20px; font-weight: bolder;   color: #7D684E;">Book a session</h5>
-                        </div>
-
-                        <!-- Stepper -->
-                        <div class="stepper d-flex justify-content-between align-items-center mb-2">
-                            <div class="step" :class="{ active: step >= 1 }">1</div>
-                            <div class="line"></div>
-                            <div class="step" :class="{ active: step >= 2 }">2</div>
-                            <div class="line"></div>
-                            <div class="step" :class="{ active: step >= 3 }">3</div>
-                            <div class="line"></div>
-                            <div class="step" :class="{ active: step >= 4 }">4</div>
-                        </div>
-
-                        <div v-if="step !== 4">
-                            <div class="d-flex justify-content-center">
-                                <h5 class="fw-bold mb-3 mt-3 text-center" style="font-size: 28px; color: #7D684E;">
-                                    {{ step === 2 ? 'Select a session date & time' : step === 3 ? 'Confirm your details'
-                                    :
-                                    'Select a session' }}</h5>
-
-                            </div>
-
-                            <div class="d-flex justify-content-center">
-
-
-                                <input type="hidden" v-model="currency" class="form-control" />
-
-
-                                <select v-model="timezone" class="custom-select mb-3"
-                                    style="background-color: #F4EFE6; color: #7D684E; font-weight: bold; width: 200px; padding: 10px; border-radius: 10px; border: 2px solid #F4EFE6; outline: none; box-shadow: none;">
-                                    <option value="Australia (GMT+10)" style="color: #7D684E; font-weight: bold;">
-                                        Australia (GMT+10)
-                                    </option>
-                                    <option value="United States (GMT-5)" style="color: #7D684E; font-weight: bold;">
-                                        United States (GMT-5)
-                                    </option>
-                                    <option value="Pakistan (GMT+5)" style="color: #7D684E; font-weight: bold;">
-                                        Pakistan (GMT+5)
-                                    </option>
-                                </select>
-
-                            </div>
-                        </div>
-                        <div v-if="step === 1">
-
-                            <!-- Dropdown -->
-                            <div class="d-flex justify-content-center">
-                                <select v-model="docterPackage" class="form-select mb-3"
-                                    style="width: 500px; color: #7D684E; text-align: center; font-weight: bold;">
-                                    <option v-for="(pkgata, index) in packagesdata" :key="index" :value="pkgata.id"
-                                        :selected="index === 0"
-                                        style="color: #7D684E; text-align: center; font-weight: bold;">
-                                        {{ pkgata.type }} ({{ pkgata.price }}, {{ pkgata.time }})
-                                    </option>
-                                </select>
-                            </div>
-
-
-                            <div class="text-center">
-                                <!-- Radio -->
-                                <div class="d-flex justify-content-center gap-4 mb-4 mt-2">
-                                    <div class="form-check d-flex align-items-center">
-                                        <input type="radio" v-model="type" class=" form-check-input me-2"
-                                            name="sessionType" value="online" checked style="accent-color: #7D684E;">
-                                        <label class="form-check-label" style="color: #7D684E;">Online session</label>
-                                    </div>
-                                    <div class="form-check d-flex align-items-center">
-                                        <input type="radio" v-model="type" class="form-check-input me-2"
-                                            name="sessionType" value="offline" style="accent-color: #7D684E;">
-                                        <label class="form-check-label" style="color: #7D684E;">In-Person</label>
-                                    </div>
-                                </div>
-
-                                <!-- Buttons -->
-                                <div class="d-flex justify-content-between">
-                                    <router-link to="/" class="btn btn-outline-dark btn-outline-custome px-5"
-                                        style="border-radius: 999px;">Back</router-link>
-
-                                    <button v-if="auth?.user?.id" class="btn btn-dark main-btn2 px-5 ms-3"
-                                        style="border-radius: 999px;" @click="handleNext">
-                                        Next
-                                    </button>
-
-                                    <router-link v-else to="/login" class="btn btn-dark main-btn2 px-5 ms-3"
-                                        style="border-radius: 999px;">Login</router-link>
-
-                                </div>
-                            </div>
-                        </div>
-                        <div v-if="step === 2" style=" padding: 2px;">
-                            <div class="mt-4">
-                                <div class="row justify-content-center">
-                                    <!-- Loop through two months -->
-                                    <swiper :modules="[Navigation]" navigation class="mySwiper"
-                                        style="max-width: 600px;">
-                                        <swiper-slide v-for="(m, mIndex) in months" :key="mIndex">
-                                            <div class="calendar border rounded p-3 shadow-sm">
-                                                <h4 class="text-center mb-3" style="color:#7D684E;">
-                                                    {{ m.monthName }} {{ m.year }}
-                                                </h4>
-
-                                                <div class="calendar-grid">
-                                                    <div class="day-name" v-for="d in days" :key="d">{{ d }}</div>
-
-                                                    <div v-for="(day, index) in m.daysArray" :key="index"
-                                                        class="day-cell" :class="{
-                                                            'disabled': !day.isAvailable,
-                                                            'selected': selectedDate === day.fullDate
-                                                        }" @click="day.isAvailable && selectDate(day.fullDate)">
-                                                        {{ day.date }}
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </swiper-slide>
-                                    </swiper>
-                                </div>
-
-                                <!-- Time Slots -->
-                                <div v-if="selectedTimes.length" class="time-slots mt-4 text-center shadow-sm  p-3 ">
-                                    <h5 class="mb-3" style="color:#7D684E;">
-                                        Time Slots for {{ formatDate(selectedDate) }}
-                                    </h5>
-                                    <div class="d-flex flex-wrap justify-content-center gap-2">
-                                        <template v-for="(time, index) in selectedTimes" :key="index">
-                                            <input type="radio" class="btn-check" :id="'time' + index" :value="time"
-                                                v-model="selectedTime" />
-                                            <label class="btn btn-outline-custom" :for="'time' + index"
-                                                style="border: 2px solid #E8E2D5; color: #7D684E; background-color: #F4EFE6; border-radius: 8px; padding: 10px 20px; font-weight: 500;">
-                                                {{ formatTime(time) }}
-                                            </label>
-                                        </template>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Buttons -->
-                            <div class="d-flex justify-content-between mt-4">
-                                <button class="btn btn-outline-custom px-4 py-2"
-                                    style="border: 2px solid #7D684E; color: #7D684E; border-radius: 999px; font-weight: 500; background: transparent;"
-                                    @click="handleBack">Back</button>
-                                <button class="btn px-4 py-2 ms-3"
-                                    style="background: linear-gradient(135deg, #7D684E 0%, #5B4C3A 100%); color: white; border-radius: 999px; font-weight: 500; box-shadow: 0 4px 8px rgba(0,0,0,0.2);"
-                                    @click="handleNext">
-                                    Next
-                                </button>
-                            </div>
-                        </div>
-                        <div v-if="step === 3">
-
-                            <div class="p-4">
-
-                                <!-- <h3 class="m-color text-center my-4">Confirm your details</h3> -->
-
-                                <div class="user-details-container mb-4">
-                                    <div class="detail-item mb-3">
-                                        <span class="detail-label">Name:</span>
-                                        <span class="detail-value">{{ auth?.user?.name }}</span>
-                                    </div>
-                                    <div class="detail-item mb-3">
-                                        <span class="detail-label">Email:</span>
-                                        <span class="detail-value">{{ auth?.user?.email }}</span>
-                                    </div>
-                                    <div class="detail-item mb-3">
-                                        <span class="detail-label">Phone:</span>
-                                        <span class="detail-value">{{ auth?.user?.number }}</span>
-                                    </div>
-                                </div>
-
-                                <div class="reminder-box mb-4">
-                                    <div class="d-flex align-items-center">
-                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="me-2">
-                                            <path d="M12 2L20 6L20 18L12 22L4 18L4 6L12 2Z" stroke="#7D684E"
-                                                stroke-width="2" fill="#F4EFE6" />
-                                            <path d="M12 8V12" stroke="#7D684E" stroke-width="2"
-                                                stroke-linecap="round" />
-                                            <circle cx="12" cy="15" r="1" fill="#7D684E" />
-                                        </svg>
-                                        <span class="reminder-text">Booking reminders will be sent via email and
-                                            text</span>
-                                    </div>
-                                </div>
-
-                                <!-- Buttons -->
-                                <div class="d-flex justify-content-between mt-4">
-                                    <button class="btn btn-outline-custom px-4 py-2"
-                                        style="border: 2px solid #7D684E; color: #7D684E; border-radius: 999px; font-weight: 500; background: transparent;"
-                                        @click="handleBack">Back</button>
-                                    <button class="btn px-4 py-2 ms-3"
-                                        style="background: linear-gradient(135deg, #7D684E 0%, #5B4C3A 100%); color: white; border-radius: 999px; font-weight: 500; box-shadow: 0 4px 8px rgba(0,0,0,0.2);"
-                                        @click="handleNext">
-                                        Confirm
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <div v-if="step === 4">
-                            <div class="payment-form-container">
-                                <!-- Email Section -->
-                                <div class="form-group mb-4">
-                                    <label class="form-label-custom">Email</label>
-                                    <input v-model="email" type="email" class="form-input-custom"
-                                        placeholder="Enter your email" required />
-                                </div>
-
-                                <!-- Payment Method Section -->
-                                <div class="form-group mb-4">
-                                    <label class="form-label-custom">Payment Method</label>
-                                    <div class="payment-method-selector">
-                                        <select class="form-select-custom" v-model="paymenttype">
-                                            <option value="credit">Credit Card</option>
-                                            <option value="debit">Debit Card</option>
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <!-- Card Information Section -->
-                                <div class="form-group mb-4">
-                                    <label class="form-label-custom">Card information</label>
-                                    <div id="card-element"></div>
-                                </div>
-
-                                <!-- Cardholder Name Section -->
-                                <div class="form-group mb-4">
-                                    <label class="form-label-custom">Cardholder name</label>
-                                    <input v-model="name" type="text" class="form-input-custom"
-                                        placeholder="Full name on card" />
-                                </div>
-                                <!-- Country and ZIP Combined Section -->
-                                <div class="form-group mb-4">
-                                    <label class="form-label-custom">Country or region</label>
-                                    <div class="combined-input-container">
-                                        <div class="country-section">
-                                            <select v-model="setcountry" class="form-select-custom country-select">
-                                                <option value="United States" selected>United States</option>
-                                                <option value="Australia">Australia</option>
-                                                <option value="Pakistan">Pakistan</option>
-                                            </select>
-                                        </div>
-                                        <div class="separator-line"></div>
-                                        <!-- <div class="zip-section">
-                                            <input type="text" v-model="zip" class="form-input-custom zip-input"
-                                                placeholder="ZIP" />
-                                        </div> -->
-                                    </div>
-                                </div>
-
-                                <!-- Error Messages -->
-                                <div v-if="Object.keys(errors).length" class="error-container mb-4">
-                                    <ul class="error-list">
-                                        <li v-for="(message, field) in errors" :key="field">
-                                            {{ message }}
-                                        </li>
-                                    </ul>
-                                </div>
-                                <div v-if="cus_message.text" :class="['alert', message.type]" class="mt-3 p-3 rounded">
-                                    {{ cus_message.text }}
-                                </div>
-
-                                <!-- Pay Button -->
-                                <div class="payment-actions">
-                                    <button class="btn pay-button" :disabled="loading" @click="payNow">
-                                        <span v-if="loading">Processing...</span>
-                                        <span v-else>Pay</span>
-                                    </button>
-                                </div>
-
-                                <!-- Terms and Privacy -->
-                                <div class="terms-text">
-                                    By clicking Pay, you agree to the <a href="#" class="terms-link">Terms</a> and <a
-                                        href="#" class="terms-link">Privacy Policy</a>.
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-</template>
-
-<script setup>
-import { ref, watch, onMounted, computed } from "vue";
-import { useRoute, useRouter } from "vue-router";
-import axios from "axios";
-import { useAuthStore } from "../stores/auth";
-import { Swiper, SwiperSlide } from "swiper/vue";
-import { Navigation } from "swiper/modules";
-import { loadStripe } from "@stripe/stripe-js";
-import "swiper/css";
-import "swiper/css/navigation";
-
-const stripePromise = loadStripe("pk_test_51RxKS91z2jyYxDbYk2b5OEAEMATsWughmWumjqLOOMLvaou30ylrtQuvqzegUeux9XMJntbx3b8zd7miFtjzf5cf002mfUnCby");
-let elements, cardElement;
-
-const doctor = ref(null);
-const route = useRoute();
-const router = useRouter();
-const auth = useAuthStore();
-const doctortime = ref([]);
-
-
-// 👀 Watch when step changes
-const step = ref(1);
-
-
-
-
-
-const setimezone = ref("AU")
-const paymenttype = ref("credit")
-const timezone = ref('Australia (GMT+10)')
-const type = ref("Online")
-const packagesdata = ref([]);
-const docterPackage = ref(null);
-const selectedDate = ref(null);
-const selectedTime = ref(null);
-const name = ref(null);
-const email = ref(null);
-const setcountry = ref("");
-const loading = ref(false);
-const Doctor_id = ref(route.params.id);
-const user_id = ref(auth?.user?.id);
-const token = ref({}); // Stripe token for example
-const currency = ref('');
-const errors = ref({});
-const cus_message = ref({ text: "", type: "" });
-
-// ✅ Validation function
-const validateForm = () => {
-    errors.value = {};
-
-    if (!Doctor_id.value) errors.value.doctor_id = "Doctor is required";
-    if (!user_id.value) errors.value.user_id = "User is required";
-    if (!docterPackage.value) errors.value.doctortime = "Package is required";
-    if (!selectedDate.value) errors.value.date = "Date is required";
-    if (!selectedTime.value) errors.value.time = "Time is required";
-    if (!email.value) errors.value.email = "Email is required";
-    if (!name.value) errors.value.name = "Name is required";
-    if (!setcountry.value) errors.value.country = "Country is required";
-
-    return Object.keys(errors.value).length === 0;
-};
-
-// ✅ Submit handler
-const payNow = async () => {
-    const stripe = await stripePromise;
-    const { token, error } = await stripe.createToken(cardElement);
-    if (error) {
-        alert(error.message);
-        return;
-    }
-    if (!validateForm()) return;
-    try {
-        const payload = {
-            doctor_id: Doctor_id.value,
-            user_id: user_id.value,
-            doctortime: docterPackage.value,
-            currency: currency.value,
-            date: selectedDate.value,
-            time: selectedTime.value,
-            token: token.id,
-            email: email.value,
-            name: name.value,
-            country: setcountry.value,
-            type: type.value,
-            payment_method: paymenttype.value,
-            timezone: timezone.value,
-        };
-        loading.value = true;
-        const response = await fetch("/api/userpayment", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(payload),
-        });
-        const data = await response.json();
-
-        if (response.ok) {
-            alert("✅ Payment successful!");
-            router.push("/");
-
-        } else {
-            cus_message.value = {
-                text: "❌ Payment failed: " + (data.message || "Unknown error"),
-                type: "alert-danger",
-            }; alert("❌ Payment failed: " + (data.message || "Unknown error"));
-        }
-    } catch (error) {
-        cus_message.value = {
-            text: "⚠️ Network error. Please try again." + (error || "Unknown error"),
-            type: "alert-warning",
-        };
-    } finally {
-        loading.value = false;
-    }
-};
-
-
-
-function handleNext() {
-    if (!auth.user) {
-        router.push("/login");
-    } else if (step.value < 4) {
-        step.value++;
-    }
-}
-function handleBack() {
-    if (step.value > 1) step.value--;
-}
-
-watch(step, async (newStep) => {
-    if (newStep === 4) {
-        const stripe = await stripePromise;
-        if (!elements) {
-            elements = stripe.elements();
-        }
-        if (!cardElement) {
-            cardElement = elements.create("card");
-            cardElement.mount("#card-element");
-        }
-    }
-    if (newStep === 2) {
-        if (!doctortime.value || doctortime.value.length === 0) {
-            alert("⚠️ This doctor has no available time slots!");
-            step.value-- // 🚫 stop here — do not move to next step
-        }
-    }
-});
-async function loaddoctor() {
-    try {
-        axios.get(`/api/doctor/${route.params.id}`).then(({ data }) => {
-            doctor.value = data;
-            currency.value = doctor.value.currency
-        });
-    }
-    catch (err) { console.error("Failed to load Doctor:", err); }
-}
-
-async function getime() {
-    try {
-        const res = await axios.get(`/api/availability/${route.params.id}`);
-        doctortime.value = res.data;
-    }
-    catch (err) { console.error("Failed to load packages:", err); }
-}
-
-async function getPackages() {
-    try {
-        const res = await axios.get(`/api/package/${route.params.id}`);
-        packagesdata.value = res.data;
-        if (packagesdata.value.length > 0) {
-            docterPackage.value = packagesdata.value[0].id;
-        }
-    }
-    catch (err) { console.error("Failed to load packages:", err); }
-}
-
-
-onMounted(() => {
-    getime();
-    getPackages();
-    loaddoctor();
-});
-
-
-const today = new Date();
-const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-
-function formatTime(time) {
-    const [hours, minutes] = time.split(":");
-    let h = parseInt(hours);
-    const ampm = h >= 12 ? "PM" : "AM";
-    h = h % 12 || 12; // convert 0 -> 12
-    return `${h}:${minutes} ${ampm}`;
-}
-
-
-
-function getMonthData(monthOffset = 0) {
-    const date = new Date(today.getFullYear(), today.getMonth() + monthOffset, 1);
-    const year = date.getFullYear();
-    const month = date.getMonth();
-    const monthName = date.toLocaleString("en-US", { month: "long" });
-
-    const start = new Date(year, month, 1);
-    const end = new Date(year, month + 1, 0);
-    const totalDays = end.getDate();
-    const firstDayIndex = start.getDay();
-    const availableDates = computed(() => doctortime.value.map((t) => t.date));
-    const daysArray = [];
-
-    for (let i = 0; i < firstDayIndex; i++) {
-        daysArray.push({ date: "", isAvailable: false });
-    }
-
-
-    for (let d = 1; d <= totalDays; d++) {
-        const fullDate = new Date(year, month, d).toISOString().split("T")[0];
-        daysArray.push({
-            date: d,
-            fullDate,
-            isAvailable: availableDates.value.includes(fullDate),
-        });
-    }
-
-    return { monthName, year, daysArray };
-}
-
-const months = computed(() => [getMonthData(0), getMonthData(1)]);
-
-const selectedTimes = computed(() => {
-    const found = doctortime.value.find((d) => d.date === selectedDate.value);
-    return found ? found.times : [];
-});
-
-function selectDate(date) {
-    selectedDate.value = date;
-    selectedTime.value = null;
-}
-
-
-
-function formatDate(date) {
-    return new Date(date).toLocaleDateString("en-US", {
-        day: "2-digit",
-        month: "short",
-        year: "numeric",
-    });
-}
-</script>
-
 <style scoped>
 .booking-section {
     background-color: #f8f6f4;
@@ -1264,3 +608,686 @@ function formatDate(date) {
     font-weight: bold;
 }
 </style>
+
+<template>
+    <section class="booking-section py-5 ">
+        <div class="container">
+            <div class="row g-4 align-items-stretch mb-5 mt-3">
+                <!-- Left Profile Card -->
+                <div class="col-md-4" v-if="doctor">
+                    <div class="card card-custom">
+                        <div class="position-relative d-flex justify-content-center profile-image-wrapper">
+                            <!-- ✅ safe optional chaining -->
+                            <img :src="doctor?.user?.image ? '/storage/' + doctor.user.image : '/public/asset/images/docter.png'"
+                                class="card-img-top profile-image" alt="Doctor Image" />
+                            <div class="position-absolute top-0 end-0 p-2">
+                                <!-- avatar svg -->
+                            </div>
+                            <!-- tags -->
+                            <div class="position-absolute bottom-0 mb-3" style="left: 20%;">
+                                <div class="d-flex justify-content-center">
+                                    <div>
+                                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="32" height="32" rx="16" fill="#DED1BA" />
+                                            <path d="M19.8974 14.0388V17.8847L23 20.5V11.5L19.8974 14.0388Z"
+                                                stroke="#2E2D29" stroke-width="1.5" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                            <path
+                                                d="M9.68989 11.5H17.5299C18.6717 11.5 19.8889 12.4023 19.8889 13.6023V19.7493C19.8908 19.9455 19.8121 20.1345 19.67 20.275C19.528 20.4155 19.334 20.4961 19.1306 20.4993H11.0627C9.76611 20.4993 9 19.3742 9 18.2492L9.00778 12.2493C8.99315 12.1545 9.00003 12.0578 9.02797 11.9659C9.0559 11.8739 9.10421 11.7889 9.16956 11.7168C9.23411 11.6455 9.31447 11.5891 9.40467 11.5519C9.49488 11.5146 9.59263 11.4974 9.69067 11.5015L9.68989 11.5Z"
+                                                stroke="#2E2D29" stroke-width="1.5" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                        </svg>
+                                        <span class="tagb">Online</span>
+                                    </div>
+                                    <div>
+                                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <rect width="32" height="32" rx="16" fill="#DED1BA" />
+                                            <path
+                                                d="M18.7222 16H16V12.1111M9 16C9 16.9193 9.18106 17.8295 9.53284 18.6788C9.88463 19.5281 10.4002 20.2997 11.0503 20.9497C11.7003 21.5998 12.4719 22.1154 13.3212 22.4672C14.1705 22.8189 15.0807 23 16 23C16.9193 23 17.8295 22.8189 18.6788 22.4672C19.5281 22.1154 20.2997 21.5998 20.9497 20.9497C21.5998 20.2997 22.1154 19.5281 22.4672 18.6788C22.8189 17.8295 23 16.9193 23 16C23 15.0807 22.8189 14.1705 22.4672 13.3212C22.1154 12.4719 21.5998 11.7003 20.9497 11.0503C20.2997 10.4002 19.5281 9.88463 18.6788 9.53284C17.8295 9.18106 16.9193 9 16 9C15.0807 9 14.1705 9.18106 13.3212 9.53284C12.4719 9.88463 11.7003 10.4002 11.0503 11.0503C10.4002 11.7003 9.88463 12.4719 9.53284 13.3212C9.18106 14.1705 9 15.0807 9 16Z"
+                                                stroke="#2E2D29" stroke-width="1.5" stroke-linecap="round"
+                                                stroke-linejoin="round" />
+                                        </svg><span class="tagb">30 Minutes</span>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card-body">
+                            <!-- Original Content for Steps 1-3 -->
+                            <div v-if="step !== 4">
+                                <!-- ✅ safe name -->
+                                <div class="text-center">
+                                    <h5 class="card-title fw-bold">{{ doctor?.user?.name }}</h5>
+
+                                </div>
+                                <div class="d-flex justify-content-center mt-1 flex-wrap gap-2"
+                                    style="max-height: 60px; overflow: hidden;">
+                                    <p class="docter-type px-2 py-1 text-center" v-for="item in doctor.modalities"
+                                        style="width:auto; margin: 2px;">{{ item.title }}</p>
+                                </div>
+                                <div class="d-flex justify-content-between my-1">
+                                </div>
+                                <!-- ✅ limit to 20 words -->
+                                <p class="card-text m-color fw-bold text-center">
+                                    Wednesday 8 October 2025 11:30 am
+                                </p>
+
+                                <div
+                                    style="background-color: #5B4C3A;border-radius: 10px; padding: 8px 8px;color:white; text-align: center;">
+
+                                    <p class="text-[#F4EFE6] mb-1" style="font-size: 12px;">Freshwater NSW 2096,
+                                        Australia</p>
+                                    <hr class="my-1">
+                                    <b class="text-white" style="font-size: 14px;">
+                                        ${{ doctor?.price }}
+                                    </b>
+                                </div>
+                                <br>
+                                <div>
+                                    <p
+                                        style="background-color: #F4EFE6;border-radius: 10px; font-size: 12px; padding: 4px 10px;">
+                                        Every practitioner on Bodhi Holistic Hub is carefully vetted, highly rated and a
+                                        certified expert in their fields.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <!-- Session Details Content for Step 4 -->
+                            <div v-if="step === 4">
+                                <!-- Category and Price -->
+                                <div class="category-price-row">
+                                    <div class="category-tag">Meditation</div>
+                                    <div class="price-tag">$300.00</div>
+                                </div>
+
+                                <!-- Session Title -->
+                                <div class="session-title">
+                                    <h4>Your Child's Soul Essence Akashic Record Reading</h4>
+                                </div>
+
+                                <!-- Session Description -->
+                                <div class="session-description">
+                                    <p>Enhancing your parenting wisdom: Supporting your child's aut... <a href="#"
+                                            class="see-more-link">See more</a></p>
+                                </div>
+
+                                <!-- Book Session Button -->
+                                <div class="book-session-btn-local">
+                                    <button class="btn-book-session">
+                                        Book Session Now
+                                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                            <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5"
+                                                stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Right Booking Form -->
+                <div class="col-md-8">
+                    <div class="booking-wrapper shadow-sm rounded-4 bg-white p-4 h-100">
+                        <div class="d-flex justify-content-center">
+                            <h5 class="fw-boldd mb-4 mt-3 text-center"
+                                style="font-size: 20px; font-weight: bolder;   color: #7D684E;">Book a session</h5>
+                        </div>
+
+                        <!-- Stepper -->
+                        <div class="stepper d-flex justify-content-between align-items-center mb-2">
+                            <div class="step" :class="{ active: step >= 1 }">1</div>
+                            <div class="line"></div>
+                            <div class="step" :class="{ active: step >= 2 }">2</div>
+                            <div class="line"></div>
+                            <div class="step" :class="{ active: step >= 3 }">3</div>
+                            <div class="line"></div>
+                            <div class="step" :class="{ active: step >= 4 }">4</div>
+                        </div>
+
+                        <div v-if="step !== 4">
+                            <div class="d-flex justify-content-center">
+                                <h5 class="fw-bold mb-3 mt-3 text-center" style="font-size: 28px; color: #7D684E;">
+                                    {{ step === 2 ? 'Select a session date & time' : step === 3 ? 'Confirm your details'
+                                        :
+                                        'Select a session' }}</h5>
+
+                            </div>
+
+                            <div class="d-flex justify-content-center">
+
+
+                                <input type="hidden" v-model="currency" class="form-control" />
+
+
+                                <select v-model="timezone" class="custom-select mb-3"
+                                    style="background-color: #F4EFE6; color: #7D684E; font-weight: bold; width: 200px; padding: 10px; border-radius: 10px; border: 2px solid #F4EFE6; outline: none; box-shadow: none;">
+                                    <option value="Australia (GMT+10)" style="color: #7D684E; font-weight: bold;">
+                                        Australia (GMT+10)
+                                    </option>
+                                    <option value="United States (GMT-5)" style="color: #7D684E; font-weight: bold;">
+                                        United States (GMT-5)
+                                    </option>
+                                    <option value="Pakistan (GMT+5)" style="color: #7D684E; font-weight: bold;">
+                                        Pakistan (GMT+5)
+                                    </option>
+                                </select>
+
+                            </div>
+                        </div>
+                        <div v-if="step === 1">
+
+                            <!-- Dropdown -->
+                            <div class="d-flex justify-content-center">
+                                <select v-model="docterPackage" class="form-select mb-3"
+                                    style="width: 500px; color: #7D684E; text-align: center; font-weight: bold;">
+                                    <option v-for="(pkgata, index) in packagesdata" :key="index" :value="pkgata.id"
+                                        :selected="index === 0"
+                                        style="color: #7D684E; text-align: center; font-weight: bold;">
+                                        {{ pkgata.type }} ({{ pkgata.price }}, {{ pkgata.time }})
+                                    </option>
+                                </select>
+                            </div>
+
+
+                            <div class="text-center">
+                                <!-- Radio -->
+                                <div class="d-flex justify-content-center gap-4 mb-4 mt-2">
+                                    <div class="form-check d-flex align-items-center">
+                                        <input type="radio" v-model="type" class=" form-check-input me-2"
+                                            name="sessionType" value="online" checked style="accent-color: #7D684E;">
+                                        <label class="form-check-label" style="color: #7D684E;">Online session</label>
+                                    </div>
+                                    <div class="form-check d-flex align-items-center">
+                                        <input type="radio" v-model="type" class="form-check-input me-2"
+                                            name="sessionType" value="offline" style="accent-color: #7D684E;">
+                                        <label class="form-check-label" style="color: #7D684E;">In-Person</label>
+                                    </div>
+                                </div>
+
+                                <!-- Buttons -->
+                                <div class="d-flex justify-content-between">
+                                    <router-link to="/" class="btn btn-outline-dark btn-outline-custome px-5"
+                                        style="border-radius: 999px;">Back</router-link>
+
+                                    <button v-if="auth?.user?.id" class="btn btn-dark main-btn2 px-5 ms-3"
+                                        style="border-radius: 999px;" @click="handleNext">
+                                        Next
+                                    </button>
+
+                                    <router-link v-else to="/login" class="btn btn-dark main-btn2 px-5 ms-3"
+                                        style="border-radius: 999px;">Login</router-link>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div v-if="step === 2" style=" padding: 2px;">
+                            <div class="mt-4">
+                                <div class="row justify-content-center">
+
+                                    <!-- Loop through two months -->
+                                    <swiper ref="swiperRef" :navigation="{
+                                        nextEl: nextBtn,
+                                        prevEl: prevBtn,
+                                    }" class="mySwiper" style="max-width: 600px;">
+                                        <swiper-slide v-for="(m, mIndex) in months" :key="mIndex">
+                                            <div class="calendar border rounded p-3 shadow-sm">
+                                                <div class="d-flex gap-2 justify-content-between">
+                                                    <button @click="swiperPrev"
+                                                        class="btn btn-arrow-left rounded-circle d-flex align-items-center justify-content-center"
+                                                        style="width: 30px; height: 30px; background-color: transparent; border: none;">
+                                                        <img src="/public/asset/images/arrowlift.svg" alt="Previous"
+                                                            class="arrow-icon" style="width: 32px; height: 32px;">
+                                                    </button>
+                                                    <h4 class="text-center mb-3" style="color:#7D684E;">
+                                                        {{ m.monthName }} {{ m.year }}
+                                                    </h4>
+                                                    <button @click="swiperNext"
+                                                        class="btn btn-arrow-right rounded-circle d-flex align-items-center justify-content-center"
+                                                        style="width: 30px; height: 30px; background-color: transparent; border: none;">
+                                                        <img src="/public/asset/images/arrowright.svg" alt="Next"
+                                                            class="arrow-icon" style="width: 32px; height: 32px;">
+                                                    </button>
+                                                </div>
+                                                <div class="calendar-grid">
+                                                    <div class="day-name" v-for="d in days" :key="d">{{ d }}</div>
+
+                                                    <div v-for="(day, index) in m.daysArray" :key="index"
+                                                        class="day-cell" :class="{
+                                                            'disabled': !day.isAvailable,
+                                                            'selected': selectedDate === day.fullDate
+                                                        }" @click="day.isAvailable && selectDate(day.fullDate)">
+                                                        {{ day.date }}
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </swiper-slide>
+                                    </swiper>
+                                </div>
+
+                                <!-- Time Slots -->
+                                <div v-if="selectedTimes.length" class="time-slots mt-4 text-center shadow-sm  p-3 ">
+                                    <h5 class="mb-3" style="color:#7D684E;">
+                                        Time Slots for {{ formatDate(selectedDate) }}
+                                    </h5>
+                                    <div class="d-flex flex-wrap justify-content-center gap-2">
+                                        <template v-for="(time, index) in selectedTimes" :key="index">
+                                            <input type="radio" class="btn-check" :id="'time' + index" :value="time"
+                                                v-model="selectedTime" />
+                                            <label class="btn btn-outline-custom" :for="'time' + index"
+                                                style="border: 2px solid #E8E2D5; color: #7D684E; background-color: #F4EFE6; border-radius: 8px; padding: 10px 20px; font-weight: 500;">
+                                                {{ formatTime(time) }}
+                                            </label>
+                                        </template>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Buttons -->
+                            <div class="d-flex justify-content-between mt-4">
+                                <button class="btn btn-outline-custom px-4 py-2"
+                                    style="border: 2px solid #7D684E; color: #7D684E; border-radius: 999px; font-weight: 500; background: transparent;"
+                                    @click="handleBack">Back</button>
+                                <button class="btn px-4 py-2 ms-3"
+                                    style="background: linear-gradient(135deg, #7D684E 0%, #5B4C3A 100%); color: white; border-radius: 999px; font-weight: 500; box-shadow: 0 4px 8px rgba(0,0,0,0.2);"
+                                    @click="handleNext">
+                                    Next
+                                </button>
+                            </div>
+                        </div>
+                        <div v-if="step === 3">
+
+                            <div class="p-4">
+
+                                <!-- <h3 class="m-color text-center my-4">Confirm your details</h3> -->
+
+                                <div class="user-details-container mb-4">
+                                    <div class="detail-item mb-3">
+                                        <span class="detail-label">Name:</span>
+                                        <span class="detail-value">{{ auth?.user?.name }}</span>
+                                    </div>
+                                    <div class="detail-item mb-3">
+                                        <span class="detail-label">Email:</span>
+                                        <span class="detail-value">{{ auth?.user?.email }}</span>
+                                    </div>
+                                    <div class="detail-item mb-3">
+                                        <span class="detail-label">Phone:</span>
+                                        <span class="detail-value">{{ auth?.user?.number }}</span>
+                                    </div>
+                                </div>
+
+                                <div class="reminder-box mb-4">
+                                    <div class="d-flex align-items-center">
+                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" class="me-2">
+                                            <path d="M12 2L20 6L20 18L12 22L4 18L4 6L12 2Z" stroke="#7D684E"
+                                                stroke-width="2" fill="#F4EFE6" />
+                                            <path d="M12 8V12" stroke="#7D684E" stroke-width="2"
+                                                stroke-linecap="round" />
+                                            <circle cx="12" cy="15" r="1" fill="#7D684E" />
+                                        </svg>
+                                        <span class="reminder-text">Booking reminders will be sent via email and
+                                            text</span>
+                                    </div>
+                                </div>
+
+                                <!-- Buttons -->
+                                <div class="d-flex justify-content-between mt-4">
+                                    <button class="btn btn-outline-custom px-4 py-2"
+                                        style="border: 2px solid #7D684E; color: #7D684E; border-radius: 999px; font-weight: 500; background: transparent;"
+                                        @click="handleBack">Back</button>
+                                    <button class="btn px-4 py-2 ms-3"
+                                        style="background: linear-gradient(135deg, #7D684E 0%, #5B4C3A 100%); color: white; border-radius: 999px; font-weight: 500; box-shadow: 0 4px 8px rgba(0,0,0,0.2);"
+                                        @click="handleNext">
+                                        Confirm
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div v-if="step === 4">
+                            <div class="payment-form-container">
+                                <!-- Email Section -->
+                                <div class="form-group mb-4">
+                                    <label class="form-label-custom">Email</label>
+                                    <input v-model="email" type="email" class="form-input-custom"
+                                        placeholder="Enter your email" required />
+                                </div>
+
+                                <!-- Payment Method Section -->
+                                <div class="form-group mb-4">
+                                    <label class="form-label-custom">Payment Method</label>
+                                    <div class="payment-method-selector">
+                                        <select class="form-select-custom" v-model="paymenttype">
+                                            <option value="credit">Credit Card</option>
+                                            <option value="debit">Debit Card</option>
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!-- Card Information Section -->
+                                <div class="form-group mb-4">
+                                    <label class="form-label-custom">Card information</label>
+                                    <div id="card-element"></div>
+                                </div>
+
+                                <!-- Cardholder Name Section -->
+                                <div class="form-group mb-4">
+                                    <label class="form-label-custom">Cardholder name</label>
+                                    <input v-model="name" type="text" class="form-input-custom"
+                                        placeholder="Full name on card" />
+                                </div>
+                                <!-- Country and ZIP Combined Section -->
+                                <div class="form-group mb-4">
+                                    <label class="form-label-custom">Country or region</label>
+                                    <div class="combined-input-container">
+                                        <div class="country-section">
+                                            <select v-model="setcountry" class="form-select-custom country-select">
+                                                <option value="United States" selected>United States</option>
+                                                <option value="Australia">Australia</option>
+                                                <option value="Pakistan">Pakistan</option>
+                                            </select>
+                                        </div>
+                                        <div class="separator-line"></div>
+                                        <!-- <div class="zip-section">
+                                            <input type="text" v-model="zip" class="form-input-custom zip-input"
+                                                placeholder="ZIP" />
+                                        </div> -->
+                                    </div>
+                                </div>
+
+                                <!-- Error Messages -->
+                                <div v-if="Object.keys(errors).length" class="error-container mb-4">
+                                    <ul class="error-list">
+                                        <li v-for="(message, field) in errors" :key="field">
+                                            {{ message }}
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div v-if="cus_message.text" :class="['alert', message.type]" class="mt-3 p-3 rounded">
+                                    {{ cus_message.text }}
+                                </div>
+
+                                <!-- Pay Button -->
+                                <div class="payment-actions">
+                                    <button class="btn pay-button" :disabled="loading" @click="payNow">
+                                        <span v-if="loading">Processing...</span>
+                                        <span v-else>Pay</span>
+                                    </button>
+                                </div>
+
+                                <!-- Terms and Privacy -->
+                                <div class="terms-text">
+                                    By clicking Pay, you agree to the <a href="#" class="terms-link">Terms</a> and <a
+                                        href="#" class="terms-link">Privacy Policy</a>.
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</template>
+
+<script setup>
+import { ref, watch, onMounted, computed } from "vue";
+import { useRoute, useRouter } from "vue-router";
+import axios from "axios";
+import { useAuthStore } from "../stores/auth";
+import { Swiper, SwiperSlide } from "swiper/vue";
+import { Navigation } from "swiper/modules";
+import { loadStripe } from "@stripe/stripe-js";
+import "swiper/css";
+import "swiper/css/navigation";
+
+const stripePromise = loadStripe("pk_test_51RxKS91z2jyYxDbYk2b5OEAEMATsWughmWumjqLOOMLvaou30ylrtQuvqzegUeux9XMJntbx3b8zd7miFtjzf5cf002mfUnCby");
+let elements, cardElement;
+
+const doctor = ref(null);
+const route = useRoute();
+const router = useRouter();
+const auth = useAuthStore();
+const doctortime = ref([]);
+
+
+// 👀 Watch when step changes
+const step = ref(1);
+
+
+
+
+
+const setimezone = ref("AU")
+const paymenttype = ref("credit")
+const timezone = ref('Australia (GMT+10)')
+const type = ref("Online")
+const packagesdata = ref([]);
+const docterPackage = ref(null);
+const selectedDate = ref(null);
+const selectedTime = ref(null);
+const name = ref(null);
+const email = ref(null);
+const setcountry = ref("");
+const loading = ref(false);
+const Doctor_id = ref(route.params.id);
+const user_id = ref(auth?.user?.id);
+const token = ref({}); // Stripe token for example
+const currency = ref('');
+const errors = ref({});
+const cus_message = ref({ text: "", type: "" });
+
+// ✅ Validation function
+const validateForm = () => {
+    errors.value = {};
+
+    if (!Doctor_id.value) errors.value.doctor_id = "Doctor is required";
+    if (!user_id.value) errors.value.user_id = "User is required";
+    if (!docterPackage.value) errors.value.doctortime = "Package is required";
+    if (!selectedDate.value) errors.value.date = "Date is required";
+    if (!selectedTime.value) errors.value.time = "Time is required";
+    if (!email.value) errors.value.email = "Email is required";
+    if (!name.value) errors.value.name = "Name is required";
+    if (!setcountry.value) errors.value.country = "Country is required";
+
+    return Object.keys(errors.value).length === 0;
+};
+
+// ✅ Submit handler
+const payNow = async () => {
+    const stripe = await stripePromise;
+    const { token, error } = await stripe.createToken(cardElement);
+    if (error) {
+        alert(error.message);
+        return;
+    }
+    if (!validateForm()) return;
+    try {
+        const payload = {
+            doctor_id: Doctor_id.value,
+            user_id: user_id.value,
+            doctortime: docterPackage.value,
+            currency: currency.value,
+            date: selectedDate.value,
+            time: selectedTime.value,
+            token: token.id,
+            email: email.value,
+            name: name.value,
+            country: setcountry.value,
+            type: type.value,
+            payment_method: paymenttype.value,
+            timezone: timezone.value,
+        };
+        loading.value = true;
+        const response = await fetch("/api/userpayment", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+        });
+        const data = await response.json();
+
+        if (response.ok) {
+            alert("✅ Payment successful!");
+            router.push("/");
+
+        } else {
+            cus_message.value = {
+                text: "❌ Payment failed: " + (data.message || "Unknown error"),
+                type: "alert-danger",
+            }; alert("❌ Payment failed: " + (data.message || "Unknown error"));
+        }
+    } catch (error) {
+        cus_message.value = {
+            text: "⚠️ Network error. Please try again." + (error || "Unknown error"),
+            type: "alert-warning",
+        };
+    } finally {
+        loading.value = false;
+    }
+};
+
+
+
+function handleNext() {
+    if (!auth.user) {
+        router.push("/login");
+    } else if (step.value < 4) {
+        step.value++;
+    }
+}
+function handleBack() {
+    if (step.value > 1) step.value--;
+}
+
+watch(step, async (newStep) => {
+    if (newStep === 4) {
+        const stripe = await stripePromise;
+        if (!elements) {
+            elements = stripe.elements();
+        }
+        if (!cardElement) {
+            cardElement = elements.create("card");
+            cardElement.mount("#card-element");
+        }
+    }
+    if (newStep === 2) {
+        if (!doctortime.value || doctortime.value.length === 0) {
+            alert("⚠️ This doctor has no available time slots!");
+            step.value-- // 🚫 stop here — do not move to next step
+        }
+    }
+});
+async function loaddoctor() {
+    try {
+        axios.get(`/api/doctor/${route.params.id}`).then(({ data }) => {
+            doctor.value = data;
+            currency.value = doctor.value.currency
+        });
+    }
+    catch (err) { console.error("Failed to load Doctor:", err); }
+}
+
+async function getime() {
+    try {
+        const res = await axios.get(`/api/availability/${route.params.id}`);
+        doctortime.value = res.data;
+    }
+    catch (err) { console.error("Failed to load packages:", err); }
+}
+
+async function getPackages() {
+    try {
+        const res = await axios.get(`/api/package/${route.params.id}`);
+        packagesdata.value = res.data;
+        if (packagesdata.value.length > 0) {
+            docterPackage.value = packagesdata.value[0].id;
+        }
+    }
+    catch (err) { console.error("Failed to load packages:", err); }
+}
+const swiperRef = ref(null);
+
+
+onMounted(() => {
+    getime();
+    getPackages();
+    loaddoctor();
+});
+
+const swiperNext = () => {
+    if (swiperRef.value && swiperRef.value.$el) {
+        swiperRef.value.$el.swiper.slideNext();
+    }
+};
+
+const swiperPrev = () => {
+    if (swiperRef.value && swiperRef.value.$el) {
+        swiperRef.value.$el.swiper.slidePrev();
+    }
+};
+const today = new Date();
+const days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+function formatTime(time) {
+    const [hours, minutes] = time.split(":");
+    let h = parseInt(hours);
+    const ampm = h >= 12 ? "PM" : "AM";
+    h = h % 12 || 12; // convert 0 -> 12
+    return `${h}:${minutes} ${ampm}`;
+}
+
+
+
+function getMonthData(monthOffset = 0) {
+    const date = new Date(today.getFullYear(), today.getMonth() + monthOffset, 1);
+    const year = date.getFullYear();
+    const month = date.getMonth();
+    const monthName = date.toLocaleString("en-US", { month: "long" });
+
+    const start = new Date(year, month, 1);
+    const end = new Date(year, month + 1, 0);
+    const totalDays = end.getDate();
+    const firstDayIndex = start.getDay();
+    const availableDates = computed(() => doctortime.value.map((t) => t.date));
+    const daysArray = [];
+
+    for (let i = 0; i < firstDayIndex; i++) {
+        daysArray.push({ date: "", isAvailable: false });
+    }
+
+
+    for (let d = 1; d <= totalDays; d++) {
+        const fullDate = new Date(year, month, d).toISOString().split("T")[0];
+        daysArray.push({
+            date: d,
+            fullDate,
+            isAvailable: availableDates.value.includes(fullDate),
+        });
+    }
+
+    return { monthName, year, daysArray };
+}
+
+const months = computed(() => [getMonthData(0), getMonthData(1)]);
+
+const selectedTimes = computed(() => {
+    const found = doctortime.value.find((d) => d.date === selectedDate.value);
+    return found ? found.times : [];
+});
+
+function selectDate(date) {
+    selectedDate.value = date;
+    selectedTime.value = null;
+}
+
+
+
+function formatDate(date) {
+    return new Date(date).toLocaleDateString("en-US", {
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+    });
+}
+</script>
