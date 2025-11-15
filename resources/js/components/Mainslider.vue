@@ -1,7 +1,8 @@
 
 <template>
   <div class="healing-slider-container">
-    <img class="slider-top-image" :src="topDecoration" alt="" aria-hidden="true" />
+    <div class="healing-center-overlay" aria-hidden="true"></div>
+      <div class="healing-bottom-overlay" aria-hidden="true"></div>
     <section class="healing-slider">
       <div class="slide-wrapper">
         <div class="copy-block">
@@ -62,7 +63,6 @@
         </div>
       </div>
     </section>
-    <img class="slider-bottom-image" :src="bottomDecoration" alt="" aria-hidden="true" />
   </div>
 </template>
   
@@ -71,8 +71,6 @@
 import { Swiper, SwiperSlide } from "swiper/vue";
 import "swiper/css";
 
-const topDecoration = "/asset/images/aboutbg-top.svg";
-const bottomDecoration = "/asset/images/aboutbg-bt.svg";
   
 const slides = [
   {
@@ -182,7 +180,73 @@ const swiperModules = [];
   
 <style scoped>
 .healing-slider-container {
+  position: relative;
   background: rgb(255, 255, 255);
+  overflow: hidden;
+}
+
+.healing-center-overlay {
+  position: absolute;
+  top: -30px;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120'%3E%3Cpath d='M0 0H1440V40C1350 10 1200 70 800 40C500 5 300 40 0 70Z' fill='%23ffffff'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  /* background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120'%3E%3Cpath d='M0 0H1440V40C1350 10 1200 70 800 40C500 5 300 40 0 70Z' fill='%23ffffff'/%3E%3C/svg%3E"); */
+  background-size: cover;
+  background-position: top center;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.healing-bottom-overlay {
+  position: absolute;
+  bottom: -72px;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120'%3E%3Cpath d='M0 50H1440V120C1100 100 900 50 600 80C350 100 150 70 0 90Z' fill='%23ffffff'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  /* background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120'%3E%3Cpath d='M0 50H1440V120C1100 100 900 50 600 80C350 100 150 70 0 90Z' fill='%230e0e0e'/%3E%3C/svg%3E"); */
+  background-size: cover;
+  background-position: bottom center;
+  transform: scaleY(-1);
+  transform-origin: center;
+  z-index: 20;
+  pointer-events: none;
+}
+
+@media (min-width: 1300px) {
+  .healing-center-overlay {
+  position: absolute;
+  top: -10px;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120'%3E%3Cpath d='M0 0H1440V40C1350 10 1200 70 800 40C500 5 300 40 0 70Z' fill='%23ffffff'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: top center;
+  z-index: 20;
+  pointer-events: none;
+}
+
+.healing-bottom-overlay {
+  position: absolute;
+  bottom: -40px;
+  left: 0;
+  width: 100%;
+  height: 120px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 120'%3E%3Cpath d='M0 50H1440V120C1100 100 900 50 600 80C350 100 150 70 0 90Z' fill='%23ffffff'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: bottom center;
+  transform: scaleY(-1);
+  transform-origin: center;
+  z-index: 20;
+  pointer-events: none;
+}
 }
 
 .slider-top-image,
