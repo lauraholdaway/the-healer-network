@@ -12,7 +12,7 @@
 
             </div>
             <div class="my-0 my-md-0 py-0 py-md-0">
-                <Searchbox />
+                <Alldoctorsearchbox />
             </div>
 
             <div class="my-4 my-md-5 px-2 px-md-5">
@@ -163,7 +163,7 @@
 <script setup>
 import Joinus from '../components/joinus.vue';
 import Mainslider from '../components/Mainslider.vue'
-import Searchbox from '../components/Searchbox.vue';
+import Alldoctorsearchbox from '../components/Alldoctorsearchbox.vue';
 import { ref, onMounted, computed } from "vue";
 import axios from "axios";
 

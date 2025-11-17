@@ -10,7 +10,8 @@
                             Join Us as a <br> Healer
                         </p>
                         <p class="" style="font-size: 18px; margin-top: 30px; max-width: 340px; font-family: 'Cormorant Garamond'; font-weight: 500; color: #2E2D29;">
-                            Join Us as a Healer  Let’s build a world where holistic healing is embraced, respected, and accessible to all.
+                            Let’s build a world where holistic healing is embraced, respected, and accessible to all.
+
                         </p>
                         <button class=" apply-now-btn ms-0 px-4 py-2" style="border-radius: 12px;">Apply Now</button>
                     </div>
@@ -83,9 +84,7 @@
                     </p>
                     <b>Who we are looking for</b>
                     <p class="m-color">
-                        Holistic practitioners who share our mission to make holistic care simple and accessible for
-                        everyone. Right now, we're mostly looking for practitioners based in NSW. However, we welcome
-                        applications from anywhere in Australia.
+                        Healers who share our vision, those who are passionate about guiding others with compassion, authenticity, and skill. Whether you’re an energy worker, counsellor, herbalist, or meditation teacher, this is your space to grow.
                     </p>
                     <button class=" btn-light main-btn2 px-3" style="font-family: 'Courier New', Courier, monospace; color: #4F3C1E; background:#C1B39D;">
                         About Us <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
@@ -541,6 +540,33 @@
 }
 
 /* Responsive CTA Section */
+@media (max-width: 1440px) {
+    .cta-section {
+        padding: 3rem 0;
+    }
+
+    .cta-title {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .cta-btn {
+        padding: 0.9rem 2rem;
+        font-size: 1rem;
+        min-width: 180px;
+    }
+
+    .cta-subtext {
+        font-size: 0.95rem;
+    }
+
+    .cta-bg-image img {
+        width: 400px !important;
+        height: 400px !important;
+        bottom: -40px !important;
+    }
+}
+
 @media (max-width: 768px) {
     .cta-section {
         padding: 3rem 0;

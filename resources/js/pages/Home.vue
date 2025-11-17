@@ -4,7 +4,7 @@
         <div class="container">
             <!-- Heading -->
             <h1 class="display-4 fw-bold my-2 text-[#A0704C] herotaxt mt-0 pt-11">
-                BOOK A HOLISTIC HEALER <br /> THAT YOU LOVE
+                BOOK A HOLISTIC HEALER <br />YOU LOVE
             </h1>
 
             <!-- Buttons -->
@@ -15,13 +15,12 @@
             </div> -->
 
             <!-- Subtext -->
-            <p class="mb-5 px-lg-5 hero-subtext">
-                Whether it's Acupuncture, Reiki, Hypnotherapy or Counselling we'll help you find the best natural <br>
-                therapy healer thats right for you.
+            <p class="mb-5 px-lg-8 hero-subtext">
+                Whatever holistic therapy you are looking for, we are here to help. Whether its energy healing, counselling, hypnotherapy or another alternative therapy, we’ll find the perfect healer for you.
             </p>
 
             <!-- Search Box -->
-            <Searchbox />
+            <Searchbox  />
         </div>
 
 
@@ -29,10 +28,9 @@
 
         <!-- Scroll Down -->
         <div class="scroll-down">
-            <a class="scroll-down__btn" href="#below">
+            <router-link to="/Alldoctor" class="scroll-down__btn">
                 <span class="scroll-down__label scroll-down__label--display">View All Healer</span>
-               
-            </a>
+            </router-link>
         </div>
 
 
@@ -46,12 +44,10 @@
 
 
 
-    <section class="container my-md-5   pt-md--10" >
+    <section class="container my-md-5   pt-md-10" >
         <h2 class="section-heading">Your Path to Healing</h2>
         <p class="section-subtext">
-            The Healer Network connects you with certified online therapists, providing the tools and support you need
-            to book <br>
-            therapy sessions tailored to your well-being.
+            The Healer Network connects you with certified holistic healers who combine experience, compassion, and integrity to support your wellbeing.
         </p>
 
         <div class="row gy-1">
@@ -108,7 +104,7 @@
         <div class="container py-1"  id="below">
             <!-- Title -->
             <h2 class="section-title">Book a Session</h2>
-            <p class="section-subtitle" style="font-size: 13px; color:#5B4C3A; font-weight: 400;">
+            <p class="section-subtitle" style="font-size: 22px;  color:#5B4C3A; font-weight: 400;">
                 Embark on your journey to improved wellbeing and inner peace.
             </p>
 
@@ -405,10 +401,11 @@ const isSummaryTruncated = (text, index) => {
 <style scoped>
 .scroll-down {
     position: absolute;
-    bottom: 24px;
+    bottom: -25px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;
+    
 }
 
 .scroll-down__btn {

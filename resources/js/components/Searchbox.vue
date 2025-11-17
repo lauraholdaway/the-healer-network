@@ -1,12 +1,12 @@
 <template>
     <form @submit.prevent="searchDoctor">
-        <div class="row search-box bg-white shadow p-3 d-flex align-items-center" style="border-radius: 20px;">
+        <div class="row search-box bg-white shadow p-3 mb-7 d-flex align-items-center" style="border-radius: 20px;">
             <!-- Concern or Practice -->
             <div class="col-12 col-md-4 text-start search-box-section">
                 <div class="d-flex flex-column">
                     <span class=" mb-1 search-box-title">What support are you looking for?</span>
                     <input type="text" v-model="form.modality" class="form-control border-0 shadow-none"
-                        placeholder="Find a healer near you or&#10;book online sessions from anywhere in the world." />
+                        placeholder="Find a healer near you or book online sessions from anywhere in the world." />
                 </div>
 
             </div>

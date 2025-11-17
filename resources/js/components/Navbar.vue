@@ -21,6 +21,7 @@
                     <router-link to="/corporate" class="nav-link" @click="closeMobileMenu">Corporate</router-link>
                     <router-link to="/resources" class="nav-link" @click="closeMobileMenu">Resources</router-link>
                     <router-link to="/about" class="nav-link" @click="closeMobileMenu">About</router-link>
+                    <router-link to="/PractitionerIndex" class="nav-link" @click="closeMobileMenu">Join All Healers</router-link>
 
                     <!-- Services Dropdown -->
                     <div class="dropdown">
@@ -46,7 +47,7 @@
                             <!-- <span class="dropdown-arrow">▼</span> -->
                         </a>
                         <div v-if="activeDropdown === 'healer'" class="dropdown-menu">
-                            <router-link to="/PractitionerIndex" class="dropdown-item" @click="closeMobileMenu">All
+                            <router-link to="/Alldoctor" class="dropdown-item" @click="closeMobileMenu">All
                                 Healers</router-link>
                             <router-link to="/location" class="dropdown-item" @click="closeMobileMenu">By
                                 Location</router-link>
@@ -250,6 +251,7 @@ const handleMobileRedirect = async () => {
     gap: 35px;
     overflow: visible;
     position: relative;
+    flex-wrap: nowrap;
 }
 
 .nav-link {
@@ -262,6 +264,7 @@ const handleMobileRedirect = async () => {
     display: flex;
     align-items: center;
     gap: 2px;
+    white-space: nowrap;
 }
 
 .nav-link:hover {
@@ -279,6 +282,7 @@ const handleMobileRedirect = async () => {
 
 .dropdown-toggle {
     cursor: pointer;
+    white-space: nowrap;
 }
 
 .dropdown-arrow {
@@ -412,20 +416,104 @@ const handleMobileRedirect = async () => {
     transform: rotate(-45deg) translate(7px, -7px);
 }
 
+@media (max-width: 480px) {
+    .hamburger-menu.active span:nth-child(1) {
+        transform: rotate(45deg) translate(7px, 7px);
+    }
+
+    .hamburger-menu.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
+    }
+}
+
+@media (max-width: 360px) {
+    .hamburger-menu.active span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+    }
+
+    .hamburger-menu.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(5px, -5px);
+    }
+}
+
 /* Mobile Book Now Button (Hidden by default) */
 .mobile-book-now {
     display: none;
 }
 
+/* Laptop/Medium Screen Adjustments */
+@media (min-width: 993px) and (max-width: 1440px) {
+    .navbar-left {
+        padding: 0 25px;
+    }
+
+    .brand-link {
+        font-size: 16px;
+        letter-spacing: 0.8px;
+    }
+
+    .navbar-nav-links {
+        gap: 20px;
+    }
+
+    .nav-link {
+        font-size: 15px;
+    }
+
+    .navbar-right {
+        width: 220px;
+        padding: 0 20px;
+    }
+
+    .book-now-btn {
+        font-size: 15px;
+        padding: 10px 18px;
+    }
+
+    .book-now-btn svg {
+        width: 18px;
+        height: 16px;
+    }
+}
+
+@media (min-width: 993px) and (max-width: 1200px) {
+    .navbar-left {
+        padding: 0 20px;
+    }
+
+    .navbar-nav-links {
+        gap: 12px;
+    }
+
+    .nav-link {
+        font-size: 14px;
+    }
+
+    .brand-link {
+        font-size: 15px;
+        letter-spacing: 0.5px;
+    }
+
+    .navbar-right {
+        width: 200px;
+        padding: 0 15px;
+    }
+
+    .book-now-btn {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+}
+
 /* Mobile Responsiveness */
 @media (max-width: 992px) {
     .custom-navbar {
-        height: 70px;
+        height: 60px;
     }
 
     .navbar-left {
         justify-content: space-between;
-        padding: 0 20px;
+        padding: 0 15px;
         position: relative;
     }
 
@@ -434,23 +522,34 @@ const handleMobileRedirect = async () => {
         flex-shrink: 0;
     }
 
+    .brand-link {
+        font-size: 15px;
+        letter-spacing: 0.5px;
+    }
+
     /* Show hamburger menu */
     .hamburger-menu {
         display: flex;
+        width: 26px;
+        height: 20px;
+    }
+
+    .hamburger-menu span {
+        height: 2.5px;
     }
 
     /* Hide desktop navigation and right section */
     .navbar-nav-links {
         position: fixed;
-        top: 70px;
+        top: 60px;
         left: -100%;
         width: 100%;
-        height: calc(100vh - 70px);
+        height: calc(100vh - 60px);
         background: #FBF9F7;
         flex-direction: column;
         align-items: flex-start;
-        padding: 30px 20px;
-        gap: 20px;
+        padding: 20px 15px;
+        gap: 12px;
         transition: left 0.3s ease;
         overflow-y: auto;
         z-index: 1000;
@@ -473,8 +572,8 @@ const handleMobileRedirect = async () => {
     .mobile-book-now {
         display: block;
         width: 100%;
-        margin-top: 20px;
-        padding-top: 20px;
+        margin-top: 15px;
+        padding-top: 15px;
         border-top: 2px solid #E8E0D5;
     }
 
@@ -483,7 +582,13 @@ const handleMobileRedirect = async () => {
         justify-content: center;
         background: #C4B39A;
         border-radius: 8px;
-        padding: 15px 20px;
+        padding: 12px 18px;
+        font-size: 15px;
+    }
+
+    .book-now-btn.mobile svg {
+        width: 18px;
+        height: 16px;
     }
 
     .book-now-btn.mobile svg path {
@@ -497,8 +602,8 @@ const handleMobileRedirect = async () => {
 
     .nav-link {
         width: 100%;
-        padding: 10px 0;
-        font-size: 18px;
+        padding: 8px 0;
+        font-size: 16px;
     }
 
     .dropdown-menu {
@@ -507,53 +612,169 @@ const handleMobileRedirect = async () => {
         border: none;
         border-radius: 0;
         background: #F4EFE6;
-        margin: 10px 0;
-        padding: 10px 0 10px 20px;
+        margin: 8px 0;
+        padding: 8px 0 8px 15px;
     }
 
     .dropdown-item {
-        padding: 12px 16px;
-        font-size: 16px;
+        padding: 10px 14px;
+        font-size: 15px;
     }
 }
 
 /* Tablet adjustments */
 @media (max-width: 768px) {
+    .custom-navbar {
+        height: 60px;
+    }
+
+    .navbar-left {
+        padding: 0 12px;
+    }
+
     .brand-link {
-        font-size: 16px;
+        font-size: 14px;
+        letter-spacing: 0.3px;
+    }
+
+    .navbar-nav-links {
+        padding: 18px 12px;
+        gap: 10px;
     }
 
     .nav-link {
-        font-size: 16px;
+        font-size: 15px;
+        padding: 7px 0;
+    }
+
+    .dropdown-menu {
+        margin: 6px 0;
+        padding: 6px 0 6px 12px;
+    }
+
+    .dropdown-item {
+        padding: 9px 12px;
+        font-size: 14px;
+    }
+
+    .mobile-book-now {
+        margin-top: 12px;
+        padding-top: 12px;
+    }
+
+    .book-now-btn.mobile {
+        padding: 11px 16px;
+        font-size: 14px;
     }
 }
 
 /* Small mobile phones */
 @media (max-width: 480px) {
+    .custom-navbar {
+        height: 55px;
+    }
+
     .navbar-left {
-        padding: 0 15px;
+        padding: 0 10px;
     }
 
     .brand-link {
-        font-size: 14px;
-        letter-spacing: 0.5px;
+        font-size: 13px;
+        letter-spacing: 0.3px;
     }
 
-    .nav-link {
-        font-size: 15px;
+    .hamburger-menu {
+        width: 24px;
+        height: 18px;
     }
 
-    .dropdown-item {
-        font-size: 14px;
-    }
-
-    .book-now-btn.mobile {
-        font-size: 14px;
-        padding: 12px 16px;
+    .hamburger-menu span {
+        height: 2px;
     }
 
     .navbar-nav-links {
-        padding: 20px 15px;
+        top: 55px;
+        height: calc(100vh - 55px);
+        padding: 15px 10px;
+        gap: 8px;
+    }
+
+    .nav-link {
+        font-size: 14px;
+        padding: 6px 0;
+    }
+
+    .dropdown-menu {
+        margin: 5px 0;
+        padding: 5px 0 5px 10px;
+    }
+
+    .dropdown-item {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+
+    .mobile-book-now {
+        margin-top: 10px;
+        padding-top: 10px;
+    }
+
+    .book-now-btn.mobile {
+        font-size: 13px;
+        padding: 10px 14px;
+    }
+
+    .book-now-btn.mobile svg {
+        width: 16px;
+        height: 14px;
+    }
+}
+
+/* Extra small mobile phones */
+@media (max-width: 360px) {
+    .custom-navbar {
+        height: 50px;
+    }
+
+    .navbar-left {
+        padding: 0 8px;
+    }
+
+    .brand-link {
+        font-size: 12px;
+        letter-spacing: 0.2px;
+    }
+
+    .hamburger-menu {
+        width: 22px;
+        height: 16px;
+    }
+
+    .navbar-nav-links {
+        top: 50px;
+        height: calc(100vh - 50px);
+        padding: 12px 8px;
+        gap: 6px;
+    }
+
+    .nav-link {
+        font-size: 13px;
+        padding: 5px 0;
+    }
+
+    .dropdown-menu {
+        margin: 4px 0;
+        padding: 4px 0 4px 8px;
+    }
+
+    .dropdown-item {
+        padding: 7px 8px;
+        font-size: 12px;
+    }
+
+    .book-now-btn.mobile {
+        font-size: 12px;
+        padding: 9px 12px;
     }
 }
 
