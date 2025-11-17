@@ -2,7 +2,18 @@
     <div class="container py-5">
         <div class="p-5">
             <div class="container my-5 text-center" v-if="doctors">
-                <h1 class="fw-bold m-color">Search A Practitioner</h1>
+                <div class="container my-3 my-md-5 text-center px-2">
+                    <h1 class="fw-bold m-color mt-3 fs-3 fs-md-1"
+                        style="font-family: 'Cormorant Garamond', serif !important; color: #2E2D29 ;">Book a Session
+                        with a
+                        Trusted Healer</h1>
+                    <p class="m-color px-2 px-md-0 mx-auto" style="color: #5B4C3A; font-size: 14px; max-width: 800px;">
+                        Find
+                        healers by specialty, location and availability. Each healer profile includes experience, areas
+                        of
+                        expertise, and testimonials from real clients.</p>
+
+                </div>
                 <Searchbox />
             </div>
         </div>
@@ -17,13 +28,13 @@
         </div>
         <div>
 
-            <div class="card mx-md-5" v-for="doctor in doctors">
+            <div class="card mx-md-5" v-for="(doctor, index) in doctors" :key="index">
                 <div class="row">
                     <div class="col-md-3">
                         <div class="position-relative rounded-4"
                             style="background: linear-gradient(180deg, rgb(91 76 58 / 41%) 50.9%, #5B4C3A 100%);">
                             <img :src="doctor.user.image ? '/storage/' + doctor.user.image : '/default-image.png'"
-                                class="card-img-top rounded-4 img-fluid" alt="practitioner">
+                                class="card-img-top doctorImages rounded-4 img-fluid" alt="practitioner">
                             <div class="position-absolute top-0 end-0 p-2">
                                 <svg width="30" height="30" viewBox="0 0 46 46" fill="none"
                                     xmlns="http://www.w3.org/2000/svg">
@@ -35,7 +46,6 @@
                                 </svg>
                             </div>
                             <div class="position-absolute  bottom-0 mb-3" style="left: 3%;">
-
                                 <div class="d-flex justify-content-cetner">
                                     <div>
                                         <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
@@ -80,9 +90,18 @@
                             <p class="price fw-bold">${{ doctor.price }}</p>
 
                         </div>
-                        <p class="card-text">{{ doctor.about }} <router-link :to="`/docter/${doctor.user.id}`"
+                        <!-- <p class="card-text">{{ doctor.about }} <router-link :to="`/docter/${doctor.user.id}`"
                                 class="m-color">See
-                                more</router-link></p>
+                                more</router-link></p> -->
+                        <p class="card-text doctor-card-summary" :class="{ 'expanded': showFull[index] }">
+                            <span>
+                                {{ truncatedSummary(doctor.about, index) }}
+                                <span v-if="isSummaryTruncated(doctor.about, index)">...</span>
+                            </span>
+                            <a href="#" class="m-color doctor-card-toggle ms-2" @click.prevent="toggleText(index)">
+                                {{ showFull[index] ? 'See less' : 'See more' }}
+                            </a>
+                        </p>
 
                         <router-link :to="`/booksession/${doctor.user.id}`" class="btn main-btn2 text-dark">Book Session
                             Now
@@ -118,6 +137,8 @@ import { ref, onMounted, watch } from "vue";
 import { useRoute } from "vue-router";
 import axios from "axios";
 import Searchbox from '../components/Searchbox.vue';
+import { reactive } from 'vue'
+
 
 
 const route = useRoute();
@@ -149,4 +170,39 @@ watch(
     () => route.query,
     () => loadDoctors()
 );
+
+
+const showFull = reactive([])
+
+function toggleText(index) {
+    // initialize the index if undefined
+    if (showFull[index] === undefined) {
+        showFull[index] = false
+    }
+
+    showFull[index] = !showFull[index]
+    // alert(`Toggled doctor ${index}, showFull = ${showFull[index]}`) // for testing
+}
+const maxSummaryLength = 40
+
+const truncatedSummary = (text, index) => {
+    if (!text) return '-'
+    if (showFull[index]) {
+        return text
+    }
+    return text.length > maxSummaryLength ? text.substring(0, maxSummaryLength) : text
+}
+const isSummaryTruncated = (text, index) => {
+    if (!text) return false
+    return !showFull[index] && text.length > maxSummaryLength
+}
 </script>
+<style scoped>
+.doctorImages {
+    width: 100%;
+    height: 230px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+</style>
