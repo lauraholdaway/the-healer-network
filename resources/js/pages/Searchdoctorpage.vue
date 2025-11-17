@@ -103,7 +103,8 @@
                             </a>
                         </p>
 
-                        <router-link :to="`/booksession/${doctor.user.id}`" class="btn main-btn2 text-dark">Book Session
+                        <router-link :to="`/booksession/${doctor.user.id}`"
+                            class="btn main-btn2 text-dark text-white">Book Session
                             Now
                             →</router-link>
                         <router-link :to="`/docter/${doctor.user.id}`" class=" btn main-btn2 ms-2">View
