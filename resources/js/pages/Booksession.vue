@@ -1041,6 +1041,8 @@ import { Navigation } from "swiper/modules";
 import { loadStripe } from "@stripe/stripe-js";
 import "swiper/css";
 import "swiper/css/navigation";
+import { useNotification } from "@kyvg/vue3-notification";
+const { notify } = useNotification()
 
 const stripePromise = loadStripe("pk_test_51RxKS91z2jyYxDbYk2b5OEAEMATsWughmWumjqLOOMLvaou30ylrtQuvqzegUeux9XMJntbx3b8zd7miFtjzf5cf002mfUnCby");
 let elements, cardElement;
@@ -1128,7 +1130,12 @@ const payNow = async () => {
         const data = await response.json();
 
         if (response.ok) {
+
             alert("✅ Payment successful!");
+            notify({
+                title: "Succes",
+                text: "✅ Payment successful!",
+            });
             router.push("/");
 
         } else {
