@@ -2,16 +2,16 @@
     <section>
         <div class="container my-3 my-md-5 px-2 px-md-3">
 
-            <div class="container my-3 my-md-5 text-center px-2">
-                <h1 class="fw-bold m-color mt-3 fs-3 fs-md-1"
-                    style="font-family: 'Cormorant Garamond', serif !important; color: #2E2D29 ;">Book a Session with a
+            <div class="container my-3 my-md-5 text-center  px-2">
+                <h1 class="fw-bold m-color  fs-3 fs-md-1"
+                    style="font-family: 'Cormorant Garamond', serif !important; color: #2E2D29 ; margin-top: 80px;">Book a Session with a
                     Trusted Healer</h1>
                 <p class="m-color px-2 px-md-0 mx-auto" style="color: #5B4C3A; font-size: 14px; max-width: 800px;">Find
                     healers by specialty, location and availability. Each healer profile includes experience, areas of
                     expertise, and testimonials from real clients.</p>
 
             </div>
-            <div class="my-3 my-md-4 py-2 py-md-4">
+            <div class="my-0 my-md-0 py-0 py-md-0">
                 <Searchbox />
             </div>
 
