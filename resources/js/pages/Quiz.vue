@@ -6,13 +6,26 @@
                 <div v-if="currentStep === 1" class="step1">
                     <div class="row align-items-center g-4">
                         <div class="col-12 col-md-6 order-2 order-md-1">
-                            <h1 class="quiz-main-heading">Let's find the <br class="d-none d-md-block">right healer for <br class="d-none d-md-block"> you</h1>
-                            <p class="quiz-intro-text">Finding the right holistic healer can feel overwhelming - we understand. That's why we're here to guide you to someone who truly fits your needs. <br class="d-none d-md-block"> All our practitioners are carefully vetted for their expertise, experience, and genuine care for their clients.<br class="d-none d-md-block">Please answer a few simple questions so we can match you with the right support.<br class="d-none d-md-block">Rest assured that your information remains completely confidential and secure.</p>
+                            <h1 class="quiz-main-heading">Let’s Find the <br class="d-none d-md-block">right healer for
+                                <br class="d-none d-md-block"> you
+                            </h1>
+                            <p class="quiz-intro-text">We understand that finding a healer can feel overwhelming, so we
+                                make it simple for you. <br class="d-none d-md-block"> Answer a few short questions
+                                about your goals, challenges, and preferences, and we’ll match you with healers who are
+                                the best fit for your needs</p>
+                            <b>
+                                Reassurance:
+                            </b>
+                            <p class="quiz-intro-text">
+                                All responses are confidential. You’ll only be connected with qualified, verified
+                                healers who align with your answers.
+                            </p>
 
-                            <button class="quiz-start-btn mt-3" type="button" @click="nextStep">Let's Start Quiz</button>
+                            <button class="quiz-start-btn mt-3" type="button" @click="nextStep">Start Quiz</button>
                         </div>
                         <div class="col-12 col-md-6 order-1 order-md-2 text-center">
-                            <img src="/public/asset/images/quiz.png" alt="Quiz Illustration" class="img-fluid rounded-5 quiz-image" />
+                            <img src="/public/asset/images/quiz.png" alt="Quiz Illustration"
+                                class="img-fluid rounded-5 quiz-image" />
                         </div>
                     </div>
                 </div>
@@ -20,7 +33,8 @@
                 <!-- Step 2 -->
                 <div v-if="currentStep === 2" class="step2">
                     <router-link to="/" class="btn btn-outline-custome mb-3" @click.prevent="prevStep">
-                        <img src="/public/asset/images/back-arrow.svg" alt="Back" class="me-2" style="width: 16px; height: 16px;" />
+                        <img src="/public/asset/images/back-arrow.svg" alt="Back" class="me-2"
+                            style="width: 16px; height: 16px;" />
                         Go Back
                     </router-link>
 
@@ -28,14 +42,18 @@
                         <h1 class="my-3 my-md-4 quiz-heading">Complete The Quiz To Match A Therapist</h1>
 
                         <div class="row g-4">
-                            <div class="col-12 col-lg-6 d-flex flex-column justify-content-between quiz-question-section">
+                            <div
+                                class="col-12 col-lg-6 d-flex flex-column justify-content-between quiz-question-section">
                                 <div class="col-12 col-md-6 col-lg-4">
-                                    <p class="bg-color rounded-5 p-2 mt-5 mx-auto text-center justify-content-center question-badge">Question 1/10</p>
+                                    <p
+                                        class="bg-color rounded-5 p-2 mt-5 mx-auto text-center justify-content-center question-badge">
+                                        Question 1/10</p>
                                 </div>
 
                                 <div class="my-3 my-md-4">
                                     <h3 class="fw-normal " style="font-size: 30px;">
-                                        What specific concerns, challenges, or goals are you hoping to address?This question is required.
+                                        What specific concerns, challenges, or goals are you hoping to address?This
+                                        question is required.
                                     </h3>
                                 </div>
 
@@ -49,8 +67,9 @@
                             <div class="col-12 col-lg-6 mt-5">
                                 <p class="mb-3" style="color: #5B4C3A;">Select as many as you can</p>
 
-                                <div class="options-container" >
-                                    <div v-for="(option, index) in modalities" :key="index" style="background-color: #fff; border-radius: 10px; padding: 10px;"
+                                <div class="options-container">
+                                    <div v-for="(option, index) in modalities" :key="index"
+                                        style="background-color: #fff; border-radius: 10px; padding: 10px;"
                                         class="form-check border py-2 my-2 px-2">
                                         <input class="form-check-input mx-1" type="checkbox" :id="'option' + index"
                                             :value="option.id" v-model="form.checkoptions" />
@@ -61,7 +80,8 @@
                                 </div>
 
                                 <div class="mt-3 mt-md-4">
-                                    <button class="btn main-btn2" type="button" @click="nextStep" style="background-color: #DED1BA; border-radius: 10px; padding: 10px 20px; color: #2E2D29; border: none; ">Done</button>
+                                    <button class="btn main-btn2" type="button" @click="nextStep"
+                                        style="background-color: #DED1BA; border-radius: 10px; padding: 10px 20px; color: #2E2D29; border: none; ">Done</button>
                                     <span class="ms-2 d-none d-md-inline" style="color: #5B4C3A;">Click Enter ↵</span>
                                 </div>
                             </div>
@@ -72,7 +92,8 @@
                 <!-- Step 3 -->
                 <div v-if="currentStep === 3" class="step3">
                     <router-link to="/" class="btn btn-outline-custome mb-3" @click.prevent="prevStep">
-                        <img src="/public/asset/images/back-arrow.svg" alt="Back" class="me-2" style="width: 16px; height: 16px;" />
+                        <img src="/public/asset/images/back-arrow.svg" alt="Back" class="me-2"
+                            style="width: 16px; height: 16px;" />
                         Go Back
                     </router-link>
 
@@ -80,9 +101,11 @@
                         <h1 class="my-3 my-md-4 quiz-heading">Complete The Quiz To Match A Therapist</h1>
 
                         <div class="row g-4 mt-5">
-                            <div class="col-12 col-lg-6 d-flex flex-column justify-content-between quiz-question-section">
+                            <div
+                                class="col-12 col-lg-6 d-flex flex-column justify-content-between quiz-question-section">
                                 <div class="col-12 col-md-6 col-lg-4">
-                                    <p class="bg-color rounded-5 p-2 mx-auto text-center question-badge">Question 2/10</p>
+                                    <p class="bg-color rounded-5 p-2 mx-auto text-center question-badge">Question 2/10
+                                    </p>
                                 </div>
 
                                 <div class="my-3 my-md-4">
@@ -104,7 +127,8 @@
                             </div>
 
                             <div class="col-12 col-lg-6">
-                                <p class="mb-3" style="color: #5B4C3A; font-size: 13px;">The more details you provide, the better we can match you.</p>
+                                <p class="mb-3" style="color: #5B4C3A; font-size: 13px;">The more details you provide,
+                                    the better we can match you.</p>
                                 <div class="mb-3">
                                     <textarea class="form-control" v-model="form.details" rows="10"
                                         placeholder="Please type your answer here..."></textarea>
@@ -122,7 +146,8 @@
                 </div>
                 <div v-if="currentStep === 4" class="step3">
                     <router-link to="/" class="btn btn-outline-custome mb-3" @click.prevent="prevStep">
-                        <img src="/public/asset/images/back-arrow.svg" alt="Back" class="me-2" style="width: 16px; height: 16px;" />
+                        <img src="/public/asset/images/back-arrow.svg" alt="Back" class="me-2"
+                            style="width: 16px; height: 16px;" />
                         Go Back
                     </router-link>
 
@@ -130,9 +155,11 @@
                         <h1 class="my-3 my-md-4 quiz-heading">Complete The Quiz To Match A Therapist</h1>
 
                         <div class="row g-4 mt-5">
-                            <div class="col-12 col-lg-6 d-flex flex-column justify-content-between quiz-question-section">
+                            <div
+                                class="col-12 col-lg-6 d-flex flex-column justify-content-between quiz-question-section">
                                 <div class="col-12 col-md-6 col-lg-4">
-                                    <p class="bg-color rounded-5 p-2 mx-auto text-center question-badge">Question 3/10</p>
+                                    <p class="bg-color rounded-5 p-2 mx-auto text-center question-badge">Question 3/10
+                                    </p>
                                 </div>
 
                                 <div class="my-3 my-md-4">
@@ -154,7 +181,8 @@
                             </div>
 
                             <div class="col-12 col-lg-6">
-                                <p class="mb-3" style="color: #5B4C3A; font-size: 13px;">The more details you provide, the better we can match you.</p>
+                                <p class="mb-3" style="color: #5B4C3A; font-size: 13px;">The more details you provide,
+                                    the better we can match you.</p>
                                 <div class="mb-3">
                                     <div class="col-12">
                                         <label for="inputAddress1" class="form-label">Input Field Lable</label>
@@ -176,7 +204,7 @@
                                             id="inputAddress3" placeholder="Please type your answer here...">
                                     </div>
                                 </div>
-                                
+
                                 <div class="mt-3 mt-md-4">
                                     <button class="btn main-btn2" type="button" @click="nextStep">Done</button>
                                     <span class="ms-2 d-none d-md-inline">
@@ -197,15 +225,18 @@
                         <h1 class="my-3 my-md-4 quiz-heading">Complete The Quiz To Match A Therapist</h1>
 
                         <div class="row g-4 mt-5">
-                            <div class="col-12 col-lg-6 d-flex flex-column justify-content-between quiz-question-section">
+                            <div
+                                class="col-12 col-lg-6 d-flex flex-column justify-content-between quiz-question-section">
                                 <div class="col-12 col-md-6 col-lg-4">
-                                    <p class="bg-color rounded-5 p-2 mx-auto text-center question-badge">Question 4/10</p>
+                                    <p class="bg-color rounded-5 p-2 mx-auto text-center question-badge">Question 4/10
+                                    </p>
                                 </div>
 
                                 <div class="my-3 my-md-4">
-                                  <h3 class="fw-normal quiz-question" style="color: #2E2D29; max-width: 400px;">Do you have a preference for online or in person?
-                                    <small style="color: #C4B39A;">(optional)</small>
-                                </h3>
+                                    <h3 class="fw-normal quiz-question" style="color: #2E2D29; max-width: 400px;">Do you
+                                        have a preference for online or in person?
+                                        <small style="color: #C4B39A;">(optional)</small>
+                                    </h3>
                                 </div>
 
                                 <div class="mt-auto pb-3 d-none d-lg-block">
@@ -219,7 +250,8 @@
                             </div>
 
                             <div class="col-12 col-lg-6">
-                                <p class="mb-5" style="color: #5B4C3A; font-size: 13px; margin-bottom: 30px;">Choose one</p>
+                                <p class="mb-5" style="color: #5B4C3A; font-size: 13px; margin-bottom: 30px;">Choose one
+                                </p>
                                 <div class="custom-radio-option" :class="{ 'selected': form.chose_options === 'yes' }">
                                     <input class="custom-radio-input" v-model="form.chose_options" type="radio"
                                         value="yes" name="radioDefault" id="radioDefault1">
@@ -263,7 +295,12 @@
                         </router-link>
                     </div>
                     <h2 class="loading-heading mb-3">Finding your perfect matches</h2>
-                    <p class="loading-text px-2">Finding the right holistic healer can feel overwhelming - we understand. That's why we're here to guide you to someone who truly fits your needs. <br class="d-none d-md-block"> All our practitioners are carefully vetted for their expertise, experience, and genuine care for their clients.<br class="d-none d-md-block">Please answer a few simple questions so we can match you with the right support.<br class="d-none d-md-block">Rest assured that your information remains completely confidential and secure.</p>
+                    <p class="loading-text px-2">Finding the right holistic healer can feel overwhelming - we
+                        understand. That's why we're here to guide you to someone who truly fits your needs. <br
+                            class="d-none d-md-block"> All our practitioners are carefully vetted for their expertise,
+                        experience, and genuine care for their clients.<br class="d-none d-md-block">Please answer a few
+                        simple questions so we can match you with the right support.<br class="d-none d-md-block">Rest
+                        assured that your information remains completely confidential and secure.</p>
                     <div class="d-flex justify-content-center text-center w-100 my-4">
                         <div class="loading-bar text-center">
                             <div class="loading-progress"></div>
@@ -379,7 +416,7 @@ const quizpost = async () => {
 
 /* Quiz start button */
 .quiz-start-btn {
-    font-family: 
+    font-family:
     'FONTSPRING DEMO - The Seasons', serif !important;
     background: #8A7356;
     border-radius: 10px;
