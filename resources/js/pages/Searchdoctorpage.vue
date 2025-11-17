@@ -28,7 +28,7 @@
         </div>
         <div>
 
-            <div class="card mx-md-5" v-for="doctor in doctors">
+            <div class="card mx-md-5" v-for="(doctor, index) in doctors" :key="index">
                 <div class="row">
                     <div class="col-md-3">
                         <div class="position-relative rounded-4"
@@ -46,7 +46,6 @@
                                 </svg>
                             </div>
                             <div class="position-absolute  bottom-0 mb-3" style="left: 3%;">
-
                                 <div class="d-flex justify-content-cetner">
                                     <div>
                                         <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
@@ -91,9 +90,18 @@
                             <p class="price fw-bold">${{ doctor.price }}</p>
 
                         </div>
-                        <p class="card-text">{{ doctor.about }} <router-link :to="`/docter/${doctor.user.id}`"
+                        <!-- <p class="card-text">{{ doctor.about }} <router-link :to="`/docter/${doctor.user.id}`"
                                 class="m-color">See
-                                more</router-link></p>
+                                more</router-link></p> -->
+                        <p class="card-text doctor-card-summary" :class="{ 'expanded': showFull[index] }">
+                            <span>
+                                {{ truncatedSummary(doctor.about, index) }}
+                                <span v-if="isSummaryTruncated(doctor.about, index)">...</span>
+                            </span>
+                            <a href="#" class="m-color doctor-card-toggle ms-2" @click.prevent="toggleText(index)">
+                                {{ showFull[index] ? 'See less' : 'See more' }}
+                            </a>
+                        </p>
 
                         <router-link :to="`/booksession/${doctor.user.id}`" class="btn main-btn2 text-dark">Book Session
                             Now
@@ -129,6 +137,8 @@ import { ref, onMounted, watch } from "vue";
 import { useRoute } from "vue-router";
 import axios from "axios";
 import Searchbox from '../components/Searchbox.vue';
+import { reactive } from 'vue'
+
 
 
 const route = useRoute();
@@ -160,6 +170,32 @@ watch(
     () => route.query,
     () => loadDoctors()
 );
+
+
+const showFull = reactive([])
+
+function toggleText(index) {
+    // initialize the index if undefined
+    if (showFull[index] === undefined) {
+        showFull[index] = false
+    }
+
+    showFull[index] = !showFull[index]
+    // alert(`Toggled doctor ${index}, showFull = ${showFull[index]}`) // for testing
+}
+const maxSummaryLength = 40
+
+const truncatedSummary = (text, index) => {
+    if (!text) return '-'
+    if (showFull[index]) {
+        return text
+    }
+    return text.length > maxSummaryLength ? text.substring(0, maxSummaryLength) : text
+}
+const isSummaryTruncated = (text, index) => {
+    if (!text) return false
+    return !showFull[index] && text.length > maxSummaryLength
+}
 </script>
 <style scoped>
 .doctorImages {
