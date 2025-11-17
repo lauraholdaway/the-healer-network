@@ -46,7 +46,7 @@
 
 
 
-    <section class="container my-md-5  pt-md--10" >
+    <section class="container my-md-5   pt-md--10" >
         <h2 class="section-heading">Your Path to Healing</h2>
         <p class="section-subtext">
             The Healer Network connects you with certified online therapists, providing the tools and support you need
@@ -113,7 +113,7 @@
             </p>
 
             <!-- Button and Navigation -->
-            <div class="d-flex justify-content-between align-items-center mb-4 mt-4">
+            <div class="d-flex justify-content-between align-items-center mb-14 mt-4">
                 <div class="text-start">
                     <router-link to="/Alldoctor" class="btn btn-outline-dark btn-outline-custome rounded-pill">
                         View All Healar
@@ -252,7 +252,7 @@
     <br>
 
     <section>
-        <div class="container py-5 blog-container mt-md-5 px-4 px-md-0 ">
+        <div class="container py-0 blog-container mt-md-4 px-4 px-md-0 ">
             <div class="blog-header d-flex justify-content-between align-items-center">
                 <div class="blog-header-text">
                     <small class="section-sub " style="font-family: 'Cormorant Garamond', serif; color: #8A7356;">Our

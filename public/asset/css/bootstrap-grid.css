@@ -500,6 +500,7 @@
   .col-md-4 {
     flex: 0 0 auto;
     width: 33.33333333%;
+  
   }
   .col-md-5 {
     flex: 0 0 auto;
@@ -2194,6 +2195,9 @@
     padding-left: 3rem !important;
   }
 }
+
+
+
 @media (min-width: 768px) {
   .d-md-inline {
     display: inline !important;
