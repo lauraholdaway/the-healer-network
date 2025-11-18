@@ -291,13 +291,11 @@ class DoctorController extends Controller
             ->when($availability, function ($query) use ($availability) {
                 $query->where('appointmentType', 'like', "%{$availability}%");
             })
-            ->when($location, function ($query) use ($price) {
+
+            ->when($price, function ($query) use ($price) {
                 $query->where('price', 'like', "%{$price}%");
             })
-            ->when($location, function ($query) use ($price) {
-                $query->where('price', 'like', "%{$price}%");
-            })
-            ->when($location, function ($query) use ($language) {
+            ->when($language, function ($query) use ($language) {
                 $query->where('languages', 'like', "%{$language}%");
             })
             ->when($gender, function ($query) use ($gender) {
