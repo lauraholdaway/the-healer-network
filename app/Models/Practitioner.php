@@ -28,14 +28,17 @@ class Practitioner extends Authenticatable
         'website',
         'languages',
         'currency',
+        'appointmentType',
     ];
 
     public function user()
     {
         return $this->belongsTo(User::class);
     }
-
-
+    public function ratings()
+    {
+        return $this->hasMany(Rating::class, 'user_id', 'id');
+    }
 
     public function modalities()
     {

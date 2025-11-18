@@ -7,7 +7,7 @@
                 <p class="position-absolute top-50 start-50 translate-middle text-white fw-bold hero-text">
                     We’re on a mission to make holistic <br class="d-none d-md-inline">healing accessible for everyone.
                     <br>
-                    <button class="btn btn-light mt-3 mt-md-4 custom-btn">Read More</button>
+                    <!-- <button class="btn btn-light mt-3 mt-md-4 custom-btn">Read More</button> -->
                 </p>
             </div>
         </div>

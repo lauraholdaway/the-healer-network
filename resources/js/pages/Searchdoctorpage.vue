@@ -14,7 +14,7 @@
                         expertise, and testimonials from real clients.</p>
 
                 </div>
-                <Searchbox />
+                <Alldoctorsearchbox />
             </div>
         </div>
         <div v-if="loading" class="loading-container">
@@ -33,7 +33,7 @@
                     <div class="col-md-3">
                         <div class="position-relative rounded-4"
                             style="background: linear-gradient(180deg, rgb(91 76 58 / 41%) 50.9%, #5B4C3A 100%);">
-                            <img :src="doctor.user.image ? '/storage/' + doctor.user.image : '/default-image.png'"
+                            <img :src="doctor?.user?.image ? '/storage/' + doctor.user.image : '/default-image.png'"
                                 class="card-img-top doctorImages rounded-4 img-fluid" alt="practitioner">
                             <div class="position-absolute top-0 end-0 p-2">
                                 <svg width="30" height="30" viewBox="0 0 46 46" fill="none"
@@ -103,11 +103,11 @@
                             </a>
                         </p>
 
-                        <router-link :to="`/booksession/${doctor.user.id}`"
+                        <router-link :to="`/booksession/${doctor?.user?.id}`"
                             class="btn main-btn2 text-dark text-white">Book Session
                             Now
                             →</router-link>
-                        <router-link :to="`/docter/${doctor.user.id}`" class=" btn main-btn2 ms-2">View
+                        <router-link :to="`/docter/${doctor?.user?.id}`" class=" btn main-btn2 ms-2">View
                             Profile</router-link>
 
                         <div class=" mt-3">
@@ -122,7 +122,7 @@
                                         stroke="#2E2D29" stroke-width="2" stroke-linecap="round"
                                         stroke-linejoin="round" />
                                 </svg>
-                                <span class="ms-2 mt-3">{{ doctor.practice_location }}</span>
+                                <span class="ms-2 mt-3">{{ doctor?.practice_location }}</span>
                             </span>
                         </div>
                     </div>
@@ -137,7 +137,7 @@
 import { ref, onMounted, watch } from "vue";
 import { useRoute } from "vue-router";
 import axios from "axios";
-import Searchbox from '../components/Searchbox.vue';
+import Alldoctorsearchbox from '../components/Alldoctorsearchbox.vue';
 import { reactive } from 'vue'
 
 
@@ -153,6 +153,14 @@ const loadDoctors = async () => {
             params: {
                 modality: route.query.modality || "",
                 location: route.query.location || "",
+                modalityType: route.query.modalityType || "",
+                availability: route.query.availability || "",
+                price: route.query.price || "",
+                gender: route.query.gender || "",
+                language: route.query.language || "",
+                accessibility: route.query.accessibility || "",
+                certification: route.query.certification || "",
+                rating: route.query.rating || "",
             },
         });
         doctors.value = res.data;

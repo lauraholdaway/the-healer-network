@@ -15,6 +15,7 @@ return new class extends Migration
             $table->string('role')->default('2');
             $table->string('last_name')->nullable();
             $table->string('number')->nullable();
+            $table->string('gender')->default('male');
             $table->string('image')->nullable();
         });
     }
