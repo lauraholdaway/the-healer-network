@@ -168,12 +168,12 @@
     "src": "public/asset/images/xicon.svg"
   },
   "resources/js/app.js": {
-    "file": "assets/app-wYFrADcX.js",
+    "file": "assets/app-Nj-ZLlQQ.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
     "css": [
-      "assets/app-CAWtVuA7.css"
+      "assets/app-G6Lz6bGI.css"
     ],
     "assets": [
       "assets/arrowlift-jUjrU256.svg",
