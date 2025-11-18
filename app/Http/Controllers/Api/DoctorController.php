@@ -311,6 +311,11 @@ class DoctorController extends Controller
                 });
             })
 
+
+            ->whereHas('user', function ($q) {
+                $q->where('status', 1);
+            })
+
             ->get();
         // dd($rating);
 
