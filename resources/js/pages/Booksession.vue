@@ -11,6 +11,14 @@
     background: #fff;
 }
 
+.card-body {
+    padding: 20px;
+}
+
+.booking-wrapper {
+    padding: 20px !important;
+}
+
 .profile-image-wrapper {
     background: linear-gradient(180deg, #c4b39a 0%, rgba(91, 76, 58, 0.41) 100%);
     border-radius: 20px;
@@ -21,6 +29,7 @@
     height: 100%;
     display: flex;
     align-items: stretch;
+    position: relative;
 }
 
 .profile-image-wrapper .profile-image {
@@ -30,6 +39,9 @@
     object-position: center;
     display: block;
     flex: 1 1 auto;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 .stepper .step {
@@ -607,6 +619,61 @@
     color: white;
     font-weight: bold;
 }
+
+@media (max-width: 1400px) {
+    .profile-image-wrapper {
+        min-height: 230px;
+    }
+    
+    .card-body {
+        padding: 15px;
+    }
+    
+    .booking-wrapper {
+        padding: 40px 60px !important;
+    }
+}
+
+@media (min-width: 1400px) {
+    .card-custom {
+        min-height: 600px;
+    }
+    
+    .card-body {
+        padding: 25px;
+    }
+    
+    .booking-wrapper {
+        min-height: 600px;
+        padding: 60px 70px !important;
+    }
+    
+    .profile-image-wrapper {
+        min-height: 280px;
+        position: relative;
+    }
+    
+    .profile-image-wrapper .profile-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+    
+    .custom-select {
+        width: 200px !important;
+        padding: 9px 20px !important;
+        font-size: 14px !important;
+    }
+    
+    .form-select {
+        width: 560px !important;
+        font-size: 14px !important;
+    }
+}
 </style>
 
 <template>
@@ -659,11 +726,11 @@
                             <!-- Original Content for Steps 1-3 -->
                             <div v-if="step !== 4">
                                 <!-- ✅ safe name -->
-                                <div class="text-center">
+                                <div class="text-center mb-3">
                                     <h5 class="card-title fw-bold">{{ doctor?.user?.name }}</h5>
 
                                 </div>
-                                <div class="d-flex justify-content-center mt-1 flex-wrap gap-2"
+                                <div class="d-flex justify-content-center mt-2 mb-3 flex-wrap gap-2"
                                     style="max-height: 60px; overflow: hidden;">
                                     <p class="docter-type px-2 py-1 text-center" v-for="item in doctor.modalities"
                                         style="width:auto; margin: 2px;">{{ item.title }}</p>
@@ -671,12 +738,12 @@
                                 <div class="d-flex justify-content-between my-1">
                                 </div>
                                 <!-- ✅ limit to 20 words -->
-                                <p class="card-text m-color fw-bold text-center">
+                                <p class="card-text m-color fw-bold text-center mb-3">
                                     Wednesday 8 October 2025 11:30 am
                                 </p>
 
                                 <div
-                                    style="background-color: #5B4C3A;border-radius: 10px; padding: 8px 8px;color:white; text-align: center;">
+                                    style="background-color: #5B4C3A;border-radius: 10px; padding: 8px 8px;color:white; text-align: center; margin-bottom: 15px;">
 
                                     <p class="text-[#F4EFE6] mb-1" style="font-size: 12px;">Freshwater NSW 2096,
                                         Australia</p>
@@ -685,10 +752,9 @@
                                         ${{ doctor?.price }}
                                     </b>
                                 </div>
-                                <br>
                                 <div>
                                     <p
-                                        style="background-color: #F4EFE6;border-radius: 10px; font-size: 12px; padding: 4px 10px;">
+                                        style="background-color: #F4EFE6;border-radius: 10px; font-size: 12px; padding: 4px 10px; margin-bottom: 0;">
                                         Every practitioner on Bodhi Holistic Hub is carefully vetted, highly rated and a
                                         certified expert in their fields.
                                     </p>
@@ -731,7 +797,7 @@
 
                 <!-- Right Booking Form -->
                 <div class="col-md-8">
-                    <div class="booking-wrapper shadow-sm rounded-4 bg-white p-4 h-100">
+                    <div class="booking-wrapper shadow-sm rounded-4 bg-white h-100">
                         <div class="d-flex justify-content-center">
                             <h5 class="fw-boldd mb-4 mt-3 text-center"
                                 style="font-size: 20px; font-weight: bolder;   color: #7D684E;">Book a session</h5>

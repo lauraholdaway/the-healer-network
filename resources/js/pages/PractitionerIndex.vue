@@ -11,13 +11,16 @@
                             Join Us as a <br> Healer
                         </p>
                         <p class=""
-                            style="font-size: 18px; margin-top: 30px; max-width: 340px; font-family: 'Cormorant Garamond'; font-weight: 500; color: #2E2D29;">
+                            style="font-size: 22px; margin-top: 30px; max-width: 340px; font-family: 'Cormorant Garamond'; font-weight: 500; color: #2E2D29;">
                             Let’s build a world where holistic healing is embraced, respected, and accessible to all.
 
                         </p>
+                        <!-- <router-link to="practitor_register"
+                            class="text-decoration-none apply-now-btn ms-0 px-4 py-2 mt-3"
+                            style="border-radius: 12px;">Apply Now</router-link> -->
                         <router-link to="practitor_register"
                             class="text-decoration-none apply-now-btn ms-0 px-4 py-2 mt-3"
-                            style="border-radius: 12px;">Apply Now</router-link>
+                            style="border-radius: 12px; width: 270px; display: inline-block; text-align: center;">Apply Now</router-link>
                     </div>
                     <div class="col-md-6">
                         <div class="practitionerindeximage1 ">
@@ -55,7 +58,7 @@
                         </svg>
                     </p>
                     <b>Who we are</b>
-                    <p class="" style="color: #5B4C3A; font-size: 14;">
+                    <p class="" style="color: #5B4C3A; font-size: 14; margin-bottom: 40px;">
                         A trusted community connecting the most skilled and heart-led healers with people seeking
                         support.
                     </p>
@@ -92,14 +95,14 @@
                         </svg>
                     </p>
                     <b>Who we are looking for</b>
-                    <p class="m-color">
+                    <p class="m-color" style="margin-bottom: 40px;">
                         Healers who share our vision, those who are passionate about guiding others with compassion,
                         authenticity, and skill. Whether you’re an energy worker, counsellor, herbalist, or meditation
                         teacher, this is your space to grow.
                     </p>
                     <button class=" btn-light main-btn2 px-3"
                         style="font-family: 'Courier New', Courier, monospace; color: #4F3C1E; background:#C1B39D;">
-                        About Us <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                        Join Us <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
                             stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path d="M5 12h14M12 5l7 7-7 7" />
                         </svg>
@@ -337,7 +340,7 @@
     }
 
     .practitionerindextext + p {
-        font-size: 24px !important;
+        font-size: 31px !important;
         max-width: 500px !important;
         margin-top: 50px !important;
     }
@@ -346,6 +349,25 @@
         font-size: 20px !important;
         padding: 18px 45px !important;
         margin-top: 25px !important;
+    }
+    
+    .how-it-works-card {
+        padding: 4rem 2rem !important;
+        min-height: 320px !important;
+        max-width: 300px !important;
+    }
+    
+    .card-heading {
+        font-size: 1.5rem !important;
+        margin-bottom: 1.5rem !important;
+        margin-top: 0 !important;
+        padding-top: 0.8rem !important;
+    }
+    
+    .card-text {
+        font-size: 1.1rem !important;
+        margin-top: 0.8rem !important;
+        padding-bottom: 0.8rem !important;
     }
 }
 
@@ -392,10 +414,13 @@
     margin: 0 auto;
     flex-wrap: wrap;
     justify-content: center;
+   
+    padding: 2rem;
+    border-radius: 15px;
 }
 
 .how-it-works-card {
-    background: #F7F4EF;
+    background: #F4EFE6;
     padding: 3rem 1.5rem;
     border-radius: 15px;
     flex: 1;
@@ -403,7 +428,7 @@
     max-width: 250px;
     text-align: left;
     transition: all 0.3s ease;
-    min-height: 180px;
+    min-height: 250px;
 }
 
 .how-it-works-card:hover {
@@ -416,8 +441,10 @@
     font-size: 1.2rem;
     font-weight: 600;
     color: #2E2D29;
-    margin-bottom: 0.8rem;
+    margin-bottom: 1.2rem;
+    margin-top: 0;
     line-height: 1.3;
+    padding-top: 0.5rem;
 }
 
 .card-text {
@@ -426,6 +453,8 @@
     color: #2E2D29;
     line-height: 1.5;
     margin: 0;
+    margin-top: 0.5rem;
+    padding-bottom: 0.5rem;
 }
 
 /* Responsive How It Works */

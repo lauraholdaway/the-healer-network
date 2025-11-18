@@ -44,7 +44,7 @@
 
 
 
-    <section class="container my-md-5   pt-md-10" >
+    <section class="container my-md-55   pt-md-10" >
         <h2 class="section-heading">Your Path to Healing</h2>
         <p class="section-subtext">
             The Healer Network connects you with certified holistic healers who combine experience, compassion, and integrity to support your wellbeing.

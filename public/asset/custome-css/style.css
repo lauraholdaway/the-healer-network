@@ -1304,6 +1304,10 @@ footer ul li a:hover {
     transition: all 0.3s ease;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+.my-md-55 {
+    margin-top: 6rem !important;
+    margin-bottom: 6rem !important;
+}
 
 .main-btn2:hover {
     background-color: #6f5b43;
