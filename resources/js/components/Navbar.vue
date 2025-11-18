@@ -21,7 +21,8 @@
                     <router-link to="/corporate" class="nav-link" @click="closeMobileMenu">Corporate</router-link>
                     <router-link to="/resources" class="nav-link" @click="closeMobileMenu">Resources</router-link>
                     <router-link to="/about" class="nav-link" @click="closeMobileMenu">About</router-link>
-                    <router-link to="/PractitionerIndex" class="nav-link" @click="closeMobileMenu">Join All Healers</router-link>
+                    <router-link to="/PractitionerIndex" class="nav-link" @click="closeMobileMenu">Join All
+                        Healers</router-link>
 
                     <!-- Services Dropdown -->
                     <div class="dropdown">
@@ -51,6 +52,8 @@
                                 Healers</router-link>
                             <router-link to="/location" class="dropdown-item" @click="closeMobileMenu">By
                                 Location</router-link>
+                            <router-link to="/contact" class="dropdown-item" @click="closeMobileMenu">Contact
+                                Us</router-link>
                         </div>
                     </div>
 
