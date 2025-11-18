@@ -168,12 +168,20 @@
     "src": "public/asset/images/xicon.svg"
   },
   "resources/js/app.js": {
+<<<<<<< HEAD
     "file": "assets/app-B5cuu-sn.js",
+=======
+    "file": "assets/app-QSyMxmLP.js",
+>>>>>>> 9577427b99b2d90fc652defcdf245c90b82601fb
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
     "css": [
+<<<<<<< HEAD
       "assets/app-DKAA4m0z.css"
+=======
+      "assets/app-ozeJfTE6.css"
+>>>>>>> 9577427b99b2d90fc652defcdf245c90b82601fb
     ],
     "assets": [
       "assets/arrowlift-jUjrU256.svg",
