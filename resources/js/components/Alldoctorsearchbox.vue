@@ -1,6 +1,6 @@
 <template>
     <form @submit.prevent="searchDoctor">
-        <div class="row search-box bg-white shadow p-3 mb-7 d-flex align-items-center" style="border-radius: 20px;">
+        <div class="row search-box bg-white shadow p-3 mb-5 d-flex align-items-center" style="border-radius: 20px;">
             <!-- Concern or Practice -->
             <div class="col-12 col-md-4 text-start search-box-section">
                 <div class="d-flex flex-column">
@@ -598,6 +598,11 @@ const getCurrentLocation = () => {
 .search-box button,
 .search-box .fw-bold {
     font-family: 'Avenir', sans-serif !important;
+}
+
+.search-box {
+    width: 93%;
+    margin: 0 auto;
 }
 
 /* Desktop styles */
