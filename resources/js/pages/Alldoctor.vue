@@ -44,8 +44,9 @@
                 <div class="card mx-2 mx-md-5 mb-3" v-for="(doctor, index) in doctors">
                     <div class="row g-0 align-items-stretch">
                         <div class="col-12 col-md-3 d-flex">
-                            <div class="position-relative rounded-4 p-3 p-md-4 w-100 h-100 doctor-image-wrapper"
-                                :style="getDoctorBackground(index)">
+                            <div class="position-relative rounded-4 p-3 p-md-4 w-100 h-100 doctor-image-wrapper">
+                                <img :src="doctor?.user?.image ? '/storage/' + doctor.user.image : '/default-image.png'"
+                                    class="card-img-top doctorImages rounded-4 img-fluid" alt="practitioner">
                                 <div class="position-absolute top-0 end-0 p-2">
                                     <svg width="30" height="30" viewBox="0 0 46 46" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -105,26 +106,25 @@
                                     <p class="price fw-bold mb-0 mt-2 mt-md-0">${{ doctor.price }}</p>
 
                                 </div>
-                                <p class="card-text mb-2"
-                                    style="margin-top: -8px; font-family: roboto; font-size: 14px;">{{
-                                        limitWords(doctor.about, 20) }}
+                                <p class="mb-2 doctor-card-summary" :class="{ 'expanded': showFull[index] }"
+                                    :style="showFull[index] ? 'margin-top: -8px; font-size: 14px; color: #5B4C3A;' : 'margin-top: -8px; font-size: 14px; color: #5B4C3A; padding: 10px 0px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;'">
+                                    <span v-if="!showFull[index]">{{ limitWords(doctor.about, 13) }}</span>
+                                    <span v-else style="white-space: normal;">{{ doctor.about }}</span>
+                                    <a href="#" class="m-color ms-2" @click.prevent="toggleText(index)" v-if="doctor.about && doctor.about.split(' ').length > 20" style="white-space: nowrap;">
+                                        {{ showFull[index] ? 'See less' : 'See more' }}
+                                    </a>
                                 </p>
 
                                 <div class="d-flex flex-column flex-md-row gap-2 mb-3">
                                     <router-link :to="`/booksession/${doctor.user?.id}`" class="btn main-btn2 w-100"
-                                        style="padding: 6px 12px; align-self: flex-start; font-size: 14px; max-width: 200px;">Book
+                                        style="padding: 10px 8px; color: #2E2D29; align-self: flex-start; font-size: 14px; max-width: 160px; background-color: #C1B39D; text-align: center; transition: all 0.3s ease;"
+                                        @mouseover="$event.target.style.backgroundColor='#5B4C3A'; $event.target.style.color='white'"
+                                        @mouseout="$event.target.style.backgroundColor='#C1B39D'; $event.target.style.color='#2E2D29'">Book
                                         Session Now
-                                        <svg width="14" class="main-btn2-icon" height="14" viewBox="0 0 20 18"
-                                            fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M11.5 1.5L19 9L11.5 1.5ZM19 9L11.5 16.5L19 9ZM19 9L1 9L19 9Z"
-                                                fill="#ffffff" />
-                                            <path d="M11.5 1.5L19 9M19 9L11.5 16.5M19 9L1 9" stroke="#ffffff"
-                                                stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
+                                        
                                     </router-link>
                                     <router-link :to="`/docter/${doctor.user?.id}`" class="btn main-btn3 w-100"
-                                        style="padding: 6px 12px; font-size: 14px; max-width: 150px;">View
-                                        Profile</router-link>
+                                        style="padding: 6px 12px; font-size: 14px; max-width: 120px; text-align: center; display: flex; align-items: center; justify-content: center;">View Profile</router-link>
                                 </div>
 
                                 <div class="mt-2">
@@ -162,28 +162,13 @@
 import Joinus from '../components/joinus.vue';
 import Mainslider from '../components/Mainslider.vue'
 import Alldoctorsearchbox from '../components/Alldoctorsearchbox.vue';
-import { ref, onMounted, computed } from "vue";
+import { ref, onMounted, computed, reactive } from "vue";
 import axios from "axios";
 
 const modalities = ref([]);
 const doctors = ref(null);
-const loading = ref(false)
-
-const doctorImages = [
-    '/asset/images/docter.png',
-    '/asset/images/docter2.png',
-    '/asset/images/docter3.png'
-];
-
-const getDoctorImage = (index) => {
-    return doctorImages[index % doctorImages.length];
-};
-
-const getDoctorBackground = (index) => {
-    return {
-        backgroundImage: `linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.25) 100%), url(${getDoctorImage(index)})`
-    };
-};
+const loading = ref(false);
+const showFull = reactive([]);
 
 const GetDoctorByModality = async (id) => {
 
@@ -217,8 +202,16 @@ onMounted(async () => {
 onMounted(GetDoctorByModality);
 
 function limitWords(text, count) {
-    const words = text.split(' ')
-    return words.length > count ? words.slice(0, count).join(' ') + '...' : text
+    if (!text) return '-';
+    const words = text.split(' ');
+    return words.length > count ? words.slice(0, count).join(' ') : text;
+}
+
+function toggleText(index) {
+    if (showFull[index] === undefined) {
+        showFull[index] = false;
+    }
+    showFull[index] = !showFull[index];
 }
 </script>
 
@@ -272,11 +265,24 @@ p.m-color {
     background-position: center;
     background-repeat: no-repeat;
     min-height: 220px;
+    overflow: hidden;
+    position: relative;
 }
 
 @media (min-width: 1500px) {
     .doctor-image-wrapper {
         min-height: 280px;
     }
+}
+
+.doctorImages {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 </style>

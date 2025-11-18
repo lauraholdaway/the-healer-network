@@ -32,9 +32,9 @@
         </div>
         <div class="container-fluid bg-custome py-1" style="margin-top: -2px; margin-bottom: 0;">
             <div class="container py-4 py-md-5">
-                <div class="row">
-                    <div class="col-md-6 text-start p-3 p-md-5">
-                        <div class="pt-3 pt-md-5">
+                <div class="row align-items-start">
+                    <div class="col-md-6 text-start pt-3 p-md-0">
+                        <div>
                             <h1 class="fw-bold section-heading text-start">
                                 About The Healer Network
                             </h1>
@@ -44,9 +44,9 @@
                                 Pia, and Laura, after each of us began receiving the same intuitive downloads: a shared
                                 vision for a global platform that would revolutionise the way people connect with
                                 healers.<br><br>
-                                It wasn’t until we were lounging on sunbeds, chatting by the pool, in Bali, that we
-                                discovered we’d all been receiving the exact same guidance. To our surprise, we laughed
-                                and realised that this wasn’t coincidence, it was divine orchestration. The vision was
+                                It wasn't until we were lounging on sunbeds, chatting by the pool, in Bali, that we
+                                discovered we'd all been receiving the exact same guidance. To our surprise, we laughed
+                                and realised that this wasn't coincidence, it was divine orchestration. The vision was
                                 too big for one person alone, but together, we could bring it to life. And so, <b>The
                                     Healer Network</b> was born.
                             </p>
@@ -377,6 +377,7 @@ margin-bottom: 50px;
     justify-content: start;
     font-family: 'Cormorant Garamond', serif !important;
     font-size: 40px;
+    padding-bottom: 20px;
 
     color: #2E2D29;
 }
@@ -473,6 +474,38 @@ margin-bottom: 50px;
 .bg-white {
     transition: all 0.3s ease;
 }
+
+/* Large Screen Styles - 1700px */
+@media (min-width: 1700px) {
+   
+    .section-text {
+    font-size: 17px;
+    color: #2E2D29;
+    max-width: 500px;
+}
+        .about-image {
+            height: 500px;
+        }
+    }
+
+    .p-md-5 {
+        padding: 3rem !important;
+        margin-top: 0px;
+    }
+    .section-heading {
+        font-size: 45px;
+    }
+    .section-title {
+        font-size: 45px;
+    }
+    .section-heading-center {
+        font-size: 45px;
+    }
+    .section-heading-footer {
+        font-size: 45px;
+    }                                                                                   
+
+
 
 /* Mobile Responsive Styles */
 @media (max-width: 768px) {
