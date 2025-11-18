@@ -1,19 +1,23 @@
 <template>
-  
+
 
     <section>
         <div class="container-fluid practitionerindex">
             <div class="container p-5">
                 <div class="row mt-md-5">
                     <div class="col-md-6">
-                        <p class="  practitionerindextext mt-md-3" style="font-size: 50px; line-height: 1.2; font-family: 'Cormorant Garamond', serif !important;">
+                        <p class="  practitionerindextext mt-md-3"
+                            style="font-size: 50px; line-height: 1.2; font-family: 'Cormorant Garamond', serif !important;">
                             Join Us as a <br> Healer
                         </p>
-                        <p class="" style="font-size: 18px; margin-top: 30px; max-width: 340px; font-family: 'Cormorant Garamond'; font-weight: 500; color: #2E2D29;">
+                        <p class=""
+                            style="font-size: 18px; margin-top: 30px; max-width: 340px; font-family: 'Cormorant Garamond'; font-weight: 500; color: #2E2D29;">
                             Let’s build a world where holistic healing is embraced, respected, and accessible to all.
 
                         </p>
-                        <button class=" apply-now-btn ms-0 px-4 py-2" style="border-radius: 12px;">Apply Now</button>
+                        <router-link to="practitor_register"
+                            class="text-decoration-none apply-now-btn ms-0 px-4 py-2 mt-3"
+                            style="border-radius: 12px;">Apply Now</router-link>
                     </div>
                     <div class="col-md-6">
                         <div class="practitionerindeximage1 ">
@@ -23,16 +27,18 @@
                 </div>
             </div>
         </div>
-        
+
         <!-- Practitioner Index Image -->
         <div class="container-fluid p-0">
-            <img src="/public/asset/images/practitionerindex.png" class="img-fluid w-100" alt="Practitioner Index" style="display: block;">
+            <img src="/public/asset/images/practitionerindex.png" class="img-fluid w-100" alt="Practitioner Index"
+                style="display: block;">
         </div>
-        
+
         <br>
         <div class="container p-4">
             <div class="practitionerindexBox text-center">
-                <img src="/public/asset/images/practitionerindtext.svg" class="img-fluid practitioner-text-svg" alt="Practitioner Text">
+                <img src="/public/asset/images/practitionerindtext.svg" class="img-fluid practitioner-text-svg"
+                    alt="Practitioner Text">
             </div>
         </div>
 
@@ -50,12 +56,15 @@
                     </p>
                     <b>Who we are</b>
                     <p class="" style="color: #5B4C3A; font-size: 14;">
-                        A trusted community connecting the most skilled and heart-led healers with people seeking support.
+                        A trusted community connecting the most skilled and heart-led healers with people seeking
+                        support.
                     </p>
-                    <button class=" btn-light main-btn2 px-3" style="font-family: 'Courier New', Courier, monospace; color: #4F3C1E; background:#C1B39D;">
-                        About Us <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-  <path d="M5 12h14M12 5l7 7-7 7"/>
-</svg>
+                    <button class=" btn-light main-btn2 px-3"
+                        style="font-family: 'Courier New', Courier, monospace; color: #4F3C1E; background:#C1B39D;">
+                        About Us <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                            stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
                     </button>
                 </div>
 
@@ -84,12 +93,16 @@
                     </p>
                     <b>Who we are looking for</b>
                     <p class="m-color">
-                        Healers who share our vision, those who are passionate about guiding others with compassion, authenticity, and skill. Whether you’re an energy worker, counsellor, herbalist, or meditation teacher, this is your space to grow.
+                        Healers who share our vision, those who are passionate about guiding others with compassion,
+                        authenticity, and skill. Whether you’re an energy worker, counsellor, herbalist, or meditation
+                        teacher, this is your space to grow.
                     </p>
-                    <button class=" btn-light main-btn2 px-3" style="font-family: 'Courier New', Courier, monospace; color: #4F3C1E; background:#C1B39D;">
-                        About Us <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-  <path d="M5 12h14M12 5l7 7-7 7"/>
-</svg>
+                    <button class=" btn-light main-btn2 px-3"
+                        style="font-family: 'Courier New', Courier, monospace; color: #4F3C1E; background:#C1B39D;">
+                        About Us <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                            stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path d="M5 12h14M12 5l7 7-7 7" />
+                        </svg>
                     </button>
                 </div>
             </div>
@@ -100,49 +113,57 @@
                 <div class="benefits-container">
                     <div class="benefit-card">
                         <div class="benefit-icon">
-                            <img src="/public/asset/images/tabler-icon-mood-smile-beam.svg" alt="Smile" class="benefit-svg-icon">
+                            <img src="/public/asset/images/tabler-icon-mood-smile-beam.svg" alt="Smile"
+                                class="benefit-svg-icon">
                         </div>
                         <div class="benefit-text">Be part of a supportive and growing healer network</div>
                     </div>
-                    
+
                     <div class="benefit-card">
                         <div class="benefit-icon">
-                            <img src="/public/asset/images/tabler-icon-hand-click.svg" alt="Hand Click" class="benefit-svg-icon">
+                            <img src="/public/asset/images/tabler-icon-hand-click.svg" alt="Hand Click"
+                                class="benefit-svg-icon">
                         </div>
                         <div class="benefit-text">Showcase your sessions to our huge community</div>
                     </div>
-                    
+
                     <div class="benefit-card">
                         <div class="benefit-icon">
                             <img src="/public/asset/images/tabler-icon-plant.svg" alt="Plant" class="benefit-svg-icon">
                         </div>
                         <div class="benefit-text">Reach more clients through our paid marketing and SEO support</div>
                     </div>
-                    
+
                     <div class="benefit-card">
                         <div class="benefit-icon">
-                            <img src="/public/asset/images/tabler-icon-mood-smile-beam.svg" alt="Smile" class="benefit-svg-icon">
+                            <img src="/public/asset/images/tabler-icon-mood-smile-beam.svg" alt="Smile"
+                                class="benefit-svg-icon">
                         </div>
                         <div class="benefit-text">Get paid automatically after each session</div>
                     </div>
-                    
+
                     <div class="benefit-card">
                         <div class="benefit-icon">
-                            <img src="/public/asset/images/tabler-icon-user-square-rounded.svg" alt="User" class="benefit-svg-icon">
+                            <img src="/public/asset/images/tabler-icon-user-square-rounded.svg" alt="User"
+                                class="benefit-svg-icon">
                         </div>
-                        <div class="benefit-text">One centralised platform that keeps all your client information in one place</div>
+                        <div class="benefit-text">One centralised platform that keeps all your client information in one
+                            place</div>
                     </div>
-                    
+
                     <div class="benefit-card">
                         <div class="benefit-icon">
-                            <img src="/public/asset/images/tabler-icon-mood-smile-beam.svg" alt="Smile" class="benefit-svg-icon">
+                            <img src="/public/asset/images/tabler-icon-mood-smile-beam.svg" alt="Smile"
+                                class="benefit-svg-icon">
                         </div>
-                        <div class="benefit-text">Make your life easier as we manage the backend software and marketing for you, so you can just show up and do what you do best</div>
+                        <div class="benefit-text">Make your life easier as we manage the backend software and marketing
+                            for you, so you can just show up and do what you do best</div>
                     </div>
-                    
+
                     <div class="benefit-card">
                         <div class="benefit-icon">
-                            <img src="/public/asset/images/tabler-icon-mood-smile-beam.svg" alt="Smile" class="benefit-svg-icon">
+                            <img src="/public/asset/images/tabler-icon-mood-smile-beam.svg" alt="Smile"
+                                class="benefit-svg-icon">
                         </div>
                         <div class="benefit-text">
                             <div class="benefit-main-text">Cancel subscriptions you no longer need</div>
@@ -162,17 +183,18 @@
                         <h4 class="card-heading">Apply and get approved</h4>
                         <p class="card-text">We review your details and credentials.</p>
                     </div>
-                    
+
                     <div class="how-it-works-card">
                         <h4 class="card-heading">Create your healer profile</h4>
                         <p class="card-text">Add your sessions, price, and availability.</p>
                     </div>
-                    
+
                     <div class="how-it-works-card">
                         <h4 class="card-heading">Start sessions</h4>
-                        <p class="card-text">Clients book through the site, pay securely, and you get notified instantly.</p>
+                        <p class="card-text">Clients book through the site, pay securely, and you get notified
+                            instantly.</p>
                     </div>
-                    
+
                     <div class="how-it-works-card">
                         <h4 class="card-heading">Add client notes</h4>
                         <p class="card-text">Keep track of all your clients in one centralized place.</p>
@@ -183,21 +205,24 @@
 
         </div>
     </section>
-        <section class="cta-section position-relative d-flex align-items-center" style="overflow: hidden; min-height: 300px;">
-            <div class="container">
-                <div class="cta-content text-center">
-                    <h1 class="cta-title">Ready to start growing your business?</h1>
-                    <div class="cta-buttons">
-                        <router-link to="practitor_register" class="cta-btn cta-btn-primary">Apply Now</router-link>
-                        <router-link to="PractitionerIndex" class="cta-btn cta-btn-secondary">Book A Demo</router-link>
-                    </div>
-                    <p class="cta-subtext">Any questions? Check out our <a href="#" class="cta-link">Practitioner FAQs</a> or <a href="#" class="cta-link">get in touch</a>.</p>
+    <section class="cta-section position-relative d-flex align-items-center"
+        style="overflow: hidden; min-height: 300px;">
+        <div class="container">
+            <div class="cta-content text-center">
+                <h1 class="cta-title">Ready to start growing your business?</h1>
+                <div class="cta-buttons">
+                    <router-link to="practitor_register" class="cta-btn cta-btn-primary">Apply Now</router-link>
+                    <router-link to="PractitionerIndex" class="cta-btn cta-btn-secondary">Book A Demo</router-link>
                 </div>
+                <p class="cta-subtext">Any questions? Check out our <a href="#" class="cta-link">Practitioner FAQs</a>
+                    or <a href="#" class="cta-link">get in touch</a>.</p>
             </div>
-            <div class="cta-bg-image">
-                <img src="/public/asset/images/PractitionerIndex (2).png" alt="background" style="width: 500px; height: 500px; position: absolute; bottom: -50px; left:  0px; z-index: 10;">
-            </div>
-        </section>
+        </div>
+        <div class="cta-bg-image">
+            <img src="/public/asset/images/PractitionerIndex (2).png" alt="background"
+                style="width: 500px; height: 500px; position: absolute; bottom: -50px; left:  0px; z-index: 10;">
+        </div>
+    </section>
 </template>
 
 <style>
@@ -223,6 +248,7 @@
     color: #2E2D29;
     margin-bottom: 4rem;
 }
+
 .step-card p {
     color: #2E2D29;
     font-family: 'Cormorant Garamond' !important;
@@ -290,20 +316,18 @@
         font-size: 65px !important;
         line-height: 1.1 !important;
     }
+
+        .practitionerindextext+p {
+            font-size: 22px !important;
+            max-width: 450px !important;
+            margin-top: 40px !important;
+        }
     
-    .practitionerindextext + p {
-        font-size: 22px !important;
-        max-width: 450px !important;
-        margin-top: 40px !important;
-    }
-    
-    .apply-now-btn {
-        font-size: 18px !important;
-        padding: 15px 40px !important;
-        margin-top: 20px !important;
-    }
-    
- 
+        .apply-now-btn {
+            font-size: 18px !important;
+            padding: 15px 40px !important;
+            margin-top: 20px !important;
+        }
 }
 
 @media (min-width: 1400px) {
@@ -311,13 +335,13 @@
         font-size: 75px !important;
         line-height: 1.1 !important;
     }
-    
+
     .practitionerindextext + p {
         font-size: 24px !important;
         max-width: 500px !important;
         margin-top: 50px !important;
     }
-    
+
     .apply-now-btn {
         font-size: 20px !important;
         padding: 18px 45px !important;
@@ -409,7 +433,7 @@
     .how-it-works-container {
         gap: 1.2rem;
     }
-    
+
     .how-it-works-card {
         padding: 2.5rem 1.3rem;
         min-width: 180px;
@@ -423,7 +447,7 @@
         gap: 1rem;
         max-width: 600px;
     }
-    
+
     .how-it-works-card {
         max-width: 100%;
         padding: 2rem 1.5rem;
@@ -436,16 +460,16 @@
         font-size: 2.5rem !important;
         margin-bottom: 2rem;
     }
-    
+
     .how-it-works-card {
         padding: 1.8rem 1.2rem;
         min-height: 120px;
     }
-    
+
     .card-heading {
         font-size: 1.1rem;
     }
-    
+
     .card-text {
         font-size: 0.9rem;
     }
@@ -572,24 +596,24 @@
         padding: 3rem 0;
         margin: 2rem 0;
     }
-    
+
     .cta-title {
         font-size: 2rem;
         margin-bottom: 2rem;
     }
-    
+
     .cta-buttons {
         flex-direction: column;
         align-items: center;
         gap: 1rem;
     }
-    
+
     .cta-btn {
         width: 200px;
         padding: 0.9rem 2rem;
         font-size: 1rem;
     }
-    
+
     .cta-subtext {
         font-size: 0.9rem;
         padding: 0 1rem;
@@ -600,7 +624,7 @@
     .cta-title {
         font-size: 1.8rem;
     }
-    
+
     .cta-btn {
         width: 180px;
         padding: 0.8rem 1.5rem;
@@ -615,7 +639,7 @@
     max-width: 80%;
     margin: 0 auto;
     width: 80%;
-    
+
 }
 
 .benefit-card {
@@ -681,17 +705,17 @@
     .benefits-container {
         gap: 0.8rem;
     }
-    
+
     .benefit-card {
         padding: 1.2rem 1.5rem;
     }
-    
+
     .benefit-icon {
         font-size: 1.8rem;
         margin-right: 1.2rem;
         min-width: 2.5rem;
     }
-    
+
     .benefit-text {
         font-size: 0.95rem;
     }
@@ -703,13 +727,13 @@
         flex-direction: column;
         text-align: center;
     }
-    
+
     .benefit-icon {
         margin-right: 0;
         margin-bottom: 0.8rem;
         font-size: 1.6rem;
     }
-    
+
     .benefit-text {
         font-size: 0.9rem;
     }
