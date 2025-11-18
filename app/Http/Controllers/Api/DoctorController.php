@@ -305,7 +305,7 @@ class DoctorController extends Controller
             })
             ->when($rating, function ($query) use ($rating) {
                 $query->whereHas('ratings', function ($q) use ($rating) {
-                $q->where('rating', '>', $rating);
+                $q->where('rating', '>=', $rating);
                 });
             })
 
