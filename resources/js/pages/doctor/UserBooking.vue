@@ -31,11 +31,11 @@
                             <div class="ms-3">
                                 <span class="practitioner-name">{{ appointment.user?.name }} {{
                                     appointment.user?.last_name }} <br> {{
-    appointment.user?.email
+                                    appointment.user?.email
                                     }} <br>
                                     {{ appointment.user?.number }}</span><br>
                                 <span>{{ appointment?.payment }} {{ appointment?.currency }}</span> <br>
-                                <span class="rating">
+                                <!-- <span class="rating">
                                     <svg width="13" height="12" viewBox="0 0 13 12" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path
@@ -43,7 +43,7 @@
                                             fill="#5B4C3A" />
                                     </svg>
                                     5.0
-                                </span>
+                                </span> -->
                             </div>
                         </div>
                     </div>
@@ -114,16 +114,16 @@
                             </div>
                             <div class="d-flex" v-else>
                                 <p v-if="appointment.zoom_start_url">
-                                    <a :href="appointment.zoom_start_url" target="_blank" class="btn main-btn2">
+                                    <a :href="appointment.zoom_start_url" target="_blank" class="btn main-btn mx-1">
                                         Join Meeting
                                     </a>
                                 </p>
                                 <p v-else>
-                                    <button @click="startMeeting(appointment.id)" class="btn main-btn">Start
+                                    <button @click="startMeeting(appointment.id)" class="btn main-btn mx-1">Start
                                         Meeting</button>
                                 </p>
                                 <p>
-                                    <button class="main-btn  p-2 mx-2" @click="makeNote(appointment.id)">Create
+                                    <button class="btn main-btn mx-1" @click="makeNote(appointment.id)">Create
                                         Note</button>
                                 </p>
 

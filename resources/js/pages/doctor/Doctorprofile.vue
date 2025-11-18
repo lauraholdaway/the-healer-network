@@ -335,12 +335,15 @@ onMounted(() => {
                 </div>
 
                 <div class="row">
-
+                    <div class="mb-3 col-md-6">
+                        <label class="form-label">Website</label>
+                        <input v-model="website" type="text" class="form-control" />
+                    </div>
                     <div class="mb-3 col-md-4">
                         <label class="form-label">Price</label>
                         <input v-model="price" type="text" class="form-control" />
                     </div>
-                    <div class="mb-3 col-md-6">
+                    <div class="mb-3 col-md-2">
                         <label class="form-label">currency</label>
                         <select v-model="currency" class="form-control">
                             <option value="US">US</option>
@@ -350,11 +353,8 @@ onMounted(() => {
                 </div>
                 <div class="row">
 
-                    <div class="mb-3 col-md-4">
-                        <label class="form-label">Website</label>
-                        <input v-model="website" type="text" class="form-control" />
-                    </div>
-                    <div class="mb-3 col-md-4">
+
+                    <div class="mb-3 col-md-6">
                         <label class="form-label ">Gender</label>
 
                         <select v-model="gender" class="form-control border-info">
@@ -366,7 +366,7 @@ onMounted(() => {
                             </option>
                         </select>
                     </div>
-                    <div class="mb-3 col-md-4">
+                    <div class="mb-3 col-md-6">
                         <label class="form-label ">Appointment Type</label>
 
                         <select v-model="appointmentType" class="form-control border-info">
@@ -374,7 +374,7 @@ onMounted(() => {
                                 Online
                             </option>
                             <option value="inpersone">
-                                In Persone
+                                In-Persone
                             </option>
                             <option value="both">
                                 Both

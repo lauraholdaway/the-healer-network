@@ -1,80 +1,61 @@
 <template>
-<section class="contact-section " style="padding-top: 100px; padding-bottom: 200px;">
-  <div class="container">
-    <div class="row align-items-center">
+    <section class="contact-section " style="padding-top: 100px; padding-bottom: 200px;">
+        <div class="container">
+            <div class="row align-items-center">
 
-      <!-- Left: Form Section -->
-      <div class="col-md-6 mb-4 mb-md-0">
-        <h3 class="mb-2" style="font-family: 'Cormorant Garamond', serif !important; font-weight: 300; font-size: 45px; color: #2E2D29;">Let's Talk, Reach Out <br> To Us</h3>
-        <p class="text-muted mb-4" style="font-weight: 300; font-size: 13px; color: #5B4C3A;">
-          Do you have any question or suggestion? We are here <br> to help.
-        </p>
-        <hr style="border: 1px solid #8A7356; margin-bottom: 30px; margin-top: 20px; width: 90%;">
+                <!-- Left: Form Section -->
+                <div class="col-md-6 mb-4 mb-md-0">
+                    <h3 class="mb-2 Seasons-fonts" style=" font-size: 45px; color: #2E2D29;">Let's Talk, Reach Out <br>
+                        To Us</h3>
+                    <p class="text-muted mb-4" style="font-weight: 300; font-size: 13px; color: #5B4C3A;">
+                        Do you have any question or suggestion? We are here <br> to help.
+                    </p>
+                    <hr style="border: 1px solid #8A7356; margin-bottom: 30px; margin-top: 20px; width: 90%;">
 
-        <form @submit.prevent="submitForm" class="contact-form">
-          <div class="form-row">
-            <div class="form-group form-group-half">
-              <label for="firstName">First Name</label>
-              <input 
-                v-model="form.first_name" 
-                id="firstName"
-                type="text" 
-                class="form-input" 
-                required 
-              />
+                    <form @submit.prevent="submitForm" class="contact-form">
+                        <div class="form-row">
+                            <div class="form-group form-group-half">
+                                <label for="firstName">First Name</label>
+                                <input v-model="form.first_name" id="firstName" type="text" class="form-input"
+                                    required />
+                            </div>
+
+                            <div class="form-group form-group-half">
+                                <label for="secondName">Second Name</label>
+                                <input v-model="form.second_name" id="secondName" type="text" class="form-input" />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input v-model="form.email" id="email" type="email" class="form-input" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea v-model="form.message" id="message" class="form-textarea" rows="4"
+                                required></textarea>
+                        </div>
+
+                        <button type="submit" class="send-button" :disabled="loading">
+                            {{ loading ? 'Sending...' : 'Send Message' }}
+                        </button>
+                    </form>
+
+                    <!-- Success Message -->
+                    <div v-if="success" class="success-message">
+                        {{ success }}
+                    </div>
+                </div>
+
+                <!-- Right: Image -->
+                <div class="col-md-6 text-center">
+                    <img src="/public/asset/images/contactpage.png" alt="Contact Phone"
+                        class="contact-image rounded-4 shadow-sm" />
+                </div>
             </div>
-            
-            <div class="form-group form-group-half">
-              <label for="secondName">Second Name</label>
-              <input 
-                v-model="form.second_name" 
-                id="secondName"
-                type="text" 
-                class="form-input" 
-              />
-            </div>
-          </div>
-          
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input 
-              v-model="form.email" 
-              id="email"
-              type="email" 
-              class="form-input" 
-              required 
-            />
-          </div>
-          
-          <div class="form-group">
-            <label for="message">Your Message</label>
-            <textarea 
-              v-model="form.message" 
-              id="message"
-              class="form-textarea" 
-              rows="4" 
-              required
-            ></textarea>
-          </div>
-          
-          <button type="submit" class="send-button" :disabled="loading">
-            {{ loading ? 'Sending...' : 'Send Message' }}
-          </button>
-        </form>
-
-        <!-- Success Message -->
-        <div v-if="success" class="success-message">
-          {{ success }}
         </div>
-      </div>
-
-      <!-- Right: Image -->
-      <div class="col-md-6 text-center">
-        <img src="/public/asset/images/contactpage.png" alt="Contact Phone" class="contact-image rounded-4 shadow-sm" />
-      </div>
-    </div>
-  </div>
-</section>
+    </section>
 </template>
 
 <script>
@@ -293,20 +274,20 @@ h3 {
     max-width: 100%;
     margin: 0 auto;
   }
-  
+
   .form-row {
     flex-direction: column;
     gap: 0;
   }
-  
+
   .form-group-half {
     margin-bottom: 16px;
   }
-  
+
   .form-group {
     margin-bottom: 16px;
   }
-  
+
   .send-button {
     width: 100%;
     padding: 12px 16px;
