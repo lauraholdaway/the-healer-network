@@ -38,6 +38,7 @@ return new class extends Migration
             $table->string('referred_by')->nullable();
             $table->string('price')->nullable();
             $table->string('languages')->nullable();
+            $table->string('appointmentType')->default('both');
 
             // Authentication
             $table->timestamps();

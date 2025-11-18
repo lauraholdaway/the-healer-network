@@ -62,6 +62,7 @@ class DoctorController extends Controller
             'primary_contact_number' => 'nullable|string|max:20',
             'mobile_number' => 'nullable|string|max:20',
             'address' => 'nullable|string|max:255',
+            'gender' => 'nullable',
             'social_media_handle' => 'nullable|string|max:255',
             // 'modalities' => 'nullable|string', // or 'array' if you send JSON
             'practicing_since' => 'nullable|string|max:50',
@@ -74,6 +75,7 @@ class DoctorController extends Controller
         // ✅ Update User
         $user->name = $validated['name'];
         $user->last_name = $validated['last_name'];
+        $user->gender = $request->gender;
         $user->number = $validated['number'] ?? $user->number;
         $user->save();
 
@@ -85,8 +87,9 @@ class DoctorController extends Controller
             $practitioner->about = $validated['about'] ?? $practitioner->about;
             $practitioner->website =  $request->website;
             $practitioner->price =  $request->price;
+            $practitioner->appointmentType =  $request->appointmentType;
+            $practitioner->languages = $request->input('languages') ?? '-';
             $practitioner->currency =  $request->currency;
-            $practitioner->languages =  $request->languages;
             $practitioner->primary_contact_number = $validated['primary_contact_number'] ?? $practitioner->primary_contact_number;
             $practitioner->mobile_number = $validated['mobile_number'] ?? $practitioner->mobile_number;
             $practitioner->address = $validated['address'] ?? $practitioner->address;
@@ -259,14 +262,24 @@ class DoctorController extends Controller
 
     public function searchdoctor(Request $request)
     {
+
+        // dd($request->all());
         $modality = $request->query('modality');
         $location = $request->query('location');
+        $modalityType = $request->query('modalityType');
+        $availability = $request->query('availability');
+        $price = $request->query('price');
+        $gender = $request->query('gender');
+        $language = $request->query('language');
+        $accessibility = $request->query('accessibility');
+        $certification = $request->query('certification');
+        $rating = $request->query('rating');
 
         // 🔹 Get all modality IDs that match the search
         $modalityIds = Modality::where('title', 'like', "%{$modality}%")->pluck('id');
 
         // 🔹 Get practitioners with filters
-        $practitioners = Practitioner::with(['user', 'modalities'])
+        $practitioners = Practitioner::with(['user', 'modalities', 'ratings'])
             ->when($modality, function ($query) use ($modalityIds) {
                 $query->whereHas('modalities', function ($q) use ($modalityIds) {
                     $q->whereIn('modality_id', $modalityIds);
@@ -275,7 +288,31 @@ class DoctorController extends Controller
             ->when($location, function ($query) use ($location) {
                 $query->where('practice_location', 'like', "%{$location}%");
             })
+            ->when($availability, function ($query) use ($availability) {
+                $query->where('appointmentType', 'like', "%{$availability}%");
+            })
+            ->when($location, function ($query) use ($price) {
+                $query->where('price', 'like', "%{$price}%");
+            })
+            ->when($location, function ($query) use ($price) {
+                $query->where('price', 'like', "%{$price}%");
+            })
+            ->when($location, function ($query) use ($language) {
+                $query->where('languages', 'like', "%{$language}%");
+            })
+            ->when($gender, function ($query) use ($gender) {
+                $query->whereHas('user', function ($q) use ($gender) {
+                    $q->where('gender', $gender);
+                });
+            })
+            ->when($rating, function ($query) use ($rating) {
+                $query->whereHas('ratings', function ($q) use ($rating) {
+                    $q->where('rating', $rating);
+                });
+            })
+
             ->get();
+        // dd($rating);
 
         // 🔹 Attach modality titles safely
         $practitioners->each(function ($practitioner) {
@@ -287,6 +324,8 @@ class DoctorController extends Controller
                 return $modality ? $modality->title : null;
             })->filter()->values();
         });
+
+        // dd($practitioners);
 
         return response()->json($practitioners);
     }

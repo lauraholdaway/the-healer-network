@@ -25,6 +25,8 @@ const mobileNumber = ref("");
 const address = ref("");
 const socialMediaHandle = ref("");
 const website = ref("");
+const gender = ref("");
+const appointmentType = ref("");
 const languages = ref("");
 const price = ref("");
 const currency = ref("");
@@ -52,6 +54,8 @@ async function getProfile() {
         lastName.value = userData.last_name ?? "";
         email.value = userData.email ?? "";
         number.value = userData.number ?? "";
+        gender.value = userData.gender ?? "";
+
 
         user.value = userData;
 
@@ -65,6 +69,7 @@ async function getProfile() {
         address.value = docData.address ?? "";
         socialMediaHandle.value = docData.social_media_handle ?? "";
         website.value = docData.website ?? "";
+        appointmentType.value = docData.appointmentType ?? "";
         languages.value = docData.languages ?? "";
         price.value = docData.price ?? "";
         currency.value = docData.currency ?? "";
@@ -100,6 +105,8 @@ async function updateProfile() {
             address: address.value,
             social_media_handle: socialMediaHandle.value,
             website: website.value,
+            gender: gender.value,
+            appointmentType: appointmentType.value,
             languages: languages.value,
             price: price.value,
             currency: currency.value,
@@ -328,22 +335,52 @@ onMounted(() => {
                 </div>
 
                 <div class="row">
-                    <div class="mb-3 col-md-6">
-                        <label class="form-label">Website</label>
-                        <input v-model="website" type="text" class="form-control" />
-                    </div>
+
                     <div class="mb-3 col-md-4">
                         <label class="form-label">Price</label>
                         <input v-model="price" type="text" class="form-control" />
                     </div>
-                    <div class="mb-3 col-md-2">
+                    <div class="mb-3 col-md-6">
                         <label class="form-label">currency</label>
                         <select v-model="currency" class="form-control">
                             <option value="US">US</option>
                             <option value="USD">USD</option>
                         </select>
                     </div>
+                </div>
+                <div class="row">
 
+                    <div class="mb-3 col-md-4">
+                        <label class="form-label">Website</label>
+                        <input v-model="website" type="text" class="form-control" />
+                    </div>
+                    <div class="mb-3 col-md-4">
+                        <label class="form-label ">Gender</label>
+
+                        <select v-model="gender" class="form-control border-info">
+                            <option value="male">
+                                Male
+                            </option>
+                            <option value="female">
+                                Female
+                            </option>
+                        </select>
+                    </div>
+                    <div class="mb-3 col-md-4">
+                        <label class="form-label ">Appointment Type</label>
+
+                        <select v-model="appointmentType" class="form-control border-info">
+                            <option value="online">
+                                Online
+                            </option>
+                            <option value="inpersone">
+                                In Persone
+                            </option>
+                            <option value="both">
+                                Both
+                            </option>
+                        </select>
+                    </div>
                 </div>
                 <div class="mb-3 ">
                     <label class="form-label">languages</label>
@@ -359,6 +396,7 @@ onMounted(() => {
                     </select>
 
                 </div>
+
 
 
                 <div class="mb-3">
