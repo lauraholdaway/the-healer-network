@@ -1,12 +1,12 @@
 <template>
     <section>
-        <div class="container my-3 my-md-5 px-2 px-md-3">
+        <div class="container my-0 my-md-0 px-2 px-md-3">
 
-            <div class="container my-3 my-md-5 text-center  px-2">
+            <div class="container my-0 my-md-0 text-center  px-2">
                 <h1 class="fw-bold m-color  fs-3 fs-md-1"
-                    style="font-family: 'Cormorant Garamond', serif !important; color: #2E2D29 ; margin-top: 80px;">Book a Session with a
+                    style="font-family: 'Cormorant Garamond', serif !important; color: #2E2D29 ; margin-top: 0px; padding-top: 80px;">Book a Session with a
                     Trusted Healer</h1>
-                <p class="m-color px-2 px-md-0 mx-auto" style="color: #5B4C3A; font-size: 14px; max-width: 800px;">Find
+                <p class="m-color px-2 px-md-0  mx-auto" style=" font-size: 14px; padding-bottom: 20px; max-width: 800px;">Find
                     healers by specialty, location and availability. Each healer profile includes experience, areas of
                     expertise, and testimonials from real clients.</p>
 
@@ -59,10 +59,9 @@
                                 </div>
 
                                 <div class="position-absolute bottom-0 mb-3" style="left: 5%;">
-
-                                    <div class="d-flex justify-content-center gap-2">
-                                        <div class="d-flex align-items-center">
-                                            <svg width="28" height="28" viewBox="0 0 32 32" fill="none"
+                                    <div class="d-flex justify-content-center">
+                                        <div>
+                                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
                                                 <rect width="32" height="32" rx="16" fill="#DED1BA" />
                                                 <path d="M19.8974 14.0388V17.8847L23 20.5V11.5L19.8974 14.0388Z"
@@ -73,21 +72,20 @@
                                                     stroke="#2E2D29" stroke-width="1.5" stroke-linecap="round"
                                                     stroke-linejoin="round" />
                                             </svg>
-                                            <span class="tag ms-1" style="font-size: 11px;">Online</span>
+                                            <span class="tagb" style="color: #2E2D29; font-size: 10px;">Online</span>
                                         </div>
-                                        <div class="d-flex align-items-center">
-                                            <svg width="28" height="28" viewBox="0 0 32 32" fill="none"
+                                        <div>
+                                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
                                                 <rect width="32" height="32" rx="16" fill="#DED1BA" />
                                                 <path
                                                     d="M18.7222 16H16V12.1111M9 16C9 16.9193 9.18106 17.8295 9.53284 18.6788C9.88463 19.5281 10.4002 20.2997 11.0503 20.9497C11.7003 21.5998 12.4719 22.1154 13.3212 22.4672C14.1705 22.8189 15.0807 23 16 23C16.9193 23 17.8295 22.8189 18.6788 22.4672C19.5281 22.1154 20.2997 21.5998 20.9497 20.9497C21.5998 20.2997 22.1154 19.5281 22.4672 18.6788C22.8189 17.8295 23 16.9193 23 16C23 15.0807 22.8189 14.1705 22.4672 13.3212C22.1154 12.4719 21.5998 11.7003 20.9497 11.0503C20.2997 10.4002 19.5281 9.88463 18.6788 9.53284C17.8295 9.18106 16.9193 9 16 9C15.0807 9 14.1705 9.18106 13.3212 9.53284C12.4719 9.88463 11.7003 10.4002 11.0503 11.0503C10.4002 11.7003 9.88463 12.4719 9.53284 13.3212C9.18106 14.1705 9 15.0807 9 16Z"
                                                     stroke="#2E2D29" stroke-width="1.5" stroke-linecap="round"
                                                     stroke-linejoin="round" />
-                                            </svg><span class="tag ms-1" style="font-size: 11px;">30 Min</span>
-
+                                            </svg>
+                                            <span class="tagb" style="color: #2E2D29; font-size: 10px;">30 Minutes</span>
                                         </div>
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -225,11 +223,60 @@ function limitWords(text, count) {
 </script>
 
 <style scoped>
+section {
+    background-color: #FBF9F7;
+    padding-top: 0;
+    margin-top: 0;
+}
+
+h1 {
+    font-size: 2.5rem !important;
+}
+
+@media (min-width: 768px) {
+    h1 {
+        font-size: 42px !important;
+    }
+  
+}
+
+@media (min-width: 1500px) {
+    h1 {
+        font-size: 3.5rem !important;
+    }
+    
+}
+
+p.m-color {
+    font-size: 16px !important;
+    color: #5B4C3A !important;
+}
+
+@media (min-width: 768px) {
+    p.m-color {
+        font-size: 18px !important;
+    }
+}
+
+@media (min-width: 1500px) {
+    p.m-color {
+        font-size: 20px !important;
+        max-width: 1120px !important;
+        margin-top: 20px !important;
+    }
+}
+
 .doctor-image-wrapper {
     background-color: #C1B39D;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     min-height: 220px;
+}
+
+@media (min-width: 1500px) {
+    .doctor-image-wrapper {
+        min-height: 280px;
+    }
 }
 </style>

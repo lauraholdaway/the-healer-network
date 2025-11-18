@@ -177,10 +177,10 @@ b {
         padding: 15px 20px !important;
     }
 
-    .search-box button {
+    /* .search-box button {
         font-size: 1.1rem !important;
         padding: 15px 30px !important;
-    }
+    } */
 }
 
 /* Specific for 1728x1117 screen size */
@@ -232,21 +232,8 @@ b {
         padding: 18px 25px !important;
     }
 
-    .search-box button[title*="Current Location"] {
-        width: 120px !important;
-        height: 35px !important;
-        font-size: 0.8rem !important;
-        padding: 8px 12px !important;
-    }
+ 
 
-    .search-box button:not([title*="Current Location"]) {
-        font-size: 1.2rem !important;
-        padding: 3px 10px !important;
-    }
-    .search-box button:not([title*="Search here..."]) {
-        font-size: 1.2rem !important;
-        padding: 10px 20px !important;
-    }
 }
 
 /* Specific for 1728 screen size - Bigger Mainslider */

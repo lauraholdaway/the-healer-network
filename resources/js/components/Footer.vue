@@ -4,13 +4,12 @@
             <div class="footer-main">
                 <!-- Logo Section -->
                 <div class="footer-logo">
-                    <img src="/public/asset/images/dark-logo.png" width="100px" alt="THN Logo">
+                    <img src="/public/asset/images/dark-logo.png" width="150px" alt="THN Logo">
                 </div>
 
                 <!-- Wellbeing Articles -->
-                <div class="footer-section">
+                <div class="footer-section first-section">
                     <h6 class="section-title">Wellbeing articles</h6>
-                    <hr class="section-divider">
                     <ul class="footer-links">
                         <li v-for="blog in blogs"><router-link :to="`/blog/${blog.id}`">{{ limitWords(blog?.title, 3)
                         }}</router-link>
@@ -19,9 +18,8 @@
                 </div>
 
                 <!-- Support -->
-                <div class="footer-section">
+                <div class="footer-section support-section">
                     <h6 class="section-title">Support</h6>
-                    <hr class="section-divider">
                     <ul class="footer-links">
                         <li><a href="#">Client FAQs</a></li>
                         <li><a href="#">Healer FAQs</a></li>
@@ -32,7 +30,6 @@
                 <!-- Subscribe -->
                 <div class="footer-section subscribe-section">
                     <h6 class="section-title">Subscribe</h6>
-                    <hr class="section-divider">
                     <p class="subscribe-description">
                         Subscribe to our newsletter to receive monthly updates of upcoming events, newly added holistic
                         healers and top tips to enhance your wellbeing.
@@ -114,13 +111,18 @@ function limitWords(text, count) {
   margin-top: 60px;
 }
 
+
 @media (min-width: 1700px) {
   .footer-container {
-    padding: 180px 0 30px;
+    padding: 80px 0 30px;
   }
 
   .footer-logo {
-    margin-top: -60px;
+    margin-top: 0;
+  }
+
+  .footer-section {
+    padding-top: 120px;
   }
 }
 .footer-container .container {
@@ -136,12 +138,20 @@ function limitWords(text, count) {
 }
 
 .footer-logo {
-  flex: 0 0 auto;
-  margin-bottom: 20px;
+  flex: 0.1;
+  border-right: 1px solid #DED1BA;
+  padding-right: 30px;
+  padding-left: 0;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-align: left;
+  align-self: stretch;
+  display: flex;
+  align-items: flex-start;
 }
 
 .footer-logo img {
-  max-width: 100px;
+  max-width: 150px;
   height: auto;
   border: none;
   outline: none;
@@ -152,7 +162,20 @@ function limitWords(text, count) {
   border-right: 1px solid #DED1BA;
   padding-right: 30px;
   padding-left: 0;
+  padding-top: 120px;
+  padding-bottom: 20px;
   text-align: left;
+  align-self: stretch;
+}
+
+.first-section {
+  padding-left: 0;
+  margin-top: 0;
+}
+
+.support-section {
+  border-right: 1px solid #DED1BA;
+  margin-top: 0;
 }
 
 .subscribe-section {
@@ -161,6 +184,7 @@ function limitWords(text, count) {
   flex: 2;
   padding-left: 0;
   text-align: left;
+  margin-top: 0;
 }
 
 .section-title {
@@ -173,13 +197,18 @@ function limitWords(text, count) {
   text-align: left;
   margin-left: 0;
   padding-left: 0;
+  position: relative;
+  padding-bottom: 12px;
 }
 
-.section-divider {
-  border: none;
+.section-title::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
   height: 1px;
   background-color: #DED1BA;
-  margin: 0 0 20px 0;
 }
 
 .footer-links {
@@ -220,7 +249,7 @@ function limitWords(text, count) {
 .email-input {
   flex: 1;
   padding: 14px 20px;
-  border: 1px solid #8A7356;
+  border: 1px solid #DED1BA;
   border-radius: 25px;
 
   color: #4A4A4A;
@@ -260,11 +289,19 @@ function limitWords(text, count) {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
+.footer-top-separator {
+  border: none;
+  height: 1px;
+  background-color: #DED1BA;
+  margin: 0 0 40px 0;
+}
+
 .footer-separator {
   border: none;
-  height: 0px;
+  height: 1px;
   background-color: #DED1BA;
-  margin: 30px 0;
+  margin: 30px 0 20px 0;
+  display: none;
 }
 
 .footer-bottom {
@@ -322,6 +359,19 @@ function limitWords(text, count) {
 
 /* Responsive Design */
 
+@media (max-width: 1500px) {
+  .footer-section {
+    padding-top: 20px;
+  }
+
+  .footer-logo img {
+  max-width: 100px;
+  height: auto;
+  border: none;
+  outline: none;
+}
+}
+
 /* Large Tablets and Small Laptops */
 @media (max-width: 1024px) {
   .footer-main {
@@ -350,7 +400,7 @@ function limitWords(text, count) {
 
   .footer-section {
     border-right: none;
-    border-bottom: 1px solid #DED1BA;
+    border-bottom: 2px solid #DED1BA;
     padding-right: 0;
     padding-bottom: 25px;
     flex: 1;

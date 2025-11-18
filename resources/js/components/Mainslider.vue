@@ -183,7 +183,7 @@ const swiperModules = [];
   position: relative;
   background: rgb(255, 255, 255);
   overflow: hidden;
-  margin-top: 90px;
+  margin-top: 60px;
 }
 
 .healing-center-overlay {

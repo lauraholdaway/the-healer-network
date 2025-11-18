@@ -1,5 +1,5 @@
 <template>
-    <section class="joinUs position-relative d-flex align-items-center" style="overflow: hidden; min-height: 300px; margin-top: 60px;">
+    <section class="joinUs position-relative d-flex align-items-center" style="overflow: hidden; min-height: 300px; margin-top: 60px; background-color: #8A7356;">
         <div class=" container">
             <div class="row d-flex align-items-center">
                 <div class="col-md-8 mt-4">

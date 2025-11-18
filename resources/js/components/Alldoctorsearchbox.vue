@@ -1,6 +1,6 @@
 <template>
     <form @submit.prevent="searchDoctor">
-        <div class="row search-box bg-white shadow p-3 mb-5 d-flex align-items-center" style="border-radius: 20px;">
+        <div class="row search-box bg-white p-3 mb-5 d-flex align-items-center" style="border-radius: 20px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);">
             <!-- Concern or Practice -->
             <div class="col-12 col-md-4 text-start search-box-section">
                 <div class="d-flex flex-column">
@@ -12,14 +12,12 @@
 
             <!-- Locations -->
             <div class="col-12 col-md-5 text-start search-box-section">
-                <div class="d-flex justify-content-between">
-                    <div>
-                        <label class="form-label  mb-0 text-start search-box-title">Locations</label>
+                <div class="d-flex flex-column">
+                    <label class="form-label  mb-0 text-start search-box-title">Locations</label>
+                    <div class="d-flex align-items-center gap-2 location-input-wrapper" style="flex-wrap: nowrap;">
                         <input type="text" v-model="form.location"
-                            class="location-text form-control border-0 shadow-none" placeholder="Anywhere / Online" />
-                    </div>
-                    <div>
-                        <button type="button" class="btn rounded-pill btn-sm location-btn current-location-btn mt-4 ms-1"
+                            class="location-text form-control border-0 shadow-none" placeholder="Anywhere / Online" style="width: 200px; flex-shrink: 0;" />
+                        <button type="button" class="rounded-pill btn-sm location-btn current-location-btn my-current-location-btn flex-shrink-0"
                             @click="getCurrentLocation">
                             My Current Location
                             <img :src="Location" alt="Location" class="ms-1"
@@ -31,7 +29,7 @@
 
             <!-- Search Button -->
             <div class="px-2 col-12 col-md-3 search-button-wrapper">
-                <button type="submit" class="btn w-100 rounded-pill search-submit-btn">
+                <button type="submit" class=" w-100 rounded-pill search-submit-btn search-here-btn">
                     <img :src="searchIcon" alt="Search" class="me-2" style="width: 16px; height: 16px;">
                     Search here...
                 </button>
@@ -360,11 +358,30 @@
                 </div>
             </div>
         </transition>
+
+        <!-- Selected Filter Tags -->
+        <div v-if="hasActiveFilters" class="selected-filters-tags mt-3 d-flex flex-wrap gap-2 justify-content-start" style="width: 93%; margin: 12px auto 0;">
+            <div v-if="form.availability === 'online'" class="filter-tag-item">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="32" height="32" rx="16" fill="#DED1BA" />
+                    <path d="M19.8974 14.0388V17.8847L23 20.5V11.5L19.8974 14.0388Z" stroke="#2E2D29" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M9.68989 11.5H17.5299C18.6717 11.5 19.8889 12.4023 19.8889 13.6023V19.7493C19.8908 19.9455 19.8121 20.1345 19.67 20.275C19.528 20.4155 19.334 20.4961 19.1306 20.4993H11.0627C9.76611 20.4993 9 19.3742 9 18.2492L9.00778 12.2493C8.99315 12.1545 9.00003 12.0578 9.02797 11.9659C9.0559 11.8739 9.10421 11.7889 9.16956 11.7168C9.23411 11.6455 9.31447 11.5891 9.40467 11.5519C9.49488 11.5146 9.59263 11.4974 9.69067 11.5015L9.68989 11.5Z" stroke="#2E2D29" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <span class="tagb">Online</span>
+            </div>
+            <div v-if="form.duration === '30'" class="filter-tag-item">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="32" height="32" rx="16" fill="#DED1BA" />
+                    <path d="M18.7222 16H16V12.1111M9 16C9 16.9193 9.18106 17.8295 9.53284 18.6788C9.88463 19.5281 10.4002 20.2997 11.0503 20.9497C11.7003 21.5998 12.4719 22.1154 13.3212 22.4672C14.1705 22.8189 15.0807 23 16 23C16.9193 23 17.8295 22.8189 18.6788 22.4672C19.5281 22.1154 20.2997 21.5998 20.9497 20.9497C21.5998 20.2997 22.1154 19.5281 22.4672 18.6788C22.8189 17.8295 23 16.9193 23 16C23 15.0807 22.8189 14.1705 22.4672 13.3212C22.1154 12.4719 21.5998 11.7003 20.9497 11.0503C20.2997 10.4002 19.5281 9.88463 18.6788 9.53284C17.8295 9.18106 16.9193 9 16 9C15.0807 9 14.1705 9.18106 13.3212 9.53284C12.4719 9.88463 11.7003 10.4002 11.0503 11.0503C10.4002 11.7003 9.88463 12.4719 9.53284 13.3212C9.18106 14.1705 9 15.0807 9 16Z" stroke="#2E2D29" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+                <span class="tagb">30 Minutes</span>
+            </div>
+        </div>
     </form>
 </template>
 
 <script setup>
-import { ref, onMounted } from "vue";
+import { ref, onMounted, computed } from "vue";
 import { useRouter } from "vue-router";
 import searchIcon from "../../../public/asset/images/Searchicon.svg";
 import Location from "../../../public/asset/images/Location.svg";
@@ -519,6 +536,10 @@ const getDisplayText = (filterName) => {
     return option ? option.label : filterOptions[filterName].label;
 };
 
+const hasActiveFilters = computed(() => {
+    return form.value.availability === 'online' || form.value.duration === '30';
+});
+
 const searchDoctor = () => {
     const query = {};
     if (form.value.modality) query.modality = form.value.modality;
@@ -546,8 +567,8 @@ const applyFilters = () => {
 
 const clearFilters = () => {
     form.value = {
-        modality: "",
-        location: "",
+        modality: form.value.modality,
+        location: form.value.location,
         modalityType: "",
         availability: "",
         duration: "",
@@ -603,6 +624,8 @@ const getCurrentLocation = () => {
 .search-box {
     width: 93%;
     margin: 0 auto;
+    padding-top: 15px !important;
+    padding-bottom: 15px !important;
 }
 
 /* Desktop styles */
@@ -641,12 +664,65 @@ const getCurrentLocation = () => {
     white-space: nowrap;
 }
 
+.my-current-location-btn {
+    font-size: 9px;
+    padding: 4px 12px;
+    margin-left: 8px;
+}
+
+.my-current-location-btn img {
+    width: 10px !important;
+    height: 10px !important;
+}
+
+.search-here-btn {
+    font-size: 14px;
+}
+
 .search-submit-btn {
     background-color: #6B5B4E;
     color: #C0B2A4;
     border: none;
     padding: 12px 20px;
     font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
+}
+
+@media (min-width: 1400px) {
+    .search-box-title {
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .search-box input.form-control {
+        font-size: 16px;
+        padding: 10px 15px;
+    }
+
+    .location-text {
+        font-size: 16px;
+        padding: 10px 15px;
+    }
+
+    .search-submit-btn {
+        font-size: 16px;
+        padding: 14px 24px;
+    }
+
+    .my-current-location-btn {
+        font-size: 14px;
+        font-weight: 300;
+        padding: 5px 14px;
+        margin-left: 8px;
+    }
+
+    .my-current-location-btn img {
+        width: 15px !important;
+        height: 15px !important;
+    }
 }
 
 /* Mobile responsive styles */
@@ -734,6 +810,39 @@ const getCurrentLocation = () => {
     }
 }
 
+@media (min-width: 1600px) {
+    .my-current-location-btn {
+        font-size: 8px;
+        padding: 3px 10px;
+    }
+
+    .my-current-location-btn img {
+        width: 9px !important;
+        height: 9px !important;
+    }
+}
+
+@media (min-width: 1700px) {
+    .location-input-wrapper {
+        gap: 4px !important;
+    }
+
+    .location-text {
+        font-size: 13px;
+        padding: 8px 12px;
+    }
+
+    .my-current-location-btn {
+        font-size: 11px;
+        padding: 6px 14px;
+    }
+
+    .my-current-location-btn img {
+        width: 14px !important;
+        height: 14px !important;
+    }
+}
+
 /* Filter Toggle Button */
 .filter-toggle-wrapper {
     margin-bottom: 0;
@@ -757,13 +866,13 @@ const getCurrentLocation = () => {
     padding: 10px 18px;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
 }
 
 .filter-toggle-btn:hover {
     background: #FBF9F7;
     border-color: #8A7356;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
     transform: translateY(-1px);
 }
 
@@ -826,7 +935,7 @@ const getCurrentLocation = () => {
     border-radius: 16px;
     padding: 14px 16px;
     width: 91%;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
     border: 1px solid #DED1BA;
     margin: 12px auto 0;
 }
@@ -863,7 +972,7 @@ const getCurrentLocation = () => {
 .filter-item-compact:hover {
     border-color: #8A7356;
     background: #F5F1E8;
-    box-shadow: 0 2px 6px rgba(91, 76, 58, 0.12);
+    box-shadow: 0 1px 3px rgba(91, 76, 58, 0.06);
     transform: translateY(-1px);
 }
 
@@ -916,7 +1025,7 @@ const getCurrentLocation = () => {
     right: 0;
     background: white;
     border-radius: 8px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
     z-index: 50;
     overflow: hidden;
     min-width: 200px;
@@ -1035,7 +1144,7 @@ const getCurrentLocation = () => {
     background: #4A3D2F;
     border-color: #4A3D2F;
     transform: translateY(-1px);
-    box-shadow: 0 2px 6px rgba(91, 76, 58, 0.2);
+    box-shadow: 0 1px 3px rgba(91, 76, 58, 0.1);
 }
 
 .btn-clear-filters {
@@ -1074,7 +1183,18 @@ const getCurrentLocation = () => {
     color: #5B4C3A;
 }
 
-/* Responsive Styles for Toggle Button */
+/* Responsive Styles for Filters */
+@media (max-width: 992px) {
+    .filters-container {
+        padding: 14px 16px;
+    }
+
+    .filters-grid-wrapper {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 10px;
+    }
+}
+
 @media (max-width: 768px) {
     .filter-toggle-btn {
         font-size: 13px;
@@ -1091,67 +1211,7 @@ const getCurrentLocation = () => {
         width: 12px;
         height: 12px;
     }
-}
 
-@media (max-width: 480px) {
-    .filter-toggle-btn {
-        font-size: 12px;
-        padding: 7px 12px;
-        gap: 5px;
-    }
-
-    .filter-toggle-text {
-        font-size: 12px;
-    }
-}
-
-/* Responsive Styles for Compact Filters */
-@media (max-width: 1200px) {
-    .filters-grid-wrapper {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 10px;
-    }
-
-    .filter-item-compact {
-        padding: 11px 12px;
-        min-height: 46px;
-    }
-}
-
-@media (max-width: 992px) {
-    .filters-container {
-        padding: 14px 16px;
-    }
-
-    .filters-grid-wrapper {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
-    }
-
-    .filter-item-compact {
-        padding: 10px 12px;
-        min-height: 44px;
-        gap: 8px;
-    }
-
-    .filter-icon {
-        width: 16px;
-        height: 16px;
-    }
-
-    .filter-action-buttons {
-        gap: 10px;
-    }
-
-    .btn-apply-filters,
-    .btn-clear-filters {
-        font-size: 13px;
-        padding: 10px 16px;
-        min-height: 44px;
-    }
-}
-
-@media (max-width: 768px) {
     .filters-container {
         padding: 12px 14px;
         border-radius: 12px;
@@ -1162,47 +1222,11 @@ const getCurrentLocation = () => {
         gap: 10px;
     }
 
-    .filter-item-compact {
-        padding: 10px 12px;
-        min-height: 44px;
-        gap: 8px;
-    }
-
-    .filter-icon {
-        width: 16px;
-        height: 16px;
-    }
-
-    .filter-action-buttons {
-        gap: 10px;
-    }
-
     .btn-apply-filters,
     .btn-clear-filters {
         font-size: 12px;
         padding: 10px 14px;
         min-height: 44px;
-    }
-
-    .btn-clear-filters svg {
-        width: 14px;
-        height: 14px;
-    }
-
-    .custom-dropdown-menu {
-        min-width: 100%;
-        left: 0;
-        right: 0;
-    }
-
-    .dropdown-header {
-        font-size: 12px;
-        padding: 10px 14px;
-    }
-
-    .dropdown-option {
-        font-size: 12px;
-        padding: 10px 14px;
     }
 }
 
@@ -1215,65 +1239,56 @@ const getCurrentLocation = () => {
         grid-template-columns: repeat(2, 1fr);
         gap: 8px;
     }
-
-    .filter-item-compact {
-        padding: 10px 12px;
-        min-height: 44px;
-        gap: 8px;
-    }
-
-    .filter-icon {
-        width: 15px;
-        height: 15px;
-    }
-
-    .filter-action-buttons {
-        gap: 8px;
-    }
-
-    .btn-apply-filters,
-    .btn-clear-filters {
-        font-size: 12px;
-        padding: 10px 14px;
-        min-height: 44px;
-    }
 }
 
 @media (max-width: 480px) {
+    .filter-toggle-btn {
+        font-size: 12px;
+        padding: 7px 12px;
+        gap: 5px;
+    }
+
+    .filter-toggle-text {
+        font-size: 12px;
+    }
+
     .filters-grid-wrapper {
         grid-template-columns: 1fr;
         gap: 8px;
     }
 
-    .filter-item-compact {
-        min-height: 42px;
-    }
-
-    .filter-action-buttons {
-        gap: 8px;
-    }
-
     .btn-apply-filters,
     .btn-clear-filters {
         font-size: 12px;
         padding: 10px 12px;
         min-height: 42px;
     }
+}
 
-    .custom-dropdown-menu {
-        min-width: 100%;
-        left: 0;
-        right: 0;
-    }
+/* Selected Filter Tags */
+.selected-filters-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+}
 
-    .dropdown-header {
-        font-size: 12px;
-        padding: 10px 14px;
-    }
+.filter-tag-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    background: transparent;
+}
 
-    .dropdown-option {
-        font-size: 12px;
-        padding: 10px 14px;
-    }
+.filter-tag-item svg {
+    flex-shrink: 0;
+}
+
+.tagb {
+    font-family: 'Avenir', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    color: #2E2D29;
+    line-height: 1;
 }
 </style>

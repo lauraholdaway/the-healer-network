@@ -1,6 +1,6 @@
 <template>
     <form @submit.prevent="searchDoctor">
-        <div class="row search-box bg-white shadow p-3 mb-7 d-flex align-items-center" style="border-radius: 20px;">
+        <div class="row search-box bg-white p-3 mb-5 d-flex align-items-center" style="border-radius: 20px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);">
             <!-- Concern or Practice -->
             <div class="col-12 col-md-4 text-start search-box-section">
                 <div class="d-flex flex-column">
@@ -8,20 +8,16 @@
                     <input type="text" v-model="form.modality" class="form-control border-0 shadow-none"
                         placeholder="Find a healer near you or book online sessions from anywhere in the world." />
                 </div>
-
             </div>
 
             <!-- Locations -->
             <div class="col-12 col-md-5 text-start search-box-section">
-
-                <div class="d-flex justify-content-between">
-                    <div>
-                        <label class="form-label  mb-0 text-start search-box-title">Locations</label>
+                <div class="d-flex flex-column">
+                    <label class="form-label  mb-0 text-start search-box-title">Locations</label>
+                    <div class="d-flex align-items-center gap-2 location-input-wrapper" style="flex-wrap: nowrap;">
                         <input type="text" v-model="form.location"
-                            class="location-text form-control border-0 shadow-none" placeholder="Anywhere / Online" />
-                    </div>
-                    <div>
-                        <button type="button" class="btn rounded-pill btn-sm location-btn current-location-btn mt-4 ms-1"
+                            class="location-text form-control border-0 shadow-none" placeholder="Anywhere / Online" style="width: 200px; flex-shrink: 0;" />
+                        <button type="button" class="rounded-pill btn-sm location-btn current-location-btn my-current-location-btn flex-shrink-0"
                             @click="getCurrentLocation">
                             My Current Location
                             <img :src="Location" alt="Location" class="ms-1"
@@ -33,7 +29,7 @@
 
             <!-- Search Button -->
             <div class="px-2 col-12 col-md-3 search-button-wrapper">
-                <button type="submit" class="btn w-100 rounded-pill search-submit-btn">
+                <button type="submit" class=" w-100 rounded-pill search-submit-btn search-here-btn">
                     <img :src="searchIcon" alt="Search" class="me-2" style="width: 16px; height: 16px;">
                     Search here...
                 </button>
@@ -106,6 +102,13 @@ const getCurrentLocation = () => {
     font-family: 'Avenir', sans-serif !important;
 }
 
+.search-box {
+    width: 93%;
+    margin: 0 auto;
+    padding-top: 15px !important;
+    padding-bottom: 15px !important;
+}
+
 /* Desktop styles */
 .search-box-section {
     border-right: 1px solid #DED1BA;
@@ -142,14 +145,65 @@ const getCurrentLocation = () => {
     white-space: nowrap;
 }
 
+.my-current-location-btn {
+    font-size: 9px;
+    padding: 4px 12px;
+    margin-left: 8px;
+}
+
+.my-current-location-btn img {
+    width: 10px !important;
+    height: 10px !important;
+}
+
+.search-here-btn {
+    font-size: 14px;
+}
+
 .search-submit-btn {
     background-color: #6B5B4E;
     color: #C0B2A4;
     border: none;
     padding: 12px 20px;
     font-weight: 400;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    text-align: left;
 }
+@media (min-width: 1400px) {
+    .search-box-title {
+        font-size: 18px;
+        font-weight: bold;
+    }
 
+    .search-box input.form-control {
+        font-size: 16px;
+        padding: 10px 15px;
+    }
+
+    .location-text {
+        font-size: 16px;
+        padding: 10px 15px;
+    }
+
+    .search-submit-btn {
+        font-size: 16px;
+        padding: 14px 24px;
+    }
+
+    .my-current-location-btn {
+        font-size: 14px;
+        font-weight: 300;
+        padding: 5px 14px;
+        margin-left: 8px;
+    }
+
+    .my-current-location-btn img {
+        width: 15px !important;
+        height: 15px !important;
+    }
+}
 /* Mobile responsive styles */
 @media (max-width: 768px) {
     .search-box {
