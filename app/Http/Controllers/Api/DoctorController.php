@@ -87,6 +87,7 @@ class DoctorController extends Controller
             $practitioner->about = $validated['about'] ?? $practitioner->about;
             $practitioner->website =  $request->website;
             $practitioner->price =  $request->price;
+            $practitioner->duration =  $request->duration;
             $practitioner->appointmentType =  $request->appointmentType;
             $practitioner->languages = $request->input('languages') ?? '-';
             $practitioner->currency =  $request->currency;

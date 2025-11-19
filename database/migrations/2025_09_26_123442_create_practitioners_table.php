@@ -39,6 +39,7 @@ return new class extends Migration
             $table->string('price')->nullable();
             $table->string('languages')->nullable();
             $table->string('appointmentType')->default('both');
+            $table->string('duration')->default('30 Minutes');
 
             // Authentication
             $table->timestamps();

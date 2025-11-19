@@ -29,6 +29,7 @@ class Practitioner extends Authenticatable
         'languages',
         'currency',
         'appointmentType',
+        'duration',
     ];
 
     public function user()
