@@ -17,11 +17,12 @@
 
             <!-- Subtext -->
             <p class="mb-5 px-lg-8 hero-subtext">
-                Whatever holistic therapy you are looking for, we are here to help. Whether its energy healing, counselling, hypnotherapy or another alternative therapy, we’ll find the perfect healer for you.
+                Whatever holistic therapy you are looking for, we are here to help. Whether its energy healing,
+                counselling, hypnotherapy or another alternative therapy, we’ll find the perfect healer for you.
             </p>
 
             <!-- Search Box -->
-            <Searchbox  />
+            <Searchbox />
         </div>
 
 
@@ -117,7 +118,7 @@
     <br>
 
     <section>
-        <div class="container py-1"  id="below">
+        <div class="container py-1" id="below">
             <!-- Title -->
             <h2 class="section-title">Book a Session</h2>
             <p class="section-subtitle" style="font-size: 22px;  color:#5B4C3A; font-weight: 400;">
@@ -148,7 +149,7 @@
                     </button>
                 </div>
             </div>
-            
+
             <!-- Cards -->
             <div class="row g-4 px-3 px-md-0 py-3 py-md-0 ">
                 <Swiper ref="swiperRef" :slides-per-view="3" :space-between="20" :loop="true" :navigation="{
@@ -228,8 +229,7 @@
                                         {{ truncatedSummary(doctor.about, index) }}
                                         <span v-if="isSummaryTruncated(doctor.about, index)">...</span>
                                     </span>
-                                    <a href="#"
-                                        class="m-color doctor-card-toggle ms-2"
+                                    <a href="#" class="m-color doctor-card-toggle ms-2"
                                         @click.prevent="toggleText(index)">
                                         {{ showFull[index] ? 'See less' : 'See more' }}
                                     </a>
@@ -422,7 +422,7 @@ const isSummaryTruncated = (text, index) => {
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;
-    
+
 }
 
 .scroll-down__btn {

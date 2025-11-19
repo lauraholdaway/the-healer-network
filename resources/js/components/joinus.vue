@@ -1,26 +1,32 @@
 <template>
-    <section class="joinUs position-relative d-flex align-items-center" style="overflow: hidden; min-height: 300px; margin-top: 60px; background-color: #8A7356;">
+    <section class="joinUs position-relative d-flex align-items-center"
+        style="overflow: hidden; min-height: 300px; margin-top: 60px; background-color: #8A7356;">
         <div class=" container">
             <div class="row d-flex align-items-center">
                 <div class="col-md-8 mt-4">
-                    <h1 class='text-white'  style="font-size: 34px; font-weight: 100;
-                        
-                     ">Join Our Healer Community</h1>
-                    <p class="joinUs-p">If you’re a holistic healer, The Healer Network helps you grow your reach and connect with new clients, easily and effortlessly. Relax and let us do the hard work for you.
+                    <h1 class='text-white TheSeasons'
+                        style="font-size: 34px; font-weight: 100; font-family: 'TheSeasons', serif !important;">Join Our
+                        Healer Community</h1>
+                    <p class="joinUs-p">If you’re a holistic healer, The Healer Network helps you grow your reach and
+                        connect with new clients, easily and effortlessly. Relax and let us do the hard work for you.
                     </p>
                 </div>
                 <div class="col-md-4 d-flex justify-content-end position-relative" style="z-index: 20;">
-                    <router-link to="/PractitionerIndex" class="btn btn-join-us" style="position: relative; z-index: 25;">
+                    <router-link to="/PractitionerIndex" class="btn btn-join-us"
+                        style="position: relative; z-index: 25;">
                         Join Us
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-left: 8px; display: inline-block; vertical-align: middle;">
-                            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            style="margin-left: 8px; display: inline-block; vertical-align: middle;">
+                            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                     </router-link>
                 </div>
             </div>
         </div>
         <div class="joinus-bg-image">
-            <img :src="JoinUsicon" alt="background" style="width: 550px; height: 550px; position: absolute; bottom: -130px; right: 0px; z-index: 10;">
+            <img :src="JoinUsicon" alt="background"
+                style="width: 550px; height: 550px; position: absolute; bottom: -130px; right: 0px; z-index: 10;">
         </div>
     </section>
 </template>

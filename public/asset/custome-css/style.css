@@ -25,6 +25,9 @@
     font-family: 'TheSeasons', serif !important;
     color: #2E2D29 !important;
 }
+.TheSeasons {
+    font-family: 'TheSeasons', serif !important;
+}
 .bg-custome {
     background-color: #F4EFE6;
 }
@@ -48,10 +51,8 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Cormorant Garamond' !important;
-    /* font-weight: 400; */
+    font-family: 'TheSeasons', serif !important;
     color: #2E2D29;
-    /* adjust if needed */
 }
 
 
@@ -338,7 +339,8 @@ b {
 .herotaxt {
     color: #A0704C;
     font-size: 65px;
-    font-family: 'FONTSPRING DEMO - The Seasons', 'Cormorant Garamond', serif !important;
+    /* font-family: 'FONTSPRING DEMO - The Seasons', 'Cormorant Garamond', serif !important; */
+        font-family: 'TheSeasons', serif !important;
 }
 
 .heroButtons {
@@ -424,6 +426,7 @@ b {
     text-align: center;
     margin-top: 90px;
     margin-bottom: 10px;
+    font-family: 'TheSeasons', serif !important;
 }
 
 /* Mobile responsive */
@@ -934,6 +937,7 @@ b {
     color:#2E2D29;
     text-align: center;
     margin-bottom: 10px;
+    font-family: 'TheSeasons', serif !important;
 }
 @media (min-width: 1400px) {
     .section-title {

@@ -624,11 +624,11 @@
     .profile-image-wrapper {
         min-height: 230px;
     }
-    
+
     .card-body {
         padding: 15px;
     }
-    
+
     .booking-wrapper {
         padding: 40px 60px !important;
     }
@@ -638,21 +638,21 @@
     .card-custom {
         min-height: 600px;
     }
-    
+
     .card-body {
         padding: 25px;
     }
-    
+
     .booking-wrapper {
         min-height: 600px;
         padding: 60px 70px !important;
     }
-    
+
     .profile-image-wrapper {
         min-height: 280px;
         position: relative;
     }
-    
+
     .profile-image-wrapper .profile-image {
         width: 100%;
         height: 100%;
@@ -662,13 +662,13 @@
         top: 0;
         left: 0;
     }
-    
+
     .custom-select {
         width: 200px !important;
         padding: 9px 20px !important;
         font-size: 14px !important;
     }
-    
+
     .form-select {
         width: 560px !important;
         font-size: 14px !important;
@@ -692,33 +692,8 @@
                             </div>
                             <!-- tags -->
                             <div class="position-absolute bottom-0 mb-3" style="left: 20%;">
-                                <div class="d-flex justify-content-center">
-                                    <div>
-                                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <rect width="32" height="32" rx="16" fill="#DED1BA" />
-                                            <path d="M19.8974 14.0388V17.8847L23 20.5V11.5L19.8974 14.0388Z"
-                                                stroke="#2E2D29" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                            <path
-                                                d="M9.68989 11.5H17.5299C18.6717 11.5 19.8889 12.4023 19.8889 13.6023V19.7493C19.8908 19.9455 19.8121 20.1345 19.67 20.275C19.528 20.4155 19.334 20.4961 19.1306 20.4993H11.0627C9.76611 20.4993 9 19.3742 9 18.2492L9.00778 12.2493C8.99315 12.1545 9.00003 12.0578 9.02797 11.9659C9.0559 11.8739 9.10421 11.7889 9.16956 11.7168C9.23411 11.6455 9.31447 11.5891 9.40467 11.5519C9.49488 11.5146 9.59263 11.4974 9.69067 11.5015L9.68989 11.5Z"
-                                                stroke="#2E2D29" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg>
-                                        <span class="tagb">Online</span>
-                                    </div>
-                                    <div>
-                                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <rect width="32" height="32" rx="16" fill="#DED1BA" />
-                                            <path
-                                                d="M18.7222 16H16V12.1111M9 16C9 16.9193 9.18106 17.8295 9.53284 18.6788C9.88463 19.5281 10.4002 20.2997 11.0503 20.9497C11.7003 21.5998 12.4719 22.1154 13.3212 22.4672C14.1705 22.8189 15.0807 23 16 23C16.9193 23 17.8295 22.8189 18.6788 22.4672C19.5281 22.1154 20.2997 21.5998 20.9497 20.9497C21.5998 20.2997 22.1154 19.5281 22.4672 18.6788C22.8189 17.8295 23 16.9193 23 16C23 15.0807 22.8189 14.1705 22.4672 13.3212C22.1154 12.4719 21.5998 11.7003 20.9497 11.0503C20.2997 10.4002 19.5281 9.88463 18.6788 9.53284C17.8295 9.18106 16.9193 9 16 9C15.0807 9 14.1705 9.18106 13.3212 9.53284C12.4719 9.88463 11.7003 10.4002 11.0503 11.0503C10.4002 11.7003 9.88463 12.4719 9.53284 13.3212C9.18106 14.1705 9 15.0807 9 16Z"
-                                                stroke="#2E2D29" stroke-width="1.5" stroke-linecap="round"
-                                                stroke-linejoin="round" />
-                                        </svg><span class="tagb">30 Minutes</span>
+                                <DoctorTage :doctor="doctor" />
 
-                                    </div>
-                                </div>
                             </div>
                         </div>
 
@@ -727,8 +702,8 @@
                             <div v-if="step !== 4">
                                 <!-- ✅ safe name -->
                                 <div class="text-center mb-3">
-                                    <h5 class="card-title fw-bold">{{ doctor?.user?.name }}</h5>
-
+                                    <h5 class="card-title fw-bold">{{ doctor?.user?.name }} {{ doctor.user?.last_name }}
+                                    </h5>
                                 </div>
                                 <div class="d-flex justify-content-center mt-2 mb-3 flex-wrap gap-2"
                                     style="max-height: 60px; overflow: hidden;">
@@ -745,18 +720,17 @@
                                 <div
                                     style="background-color: #5B4C3A;border-radius: 10px; padding: 8px 8px;color:white; text-align: center; margin-bottom: 15px;">
 
-                                    <p class="text-[#F4EFE6] mb-1" style="font-size: 12px;">Freshwater NSW 2096,
-                                        Australia</p>
+                                    <p class="text-[#F4EFE6] mb-1" style="font-size: 12px;">{{
+                                        doctor.practice_location }},</p>
                                     <hr class="my-1">
                                     <b class="text-white" style="font-size: 14px;">
-                                        ${{ doctor?.price }}
+                                        ${{ doctor?.price }} {{ doctor?.currency ?? 'usd' }}
                                     </b>
                                 </div>
                                 <div>
                                     <p
                                         style="background-color: #F4EFE6;border-radius: 10px; font-size: 12px; padding: 4px 10px; margin-bottom: 0;">
-                                        Every practitioner on Bodhi Holistic Hub is carefully vetted, highly rated and a
-                                        certified expert in their fields.
+                                        {{ limitWords(doctor.about, 13) }}
                                     </p>
                                 </div>
                             </div>
@@ -766,18 +740,17 @@
                                 <!-- Category and Price -->
                                 <div class="category-price-row">
                                     <div class="category-tag">Meditation</div>
-                                    <div class="price-tag">$300.00</div>
+                                    <div class="price-tag">${{ doctor?.price }}</div>
                                 </div>
 
                                 <!-- Session Title -->
                                 <div class="session-title">
-                                    <h4>Your Child's Soul Essence Akashic Record Reading</h4>
+                                    <h4>{{ doctor?.user?.name }} {{ doctor.user?.last_name }}</h4>
                                 </div>
 
                                 <!-- Session Description -->
                                 <div class="session-description">
-                                    <p>Enhancing your parenting wisdom: Supporting your child's aut... <a href="#"
-                                            class="see-more-link">See more</a></p>
+                                    <p>{{ limitWords(doctor.about, 13) }} </p>
                                 </div>
 
                                 <!-- Book Session Button -->
@@ -818,8 +791,8 @@
                             <div class="d-flex justify-content-center">
                                 <h5 class="fw-bold mb-3 mt-3 text-center" style="font-size: 28px; color: #7D684E;">
                                     {{ step === 2 ? 'Select a session date & time' : step === 3 ? 'Confirm your details'
-                                        :
-                                        'Select a session' }}</h5>
+                                    :
+                                    'Select a session' }}</h5>
 
                             </div>
 
@@ -862,17 +835,43 @@
                             <div class="text-center">
                                 <!-- Radio -->
                                 <div class="d-flex justify-content-center gap-4 mb-4 mt-2">
-                                    <div class="form-check d-flex align-items-center">
-                                        <input type="radio" v-model="type" class=" form-check-input me-2"
+
+                                    <!-- ONLY ONLINE -->
+                                    <div class="form-check d-flex align-items-center"
+                                        v-if="doctor?.appointmentType === 'online'">
+                                        <input type="radio" v-model="type" class="form-check-input me-2"
                                             name="sessionType" value="online" checked style="accent-color: #7D684E;">
                                         <label class="form-check-label" style="color: #7D684E;">Online session</label>
                                     </div>
-                                    <div class="form-check d-flex align-items-center">
-                                        <input type="radio" v-model="type" class="form-check-input me-2"
+
+                                    <!-- ONLY IN-PERSON -->
+                                    <div class="form-check d-flex align-items-center"
+                                        v-else-if="doctor?.appointmentType === 'inpersone'">
+                                        <input type="radio" v-model="type" checked class="form-check-input me-2"
                                             name="sessionType" value="offline" style="accent-color: #7D684E;">
                                         <label class="form-check-label" style="color: #7D684E;">In-Person</label>
                                     </div>
+
+                                    <!-- BOTH OPTIONS -->
+                                    <div v-else class="d-flex gap-4">
+                                        <!-- Online -->
+                                        <div class="form-check d-flex align-items-center">
+                                            <input type="radio" v-model="type" checked class="form-check-input me-2"
+                                                name="sessionType" value="online" style="accent-color: #7D684E;">
+                                            <label class="form-check-label" style="color: #7D684E;">Online
+                                                session</label>
+                                        </div>
+
+                                        <!-- In-Person -->
+                                        <div class="form-check d-flex align-items-center">
+                                            <input type="radio" v-model="type" class="form-check-input me-2"
+                                                name="sessionType" value="offline" style="accent-color: #7D684E;">
+                                            <label class="form-check-label" style="color: #7D684E;">In-Person</label>
+                                        </div>
+                                    </div>
+
                                 </div>
+
 
                                 <!-- Buttons -->
                                 <div class="d-flex justify-content-between">
@@ -1108,6 +1107,7 @@ import { loadStripe } from "@stripe/stripe-js";
 import "swiper/css";
 import "swiper/css/navigation";
 import { useNotification } from "@kyvg/vue3-notification";
+import DoctorTage from "../components/DoctorTage.vue";
 const { notify } = useNotification()
 
 const stripePromise = loadStripe("pk_test_51RxKS91z2jyYxDbYk2b5OEAEMATsWughmWumjqLOOMLvaou30ylrtQuvqzegUeux9XMJntbx3b8zd7miFtjzf5cf002mfUnCby");
@@ -1246,7 +1246,7 @@ watch(step, async (newStep) => {
     }
     if (newStep === 2) {
         if (!doctortime.value || doctortime.value.length === 0) {
-            alert("⚠️ This doctor has no available time slots!");
+            alert("⚠️ This Healar has no available time slots!");
             step.value-- // 🚫 stop here — do not move to next step
         }
     }
@@ -1362,5 +1362,11 @@ function formatDate(date) {
         month: "short",
         year: "numeric",
     });
+}
+
+function limitWords(text, count) {
+    if (!text) return '-';
+    const words = text.split(' ');
+    return words.length > count ? words.slice(0, count).join(' ') : text;
 }
 </script>

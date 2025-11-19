@@ -29,6 +29,7 @@ const gender = ref("");
 const appointmentType = ref("");
 const languages = ref("");
 const price = ref("");
+const duration = ref("");
 const currency = ref("");
 const modalities = ref("");
 const practicingSince = ref("");
@@ -72,6 +73,7 @@ async function getProfile() {
         appointmentType.value = docData.appointmentType ?? "";
         languages.value = docData.languages ?? "";
         price.value = docData.price ?? "";
+        duration.value = docData.duration ?? "";
         currency.value = docData.currency ?? "";
 
         console.log(docData.modalities);
@@ -109,6 +111,7 @@ async function updateProfile() {
             appointmentType: appointmentType.value,
             languages: languages.value,
             price: price.value,
+            duration: duration.value,
             currency: currency.value,
             modalities: modalities.value,
             about: about.value,
@@ -352,9 +355,12 @@ onMounted(() => {
                     </div>
                 </div>
                 <div class="row">
+                    <div class="mb-3 col-md-4">
+                        <label class="form-label">Duration</label>
+                        <input v-model="duration" type="text" class="form-control" />
+                    </div>
 
-
-                    <div class="mb-3 col-md-6">
+                    <div class="mb-3 col-md-4">
                         <label class="form-label ">Gender</label>
 
                         <select v-model="gender" class="form-control border-info">
@@ -366,7 +372,7 @@ onMounted(() => {
                             </option>
                         </select>
                     </div>
-                    <div class="mb-3 col-md-6">
+                    <div class="mb-3 col-md-4">
                         <label class="form-label ">Appointment Type</label>
 
                         <select v-model="appointmentType" class="form-control border-info">
