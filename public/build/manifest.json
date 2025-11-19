@@ -135,10 +135,6 @@
     "file": "assets/about-DXo_w4qg.png",
     "src": "public/asset/images/about.png"
   },
-  "public/asset/images/practitionerindtext.svg": {
-    "file": "assets/practitionerindtext-C8_Y1ZnD.svg",
-    "src": "public/asset/images/practitionerindtext.svg"
-  },
   "public/asset/images/quiz.png": {
     "file": "assets/quiz-WZI6A8r1.png",
     "src": "public/asset/images/quiz.png"
@@ -168,12 +164,12 @@
     "src": "public/asset/images/xicon.svg"
   },
   "resources/js/app.js": {
-    "file": "assets/app-G2jEGI1n.js",
+    "file": "assets/app-B2YBG2er.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
     "css": [
-      "assets/app-Bd1ZYWcK.css"
+      "assets/app-C3OT43Pt.css"
     ],
     "assets": [
       "assets/arrowlift-jUjrU256.svg",
@@ -200,7 +196,6 @@
       "assets/CEO-MwLccKtD.png",
       "assets/Touch With Us-DbZzjehi.svg",
       "assets/slider1-BkayiFir.jpg",
-      "assets/practitionerindtext-C8_Y1ZnD.svg",
       "assets/practitionerimage1-C1o0mHoZ.png",
       "assets/practitionerimage2-BLJfarF6.png",
       "assets/tabler-icon-mood-smile-beam-qnOdBMu5.svg",
