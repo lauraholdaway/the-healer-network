@@ -10,7 +10,8 @@
 }
 
 .search-box {
-    width: 93%;
+    width: 100%;
+    max-width: 100%;
     margin: 0 auto;
     padding-top: 15px !important;
     padding-bottom: 15px !important;
@@ -41,6 +42,12 @@
 .location-text {
     color: #8A7356;
     padding-right: 20px;
+    width: 200px;
+    flex-shrink: 0;
+}
+
+.location-input-wrapper {
+    flex-wrap: nowrap;
 }
 
 .location-btn {
@@ -68,18 +75,62 @@
 }
 
 .search-submit-btn {
-    background-color: #6B5B4E;
+    background-color: #5B4C3A;
     color: #C0B2A4;
     border: none;
-    padding: 12px 20px;
+    padding: 12px 30px;
     font-weight: 400;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    text-align: left;
+    justify-content: center;
+    text-align: center;
+    width: 200px;
+}
+
+.search-icon {
+    filter: brightness(0) invert(1);
+}
+
+.search-button-wrapper {
+    margin-left: auto;
+    display: flex;
+    justify-content: flex-end;
+    margin-right: 0;
+}
+
+@media (min-width: 993px) and (max-width: 1199px) {
+    .search-box {
+        width: 95%;
+    }
+    
+    .search-submit-btn {
+        width: 180px;
+    }
+    
+    .location-input-wrapper {
+        flex-wrap: nowrap;
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1399px) {
+    .search-box {
+        width: 94%;
+    }
+    
+    .search-submit-btn {
+        width: 200px;
+    }
+    
+    .location-input-wrapper {
+        flex-wrap: nowrap;
+    }
 }
 
 @media (min-width: 1400px) {
+    .search-box {
+        width: 93%;
+    }
+    
     .search-box-title {
         font-size: 18px;
         font-weight: bold;
@@ -98,6 +149,7 @@
     .search-submit-btn {
         font-size: 16px;
         padding: 14px 24px;
+        width: 250px;
     }
 
     .my-current-location-btn {
@@ -111,12 +163,36 @@
         width: 15px !important;
         height: 15px !important;
     }
+    
+    .location-input-wrapper {
+        flex-wrap: nowrap;
+    }
+}
+
+/* Tablet responsive styles */
+@media (min-width: 769px) and (max-width: 992px) {
+    .search-box {
+        width: 95%;
+    }
+    
+    .search-submit-btn {
+        width: 180px;
+    }
+    
+    .location-text {
+        width: 180px !important;
+    }
+    
+    .location-input-wrapper {
+        flex-wrap: nowrap;
+    }
 }
 
 /* Mobile responsive styles */
 @media (max-width: 768px) {
     .search-box {
         padding: 1rem !important;
+        width: 100%;
     }
 
     .search-box-section {
@@ -141,25 +217,48 @@
     .location-wrapper {
         justify-content: flex-start;
     }
+    
+    .location-input-wrapper {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
 
     .location-text {
         padding-right: 10px;
         font-size: 13px;
+        width: 100% !important;
+        max-width: 100% !important;
     }
 
     .location-btn {
         font-size: 9px;
         padding: 4px 12px;
     }
+    
+    .my-current-location-btn {
+        width: 100%;
+        justify-content: center;
+    }
 
     .search-button-wrapper {
         padding: 0.5rem 0.5rem !important;
         margin-top: 0.5rem;
+        margin-left: 0 !important;
+        display: block !important;
+        justify-content: initial !important;
+        width: 100%;
     }
 
     .search-submit-btn {
         padding: 10px 15px;
         font-size: 14px;
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .filter-toggle-wrapper {
+        margin-left: 0;
+        margin-top: -10px;
     }
 }
 
@@ -190,11 +289,33 @@
     .search-submit-btn {
         padding: 8px 12px;
         font-size: 13px;
+        width: 100%;
+        max-width: 100%;
     }
 
     .search-submit-btn img {
         width: 14px !important;
         height: 14px !important;
+    }
+    
+    .location-input-wrapper {
+        flex-wrap: wrap !important;
+        gap: 8px !important;
+    }
+    
+    .location-text {
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+    
+    .my-current-location-btn {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .filter-toggle-wrapper {
+        margin-left: 0;
+        margin-top: -10px;
     }
 }
 
@@ -238,6 +359,30 @@
     margin-left: 50px;
     position: relative;
     z-index: 5;
+}
+
+@media (min-width: 769px) and (max-width: 992px) {
+    .filter-toggle-wrapper {
+        margin-left: 20px;
+    }
+}
+
+@media (min-width: 993px) and (max-width: 1199px) {
+    .filter-toggle-wrapper {
+        margin-left: 40px;
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1399px) {
+    .filter-toggle-wrapper {
+        margin-left: 45px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .filter-toggle-wrapper {
+        margin-left: 50px;
+    }
 }
 
 .filter-toggle-btn {
@@ -322,7 +467,8 @@
     background: white;
     border-radius: 16px;
     padding: 14px 16px;
-    width: 91%;
+    width: 100%;
+    max-width: 100%;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
     border: 1px solid #DED1BA;
     margin: 12px auto 0;
@@ -572,9 +718,28 @@
 }
 
 /* Responsive Styles for Filters */
+@media (min-width: 993px) and (max-width: 1199px) {
+    .filters-container {
+        width: 95%;
+    }
+}
+
+@media (min-width: 1200px) and (max-width: 1399px) {
+    .filters-container {
+        width: 94%;
+    }
+}
+
+@media (min-width: 1400px) {
+    .filters-container {
+        width: 93%;
+    }
+}
+
 @media (max-width: 992px) {
     .filters-container {
         padding: 14px 16px;
+        width: 100%;
     }
 
     .filters-grid-wrapper {
@@ -680,10 +845,10 @@
     line-height: 1;
 }
 </style>
-
+   
 <template>
     <form @submit.prevent="searchDoctor">
-        <div class="row search-box bg-white p-3 mb-5 d-flex align-items-center" style="border-radius: 20px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03); background-color: red;">
+        <div class="row search-box bg-white p-3 mb-5 d-flex align-items-center" style="border-radius: 20px; box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);">
             <!-- Concern or Practice -->
             <div class="col-12 col-md-4 text-start search-box-section">
                 <div class="d-flex flex-column">
@@ -697,8 +862,8 @@
             <div class="col-12 col-md-5 text-start search-box-section">
                 <div class="d-flex flex-column">
                     <label class="form-label  mb-0 text-start search-box-title">Locations</label>
-                    <div class="d-flex align-items-center gap-2 location-input-wrapper" style="flex-wrap: nowrap;">
-                        <input type="text" v-model="form.location" class="location-text form-control border-0 shadow-none" placeholder="Anywhere / Online" style="width: 200px; flex-shrink: 0;" />
+                    <div class="d-flex align-items-center gap-2 location-input-wrapper">
+                        <input type="text" v-model="form.location" class="location-text form-control border-0 shadow-none" placeholder="Anywhere / Online" />
                         <button type="button" class="rounded-pill btn-sm location-btn current-location-btn my-current-location-btn flex-shrink-0" @click="getCurrentLocation">
                             My Current Location
                             <img :src="Location" alt="Location" class="ms-1" style="width: 12px; height: 12px; filter: brightness(0) invert(1);">
@@ -709,9 +874,9 @@
 
             <!-- Search Button -->
             <div class="px-2 col-12 col-md-3 search-button-wrapper">
-                <button type="submit" class=" w-100 rounded-pill search-submit-btn search-here-btn">
-                    <img :src="searchIcon" alt="Search" class="me-2" style="width: 16px; height: 16px;">
-                    Search here...
+                <button type="submit" class="rounded-pill search-submit-btn search-here-btn">
+                    <img :src="searchIcon" alt="Search" class="me-2 search-icon" style="width: 16px; height: 16px;">
+                    Submit 
                 </button>
             </div>
         </div>

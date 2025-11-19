@@ -4,7 +4,9 @@
             <div class="footer-main">
                 <!-- Logo Section -->
                 <div class="footer-logo">
-                    <img src="/public/asset/images/dark-logo.png" width="150px" alt="THN Logo">
+                    <router-link to="/">
+                        <img src="/public/asset/images/dark-logo.png" width="150px" alt="THN Logo">
+                    </router-link>
                 </div>
 
                 <!-- Wellbeing Articles -->
@@ -108,7 +110,7 @@ function limitWords(text, count) {
   color: #4A4A4A;
   padding: 80px 0 30px;
   font-family: 'Inter', sans-serif;
-  margin-top: 60px;
+  margin-top: 0px;
 }
 
 
@@ -148,6 +150,12 @@ function limitWords(text, count) {
   align-self: stretch;
   display: flex;
   align-items: flex-start;
+}
+
+.footer-logo a {
+  text-decoration: none;
+  display: inline-block;
+  cursor: pointer;
 }
 
 .footer-logo img {
@@ -257,7 +265,7 @@ function limitWords(text, count) {
   background-color: #DED1BA;
   outline: none;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+ 
 }
 
 .email-input::placeholder {
@@ -281,7 +289,7 @@ function limitWords(text, count) {
   cursor: pointer;
   transition: all 0.3s ease;
   white-space: nowrap;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
 }
 
 .subscribe-btn:hover {

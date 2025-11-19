@@ -1,6 +1,5 @@
 <template>
-
-
+    <div style="background-color: #FBF9F7; min-height: 100vh;">
     <section>
         <div class="container-fluid practitionerindex">
             <div class="container p-5">
@@ -40,8 +39,17 @@
         <br>
         <div class="container p-4">
             <div class="practitionerindexBox text-center">
-                <img src="/public/asset/images/practitionerindtext.svg" class="img-fluid practitioner-text-svg"
-                    alt="Practitioner Text">
+                <p class="practitioner-text-content">
+                    A trusted community connecting the most skilled and heart-led healers with people seeking support.
+                    <!-- <span class="leaf-icon-wrapper">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="leaf-icon">
+                            <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
+                            <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+                        </svg>
+                        <span class="demo-text">DEMO</span>
+                    </span> -->
+                  
+                </p>
             </div>
         </div>
 
@@ -189,7 +197,7 @@
 
                     <div class="how-it-works-card">
                         <h4 class="card-heading">Create your healer profile</h4>
-                        <p class="card-text">Add your sessions, price, and availability.</p>
+                        <p class="card-text">Add your sessions, prices, and availability.</p>
                     </div>
 
                     <div class="how-it-works-card">
@@ -200,7 +208,7 @@
 
                     <div class="how-it-works-card">
                         <h4 class="card-heading">Add client notes</h4>
-                        <p class="card-text">Keep track of all your clients in one centralized place.</p>
+                        <p class="card-text">keep track of all your clients in one centralised place</p>
                     </div>
                 </div>
 
@@ -208,6 +216,7 @@
 
         </div>
     </section>
+    </div>
     <section class="cta-section position-relative d-flex align-items-center"
         style="overflow: hidden; min-height: 300px;">
         <div class="container">
@@ -355,6 +364,7 @@
         padding: 4rem 2rem !important;
         min-height: 320px !important;
         max-width: 300px !important;
+        background: #F4EFE6 !important;
     }
     
     .card-heading {
@@ -362,12 +372,15 @@
         margin-bottom: 1.5rem !important;
         margin-top: 0 !important;
         padding-top: 0.8rem !important;
+        color: #2E2D29 !important;
+        font-weight: 700 !important;
     }
     
     .card-text {
         font-size: 1.1rem !important;
         margin-top: 0.8rem !important;
         padding-bottom: 0.8rem !important;
+        color: #5B4C3A !important;
     }
 }
 
@@ -380,23 +393,79 @@
 }
 
 .practitionerindexBox {
-    padding: 3rem 2rem;
+    padding: 4rem 2rem;
     background: #5B4C3A;
-    border-radius: 20px;
+    border-radius: 40px;
     margin: 2rem 0;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
 }
 
-/* Responsive SVG sizing */
+.practitioner-text-content {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 28px;
+    font-weight: 400;
+    color: white;
+    line-height: 1.6;
+    margin: 0;
+    display: inline-block;
+}
+
+.leaf-icon-wrapper {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    vertical-align: middle;
+    margin: 0 0.5rem;
+}
+
+.leaf-icon {
+    width: 24px;
+    height: 24px;
+    color: #F7F4EF;
+    margin-bottom: 0.3rem;
+}
+
+.demo-text {
+    font-size: 0.75rem;
+    font-weight: 400;
+    color: #F7F4EF;
+    font-family: 'Cormorant Garamond', serif;
+    line-height: 1;
+}
+
+/* Responsive Text sizing */
 @media (max-width: 768px) {
-    .practitioner-text-svg {
-        max-width: 90%;
+    .practitioner-text-content {
+        font-size: 1.2rem;
+    }
+    
+    .leaf-icon {
+        width: 20px;
+        height: 20px;
+    }
+    
+    .demo-text {
+        font-size: 0.65rem;
     }
 }
 
 @media (max-width: 576px) {
-    .practitioner-text-svg {
-        max-width: 85%;
+    .practitioner-text-content {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+    
+    .leaf-icon {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .demo-text {
+        font-size: 0.6rem;
+    }
+    
+    .practitionerindexBox {
+        padding: 2rem 1.5rem;
     }
 }
 
@@ -414,9 +483,7 @@
     margin: 0 auto;
     flex-wrap: wrap;
     justify-content: center;
-   
     padding: 2rem;
-    border-radius: 15px;
 }
 
 .how-it-works-card {
@@ -439,7 +506,7 @@
 .card-heading {
     font-family: 'Cormorant Garamond', serif;
     font-size: 1.2rem;
-    font-weight: 600;
+    font-weight: 700;
     color: #2E2D29;
     margin-bottom: 1.2rem;
     margin-top: 0;
@@ -450,7 +517,7 @@
 .card-text {
     font-family: 'Cormorant Garamond', serif;
     font-size: 0.95rem;
-    color: #2E2D29;
+    color: #5B4C3A;
     line-height: 1.5;
     margin: 0;
     margin-top: 0.5rem;
@@ -467,6 +534,7 @@
         padding: 2.5rem 1.3rem;
         min-width: 180px;
         min-height: 160px;
+        background: #F4EFE6;
     }
 }
 
@@ -481,6 +549,7 @@
         max-width: 100%;
         padding: 2rem 1.5rem;
         min-height: 140px;
+        background: #F4EFE6;
     }
 }
 
@@ -493,21 +562,25 @@
     .how-it-works-card {
         padding: 1.8rem 1.2rem;
         min-height: 120px;
+        background: #F4EFE6;
     }
 
     .card-heading {
         font-size: 1.1rem;
+        color: #2E2D29;
+        font-weight: 700;
     }
 
     .card-text {
         font-size: 0.9rem;
+        color: #5B4C3A;
     }
 }
 
 /* Call-to-Action Section Styling */
 .cta-section {
     padding: 4rem 0;
-    margin: 3rem 0 0.5rem 0;
+    margin: 0;
     position: relative;
     background-color: #8A7356;
 }
@@ -623,7 +696,7 @@
 @media (max-width: 768px) {
     .cta-section {
         padding: 3rem 0;
-        margin: 2rem 0;
+        margin: 0;
     }
 
     .cta-title {
@@ -676,8 +749,8 @@
     align-items: center;
     background: white;
     padding: 1rem 2rem;
-    border-radius: 15px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    border-radius: 32px;
+   
     transition: all 0.3s ease;
     border: 1px solid #f0f0f0;
     width: 100%;
