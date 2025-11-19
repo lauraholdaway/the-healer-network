@@ -624,11 +624,11 @@
     .profile-image-wrapper {
         min-height: 230px;
     }
-    
+
     .card-body {
         padding: 15px;
     }
-    
+
     .booking-wrapper {
         padding: 40px 60px !important;
     }
@@ -638,21 +638,21 @@
     .card-custom {
         min-height: 600px;
     }
-    
+
     .card-body {
         padding: 25px;
     }
-    
+
     .booking-wrapper {
         min-height: 600px;
         padding: 60px 70px !important;
     }
-    
+
     .profile-image-wrapper {
         min-height: 280px;
         position: relative;
     }
-    
+
     .profile-image-wrapper .profile-image {
         width: 100%;
         height: 100%;
@@ -662,13 +662,13 @@
         top: 0;
         left: 0;
     }
-    
+
     .custom-select {
         width: 200px !important;
         padding: 9px 20px !important;
         font-size: 14px !important;
     }
-    
+
     .form-select {
         width: 560px !important;
         font-size: 14px !important;
@@ -727,8 +727,8 @@
                             <div v-if="step !== 4">
                                 <!-- ✅ safe name -->
                                 <div class="text-center mb-3">
-                                    <h5 class="card-title fw-bold">{{ doctor?.user?.name }}</h5>
-
+                                    <h5 class="card-title fw-bold">{{ doctor?.user?.name }} {{ doctor.user?.last_name }}
+                                    </h5>
                                 </div>
                                 <div class="d-flex justify-content-center mt-2 mb-3 flex-wrap gap-2"
                                     style="max-height: 60px; overflow: hidden;">
@@ -745,18 +745,17 @@
                                 <div
                                     style="background-color: #5B4C3A;border-radius: 10px; padding: 8px 8px;color:white; text-align: center; margin-bottom: 15px;">
 
-                                    <p class="text-[#F4EFE6] mb-1" style="font-size: 12px;">Freshwater NSW 2096,
-                                        Australia</p>
+                                    <p class="text-[#F4EFE6] mb-1" style="font-size: 12px;">{{
+                                        doctor.practice_location }},</p>
                                     <hr class="my-1">
                                     <b class="text-white" style="font-size: 14px;">
-                                        ${{ doctor?.price }}
+                                        ${{ doctor?.price }} {{ doctor?.currency ?? 'usd' }}
                                     </b>
                                 </div>
                                 <div>
                                     <p
                                         style="background-color: #F4EFE6;border-radius: 10px; font-size: 12px; padding: 4px 10px; margin-bottom: 0;">
-                                        Every practitioner on Bodhi Holistic Hub is carefully vetted, highly rated and a
-                                        certified expert in their fields.
+                                        {{ limitWords(doctor.about, 13) }}
                                     </p>
                                 </div>
                             </div>
@@ -766,18 +765,17 @@
                                 <!-- Category and Price -->
                                 <div class="category-price-row">
                                     <div class="category-tag">Meditation</div>
-                                    <div class="price-tag">$300.00</div>
+                                    <div class="price-tag">${{ doctor?.price }}</div>
                                 </div>
 
                                 <!-- Session Title -->
                                 <div class="session-title">
-                                    <h4>Your Child's Soul Essence Akashic Record Reading</h4>
+                                    <h4>{{ doctor?.user?.name }} {{ doctor.user?.last_name }}</h4>
                                 </div>
 
                                 <!-- Session Description -->
                                 <div class="session-description">
-                                    <p>Enhancing your parenting wisdom: Supporting your child's aut... <a href="#"
-                                            class="see-more-link">See more</a></p>
+                                    <p>{{ limitWords(doctor.about, 13) }} </p>
                                 </div>
 
                                 <!-- Book Session Button -->
@@ -818,8 +816,8 @@
                             <div class="d-flex justify-content-center">
                                 <h5 class="fw-bold mb-3 mt-3 text-center" style="font-size: 28px; color: #7D684E;">
                                     {{ step === 2 ? 'Select a session date & time' : step === 3 ? 'Confirm your details'
-                                        :
-                                        'Select a session' }}</h5>
+                                    :
+                                    'Select a session' }}</h5>
 
                             </div>
 
@@ -862,17 +860,43 @@
                             <div class="text-center">
                                 <!-- Radio -->
                                 <div class="d-flex justify-content-center gap-4 mb-4 mt-2">
-                                    <div class="form-check d-flex align-items-center">
-                                        <input type="radio" v-model="type" class=" form-check-input me-2"
+
+                                    <!-- ONLY ONLINE -->
+                                    <div class="form-check d-flex align-items-center"
+                                        v-if="doctor?.appointmentType === 'online'">
+                                        <input type="radio" v-model="type" class="form-check-input me-2"
                                             name="sessionType" value="online" checked style="accent-color: #7D684E;">
                                         <label class="form-check-label" style="color: #7D684E;">Online session</label>
                                     </div>
-                                    <div class="form-check d-flex align-items-center">
-                                        <input type="radio" v-model="type" class="form-check-input me-2"
+
+                                    <!-- ONLY IN-PERSON -->
+                                    <div class="form-check d-flex align-items-center"
+                                        v-else-if="doctor?.appointmentType === 'inpersone'">
+                                        <input type="radio" v-model="type" checked class="form-check-input me-2"
                                             name="sessionType" value="offline" style="accent-color: #7D684E;">
                                         <label class="form-check-label" style="color: #7D684E;">In-Person</label>
                                     </div>
+
+                                    <!-- BOTH OPTIONS -->
+                                    <div v-else class="d-flex gap-4">
+                                        <!-- Online -->
+                                        <div class="form-check d-flex align-items-center">
+                                            <input type="radio" v-model="type" checked class="form-check-input me-2"
+                                                name="sessionType" value="online" style="accent-color: #7D684E;">
+                                            <label class="form-check-label" style="color: #7D684E;">Online
+                                                session</label>
+                                        </div>
+
+                                        <!-- In-Person -->
+                                        <div class="form-check d-flex align-items-center">
+                                            <input type="radio" v-model="type" class="form-check-input me-2"
+                                                name="sessionType" value="offline" style="accent-color: #7D684E;">
+                                            <label class="form-check-label" style="color: #7D684E;">In-Person</label>
+                                        </div>
+                                    </div>
+
                                 </div>
+
 
                                 <!-- Buttons -->
                                 <div class="d-flex justify-content-between">
@@ -1246,7 +1270,7 @@ watch(step, async (newStep) => {
     }
     if (newStep === 2) {
         if (!doctortime.value || doctortime.value.length === 0) {
-            alert("⚠️ This doctor has no available time slots!");
+            alert("⚠️ This Healar has no available time slots!");
             step.value-- // 🚫 stop here — do not move to next step
         }
     }
@@ -1362,5 +1386,11 @@ function formatDate(date) {
         month: "short",
         year: "numeric",
     });
+}
+
+function limitWords(text, count) {
+    if (!text) return '-';
+    const words = text.split(' ');
+    return words.length > count ? words.slice(0, count).join(' ') : text;
 }
 </script>
