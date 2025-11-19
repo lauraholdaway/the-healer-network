@@ -632,11 +632,7 @@ const isSummaryTruncated = (text, index) => {
     border-radius: 20px;
     margin: 10px auto;
     display: block;
-    transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-.blog-card:hover .blog-card-img {
-    transform: scale(1.02);
+    transition: filter 0.3s ease;
 }
 
 .blog-card-body {
