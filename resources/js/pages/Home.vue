@@ -126,13 +126,13 @@
             </p>
 
             <!-- Button and Navigation -->
-            <div class="d-flex justify-content-between align-items-center mb-14 mt-4">
+        <div class="d-flex justify-content-between align-items-center  mt-4" style="padding-left: 0px; padding-right: 0px; margin-left: 0px; margin-right: 0px;">
                 <div class="text-start">
-                    <router-link to="/Alldoctor" class="btn btn-outline-dark btn-outline-custome rounded-pill">
-                        View All Healar
+                    <router-link to="/Alldoctor" class="btn btn-outline-custome" style="background-color: #FBF9F7; border: 1px solid #C1B39D; border-radius: 30px; color: #2E2D29; font-family: 'TheSeasons', serif; padding: 10px 20px;">
+                        View All Practitioners
                     </router-link>
                 </div>
-                <div class="d-flex gap-2">
+                <div class="d-flex gap-2" style="margin-right: 0; padding-right: 0; margin-left: auto;">
                     <!-- Left Arrow Button -->
                     <button ref="prevEl"
                         class="btn btn-arrow-left rounded-circle d-flex align-items-center justify-content-center"
@@ -151,7 +151,7 @@
             </div>
 
             <!-- Cards -->
-            <div class="row g-4 px-3 px-md-0 py-3 py-md-0 ">
+            <div class="row g-4 px-3 px-md-2 py-3 py-md-0 mt-0">
                 <Swiper ref="swiperRef" :slides-per-view="3" :space-between="20" :loop="true" :navigation="{
                     nextEl: nextBtn,
                     prevEl: prevBtn,
@@ -229,8 +229,8 @@
                                         {{ truncatedSummary(doctor.about, index) }}
                                         <span v-if="isSummaryTruncated(doctor.about, index)">...</span>
                                     </span>
-                                    <a href="#" class="m-color doctor-card-toggle ms-2"
-                                        @click.prevent="toggleText(index)">
+                                    <a href="#" class="m-color doctor-card-toggle ms-2" style="font-size: 14px;"
+                                        @click.prevent="toggleText(index)" v-if="doctor.about && doctor.about.length > maxSummaryLength">
                                         {{ showFull[index] ? 'See less' : 'See more' }}
                                     </a>
                                 </p>
@@ -283,8 +283,8 @@
                 </router-link>
             </div>
 
-            <div class="row g-4 mt-3">
-                <Swiper ref="swiperRef2" :slides-per-view="3" :space-between="20" :loop="true"
+            <div class="row g-2 mt-3">
+                <Swiper ref="swiperRef2" :slides-per-view="3" :space-between="10" :loop="true"
                     :autoplay="{ delay: 3000 }" :breakpoints="{
                         0: { slidesPerView: 1 },      // Mobile
                         768: { slidesPerView: 2 },    // Tablet
@@ -292,7 +292,7 @@
                     }" class="mySwiper">
 
                     <!-- Blog Card -->
-                    <SwiperSlide class="col-lg-4 col-md-6 col-sm-12 p-2 p-md-3" v-for="(blog, index) in blogs" :key="blog.id">
+                    <SwiperSlide class="col-lg-4 col-md-6 col-sm-12 p-1 p-md-2" v-for="(blog, index) in blogs" :key="blog.id">
                         <div class="blog-card">
                             <img :src="blog?.image ? '/storage/' + blog.image : '/default-image.png'"
                                 class="blog-card-img" alt="Reiki">
@@ -399,7 +399,7 @@ function limitWords(text, count) {
     return words.length > count ? words.slice(0, count).join(' ') + '...' : text
 }
 
-const maxSummaryLength = 40
+const maxSummaryLength = 30
 
 const truncatedSummary = (text, index) => {
     if (!text) return '-'
@@ -615,15 +615,14 @@ const isSummaryTruncated = (text, index) => {
     height: 450px;
     display: flex;
     flex-direction: column;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s ease;
     cursor: pointer;
     overflow: hidden;
+    box-shadow: 0 2px 8px rgba(91, 76, 58, 0.08);
 }
 
 .blog-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
-    background-color: #E5DAC8;
+    transform: translateY(-5px);
 }
 
 .blog-card-img {
@@ -633,12 +632,11 @@ const isSummaryTruncated = (text, index) => {
     border-radius: 20px;
     margin: 10px auto;
     display: block;
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), filter 0.4s ease;
+    transition: transform 0.3s ease, filter 0.3s ease;
 }
 
 .blog-card:hover .blog-card-img {
-    transform: scale(1.05);
-    filter: brightness(1.1);
+    transform: scale(1.02);
 }
 
 .blog-card-body {
@@ -933,5 +931,11 @@ const isSummaryTruncated = (text, index) => {
     .blog-read-more {
         font-size: 11px;
     }
+}
+
+.btn-outline-custome:hover {
+    background-color: #5B4C3A !important;
+    color: #FBF9F7 !important;
+    transition: all 0.3s ease;
 }
 </style>

@@ -33,8 +33,8 @@
         </div>
         <div class="container-fluid bg-custome py-1" style="margin-top: -2px; margin-bottom: 0;">
             <div class="container py-4 py-md-5">
-                <div class="row align-items-start">
-                    <div class="col-md-6 text-start pt-3 p-md-0">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-start p-3 p-md-5">
                         <div>
                             <h1 class="fw-bold section-heading text-start">
                                 About The Healer Network
@@ -53,8 +53,8 @@
                             </p>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="p-3 p-md-4 m-1">
+                    <div class="col-md-6 d-flex align-items-center">
+                        <div class="p-3 p-md-5 w-100">
                             <img src="/public/asset/images/about2.png" class="img-fluid about-image" alt="">
 
                         </div>
@@ -66,9 +66,9 @@
             <img src="/public/asset/images/aboutbg-bt.png" class="w-100" alt="" style="display: block; margin: -2px;">
         </div>
         <div class="container px-3">
-            <div class="row">
-                <div class="col-md-6 p-3 p-md-5 order-2 order-md-1">
-                    <div>
+            <div class="row align-items-center">
+                <div class="col-md-6 p-3 p-md-5 order-2 order-md-1 d-flex align-items-center">
+                    <div class="w-100">
                         <img src="/public/asset/images/about3.png" class="img-fluid about-image" alt="">
 
                     </div>
