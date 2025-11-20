@@ -1,7 +1,7 @@
 <template>
     <div class="content flex-grow-1 p-4">
         <div class="card p-4 session-card">
-            <h3 class="mb-4 Seasons-fonts">💰Practitioner Packages</h3>
+            <h3 class="mb-4 Seasons-fonts">💰 Healar Packages</h3>
             <!-- Packages -->
             <div v-for="(pkg, index) in packages" :key="index" class="row mb-3 border p-2 rounded">
                 <div class="col-md-3">
@@ -65,6 +65,9 @@
 import { ref, onMounted } from "vue";
 import { useAuthStore } from "../../stores/auth";
 import axios from "axios";
+import { useNotification } from "@kyvg/vue3-notification";
+const { notify } = useNotification();
+
 
 const doctorId = ref("");
 const packages = ref([{ price: "", type: "" ,time: "" }]);
@@ -86,6 +89,14 @@ async function savePackages() {
             doctor_id: auth.user.id,
             packages: packages.value,
         });
+
+
+        notify({
+            title: "Succes",
+            text: "Packages saved Successfuly",
+        });
+
+        packages.value = "";
         getPackages();
 
 
@@ -110,6 +121,10 @@ async function deletePackage(id) {
     try { await axios.delete(`/api/packages/delete/${id}`);
          packages.value = packages.value.filter((pkg) => pkg.id !== id);
         getPackages();
+        notify({
+            title: "Succes",
+            text: "Date Package Successfuly",
+        });
         }
     catch (err) { console.error("Failed to delete package:", err); }
 }

@@ -1,7 +1,7 @@
 <template>
     <div class="content flex-grow-1 p-4 card">
         <div class="p-4 session-card">
-            <h3 class="mb-4 Seasons-fonts">📅Practitioner Availability</h3>
+            <h3 class="mb-4 Seasons-fonts">📅Healar Availability</h3>
             <!-- Add Date & Time -->
             <div class="row mb-3">
                 <div class="col-md-4">
@@ -84,12 +84,13 @@ import axios from "axios";
 import dayjs from "dayjs";
 
 import { useAuthStore } from "../../stores/auth";
+import { useNotification } from "@kyvg/vue3-notification";
 
 const doctorId = ref("");
 const availability = ref([]);
 const currentDate = ref("");
 const currentTime = ref("");
-
+const { notify } = useNotification();
 const auth = useAuthStore()
 
 function addSlot() {
@@ -118,11 +119,19 @@ function removeTime(dateIndex, timeIndex) {
 }
 async function saveAvailability() {
     try {
-        await axios.post("/api/doctor/availability", {
+        const res = await axios.post("/api/doctor/availability", {
             doctor_id: auth.user.id,
             availability: availability.value,
         });
+
+        notify({
+            title: "Succes",
+            text: "save availability Successfuly",
+        });
+        currentTime.value = "";
+        currentDate.value = "";
         getime()
+
     } catch (err) {
         console.error("Failed to save availability :", err);
         alert("Failed to save availability");
@@ -155,9 +164,13 @@ async function deletePackage(id) {
     try {
         await axios.delete(`/api/availability/delete/${id}`);
         timedata.value = timedata.value.filter((tm) => tm.id !== id);
+        notify({
+            title: "Succes",
+            text: "Date Delete Successfuly",
+        });
         getime();
     }
-    catch (err) { console.error("Failed to delete package:", err); }
+    catch (err) { console.error("Failed to delete Date:", err); }
 }
 
 onMounted(getime);
