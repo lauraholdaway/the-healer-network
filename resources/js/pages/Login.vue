@@ -9,7 +9,7 @@
             style="max-width: 650px; width: 100%; position: relative; z-index: 10; background-color: white;">
             <div class="text-center mb-3">
                 <router-link to="/" class="healer-network-title-link" style="text-decoration: none !important; border-bottom: none !important;">
-                    <h1 class="healer-network-title" style="text-decoration: none !important; border-bottom: none !important;">THE HEALER NETWORK</h1>
+                    <span class="healer-network-title" style="text-decoration: none !important; border-bottom: none !important;">THE HEALER NETWORK</span>
                 </router-link>
             </div>
             <div class="text-center text-md-start mb-3">
