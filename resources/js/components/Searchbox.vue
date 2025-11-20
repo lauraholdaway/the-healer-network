@@ -110,6 +110,7 @@ const getCurrentLocation = () => {
 }
 
 .search-box-container {
+    background-color: white;
     border-radius: 20px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
 }
