@@ -275,6 +275,7 @@ class DoctorController extends Controller
         $accessibility = $request->query('accessibility');
         $certification = $request->query('certification');
         $rating = $request->query('rating');
+        $duration = $request->query('duration');
 
         // 🔹 Get all modality IDs that match the search
         $modalityIds = Modality::where('title', 'like', "%{$modality}%")->pluck('id');
@@ -298,6 +299,9 @@ class DoctorController extends Controller
             })
             ->when($language, function ($query) use ($language) {
                 $query->where('languages', 'like', "%{$language}%");
+            })
+            ->when($duration, function ($query) use ($duration) {
+                $query->where('duration', 'like', "%{$duration}%");
             })
             ->when($gender, function ($query) use ($gender) {
                 $query->whereHas('user', function ($q) use ($gender) {
