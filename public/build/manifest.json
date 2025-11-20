@@ -176,7 +176,7 @@
     "src": "public/asset/images/xicon.svg"
   },
   "resources/js/app.js": {
-    "file": "assets/app-dhDUa1am.js",
+    "file": "assets/app-BZeRohPO.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
@@ -186,7 +186,7 @@
       "_vendor-swiper-DoHUoWKH.js"
     ],
     "css": [
-      "assets/app-CBvncyUq.css"
+      "assets/app-Dajw3-O7.css"
     ],
     "assets": [
       "assets/arrowlift-jUjrU256.svg",
@@ -200,6 +200,7 @@
       "assets/cardicon2-CJGp68Hz.svg",
       "assets/cardicon3-D_V4qjpk.svg",
       "assets/Sign-CbHqDaf6.svg",
+      "assets/logo-Bcx-FlhH.svg",
       "assets/about-wE1QKVAs.jpg",
       "assets/about-DXo_w4qg.png",
       "assets/aboutbg-top-Cl9bpT3Q.png",
@@ -223,7 +224,6 @@
       "assets/back-arrow-t1xPhXEN.svg",
       "assets/dark-logo-J4faPVfN.png",
       "assets/d-C5_a7i-z.png",
-      "assets/logo-Bcx-FlhH.svg",
       "assets/facebookicon-CGUtrek3.svg",
       "assets/instagramicon-nuiD9KB1.svg",
       "assets/xicon-BF_hrDOE.svg",

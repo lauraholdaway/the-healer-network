@@ -9,7 +9,9 @@
             style="max-width: 650px; width: 100%; position: relative; z-index: 10; background-color: white;">
             <div class="text-center mb-3">
                 <router-link to="/" class="healer-network-title-link" style="text-decoration: none !important; border-bottom: none !important;">
-                    <span class="healer-network-title" style="text-decoration: none !important; border-bottom: none !important;">THE HEALER NETWORK</span>
+                    <div class="logo-container">
+                        <img src="/public/asset/images/logo.svg" alt="Logo" class="login-logo">
+                    </div>
                 </router-link>
             </div>
             <div class="text-center text-md-start mb-3">
@@ -200,6 +202,18 @@ async function onSubmit() {
 </script>
 
 <style scoped>
+.logo-container {
+    display: inline-block;
+    background: transparent;
+}
+
+.login-logo {
+    height: 60px;
+    max-width: 100%;
+    background: transparent;
+    display: block;
+}
+
 .form-control:focus {
     border-color: #DED1BA;
     box-shadow: none;
