@@ -1984,14 +1984,28 @@ footer ul li a:hover {
     text-decoration: none !important;
     display: inline-block;
     cursor: pointer;
+    border-bottom: none !important;
+    outline: none !important;
 }
 
 .healer-network-title-link:hover {
     text-decoration: none !important;
+    border-bottom: none !important;
 }
 
 .healer-network-title-link:focus {
     text-decoration: none !important;
+    border-bottom: none !important;
+}
+
+.healer-network-title-link:active {
+    text-decoration: none !important;
+    border-bottom: none !important;
+}
+
+.healer-network-title-link:visited {
+    text-decoration: none !important;
+    border-bottom: none !important;
 }
 
 .healer-network-title {
@@ -2004,8 +2018,10 @@ footer ul li a:hover {
     user-select: none;
     cursor: pointer;
     text-decoration: none !important;
+    border-bottom: none !important;
 }
 
 .healer-network-title:hover {
     text-decoration: none !important;
+    border-bottom: none !important;
 }
