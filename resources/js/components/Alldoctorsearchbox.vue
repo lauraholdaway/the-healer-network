@@ -1264,6 +1264,7 @@ const searchDoctor = () => {
     if (form.value.accessibility) query.accessibility = form.value.accessibility;
     if (form.value.certification) query.certification = form.value.certification;
     if (form.value.rating) query.rating = form.value.rating;
+    if (form.value.duration) query.duration = form.value.duration;
 
     router.push({
         name: "Searchdoctorpage",

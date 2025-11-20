@@ -18,7 +18,7 @@
                     <div class="loading-bar">
                         <div class="loading-progress"></div>
                     </div>
-                    <p class="loading-text">Loading Practitioner...</p>
+                    <p class="loading-text">Loading Healar...</p>
                 </div>
                 <div class="card mx-2 mx-md-5 mb-3" v-for="(doctor, index) in doctors" :key="index">
                     <div class="row g-0 align-items-stretch">
@@ -44,7 +44,7 @@
                         <div class="col-12 col-md-8">
                             <div class="p-3 p-md-3 h-100">
                                 <h3 class="mt-2 mt-md-4 fs-5 fs-md-3">{{ doctor.user?.name }} {{ doctor.user?.last_name
-                                }}</h3>
+                                    }}</h3>
                                 <div
                                     class="d-flex flex-column flex-md-row justify-content-between align-items-start my-3">
                                     <div class="d-flex flex-wrap gap-1 mb-2 mb-md-0">
@@ -101,7 +101,7 @@
                 </div>
             </div>
             <div v-else class="text-center">
-                <b>No Have practitioner</b>
+                <b class="main-color">No Have Healar</b>
             </div>
         </div>
     </section>
@@ -134,6 +134,7 @@ const loadDoctors = async () => {
                 accessibility: route.query.accessibility || "",
                 certification: route.query.certification || "",
                 rating: route.query.rating || "",
+                duration: route.query.duration || "",
             },
         });
         doctors.value = res.data;
