@@ -24,8 +24,25 @@
             </div>
             <hr style="border: 1px solid #DED1BA; margin-top: -8px;">
             <form @submit.prevent="onSubmit">
+                <div class="mb-3 row">
+                    <div class="col-md-6 signin-toggle ">
+                        <label class="option">
+                            <input type="radio" name="signin" value="client" checked v-model="selected" />
+                            <span>Client Sign In</span>
+                        </label>
+                    </div>
+                    <div class="col-md-6 signin-toggle">
+                        <label class="option">
+                            <input type="radio" name="signin" value="healer" v-model="selected" />
+                            <span>Healer Sign In</span>
+                        </label>
+                    </div>
+                </div>
+                <!-- <p v-if="message">{{ message }}</p> -->
                 <div class="mb-3">
-                    <label class="form-label" style="font-size: 13px; color: #737373;">Email</label>
+                    <label class="form-label" style="font-size: 13px; color: #737373;">
+                        {{ message ? message : "Client Email" }}
+                    </label>
                     <input v-model="form.email" type="email" class="form-control"
                         :class="{ 'is-invalid': emailError || emailFormatError }"
                         :style="(emailError || emailFormatError) ? 'border-color: #dc3545;' : 'border-color: #DED1BA;'"
@@ -61,7 +78,8 @@
                         <button type="button"
                             class="btn btn-link position-absolute end-0 top-50 translate-middle-y pe-3"
                             style="border: none; background: none; color: #5B4C3A; padding: 8px; border-radius: 4px; transition: all 0.2s ease;"
-                            @click="togglePasswordVisibility" @mouseover="$event.target.style.backgroundColor = '#F5F5F5'"
+                            @click="togglePasswordVisibility"
+                            @mouseover="$event.target.style.backgroundColor = '#F5F5F5'"
                             @mouseout="$event.target.style.backgroundColor = 'transparent'">
                             <!-- Eye Slash Icon SVG (when password is hidden) -->
                             <svg v-if="!showPassword" width="20" height="20" viewBox="0 0 24 24" fill="none"
@@ -102,7 +120,7 @@
 </template>
 
 <script setup>
-import { reactive, ref } from 'vue'
+import { reactive, ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '../stores/auth'
 
@@ -115,6 +133,15 @@ const emailError = ref(false)
 const emailFormatError = ref(false)
 const processing = ref(false)
 const showPassword = ref(false)
+
+const selected = ref('Client Email');
+
+const message = computed(() => {
+    if (selected.value === "client") return "Client Email";
+    if (selected.value === "healer") return "Healer Email";
+    return "";
+});
+
 
 function togglePasswordVisibility() {
     showPassword.value = !showPassword.value
