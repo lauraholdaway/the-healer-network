@@ -201,15 +201,19 @@ b {
     }
 
     .hero-section h1 {
-        font-size: 5rem !important;
+        font-size: 6rem !important;
         line-height: 1.1 !important;
         margin-bottom: 2rem !important;
     }
 
     .hero-section .hero-subtext {
-        font-size: 1.6rem !important;
+        font-size: 20px !important;
         line-height: 1.5 !important;
         margin-bottom: 3rem !important;
+        max-width: 955px;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        text-align: center !important;
     }
 
     .heroButtons button {
@@ -934,7 +938,7 @@ b {
     font-size: 40px;
     font-weight: 400;
     margin-top: -30px;
-    color:#2E2D29;
+    color: #7D684E;
     text-align: center;
     margin-bottom: 10px;
     font-family: 'TheSeasons', serif !important;
@@ -944,7 +948,7 @@ b {
         font-size: 40px;
         font-weight: 400;
         margin-top: -100px;
-        color:#2E2D29;
+        color: #7D684E;
         text-align: center;
         margin-bottom: 10px;
     }

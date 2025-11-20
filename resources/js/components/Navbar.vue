@@ -5,7 +5,9 @@
             <div class="navbar-left">
                 <!-- Logo/Brand -->
                 <div class="navbar-brand">
-                    <router-link to="/" class="brand-link">THE HEALER NETWORK</router-link>
+                    <router-link to="/" class="brand-link">
+                        <img :src="logo" alt="THE HEALER NETWORK" class="navbar-logo">
+                    </router-link>
                 </div>
 
                 <!-- Hamburger Menu Button (Mobile Only) -->
@@ -21,8 +23,7 @@
                     <router-link to="/corporate" class="nav-link" @click="closeMobileMenu">Corporate</router-link>
                     <router-link to="/resources" class="nav-link" @click="closeMobileMenu">Resources</router-link>
                     <router-link to="/about" class="nav-link" @click="closeMobileMenu">About</router-link>
-                    <router-link to="/PractitionerIndex" class="nav-link" @click="closeMobileMenu">Join All
-                        Healers</router-link>
+                    <router-link to="/PractitionerIndex" class="nav-link" @click="closeMobileMenu">Join as a Healer</router-link>
 
                     <!-- Services Dropdown -->
                     <div class="dropdown">
@@ -90,10 +91,16 @@
             <div class="navbar-right">
                 <!-- If not logged in -->
                 <button v-if="!isAuthenticated" @click="$router.push('/login')" class="book-now-btn">
-                    Book Now
-                    <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M11.5 1.5L19 9L11.5 1.5ZM19 9L11.5 16.5L19 9ZM19 9L1 9L19 9Z" fill="#2E2D29" />
-                        <path d="M11.5 1.5L19 9M19 9L11.5 16.5M19 9L1 9" stroke="#2E2D29" stroke-width="1.5"
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="person-icon">
+                        <circle cx="10" cy="10" r="9" stroke="white" stroke-width="1.5" fill="none"/>
+                        <circle cx="10" cy="7" r="3" stroke="white" stroke-width="1.5" fill="none"/>
+                        <path d="M4 16C4 13 6.5 11 10 11C13.5 11 16 13 16 16" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg>
+                    <span class="separator-line"></span>
+                    <span class="book-now-text">Sign In</span>
+                    <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg" class="arrow-icon">
+                        <path d="M11.5 1.5L19 9L11.5 1.5ZM19 9L11.5 16.5L19 9ZM19 9L1 9L19 9Z" fill="white" />
+                        <path d="M11.5 1.5L19 9M19 9L11.5 16.5M19 9L1 9" stroke="white" stroke-width="1.5"
                             stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                 </button>
@@ -124,6 +131,7 @@
 import { computed, ref, onMounted, onUnmounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useAuthStore } from '../stores/auth'
+import logo from '../../../public/asset/images/logo.svg'
 
 // State management
 const isAuthenticated = computed(() => !!auth.user)
@@ -206,10 +214,11 @@ const handleMobileRedirect = async () => {
 <style scoped>
 .custom-navbar {
     width: 100%;
-    height: 70px;
+    height: 100px;
     display: flex;
     align-items: center;
-    background:#F3EFE7;
+    background-color: #F3EFE7;
+   
 
     position: relative;
     z-index: 1000;
@@ -230,7 +239,8 @@ const handleMobileRedirect = async () => {
     justify-content: space-between;
     height: 100%;
     padding: 0 40px;
-    background: #FBF9F7;
+   
+    background-color: #F3EFE7;
     overflow: visible;
     position: relative;
 }
@@ -240,12 +250,16 @@ const handleMobileRedirect = async () => {
 }
 
 .brand-link {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 18px;
-    font-weight: 600;
-    color: #5C5C5C;
+    display: inline-block;
     text-decoration: none;
-    letter-spacing: 1px;
+}
+
+.navbar-logo {
+    height: auto;
+    max-width: 330px;
+    width: auto;
+    display: block;
+    object-fit: contain;
 }
 
 .navbar-nav-links {
@@ -258,10 +272,10 @@ const handleMobileRedirect = async () => {
 }
 
 .nav-link {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 16px;
-    font-weight: 400;
-    color: #5B4C3A;
+    font-family: 'TheSeasons', serif !important;
+    font-size: 25px;
+    font-weight: 300;
+    color: #5B4C3A !important;
     text-decoration: none;
     transition: color 0.3s ease;
     display: flex;
@@ -353,32 +367,77 @@ const handleMobileRedirect = async () => {
 .navbar-right {
     width: 250px;
     height: 100%;
-    background: #C4B39A;
-    border-left: 1px solid #8A7356;
+    background-color: #5B4C3A;
+    border-left: 1px solid #DED1BA;
     display: flex;
     align-items: center;
     justify-content: center;
     padding: 0 30px;
+    flex-shrink: 0;
 }
 
 .book-now-btn {
     background: transparent;
     border: none;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 16px;
-    font-weight: 500;
-    color: #2E2D29;
+    font-family: 'TheSeasons', serif !important;
+    font-size: 24px;
+    font-weight: 400;
+    color: white !important;
     cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 10px;
-    padding: 12px 20px;
+    gap: 15px;
+    padding: 12px 2px;
     transition: all 0.3s ease;
-    transform: scale(1);
+    width: 100%;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+.person-icon {
+    width: 20px;
+    height: 20px;
+    flex-shrink: 0;
+    color: white;
+}
+
+.person-icon circle,
+.person-icon path {
+    stroke: white !important;
+    fill: none;
+}
+
+.separator-line {
+    width: 1px;
+    height: 24px;
+    background-color: rgba(255, 255, 255, 0.3);
+    flex-shrink: 0;
+}
+
+.book-now-text {
+    flex: 1;
+    text-align: center;
+    font-family: 'TheSeasons', serif !important;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    color: white !important;
+}
+
+.arrow-icon {
+    width: 20px;
+    height: 18px;
+    flex-shrink: 0;
+    color: white;
+}
+
+.arrow-icon path {
+    fill: white !important;
+    stroke: white !important;
 }
 
 .book-now-btn:hover {
-    transform: scale(1.05);
+    opacity: 0.8;
 }
 
 
@@ -444,74 +503,142 @@ const handleMobileRedirect = async () => {
     display: none;
 }
 
-/* Laptop/Medium Screen Adjustments */
-@media (min-width: 993px) and (max-width: 1440px) {
-    .navbar-left {
-        padding: 0 25px;
-    }
-
-    .brand-link {
-        font-size: 16px;
-        letter-spacing: 0.8px;
-    }
-
-    .navbar-nav-links {
-        gap: 20px;
-    }
-
-    .nav-link {
-        font-size: 15px;
-    }
-
+/* Extra Large Screens (1400px and above) - Base styles apply */
+@media (min-width: 1400px) {
     .navbar-right {
-        width: 220px;
-        padding: 0 20px;
+        width: 250px;
+        display: flex;
+        padding: 0 30px;
     }
 
     .book-now-btn {
-        font-size: 15px;
-        padding: 10px 18px;
+        font-size: 24px;
+        padding: 12px 2px;
+        gap: 15px;
+        display: flex;
     }
 
-    .book-now-btn svg {
-        width: 18px;
-        height: 16px;
+    .person-icon {
+        width: 20px;
+        height: 20px;
+    }
+
+    .separator-line {
+        height: 24px;
+    }
+
+    .arrow-icon {
+        width: 20px;
+        height: 18px;
     }
 }
 
-@media (min-width: 993px) and (max-width: 1200px) {
+/* Large Screens (1200px - 1399px) */
+@media (min-width: 1200px) and (max-width: 1399px) {
+    .custom-navbar {
+        height: 80px;
+    }
+
     .navbar-left {
-        padding: 0 20px;
+        padding: 0 35px;
+    }
+
+    .navbar-logo {
+        max-width: 290px;
     }
 
     .navbar-nav-links {
-        gap: 12px;
+        gap: 28px;
     }
 
     .nav-link {
-        font-size: 14px;
-    }
-
-    .brand-link {
-        font-size: 15px;
-        letter-spacing: 0.5px;
+        font-size: 21px;
     }
 
     .navbar-right {
         width: 200px;
-        padding: 0 15px;
+        padding: 0 22px;
+        display: flex !important;
     }
 
     .book-now-btn {
-        font-size: 14px;
-        padding: 10px 15px;
+        font-size: 18px;
+        gap: 12px;
+        padding: 10px 2px;
+        display: flex !important;
+        width: 100%;
+    }
+
+    .person-icon {
+        width: 18px;
+        height: 18px;
+    }
+
+    .separator-line {
+        height: 21px;
+    }
+
+    .arrow-icon {
+        width: 17px;
+        height: 15px;
+    }
+}
+
+/* Medium Screens (993px - 1199px) */
+@media (min-width: 993px) and (max-width: 1400px) {
+    .custom-navbar {
+        height: 65px;
+    }
+
+    .navbar-left {
+        padding: 0 20px;
+    }
+
+    .navbar-logo {
+        max-width: 240px;
+    }
+
+    .navbar-nav-links {
+        gap: 15px;
+    }
+
+    .nav-link {
+        font-size: 17px;
+    }
+
+    .navbar-right {
+        width: 170px;
+        padding: 0 15px;
+        display: flex !important;
+    }
+
+    .book-now-btn {
+        font-size: 15px;
+        padding: 8px 2px;
+        gap: 8px;
+        display: flex !important;
+        width: 100%;
+    }
+
+    .person-icon {
+        width: 16px;
+        height: 16px;
+    }
+
+    .separator-line {
+        height: 18px;
+    }
+
+    .arrow-icon {
+        width: 14px;
+        height: 12px;
     }
 }
 
 /* Mobile Responsiveness */
 @media (max-width: 992px) {
     .custom-navbar {
-        height: 60px;
+        height: 75px;
     }
 
     .navbar-left {
@@ -526,8 +653,11 @@ const handleMobileRedirect = async () => {
     }
 
     .brand-link {
-        font-size: 15px;
-        letter-spacing: 0.5px;
+        display: inline-block;
+    }
+
+    .navbar-logo {
+        max-width: 210px;
     }
 
     /* Show hamburger menu */
@@ -544,11 +674,12 @@ const handleMobileRedirect = async () => {
     /* Hide desktop navigation and right section */
     .navbar-nav-links {
         position: fixed;
-        top: 60px;
+        top: 75px;
         left: -100%;
         width: 100%;
-        height: calc(100vh - 60px);
-        background: #FBF9F7;
+        height: calc(100vh - 75px);
+        background: #F3EFE7 !important;
+        background-color: #F3EFE7 !important;
         flex-direction: column;
         align-items: flex-start;
         padding: 20px 15px;
@@ -583,10 +714,17 @@ const handleMobileRedirect = async () => {
     .book-now-btn.mobile {
         width: 100%;
         justify-content: center;
-        background: #C4B39A;
+        background: #5B4C3A !important;
+        background-color: #5B4C3A !important;
+        color: white !important;
         border-radius: 8px;
         padding: 12px 18px;
         font-size: 15px;
+    }
+
+    .book-now-btn.mobile svg path {
+        fill: white !important;
+        stroke: white !important;
     }
 
     .book-now-btn.mobile svg {
@@ -606,7 +744,8 @@ const handleMobileRedirect = async () => {
     .nav-link {
         width: 100%;
         padding: 8px 0;
-        font-size: 16px;
+        font-size: 22px;
+        font-weight: 300;
     }
 
     .dropdown-menu {
@@ -625,19 +764,65 @@ const handleMobileRedirect = async () => {
     }
 }
 
-/* Tablet adjustments */
+/* Tablet adjustments (769px - 992px) */
+@media (min-width: 769px) and (max-width: 992px) {
+    .custom-navbar {
+        height: 75px;
+    }
+
+    .navbar-left {
+        padding: 0 15px;
+    }
+
+    .navbar-logo {
+        max-width: 200px;
+    }
+
+    .navbar-nav-links {
+        top: 75px;
+        height: calc(100vh - 75px);
+        padding: 18px 15px;
+        gap: 10px;
+    }
+
+    .nav-link {
+        font-size: 20px;
+        padding: 7px 0;
+    }
+
+    .dropdown-menu {
+        margin: 6px 0;
+        padding: 6px 0 6px 15px;
+    }
+
+    .dropdown-item {
+        padding: 9px 12px;
+        font-size: 14px;
+    }
+
+    .mobile-book-now {
+        margin-top: 12px;
+        padding-top: 12px;
+    }
+
+    .book-now-btn.mobile {
+        padding: 11px 16px;
+        font-size: 14px;
+    }
+}
+
+/* Tablet/Mobile adjustments (max-width: 768px) */
 @media (max-width: 768px) {
     .custom-navbar {
-        height: 60px;
+        height: 75px;
     }
 
     .navbar-left {
         padding: 0 12px;
     }
 
-    .brand-link {
-        font-size: 14px;
-        letter-spacing: 0.3px;
+    .navbar-logo {
+        max-width: 200px;
     }
 
     .navbar-nav-links {
@@ -646,7 +831,7 @@ const handleMobileRedirect = async () => {
     }
 
     .nav-link {
-        font-size: 15px;
+        font-size: 20px;
         padding: 7px 0;
     }
 
@@ -671,10 +856,10 @@ const handleMobileRedirect = async () => {
     }
 }
 
-/* Small mobile phones */
+/* Small mobile phones (max-width: 480px) */
 @media (max-width: 480px) {
     .custom-navbar {
-        height: 55px;
+        height: 70px;
     }
 
     .navbar-left {
@@ -682,8 +867,11 @@ const handleMobileRedirect = async () => {
     }
 
     .brand-link {
-        font-size: 13px;
-        letter-spacing: 0.3px;
+        display: inline-block;
+    }
+
+    .navbar-logo {
+        max-width: 170px;
     }
 
     .hamburger-menu {
@@ -696,14 +884,15 @@ const handleMobileRedirect = async () => {
     }
 
     .navbar-nav-links {
-        top: 55px;
-        height: calc(100vh - 55px);
+        top: 70px;
+        height: calc(100vh - 70px);
         padding: 15px 10px;
         gap: 8px;
     }
 
     .nav-link {
-        font-size: 14px;
+        font-size: 19px;
+        font-weight: 300;
         padding: 6px 0;
     }
 
@@ -733,10 +922,10 @@ const handleMobileRedirect = async () => {
     }
 }
 
-/* Extra small mobile phones */
+/* Extra small mobile phones (max-width: 360px) */
 @media (max-width: 360px) {
     .custom-navbar {
-        height: 50px;
+        height: 65px;
     }
 
     .navbar-left {
@@ -754,14 +943,15 @@ const handleMobileRedirect = async () => {
     }
 
     .navbar-nav-links {
-        top: 50px;
-        height: calc(100vh - 50px);
+        top: 65px;
+        height: calc(100vh - 65px);
         padding: 12px 8px;
         gap: 6px;
     }
 
     .nav-link {
-        font-size: 13px;
+        font-size: 18px;
+        font-weight: 300;
         padding: 5px 0;
     }
 
