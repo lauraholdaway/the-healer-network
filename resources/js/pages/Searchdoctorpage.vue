@@ -1,3 +1,74 @@
+<style scoped>
+section {
+    background-color: #FBF9F7;
+    padding-top: 0;
+    margin-top: 0;
+}
+
+h1 {
+    font-size: 2.5rem !important;
+}
+
+@media (min-width: 768px) {
+    h1 {
+        font-size: 42px !important;
+    }
+}
+
+@media (min-width: 1500px) {
+    h1 {
+        font-size: 3.5rem !important;
+    }
+}
+
+p.m-color {
+    font-size: 16px !important;
+    color: #5B4C3A !important;
+}
+
+@media (min-width: 768px) {
+    p.m-color {
+        font-size: 18px !important;
+    }
+}
+
+@media (min-width: 1500px) {
+    p.m-color {
+        font-size: 20px !important;
+        max-width: 1120px !important;
+        margin-top: 20px !important;
+    }
+}
+
+.doctor-image-wrapper {
+    background-color: #C1B39D;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 220px;
+    overflow: hidden;
+    position: relative;
+}
+
+@media (min-width: 1500px) {
+    .doctor-image-wrapper {
+        min-height: 280px;
+    }
+}
+
+.doctorImages {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+</style>
+
+
 <template>
     <section>
         <div class="container my-0 my-md-0 px-2 px-md-3">
@@ -44,7 +115,7 @@
                         <div class="col-12 col-md-8">
                             <div class="p-3 p-md-3 h-100">
                                 <h3 class="mt-2 mt-md-4 fs-5 fs-md-3">{{ doctor.user?.name }} {{ doctor.user?.last_name
-                                    }}</h3>
+                                }}</h3>
                                 <div
                                     class="d-flex flex-column flex-md-row justify-content-between align-items-start my-3">
                                     <div class="d-flex flex-wrap gap-1 mb-2 mb-md-0">
@@ -166,72 +237,3 @@ function toggleText(index) {
 }
 </script>
 
-<style scoped>
-section {
-    background-color: #FBF9F7;
-    padding-top: 0;
-    margin-top: 0;
-}
-
-h1 {
-    font-size: 2.5rem !important;
-}
-
-@media (min-width: 768px) {
-    h1 {
-        font-size: 42px !important;
-    }
-}
-
-@media (min-width: 1500px) {
-    h1 {
-        font-size: 3.5rem !important;
-    }
-}
-
-p.m-color {
-    font-size: 16px !important;
-    color: #5B4C3A !important;
-}
-
-@media (min-width: 768px) {
-    p.m-color {
-        font-size: 18px !important;
-    }
-}
-
-@media (min-width: 1500px) {
-    p.m-color {
-        font-size: 20px !important;
-        max-width: 1120px !important;
-        margin-top: 20px !important;
-    }
-}
-
-.doctor-image-wrapper {
-    background-color: #C1B39D;
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    min-height: 220px;
-    overflow: hidden;
-    position: relative;
-}
-
-@media (min-width: 1500px) {
-    .doctor-image-wrapper {
-        min-height: 280px;
-    }
-}
-
-.doctorImages {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center;
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-}
-</style>
