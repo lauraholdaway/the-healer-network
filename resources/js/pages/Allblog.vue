@@ -462,12 +462,33 @@ onMounted(async () => {
     padding: 20px;
 }
 
+.blogs-grid.list-view .blog-title {
+    display: block;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: unset;
+}
+
+.blogs-grid.list-view .blog-description {
+    display: block;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -webkit-box-orient: unset;
+}
+
 /* Blog Cards */
 .blog-card-new {
     background-color: #C4B39A;
     border: none;
     border-radius: 20px;
-    height: 500px;
+    min-height: 260px;
+    height: auto;
     display: flex;
     flex-direction: column;
     transition: transform 0.3s ease, box-shadow 0.2s ease;
@@ -493,11 +514,6 @@ onMounted(async () => {
     height: 100%;
     object-fit: cover;
     object-position: center;
-    transition: transform 0.3s ease;
-}
-
-.blog-card-new:hover .blog-image {
-    transform: scale(1.05);
 }
 
 .blog-overlay {
@@ -550,7 +566,7 @@ onMounted(async () => {
     line-height: 1.3;
     display: -webkit-box;
     -webkit-line-clamp: 1;
-    line-clamp: 2;
+    line-clamp: 1;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -563,8 +579,8 @@ onMounted(async () => {
     margin-bottom: 25px;
     flex-grow: 1;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
-    line-clamp: 2;
+    -webkit-line-clamp: 1;
+    line-clamp: 1;
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
