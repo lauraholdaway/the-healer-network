@@ -297,9 +297,9 @@ const swiperModules = [];
   
 .slide-titlee {
     font-size: 1.8rem;
-    font-weight: 300;
+    font-weight: 400;
     font-family: 'FONTSPRING DEMO - The Seasons', serif;
-    color: #3e2b1a;
+    color: #2E2D29;
     max-width: 300px;
     line-height: 1.2;
     margin-left: 50px;
@@ -563,9 +563,9 @@ const swiperModules = [];
   }
   .slide-titlee {
     font-size: 1.8rem;
-    font-weight: 300;
+    font-weight: 400;
     font-family: 'FONTSPRING DEMO - The Seasons', serif;
-    color: #3e2b1a;
+    color: #2E2D29;
     max-width: 620px;
     line-height: 1.2;
     
@@ -585,8 +585,9 @@ const swiperModules = [];
 
   .slide-titlee {
     font-size: 3.6rem;
-    font-weight: 300;
+    font-weight: 400;
     font-family: 'FONTSPRING DEMO - The Seasons', serif;
+    color: #2E2D29;
     margin-left: 0px;
   }
 

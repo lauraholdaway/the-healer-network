@@ -23,8 +23,7 @@
                     <router-link to="/corporate" class="nav-link" @click="closeMobileMenu">Corporate</router-link>
                     <router-link to="/resources" class="nav-link" @click="closeMobileMenu">Resources</router-link>
                     <router-link to="/about" class="nav-link" @click="closeMobileMenu">About</router-link>
-                    <router-link to="/PractitionerIndex" class="nav-link" @click="closeMobileMenu">Join All
-                        Healers</router-link>
+                    <router-link to="/PractitionerIndex" class="nav-link" @click="closeMobileMenu">Join as a Healer</router-link>
 
                     <!-- Services Dropdown -->
                     <div class="dropdown">
@@ -273,10 +272,10 @@ const handleMobileRedirect = async () => {
 }
 
 .nav-link {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'TheSeasons', serif !important;
     font-size: 25px;
     font-weight: 300;
-    color: #5B4C3A;
+    color: #5B4C3A !important;
     text-decoration: none;
     transition: color 0.3s ease;
     display: flex;
@@ -380,7 +379,7 @@ const handleMobileRedirect = async () => {
 .book-now-btn {
     background: transparent;
     border: none;
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'TheSeasons', serif !important;
     font-size: 24px;
     font-weight: 400;
     color: white !important;
@@ -418,6 +417,7 @@ const handleMobileRedirect = async () => {
 .book-now-text {
     flex: 1;
     text-align: center;
+    font-family: 'TheSeasons', serif !important;
     font-weight: 400;
     letter-spacing: 0.5px;
     white-space: nowrap;

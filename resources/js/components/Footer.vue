@@ -5,7 +5,7 @@
                 <!-- Logo Section -->
                 <div class="footer-logo">
                     <router-link to="/">
-                        <img src="/public/asset/images/dark-logo.png" width="150px" alt="THN Logo">
+                        <img src="/public/asset/images/logo.svg" width="280px" alt="THN Logo">
                     </router-link>
                 </div>
 
@@ -149,7 +149,8 @@ function limitWords(text, count) {
   text-align: left;
   align-self: stretch;
   display: flex;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
 }
 
 .footer-logo a {
@@ -159,7 +160,8 @@ function limitWords(text, count) {
 }
 
 .footer-logo img {
-  max-width: 150px;
+  max-width: 280px;
+  width: 250px;
   height: auto;
   border: none;
   outline: none;

@@ -31,7 +31,7 @@
             <!-- Scroll Down -->
             <div class="scroll-down">
                 <router-link to="/Alldoctor" class="scroll-down__btn">
-                    <span class="scroll-down__label scroll-down__label--display">View All Healer</span>
+                    <span class="scroll-down__label scroll-down__label--display">View All Healers</span>
                 </router-link>
             </div>
 
@@ -51,7 +51,7 @@
                 <!-- Title -->
                 <div class="text-center mb-4 mb-md-6">
                     <h2 class="mb-0"
-                        style="font-family: 'Cormorant Garamond', serif; color: #2E2D29; line-height: 1.2; font-weight: normal;">
+                        style="font-family: 'Cormorant Garamond', serif; color: #7D684E !important; line-height: 1.2; font-weight: 400;">
                         <span class="d-md-none" style="font-size: 2.25rem;">Your Path to Healing</span>
                         <span class="d-none d-md-inline d-lg-none" style="font-size: 3rem;">Your Path to Healing</span>
                         <span class="d-none d-lg-inline" style="font-size: 3.75rem;">Your Path to Healing</span>
@@ -290,10 +290,10 @@
                 <div class="blog-header d-flex justify-content-between align-items-center">
                     <div class="blog-header-text">
                         <small class="section-sub "
-                            style="font-family: 'Cormorant Garamond', serif; color: #8A7356;">Our
+                            style="font-family: 'TheSeasons', serif; color: #8A7356">Our
                             Blogs</small>
                         <h1 class="blog-section-title  "
-                            style="font-size: 40px; font-family: 'Courier New', Courier, monospace; color:#5B4C3A;">
+                            style="font-size: 40px; font-family: 'Courier New', Courier, monospace; color:#7D684E;">
                             Latest
                             Blog And Reads</h1>
                     </div>
@@ -765,7 +765,7 @@ const isSummaryTruncated = (text, index) => {
     background-color: #DED1BA;
     font-size: 12px;
     padding: 12px 18px;
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'TheSeasons', serif;
     display: flex;
     align-items: center;
     gap: 8px;
