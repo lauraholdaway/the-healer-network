@@ -590,7 +590,7 @@ const handleMobileRedirect = async () => {
 }
 
 /* Medium Screens (993px - 1199px) */
-@media (min-width: 993px) and (max-width: 1400px) {
+@media (min-width: 993px) {
     .custom-navbar {
         height: 65px;
     }
