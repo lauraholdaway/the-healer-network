@@ -2,7 +2,7 @@
   <div class="flex flex-col items-center justify-center h-screen bg-gray-100 text-center my-5 p-5">
     <div class="bg-white shadow-lg rounded-2xl p-10 max-w-md p-5">
       <h1 class="text-2xl font-semibold text-gray-800 mb-2">
-        🚧 Page Under Development
+        🚧 Page Under Development  
       </h1>
       <p class="text-gray-600">
         The developer is currently working on this page. It will be available
