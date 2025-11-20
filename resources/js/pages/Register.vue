@@ -6,10 +6,11 @@
         <div class="cards shadow p-4 my-5 rounded-5" style="max-width: 650px; width: 100%; position: relative; z-index: 10; background-color: white;">
             <div class="row mb-0 align-items-center">
                 <!-- Logo (show first on mobile) -->
-                <div class="col-md-3 order-1 order-md-2 text-md-end text-center mb-0 mb-md-0">
-                    <router-link to="/"><img src="/public/asset/images/dark-logo.png" alt="Logo" class="img-fluid"
-                            style="height: 150px;" /></router-link>
-                </div>
+                <div class="text-center mb-3">
+                <router-link to="/" class="healer-network-title-link">
+                    <h1 class="healer-network-title">THE HEALER NETWORK</h1>
+                </router-link>
+            </div>
 
                 <!-- Sign Up text (show after logo on mobile) -->
                 <div class="col-md-9 order-2 order-md-1 text-center text-md-start">
@@ -89,7 +90,7 @@
 
                 <div class="d-flex justify-content-between align-items-center mt-4">
                     <button class="btn main-btn px-4 py-2" :disabled="processing"
-                        style="border-radius: 8px; background-color: #8A7356; color: white; font-family: 'Cormorant Garamond', serif !important; border: none; padding: 12px 24px; transition: all 0.3s ease;"
+                        style="border-radius: 8px; background-color: #8A7356; color: white; font-family: 'TheSeasons', serif !important; border: none; padding: 12px 24px; transition: all 0.3s ease;"
                         @mouseover="$event.target.style.backgroundColor='#6B5B47'"
                         @mouseout="$event.target.style.backgroundColor='#8A7356'">
                         {{ processing ? "Registering..." : "Sign Up" }}

@@ -148,25 +148,20 @@
                 <div class="d-flex justify-content-between align-items-center  mt-4"
                     style="padding-left: 0px; padding-right: 0px; margin-left: 0px; margin-right: 0px;">
                     <div class="text-start">
-                        <router-link to="/Alldoctor" class="btn btn-outline-custome"
-                            style="background-color: #FBF9F7; border: 1px solid #C1B39D; border-radius: 30px; color: #2E2D29; font-family: 'TheSeasons', serif; padding: 10px 20px;">
+                        <router-link to="/Alldoctor" class="btn btn-outline-custome btn-view-all-practitioners">
                             View All Practitioners
                         </router-link>
                     </div>
-                    <div class="d-flex gap-2" style="margin-right: 0; padding-right: 0; margin-left: auto;">
+                    <div class="d-flex gap-2 arrow-buttons-container">
                         <!-- Left Arrow Button -->
                         <button ref="prevEl"
-                            class="btn btn-arrow-left rounded-circle d-flex align-items-center justify-content-center"
-                            style="width: 30px; height: 30px; background-color: transparent; border: none;">
-                            <img src="/public/asset/images/arrowlift.svg" alt="Previous" class="arrow-icon"
-                                style="width: 32px; height: 32px;">
+                            class="btn btn-arrow-left rounded-circle d-flex align-items-center justify-content-center arrow-button">
+                            <img src="/public/asset/images/arrowlift.svg" alt="Previous" class="arrow-icon">
                         </button>
                         <!-- Right Arrow Button -->
                         <button @click="swiperNext"
-                            class="btn btn-arrow-right rounded-circle d-flex align-items-center justify-content-center"
-                            style="width: 30px; height: 30px; background-color: transparent; border: none;">
-                            <img src="/public/asset/images/arrowright.svg" alt="Next" class="arrow-icon"
-                                style="width: 32px; height: 32px;">
+                            class="btn btn-arrow-right rounded-circle d-flex align-items-center justify-content-center arrow-button">
+                            <img src="/public/asset/images/arrowright.svg" alt="Next" class="arrow-icon">
                         </button>
                     </div>
                 </div>
@@ -258,14 +253,15 @@
                                     </p>
 
                                     <router-link :to="`/booksession/${doctor.user.id}`" class="btn btn-book"
-                                        style="width: 200px; align-self: flex-start;">
+                                        style="width: 200px; align-self: flex-start; display: flex; align-items: center; justify-content: center;">
                                         Book Session Now
                                         <span style="margin-left: 8px;">
                                             <svg width="14" height="14" viewBox="0 0 20 18" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
                                                 <path d="M11.5 1.5L19 9L11.5 1.5ZM19 9L11.5 16.5L19 9ZM19 9L1 9L19 9Z"
                                                     fill="#2E2D29" />
-                                                <path d="M11.5 1.5L19 9M19 9L11.5 16.5M19 9L1 9" stroke="#2E2D29"
+                                                <path d="M11.5 1.5L19 
+                                                9M19 9L11.5 16.5M19 9L1 9" stroke="#2E2D29"
                                                     stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                         </span>
@@ -297,11 +293,11 @@
                             Latest
                             Blog And Reads</h1>
                     </div>
-                    <router-link to="/Allblog" class="btn-view btn btn-info border-0" style="border-radius: 12px;">
+                    <router-link to="/Allblog" class="btn-view">
                         View All Reads
-                        <svg width="14" height="14" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M11.5 1.5L19 9L11.5 1.5ZM19 9L11.5 16.5L19 9ZM19 9L1 9L19 9Z" fill="#2E2D29" />
-                            <path d="M11.5 1.5L19 9M19 9L11.5 16.5M19 9L1 9" stroke="#2E2D29" stroke-width="1.5"
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                            style="margin-left: 8px; display: inline-block; vertical-align: middle;">
+                            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2"
                                 stroke-linecap="round" stroke-linejoin="round" />
                         </svg>
                     </router-link>
@@ -456,21 +452,26 @@ const isSummaryTruncated = (text, index) => {
     display: inline-flex;
     align-items: center;
     gap: 0.75rem;
-    padding: 0.65rem 1.72rem;
+    padding: 14px 28px;
     border-radius: 999px;
     background: rgba(255, 248, 240, 0.92);
     color: #2D2013;
     font-weight: 600;
-    font-size: 0.9rem;
+    font-size: 14px;
     letter-spacing: 0.04em;
     text-transform: uppercase;
     text-decoration: none;
 
     transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
-
+@media (min-width: 1300px) and (max-width: 3200px) {
+    .scroll-down__btn {
+        padding: 16px 40px;
+        font-size: 18px;
+    }
+}
 .scroll-down__label--display {
-    font-family: 'FONTSPRING DEMO - The Seasons', serif;
+    font-family: 'TheSeasons', serif !important;
     font-weight: 400;
     letter-spacing: 0.08em;
 }
@@ -624,6 +625,7 @@ const isSummaryTruncated = (text, index) => {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: normal;
+    font-family: 'TheSeasons', serif !important;
 }
 
 .doctor-card-summary.expanded {
@@ -660,6 +662,7 @@ const isSummaryTruncated = (text, index) => {
     margin: 10px auto;
     display: block;
     transition: filter 0.3s ease;
+    
 }
 
 .blog-card-body {
@@ -762,19 +765,51 @@ const isSummaryTruncated = (text, index) => {
 }
 
 .btn-view {
-    background-color: #DED1BA;
+    background: #DED1BA;
+    color: #2E2D29;
+    padding: 12px 24px;
+    border-radius: 12px;
+    border: 1px solid transparent;
+    font-weight: 600;
     font-size: 12px;
-    padding: 12px 18px;
-    font-family: 'TheSeasons', serif;
-    display: flex;
+    font-family: 'TheSeasons', serif !important;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
     align-items: center;
-    gap: 8px;
+    gap: 0.5rem;
     white-space: nowrap;
-    transition: background-color 0.3s ease;
+}
+
+.btn-view svg {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
 }
 
 .btn-view:hover {
-    background-color: #c4b39a;
+    background: #E8E0D3;
+    border: 1px solid #C1B39D;
+    color: #2E2D29;
+}
+
+.btn-view:hover svg {
+    color: #2E2D29;
+}
+
+@media (min-width: 1300px) {
+    .btn-view {
+        padding: 16px 30px;
+        border-radius: 16px;
+        font-size: 20px;
+        gap: 0.75rem;
+    }
+
+    .btn-view svg {
+        width: 24px !important;
+        height: 24px !important;
+        margin-left: 12px !important;
+    }
 }
 
 /* Responsive Design for Blog Cards */
@@ -814,9 +849,14 @@ const isSummaryTruncated = (text, index) => {
     }
 
     .btn-view {
-        font-size: 11px;
-        padding: 10px 16px;
+        font-size: 12px;
+        padding: 12px 24px;
         align-self: flex-start;
+    }
+
+    .btn-view svg {
+        width: 16px;
+        height: 16px;
     }
 
     .blog-card {
@@ -953,6 +993,54 @@ const isSummaryTruncated = (text, index) => {
 
     .blog-read-more {
         font-size: 11px;
+    }
+}
+@media (max-width: 1300px)  {
+.btn-view-all-practitioners {
+    background-color: #FBF9F7;
+    border: 1px solid #C1B39D;
+    border-radius: 30px;
+    color: #2E2D29;
+    font-family: 'TheSeasons', serif;
+    padding: 10px 20px;
+}
+}
+
+@media (min-width: 1300px) {
+    .btn-view-all-practitioners {
+        font-size: 18px;
+        padding: 30px 38px;
+        font-family: 'TheSeasons', serif;
+    }
+}
+
+.arrow-buttons-container {
+    margin-right: 0;
+    padding-right: 0;
+    margin-left: auto;
+}
+
+.arrow-button {
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    border: none;
+}
+
+.arrow-icon {
+    width: 32px;
+    height: 32px;
+}
+
+@media (min-width: 1300px) {
+    .arrow-button {
+        width: 40px;
+        height: 40px;
+    }
+
+    .arrow-icon {
+        width: 42px;
+        height: 42px;
     }
 }
 

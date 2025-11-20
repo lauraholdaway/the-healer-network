@@ -2,20 +2,17 @@
     <div class="container d-flex justify-content-center align-items-center min-vh-100">
         <div class="cards rounded-4 shadow-lg p-4 my-5" style="max-width: 750px; width: 100%;">
             <!-- Header -->
-            <div class="row mb-2 align-items-center">
-                <div class="col-md-3 order-1 order-md-2 text-md-end text-center mb-3 mb-md-0">
-                    <router-link to="/">
-                        <img src="/public/asset/images/dark-logo.png" alt="Logo" class="img-fluid"
-                            style="height: 100px;" />
-                    </router-link>
-                </div>
-                <div class="col-md-9 order-2 order-md-1 text-center text-md-start">
-                    <h3 class="m-color">Sign Up</h3>
-                    <p style="color: #5B4C3A;">
-                        Please provide your full name, email or phone number, and create a strong password to complete
-                        your registration.
-                    </p>
-                </div>
+            <div class="text-center mb-3">
+                <router-link to="/" class="healer-network-title-link">
+                    <h1 class="healer-network-title">THE HEALER NETWORK</h1>
+                </router-link>
+            </div>
+            <div class="text-center text-md-start mb-3">
+                <h3 class="m-color">Sign Up</h3>
+                <p style="color: #5B4C3A;">
+                    Please provide your full name, email or phone number, and create a strong password to complete
+                    your registration.
+                </p>
             </div>
 
             <!-- Form -->

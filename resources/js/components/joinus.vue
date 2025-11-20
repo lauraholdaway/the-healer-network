@@ -16,10 +16,10 @@
                         style="position: relative; z-index: 25;">
                         Join Us
                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
-                            style="margin-left: 8px; display: inline-block; vertical-align: middle;">
-                            <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
+                style="margin-left: 4px; display: inline-block; vertical-align: middle;">
+                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
                     </router-link>
                 </div>
             </div>
@@ -37,9 +37,9 @@ import JoinUsicon from '/public/asset/images/JoinUsicon.svg';
 </script>
 
 <style scoped>
-@media (min-width: 1700px) {
+@media (min-width: 1300px) {
   .joinUs h1 {
-    font-size: 70px !important;
+    font-size: 68px !important;
   }
 
 
@@ -50,11 +50,25 @@ import JoinUsicon from '/public/asset/images/JoinUsicon.svg';
   }
 
   .btn-join-us {
-    font-size: 24px !important;
-    padding: 16px 40px !important;
-    min-width: 180px !important;
-    display: inline-flex !important;
-    align-items: center !important;
+    position: absolute;
+       
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+        background: #fbf7f1;
+        color: #2E2D29;
+        padding: 20px 40px;
+        border-radius: 16px;
+        font-weight: 600;
+        font-size: 0.9rem;
+        font-family: 'TheSeasons', serif !important;
+        font-size: 22px;
+        transition: 0.3s;
+        text-decoration: none;
+        display: inline-flex
+;
+        align-items: center;
+        gap: 0.75rem;
   }
 
   .btn-join-us svg {

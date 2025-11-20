@@ -44,8 +44,13 @@
         </div>
   
         <div class="image-block">
-          <router-link to="/Booksession" class="book-now">
-            Book Now <span aria-hidden="true"><img src="/public/asset/images/arowright.svg" alt="" class="book-now-icon" /></span>
+          <router-link to="/Alldoctor" class="book-now">
+            Book Now
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
+                style="margin-left: 4px; display: inline-block; vertical-align: middle;">
+                <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
           </router-link>
           <Swiper
             class="healing-swiper"
@@ -91,7 +96,7 @@ const slides = [
       title: "Discover the holistic therapy that is right for you",
       subtitle:
         "THNs practitioners provide expertise across a wide range of holistic modalities going beyond the physical body.",
-      cardTitle: "Holistic Self-Care",
+      cardTitle: "Holistic Self Care",
       cardDescription:
         "Nurture yourself and those around you with mindfulness and holistic nutrition that promotes overall health and wellbeing.",
       image: "/asset/images/slider2.jpg",
@@ -115,7 +120,7 @@ const slides = [
       title: "Discover the holistic therapy that is right for you",
       subtitle:
         "THNs practitioners provide expertise across a wide range of holistic modalities going beyond the physical body.",
-      cardTitle: "Emotional & Mental Support",
+      cardTitle: "Emotional and Mental Support",
       cardDescription:
         "Boost your emotional and mental wellbeing with holistic coaching, hypnotherapy, and NLP experts by your side.",
       image: "/asset/images/slider4.jpg",
@@ -127,7 +132,7 @@ const slides = [
       title: "Discover the holistic therapy that is right for you",
       subtitle:
         "THNs practitioners provide expertise across a wide range of holistic modalities going beyond the physical body.",
-      cardTitle: "Fertility & Pregnancy Support",
+      cardTitle: "Fertility and Pregnancy Support",
       cardDescription:
         "Discover supportive therapies for your fertility and pregnancy journey like acupuncture, hypnobirthing, or personalised doula services.",
       image: "/asset/images/slider5.jpg",
@@ -380,6 +385,7 @@ const swiperModules = [];
     font-size: 1.2rem;
     font-weight: 300;
     color: white;
+    font-family: 'TheSeasons', serif !important;
   }
   
   .card-copy {
@@ -450,53 +456,61 @@ const swiperModules = [];
     color: #2E2D29;
     padding: 12px 24px;
     border-radius: 12px;
+    border: 1px solid transparent;
     font-weight: 600;
     font-size: 0.9rem;
-    font-family: 'FONTSPRING DEMO - The Seasons', serif;
-    transition: 0.3s;
+    font-family: 'TheSeasons', serif !important;
+    transition: all 0.3s ease;
     font-size: 12px;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
+    gap: 0.25rem;
   }
 
-  .book-now-icon {
-    width: 10px;
-    height: 10px;
+  .book-now svg {
+    width: 20px;
+    height: 20px;
     display: inline-block;
   }
   @media (min-width: 1300px) {
     .book-now {
     position: absolute;
-    bottom: 140px;
+    bottom: 170px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;
     background: #fbf7f1;
     color: #2E2D29;
-    padding: 1.6rem 3.2rem;
+    padding: 20px 40px;
     border-radius: 16px;
+    border: 1px solid transparent;
     font-weight: 600;
     font-size: 0.9rem;
-    font-family: 'FONTSPRING DEMO - The Seasons', serif;
-    transition: 0.3s;
+    font-family: 'TheSeasons', serif !important;
+    font-size: 22px;
+    transition: all 0.3s ease;
     text-decoration: none;
     display: inline-flex;
     align-items: center;
-    gap: 0.75rem;
+    gap: 0.5rem;
     }
-    .book-now-icon {
-      width: 14px;
-      height: 14px;
+    .book-now svg {
+      width: 24px !important;
+      height: 24px !important;
+      margin-left: 6px !important;
     }
   }
   
   .book-now:hover {
-    background: #C4B39A;
+    background: #E8E0D3;
+    border: 1px solid #C1B39D;
     color: #2E2D29;
-    transform: translateX(-50%) translateY(-3px);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transform: translateX(-50%) translateY(-2px);
+  }
+
+  .book-now:hover svg {
+    color: #2E2D29;
   }
   
   .fade-enter-active,

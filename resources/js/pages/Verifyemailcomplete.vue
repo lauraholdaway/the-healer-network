@@ -2,9 +2,10 @@
     <div class="d-flex justify-content-center align-items-center vh-100 bg-light">
         <div class="bg-white p-5 rounded-4 shadow-sm">
             <div class="text-center">
-                <div class="">
-                    <router-link to="/"><img src="/public/asset/images/dark-logo.png" alt="Logo" class="img-fluid"
-                            style="height: 100px;" /></router-link>
+                <div class="text-center mb-3">
+                    <router-link to="/" class="healer-network-title-link">
+                        <h1 class="healer-network-title">THE HEALER NETWORK</h1>
+                    </router-link>
                 </div>
                 <div>
                     <h2>Congratulations</h2>

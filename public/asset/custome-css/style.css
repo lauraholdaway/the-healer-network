@@ -1049,7 +1049,7 @@ b {
     font-size: 16px;
     background-color: #F4EFE6;
     color: #2E2D29;
-    font-family: 'Cormorant Garamond', serif !important;
+    font-family: 'TheSeasons', serif !important;
     font-weight: 500;
     transition: all 0.3s ease;
 
@@ -1548,11 +1548,11 @@ footer ul li a:hover {
     color: white;
 }
 
-.practitionerindexBox>p {
+/* .practitionerindexBox>p {
     font-size: 38px;
     font-family: 'Cormorant Garamond' !important;
     font-weight: 400;
-}
+} */
 
 .practitionerabout {
     display: inline;
@@ -1978,4 +1978,21 @@ footer ul li a:hover {
     border-color: #b89f85;
     box-shadow: 0 0 4px rgba(184, 159, 133, 0.6);
     font-weight: 600;
+}
+
+.healer-network-title-link {
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.healer-network-title {
+    color: #5B4C3A;
+    font-family: 'TheSeasons', serif !important;
+    font-weight: 600;
+    margin-bottom: 0;
+    font-size: 22px;
+    letter-spacing: 0.1em;
+    user-select: none;
+    cursor: pointer;
 }

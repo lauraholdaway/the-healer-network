@@ -67,10 +67,6 @@
     "file": "assets/aboutbg-top-Cl9bpT3Q.png",
     "src": "public/asset/images/aboutbg-top.png"
   },
-  "public/asset/images/arowright.svg": {
-    "file": "assets/arowright-D1o0Cjar.svg",
-    "src": "public/asset/images/arowright.svg"
-  },
   "public/asset/images/arrowlift.svg": {
     "file": "assets/arrowlift-jUjrU256.svg",
     "src": "public/asset/images/arrowlift.svg"
@@ -123,6 +119,10 @@
     "file": "assets/instagramicon-nuiD9KB1.svg",
     "src": "public/asset/images/instagramicon.svg"
   },
+  "public/asset/images/logo.svg": {
+    "file": "assets/logo-Bcx-FlhH.svg",
+    "src": "public/asset/images/logo.svg"
+  },
   "public/asset/images/practitionerimage1.png": {
     "file": "assets/practitionerimage1-C1o0mHoZ.png",
     "src": "public/asset/images/practitionerimage1.png"
@@ -164,12 +164,12 @@
     "src": "public/asset/images/xicon.svg"
   },
   "resources/js/app.js": {
-    "file": "assets/app-rdIqn5d8.js",
+    "file": "assets/app-YvgTepS9.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
     "css": [
-      "assets/app-aNcFrChY.css"
+      "assets/app-15V-VST2.css"
     ],
     "assets": [
       "assets/arrowlift-jUjrU256.svg",
@@ -177,14 +177,12 @@
       "assets/JoinUsicon-CIY6I1VY.svg",
       "assets/arrowliftt-DA226ypi.svg",
       "assets/arrowrightt-DT_REm6i.svg",
-      "assets/arowright-D1o0Cjar.svg",
       "assets/Searchicon-VAnbr2JD.svg",
       "assets/Location-BAyvMgiS.svg",
       "assets/cardicon-BsIJ8Maw.svg",
       "assets/cardicon2-CJGp68Hz.svg",
       "assets/cardicon3-D_V4qjpk.svg",
       "assets/Sign-CbHqDaf6.svg",
-      "assets/dark-logo-J4faPVfN.png",
       "assets/about-wE1QKVAs.jpg",
       "assets/about-DXo_w4qg.png",
       "assets/aboutbg-top-Cl9bpT3Q.png",
@@ -206,7 +204,9 @@
       "assets/contactpage-C3bcTxdE.png",
       "assets/quiz-WZI6A8r1.png",
       "assets/back-arrow-t1xPhXEN.svg",
+      "assets/dark-logo-J4faPVfN.png",
       "assets/d-C5_a7i-z.png",
+      "assets/logo-Bcx-FlhH.svg",
       "assets/facebookicon-CGUtrek3.svg",
       "assets/instagramicon-nuiD9KB1.svg",
       "assets/xicon-BF_hrDOE.svg",

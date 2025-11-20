@@ -9,7 +9,7 @@
                         <span class="breadcrumb-separator">/</span>
                         <span class="breadcrumb-current">All Blogs</span>
                     </div>
-                    <h1 class="blog-hero-title">Wellness & Healing Articles</h1>
+                    <h1 class="blog-hero-title">Wellness And Healing Articles</h1>
                     <!-- <p class="blog-hero-subtitle">
                         Discover transformative insights, healing techniques, and wellness wisdom from our community of holistic practitioners.
                     </p> -->
@@ -276,10 +276,10 @@ onMounted(async () => {
 }
 
 .blog-hero-title {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'TheSeasons', serif !important;
     font-size: 48px;
-    font-weight: 700;
-    color: #2E2D29;
+    font-weight: 400;
+    color: #7D684E;
     margin-bottom: 20px;
     line-height: 1.2;
 }
@@ -386,16 +386,16 @@ onMounted(async () => {
 }
 
 .blogs-count {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'TheSeasons', serif !important;
     font-size: 24px;
-    font-weight: 600;
-    color: #2E2D29;
+    font-weight: 400;
+    color: #7D684E;
 }
 
 .view-toggle {
     display: flex;
-    gap: 8px;
-    background-color: #F5F0E8;
+    gap: 10px;
+   
     padding: 4px;
     border-radius: 8px;
 }
@@ -464,20 +464,20 @@ onMounted(async () => {
 
 /* Blog Cards */
 .blog-card-new {
-    background-color: #FBF9F7;
+    background-color: #C4B39A;
     border: none;
     border-radius: 20px;
     height: 500px;
     display: flex;
     flex-direction: column;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.2s ease;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+   
 }
 
 .blog-card-new:hover {
     transform: translateY(-8px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.15);
 }
 
 .blog-image-container {
@@ -485,12 +485,14 @@ onMounted(async () => {
     height: 250px;
     overflow: hidden;
     border-radius: 20px 20px 0 0;
+    flex-shrink: 0;
 }
 
 .blog-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     transition: transform 0.3s ease;
 }
 
@@ -536,25 +538,36 @@ onMounted(async () => {
     border-radius: 15px;
     font-size: 11px;
     font-weight: 500;
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'TheSeasons', serif !important;
 }
 
 .blog-title {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'TheSeasons', serif !important;
     font-size: 24px;
-    font-weight: 600;
-    color: #2E2D29;
+    font-weight: 400;
+    color:#5B4C3A;
     margin-bottom: 15px;
     line-height: 1.3;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .blog-description {
-    font-family: 'Cormorant Garamond', serif;
     color: #5B4C3A;
     font-size: 14px;
     line-height: 1.6;
     margin-bottom: 25px;
     flex-grow: 1;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .blog-actions {
@@ -562,6 +575,7 @@ onMounted(async () => {
     justify-content: space-between;
     align-items: center;
     margin-top: auto;
+    padding-bottom: 10px;
 }
 
 .membership-btn {
@@ -571,10 +585,11 @@ onMounted(async () => {
     border-radius: 12px;
     padding: 10px 20px;
     font-size: 12px;
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'TheSeasons', serif !important;
     font-weight: 500;
     transition: all 0.3s ease;
     cursor: pointer;
+    text-transform: capitalize;
 }
 
 .membership-btn:hover {
@@ -586,7 +601,7 @@ onMounted(async () => {
 .read-more-link {
     color: #5B4C3A;
     text-decoration: none;
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'TheSeasons', serif !important;
     font-weight: 500;
     font-size: 14px;
     transition: color 0.3s ease;
@@ -609,13 +624,14 @@ onMounted(async () => {
     background-color: #5B4C3A;
     color: #FBF9F7;
     border: none;
-    border-radius: 25px;
+    border-radius: 16px;
     padding: 16px 32px;
     font-size: 16px;
     font-weight: 500;
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'TheSeasons', serif !important;
     cursor: pointer;
     transition: all 0.3s ease;
+    letter-spacing: 0.1em;
 }
 
 .load-more-btn:hover {
@@ -722,7 +738,7 @@ onMounted(async () => {
     }
     
     .blog-image-container {
-        height: 200px;
+        height: 250px;
     }
     
     .blog-content {
@@ -764,7 +780,7 @@ onMounted(async () => {
     }
     
     .blog-image-container {
-        height: 180px;
+        height: 250px;
     }
     
     .blog-content {

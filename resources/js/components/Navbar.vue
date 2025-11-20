@@ -20,13 +20,24 @@
                 <!-- Navigation Links -->
                 <div class="navbar-nav-links" :class="{ 'mobile-menu-open': isMobileMenuOpen }">
                     <router-link to="/" class="nav-link" @click="closeMobileMenu">Home</router-link>
-                    <router-link to="/corporate" class="nav-link" @click="closeMobileMenu">Corporate</router-link>
-                    <router-link to="/resources" class="nav-link" @click="closeMobileMenu">Resources</router-link>
                     <router-link to="/about" class="nav-link" @click="closeMobileMenu">About</router-link>
-                    <router-link to="/PractitionerIndex" class="nav-link" @click="closeMobileMenu">Join as a Healer</router-link>
-
-                    <!-- Services Dropdown -->
-                    <div class="dropdown">
+                      <!-- Find My Healer Dropdown -->
+                      <div class="dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" @click.prevent="toggleDropdown('healer')">
+                            Find My Healer
+                            <!-- <span class="dropdown-arrow">▼</span> -->
+                        </a>
+                        <div v-if="activeDropdown === 'healer'" class="dropdown-menu">
+                            <router-link to="/Alldoctor" class="dropdown-item" @click="closeMobileMenu">All
+                                Healers</router-link>
+                            <router-link to="/location" class="dropdown-item" @click="closeMobileMenu">By
+                                Location</router-link>
+                            <router-link to="/contact" class="dropdown-item" @click="closeMobileMenu">Contact
+                                Us</router-link>
+                        </div>
+                    </div>
+                      <!-- Services Dropdown -->
+                      <div class="dropdown">
                         <a href="#" class="nav-link dropdown-toggle" @click.prevent="toggleDropdown('services')">
                             Services
                             <!-- <span class="dropdown-arrow">▼</span> -->
@@ -41,22 +52,16 @@
 
                         </div>
                     </div>
+                    <router-link to="/PractitionerIndex" class="nav-link" @click="closeMobileMenu">Join as a Healer</router-link>
 
-                    <!-- Find My Healer Dropdown -->
-                    <div class="dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" @click.prevent="toggleDropdown('healer')">
-                            Find My Healer
-                            <!-- <span class="dropdown-arrow">▼</span> -->
-                        </a>
-                        <div v-if="activeDropdown === 'healer'" class="dropdown-menu">
-                            <router-link to="/Alldoctor" class="dropdown-item" @click="closeMobileMenu">All
-                                Healers</router-link>
-                            <router-link to="/location" class="dropdown-item" @click="closeMobileMenu">By
-                                Location</router-link>
-                            <router-link to="/contact" class="dropdown-item" @click="closeMobileMenu">Contact
-                                Us</router-link>
-                        </div>
-                    </div>
+                    <router-link to="/resources" class="nav-link" @click="closeMobileMenu">Resources</router-link>
+                    <router-link to="/corporate" class="nav-link" @click="closeMobileMenu">Corporate</router-link>
+                    
+                   
+
+                  
+
+                  
 
                     <!-- Mobile Book Now Button (Inside mobile menu) -->
                     <div class="mobile-book-now">

@@ -6,11 +6,11 @@
                 <div class="row mt-md-5">
                     <div class="col-md-6">
                         <p class="  practitionerindextext mt-md-3"
-                            style="font-size: 50px; line-height: 1.2; font-family: 'Cormorant Garamond', serif !important;">
+                            style="font-size: 50px; line-height: 1.2; font-family: 'TheSeasons', serif !important; font-weight: 400; color: #7D684E;">
                             Join Us as a <br> Healer
                         </p>
                         <p class=""
-                            style="font-size: 22px; margin-top: 30px; max-width: 340px; font-family: 'Cormorant Garamond'; font-weight: 500; color: #2E2D29;">
+                            style="font-size: 22px; margin-top: 30px; max-width: 340px; font-family: 'TheSeasons', serif !important; font-weight: 400; color: #5B4C3A;">
                             Let’s build a world where holistic healing is embraced, respected, and accessible to all.
 
                         </p>
@@ -19,7 +19,7 @@
                             style="border-radius: 12px;">Apply Now</router-link> -->
                         <router-link to="practitor_register"
                             class="text-decoration-none apply-now-btn ms-0 px-4 py-2 mt-3"
-                            style="border-radius: 12px; width: 270px; display: inline-block; text-align: center;">Apply Now</router-link>
+                            style="border-radius: 12px; width: 270px; font-family: 'TheSeasons', serif !important; background-color: #C4B39A; display: inline-block; text-align: center;">Apply Now</router-link>
                     </div>
                     <div class="col-md-6">
                         <div class="practitionerindeximage1 ">
@@ -39,8 +39,8 @@
         <br>
         <div class="container p-4">
             <div class="practitionerindexBox text-center">
-                <p class="practitioner-text-content">
-                    A trusted community connecting the most skilled and heart-led healers with people seeking support.
+                <p class="practitioner-text-content" style="font-family: 'TheSeasons', serif !important; font-weight: 400; color: white;">
+                    A trusted community connecting the most skilled and heart led healers with people seeking support.
                     <!-- <span class="leaf-icon-wrapper">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="leaf-icon">
                             <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
@@ -65,14 +65,14 @@
                                 fill="#EFE3D6" />
                         </svg>
                     </p>
-                    <b>Who we are</b>
+                    <b style="font-family: 'TheSeasons', serif !important; font-weight: 400; color: #5B4C3A;">Who we are</b>
                     <p class="" style="color: #5B4C3A; font-size: 14; margin-bottom: 40px;">
                         A trusted community connecting the most skilled and heart-led healers with people seeking
                         support.
                     </p>
-                    <button class=" btn-light main-btn2 px-3"
-                        style="font-family: 'Courier New', Courier, monospace; color: #4F3C1E; background:#C1B39D;">
-                        About Us <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                    <button class="btn-light main-btn2 px-3 about-us-btn"
+                        style="font-family: 'TheSeasons', serif !important; font-weight: 400; color: #4F3C1E; background:#C1B39D; border: 1px solid transparent; transition: all 0.3s ease;">
+                        About Us <svg style="margin-left: 4px; display: inline-block; vertical-align: middle;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
                             stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path d="M5 12h14M12 5l7 7-7 7" />
                         </svg>
@@ -94,7 +94,7 @@
                     </div>
                 </div>
                 <div
-                    class="col-md-6  practitionerabout d-flex flex-column justify-content-center align-items-start p-4">
+                    class="col-md-6  practitionerabout d-flex  flex-column justify-content-center align-items-start p-4">
                     <p>
                         <svg width="50" height="51" viewBox="0 0 50 51" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -102,15 +102,15 @@
                                 fill="#B3A288" />
                         </svg>
                     </p>
-                    <b>Who we are looking for</b>
+                    <b style="font-family: 'TheSeasons', serif !important; font-weight: 400; color: #5B4C3A;">Who we are looking for</b>
                     <p class="m-color" style="margin-bottom: 40px;">
                         Healers who share our vision, those who are passionate about guiding others with compassion,
                         authenticity, and skill. Whether you’re an energy worker, counsellor, herbalist, or meditation
                         teacher, this is your space to grow.
                     </p>
                     <button class=" btn-light main-btn2 px-3"
-                        style="font-family: 'Courier New', Courier, monospace; color: #4F3C1E; background:#C1B39D;">
-                        Join Us <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                        style="font-family: 'TheSeasons', serif !important; font-weight: 400; color: #4F3C1E; background:#C1B39D;">
+                        Join Us <svg style="margin-left: 4px; display: inline-block; vertical-align: middle;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
                             stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path d="M5 12h14M12 5l7 7-7 7" />
                         </svg>
@@ -177,8 +177,8 @@
                                 class="benefit-svg-icon">
                         </div>
                         <div class="benefit-text">
-                            <div class="benefit-main-text">Cancel subscriptions you no longer need</div>
-                            <div class="benefit-sub-text">zoom, calendly, acuity scheduling and CRM systems</div>
+                            <div class="benefit-main-text" style="font-family: 'TheSeasons', serif !important; font-weight: 400; color: #2E2D29;">Cancel subscriptions you no longer need</div>
+                            <div class="benefit-sub-text" style="font-family: 'TheSeasons', serif !important; font-weight: 400; color: #2E2D29;">zoom, calendly, acuity scheduling and CRM systems</div>
                         </div>
                     </div>
                 </div>
@@ -186,7 +186,7 @@
                 <br><br>
                 <!-- How It Works Section -->
                 <div class="text-center my-5">
-                    <h3 class="how-it-works-title" style="font-size: 50px;color:#2E2D29">How it works</h3>
+                    <h3 class="how-it-works-title" style="font-size: 50px;color:#7D684E; font-family: 'TheSeasons', serif !important; font-weight: 400;">How it works</h3>
                 </div>
 
                 <div class="how-it-works-container">
@@ -223,10 +223,10 @@
             <div class="cta-content text-center">
                 <h1 class="cta-title">Ready to start growing your business?</h1>
                 <div class="cta-buttons">
-                    <router-link to="practitor_register" class="cta-btn cta-btn-primary">Apply Now</router-link>
-                    <router-link to="PractitionerIndex" class="cta-btn cta-btn-secondary">Book A Demo</router-link>
+                    <router-link to="practitor_register" class="cta-btn cta-btn-primary" style="font-family: 'TheSeasons', serif !important; font-weight: 400;   border: 1px solid transparent; transition: all 0.3s ease;">Apply Now</router-link>
+                    <router-link to="PractitionerIndex" class="cta-btn cta-btn-secondary" style="font-family: 'TheSeasons', serif !important; font-weight: 400;   border: 1px solid transparent; transition: all 0.3s ease;">Book A Demo</router-link>
                 </div>
-                <p class="cta-subtext">Any questions? Check out our <a href="#" class="cta-link">Practitioner FAQs</a>
+                <p class="cta-subtext" style="font-family: 'TheSeasons', serif !important; font-weight: 400; ">Any questions? Check out our <a href="#" class="cta-link">Practitioner FAQs</a>
                     or <a href="#" class="cta-link">get in touch</a>.</p>
             </div>
         </div>
@@ -272,7 +272,7 @@
     color: #FBF9F7;
     border: none;
     border-radius: 25px;
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'TheSeasons', serif !important;
     font-weight: 400;
     font-size: 16px;
     padding: 12px 30px;
@@ -401,7 +401,7 @@
 }
 
 .practitioner-text-content {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'TheSeasons', serif !important;
     font-size: 28px;
     font-weight: 400;
     color: white;
@@ -409,6 +409,7 @@
     margin: 0;
     display: inline-block;
 }
+
 
 .leaf-icon-wrapper {
     display: inline-flex;
@@ -437,6 +438,7 @@
 @media (max-width: 768px) {
     .practitioner-text-content {
         font-size: 1.2rem;
+        font-family: 'TheSeasons', serif !important;
     }
     
     .leaf-icon {
@@ -453,6 +455,7 @@
     .practitioner-text-content {
         font-size: 1rem;
         line-height: 1.5;
+        font-family: 'TheSeasons', serif !important;
     }
     
     .leaf-icon {
@@ -471,7 +474,7 @@
 
 /* How It Works Section Styling */
 .how-it-works-title {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'TheSeasons', serif !important;
     font-weight: 400;
     margin-bottom: 3rem;
 }
@@ -504,7 +507,7 @@
 }
 
 .card-heading {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'TheSeasons', serif !important;
     font-size: 1.2rem;
     font-weight: 700;
     color: #2E2D29;
@@ -515,7 +518,7 @@
 }
 
 .card-text {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'TheSeasons', serif !important;
     font-size: 0.95rem;
     color: #5B4C3A;
     line-height: 1.5;
@@ -556,6 +559,7 @@
 @media (max-width: 768px) {
     .how-it-works-title {
         font-size: 2.5rem !important;
+        font-family: 'TheSeasons', serif !important;
         margin-bottom: 2rem;
     }
 
@@ -567,6 +571,7 @@
 
     .card-heading {
         font-size: 1.1rem;
+        font-family: 'TheSeasons', serif !important;
         color: #2E2D29;
         font-weight: 700;
     }
@@ -592,7 +597,7 @@
 }
 
 .cta-title {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'TheSeasons', serif !important;
     font-size: 3.5rem;
     font-weight: 400;
     color: #F7F4EF;
@@ -799,7 +804,7 @@
     font-weight: 500;
     line-height: 1.5;
     flex: 1;
-    font-family: 'Cormorant Garamond', serif !important;
+    font-family: 'TheSeasons', serif !important;
 }
 
 /* Responsive Benefits */
@@ -820,6 +825,7 @@
 
     .benefit-text {
         font-size: 0.95rem;
+        font-family: 'TheSeasons', serif !important;
     }
 }
 
@@ -840,4 +846,21 @@
         font-size: 0.9rem;
     }
 }
+@media (min-width: 1300px) {
+    .practitioner-text-content {
+        font-size: 47px;
+    }
+}
+
+.about-us-btn:hover {
+    background: #E8E0D3;
+    border: 1px solid #C1B39D;
+    color: #2E2D29;
+    transform: translateY(-2px);
+}
+
+.about-us-btn:hover svg {
+    color: #2E2D29;
+}
+
 </style>

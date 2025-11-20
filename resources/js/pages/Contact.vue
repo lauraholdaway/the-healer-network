@@ -1,11 +1,11 @@
 <template>
-    <section class="contact-section " style="padding-top: 100px; padding-bottom: 200px;">
+    <section class="contact-section " style="padding-top: 100px; background-color: #FBF9F7; padding-bottom: 200px;">
         <div class="container">
             <div class="row align-items-center">
 
                 <!-- Left: Form Section -->
                 <div class="col-md-6 mb-4 mb-md-0">
-                    <h3 class="mb-2 Seasons-fonts" style=" font-size: 45px; color: #2E2D29;">Let's Talk, Reach Out <br>
+                    <h3 class="mb-2 " style=" font-size: 45px; color: #7D684E; font-family: 'TheSeasons', serif !important; font-weight: 400;">Let’s  Talk, Reach Out <br>
                         To Us</h3>
                     <p class="text-muted mb-4" style="font-weight: 300; font-size: 13px; color: #5B4C3A;">
                         Do you have any question or suggestion? We are here <br> to help.
@@ -104,7 +104,7 @@ export default {
   background-color: #F4EFE6;
   border-radius: 16px;
   padding: 20px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.09);
+
   max-width: 500px;
 }
 

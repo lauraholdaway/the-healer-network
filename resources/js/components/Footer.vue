@@ -198,7 +198,7 @@ function limitWords(text, count) {
 }
 
 .section-title {
-  font-family: 'Playfair Display', serif;
+  font-family: 'TheSeasons', serif !important;
   font-size: 18px;
   font-weight: 600;
   color: #4A4A4A;
@@ -336,7 +336,7 @@ function limitWords(text, count) {
   font-size: 14px;
   color: #4A4A4A;
   font-weight: 500;
-  font-family: 'Playfair Display', serif;
+  font-family: 'TheSeasons', serif !important;
 }
 
 .social-icons {

@@ -73,8 +73,8 @@ p.m-color {
     <section>
         <div class="container my-0 my-md-0 px-2 px-md-3">
             <div class="container my-0 my-md-0 text-center px-2">
-                <h1 class="fw-bold m-color fs-3 fs-md-1"
-                    style="font-family: 'Cormorant Garamond', serif !important; color: #2E2D29; margin-top: 0px; padding-top: 80px;">
+                <h1 class="fw-bold fs-3 fs-md-1"
+                    style="font-family: 'TheSeasons', serif !important; color: #7D684E; margin-top: 0px; padding-top: 80px;">
                     Book a Session with a Trusted Healer</h1>
                 <p class="m-color px-2 px-md-0 mx-auto"
                     style="font-size: 14px; padding-bottom: 20px; max-width: 800px;">Find healers by specialty,
@@ -114,7 +114,7 @@ p.m-color {
                         </div>
                         <div class="col-12 col-md-8">
                             <div class="p-3 p-md-3 h-100">
-                                <h3 class="mt-2 mt-md-4 fs-5 fs-md-3">{{ doctor.user?.name }} {{ doctor.user?.last_name
+                                <h3 class="mt-2 mt-md-4 fs-5 fs-md-3" style="font-family: 'TheSeasons', serif !important; font-weight: 400;">{{ doctor.user?.name }} {{ doctor.user?.last_name
                                 }}</h3>
                                 <div
                                     class="d-flex flex-column flex-md-row justify-content-between align-items-start my-3">
@@ -139,14 +139,14 @@ p.m-color {
 
                                 <div class="d-flex flex-column flex-md-row gap-2 mb-3">
                                     <router-link :to="`/booksession/${doctor.user?.id}`" class="btn main-btn2 w-100"
-                                        style="padding: 10px 8px; color: #2E2D29; align-self: flex-start; font-size: 14px; max-width: 160px; background-color: #C1B39D; text-align: center; transition: all 0.3s ease;"
+                                        style="padding: 10px 8px; font-family: 'TheSeasons', serif !important; font-weight: 400; color: #2E2D29; align-self: flex-start; font-size: 14px; max-width: 160px; background-color: #C1B39D; text-align: center; transition: all 0.3s ease;"
                                         @mouseover="$event.target.style.backgroundColor = '#5B4C3A'; $event.target.style.color = 'white'"
                                         @mouseout="$event.target.style.backgroundColor = '#C1B39D'; $event.target.style.color = '#2E2D29'">Book
                                         Session Now
 
                                     </router-link>
                                     <router-link :to="`/docter/${doctor.user?.id}`" class="btn main-btn3 w-100"
-                                        style="padding: 6px 12px; font-size: 14px; max-width: 120px; text-align: center; display: flex; align-items: center; justify-content: center;">View
+                                        style="padding: 6px 12px; font-family: 'TheSeasons', serif !important; font-weight: 400; font-size: 14px; max-width: 120px; text-align: center; display: flex; align-items: center; justify-content: center;">View
                                         Profile</router-link>
                                 </div>
                                 <div class="mt-2">

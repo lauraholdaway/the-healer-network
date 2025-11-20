@@ -6,7 +6,7 @@
                 <div v-if="currentStep === 1" class="step1">
                     <div class="row align-items-center g-4">
                         <div class="col-12 col-md-6 order-2 order-md-1">
-                            <h1 class="quiz-main-heading">Let’s Find the <br class="d-none d-md-block">right healer for
+                            <h1 class="quiz-main-heading" style="font-family: 'TheSeasons', serif !important; font-weight: 400; color: #7D684E;">Let’s Find the <br class="d-none d-md-block">right healer for
                                 <br class="d-none d-md-block"> you
                             </h1>
                             <p class="quiz-intro-text">We understand that finding a healer can feel overwhelming, so we
@@ -21,7 +21,7 @@
                                 healers who align with your answers.
                             </p>
 
-                            <button class="quiz-start-btn mt-3" type="button" @click="nextStep">Start Quiz</button>
+                            <button class="quiz-start-btn mt-3" style="font-family: 'TheSeasons', serif !important; font-weight: 400; color: white ; background-color: #C4B39A; border-radius: 10px; padding: 10px 20px; border: none; " type="button" @click="nextStep">Let’s Start Quiz</button>
                         </div>
                         <div class="col-12 col-md-6 order-1 order-md-2 text-center">
                             <img src="/public/asset/images/quiz.png" alt="Quiz Illustration"
@@ -110,9 +110,9 @@
 
                                 <div class="my-3 my-md-4">
                                     <h3 class="fw-normal quiz-question" style="color: #2E2D29; max-width: 400px;">
-                                        Can you tell us a bit more about what you're experiencing or what you'd like to
+                                        Can you tell us a bit more about what you’re experiencing or what you’d like to
                                         achieve?
-                                        <small style="color: #C4B39A;">(optional)</small>
+                                        <small style="color: #C4B39A;">optional</small>
                                     </h3>
                                 </div>
 
@@ -164,9 +164,9 @@
 
                                 <div class="my-3 my-md-4">
                                     <h3 class="fw-normal quiz-question" style="color: #2E2D29; max-width: 400px;">
-                                        Can you tell us a bit more about what you're experiencing or what you'd like to
+                                        Can you tell us a bit more about what you’re experiencing or what you’d like to
                                         achieve?
-                                        <small style="color: #C4B39A;">(optional)</small>
+                                        <small style="color: #C4B39A;">optional</small>
                                     </h3>
                                 </div>
 
@@ -235,7 +235,7 @@
                                 <div class="my-3 my-md-4">
                                     <h3 class="fw-normal quiz-question" style="color: #2E2D29; max-width: 400px;">Do you
                                         have a preference for online or in person?
-                                        <small style="color: #C4B39A;">(optional)</small>
+                                        <small style="color: #C4B39A;">optional</small>
                                     </h3>
                                 </div>
 
@@ -384,6 +384,8 @@ const quizpost = async () => {
     font-weight: 300;
     line-height: 1.2;
     margin-bottom: 1rem;
+    font-family: 'TheSeasons', serif !important;
+    font-weight: 400;
 }
 
 /* Intro text */
@@ -417,10 +419,10 @@ const quizpost = async () => {
 /* Quiz start button */
 .quiz-start-btn {
     font-family:
-    'FONTSPRING DEMO - The Seasons', serif !important;
+    'TheSeasons', serif !important;
     background: #8A7356;
     border-radius: 10px;
-    padding: 12px 24px;
+    padding: 14px 30px;
     color: white;
     border: none;
     transition: all 0.3s ease;

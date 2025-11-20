@@ -7,20 +7,16 @@
 
         <div class="cards shadow p-4 my-5 rounded-5"
             style="max-width: 650px; width: 100%; position: relative; z-index: 10; background-color: white;">
-            <div class="row mb-0 align-items-center">
-                <!-- Logo (show first on mobile) -->
-                <div class="col-md-3 order-1 order-md-2 text-md-end text-center mb-0 mb-md-0">
-                    <router-link to="/"><img src="/public/asset/images/dark-logo.png" alt="Logo" class="img-fluid"
-                            style="height: 150px;" /></router-link>
-                </div>
-
-                <!-- Sign Up text (show after logo on mobile) -->
-                <div class="col-md-9 order-2 order-md-1 text-center text-md-start">
-                    <h3 class="m-color">Sign In</h3>
-                    <p style="color: #5B4C3A; font-size: 13px; max-width: 370px;">
-                        Welcome to The Healer Network. To continue please enter your email and password.
-                    </p>
-                </div>
+            <div class="text-center mb-3">
+                <router-link to="/" class="healer-network-title-link">
+                    <h1 class="healer-network-title">THE HEALER NETWORK</h1>
+                </router-link>
+            </div>
+            <div class="text-center text-md-start mb-3">
+                <h3 class="m-color">Sign In</h3>
+                <p style="color: #5B4C3A; font-size: 13px; max-width: 370px; margin: 0 auto 0 0;">
+                    Welcome to The Healer Network. To continue please enter your email and password.
+                </p>
             </div>
             <hr style="border: 1px solid #DED1BA; margin-top: -8px;">
             <form @submit.prevent="onSubmit">

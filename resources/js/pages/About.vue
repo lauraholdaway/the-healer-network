@@ -5,8 +5,8 @@
             <div class="container p-3 p-md-5 position-relative text-center">
                 <img src="/public/asset/images/about.jpg" class="img-fluid rounded-4 mt-3 m-md-0" alt=""
                     style="max-height: 500px; object-fit: cover; width: 100%;">
-                <p class="position-absolute top-50 start-50 translate-middle text-white fw-bold hero-text">
-                    We’re on a mission to make holistic <br class="d-none d-md-inline">healing accessible for everyone.
+                <p class="position-absolute top-50 start-50 translate-middle text-white  hero-text">
+                    We’re On A Mission To Make Holistic <br class="d-none d-md-inline">Healing Accessible For Everyone.
                     <br>
                     <!-- <button class="btn btn-light mt-3 mt-md-4 custom-btn">Read More</button> -->
                 </p>
@@ -37,7 +37,7 @@
                     <div class="col-md-6 text-start p-3 p-md-5">
                         <div>
                             <h1 class="fw-bold section-heading text-start">
-                                About The Healer Network
+                                About The Healer <br></br> Network
                             </h1>
                             <p class="section-text">A global platform born from divine intervention..<br><br>
 
@@ -340,8 +340,9 @@ onMounted(async () => {
 /* Hero Text Styles */
 .hero-text {
     font-size: 55px;
-    font-family: 'Cormorant Garamond', serif !important;
-    line-height: 1;
+    font-family: 'TheSeasons', serif !important;
+    font-weight: 700;
+    line-height: 1.2;
 margin-bottom: 50px;
     width: 80%;
     max-width: 900px;
@@ -365,7 +366,7 @@ margin-bottom: 50px;
 
 /* Section Titles */
 .section-title {
-    font-family: 'Cormorant Garamond', serif !important;
+    font-family: 'TheSeasons', serif !important;
     font-size: 40px;
     margin-top: 10px;
     line-height: 1.2;
@@ -376,11 +377,11 @@ margin-bottom: 50px;
     align-items: start;
     text-align: start;
     justify-content: start;
-    font-family: 'Cormorant Garamond', serif !important;
+    font-family: 'TheSeasons', serif !important;
     font-size: 40px;
     padding-bottom: 20px;
-
-    color: #2E2D29;
+font-weight: 400;
+    color: #7D684E;
 }
 
 
@@ -388,20 +389,20 @@ margin-bottom: 50px;
     align-items: center;
     text-align: center;
     justify-content: center;
-    font-family: 'Cormorant Garamond', serif !important;
+    font-family: 'TheSeasons', serif !important;
     margin-top: 20px;
     font-size: 40px;
 
-    color: #2E2D29;
+    color: #7D684E;
 }
 .section-heading-footer {
     align-items: center;
     text-align: center;
     justify-content: start;
-    font-family: 'Cormorant Garamond', serif !important;
+    font-family: 'TheSeasons', serif !important;
     font-size: 40px;
     max-width: 1200px;
-    color: #2E2D29;
+    color: #7D684E;
 }
 
 .section-text {
@@ -438,16 +439,35 @@ margin-bottom: 50px;
 .founder-name {
     margin-top: 100px;
     font-size: 30px;
-    color: #2E2D29;
+    color: #7D684E;
     font-weight: 300;
 }
 
 /* Touch Section */
 .touch-heading {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'TheSeasons', serif !important;
     font-size: 50px;
     font-weight: 300;
     margin-top: 20px;
+}
+@media (min-width: 1300px) and (max-width: 3200px) {
+    .touch-heading {
+    font-family: 'TheSeasons', serif !important;
+    font-size: 60px;
+    font-weight: 300;
+    margin-top: 20px;
+}
+.joinUs-p {
+        font-family: 'TheSeasons', serif !important;
+        font-style: italic;
+    color: #F4EFE6;
+        font-size: 18px !important;
+        padding: 0 15px !important;
+    }
+    .contact-btn {
+        padding: 16px 38px !important;
+        font-size: 18px;
+    }
 }
 
 .touch-svg {
@@ -460,7 +480,7 @@ margin-bottom: 50px;
     background-color: white;
     color: #2E2D29;
     border-radius: 10px;
-    font-family: 'Cormorant Garamond', serif !important;
+    font-family: 'TheSeasons', serif !important;
     transition: all 0.3s ease;
 }
 
@@ -491,7 +511,8 @@ margin-bottom: 50px;
     max-width: 550px;
 }
         .about-image {
-            height: 500px;
+            height: 565px;
+            
         }
     }
 
@@ -561,7 +582,7 @@ margin-bottom: 50px;
     }
 
     .joinUs-p {
-        font-family: 'Courier New', Courier, monospace;
+        font-family: 'TheSeasons', serif !important;
         font-style: italic;
     color: #F4EFE6;
         font-size: 13px !important;

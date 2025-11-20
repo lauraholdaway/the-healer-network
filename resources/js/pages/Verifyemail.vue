@@ -6,11 +6,11 @@
               <button class="btn-logout" @click="logout">Logout</button>
           </div>
           <div class="verify-email-content">
-              <div class="logo-wrapper">
-                  <router-link to="/">
-                      <img src="/public/asset/images/dark-logo.png" alt="Logo" class="logo-img" />
-                  </router-link>
-              </div>
+            <div class="text-center mb-3">
+                <router-link to="/" class="healer-network-title-link">
+                    <h1 class="healer-network-title">THE HEALER NETWORK</h1>
+                </router-link>
+            </div>
               <div class="verification-info">
                   <h2 class="verification-title">Email Verification</h2>
                   <p class="verification-text">We have sent you a verification link to your email address</p>
