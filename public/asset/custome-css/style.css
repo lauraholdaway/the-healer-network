@@ -1981,9 +1981,17 @@ footer ul li a:hover {
 }
 
 .healer-network-title-link {
-    text-decoration: none;
+    text-decoration: none !important;
     display: inline-block;
     cursor: pointer;
+}
+
+.healer-network-title-link:hover {
+    text-decoration: none !important;
+}
+
+.healer-network-title-link:focus {
+    text-decoration: none !important;
 }
 
 .healer-network-title {
@@ -1991,8 +1999,13 @@ footer ul li a:hover {
     font-family: 'TheSeasons', serif !important;
     font-weight: 600;
     margin-bottom: 0;
-    font-size: 22px;
+    font-size: 18px;
     letter-spacing: 0.1em;
     user-select: none;
     cursor: pointer;
+    text-decoration: none !important;
+}
+
+.healer-network-title:hover {
+    text-decoration: none !important;
 }
