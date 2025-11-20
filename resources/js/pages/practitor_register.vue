@@ -3,8 +3,10 @@
         <div class="cards rounded-4 shadow-lg p-4 my-5" style="max-width: 750px; width: 100%;">
             <!-- Header -->
             <div class="text-center mb-3">
-                <router-link to="/" class="healer-network-title-link">
-                    <h1 class="healer-network-title">THE HEALER NETWORK</h1>
+                <router-link to="/" class="healer-network-title-link" style="text-decoration: none !important; border-bottom: none !important;">
+                    <div class="logo-container">
+                        <img src="/public/asset/images/logo.svg" alt="Logo" class="login-logo">
+                    </div>
                 </router-link>
             </div>
             <div class="text-center text-md-start mb-3">
