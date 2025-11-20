@@ -1,4 +1,16 @@
 {
+  "_vendor-axios-ngrFHoWO.js": {
+    "file": "assets/vendor-axios-ngrFHoWO.js",
+    "name": "vendor-axios"
+  },
+  "_vendor-swiper-DoHUoWKH.js": {
+    "file": "assets/vendor-swiper-DoHUoWKH.js",
+    "name": "vendor-swiper"
+  },
+  "_vendor-vue-D0_Q6rly.js": {
+    "file": "assets/vendor-vue-D0_Q6rly.js",
+    "name": "vendor-vue"
+  },
   "public/asset/images/Barrow.svg": {
     "file": "assets/Barrow-B6BsKFbG.svg",
     "src": "public/asset/images/Barrow.svg"
@@ -164,10 +176,15 @@
     "src": "public/asset/images/xicon.svg"
   },
   "resources/js/app.js": {
-    "file": "assets/app-CJbqyTLX.js",
+    "file": "assets/app-CctWTlBh.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
+    "imports": [
+      "_vendor-vue-D0_Q6rly.js",
+      "_vendor-axios-ngrFHoWO.js",
+      "_vendor-swiper-DoHUoWKH.js"
+    ],
     "css": [
       "assets/app-DqztfKmp.css"
     ],

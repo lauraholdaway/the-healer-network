@@ -10,4 +10,16 @@ export default defineConfig({
     }),
     vue(), // ✅ add vue plugin
   ],
+  build: {
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          'vendor-vue': ['vue', 'vue-router'],
+          'vendor-axios': ['axios'],
+          'vendor-swiper': ['swiper'],
+        },
+      },
+    },
+    chunkSizeWarningLimit: 1000,
+  },
 })
