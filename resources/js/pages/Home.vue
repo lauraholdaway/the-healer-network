@@ -1,4 +1,5 @@
 <template>
+    <div style="background-color: #FBF9F7; min-height: 100vh;">
     <section
         class="hero-section d-flex align-items-center justify-content-center text-center text-white position-relative">
         <div class="container">
@@ -45,53 +46,67 @@
 
 
 
-    <section class="container my-md-55   pt-md-10">
-        <h2 class="section-heading">Your Path to Healing</h2>
-        <p class="section-subtext">
-            The Healer Network connects you with certified holistic healers who combine experience, compassion, and
-            integrity to support your wellbeing.
-        </p>
+    <section class="w-100 bg-[#FBF9F7] py-5 py-md-8">
+        <div class="container px-3">
+            <!-- Title -->
+            <div class="text-center mb-4 mb-md-6">
+                <h2 class="mb-0" style="font-family: 'Cormorant Garamond', serif; color: #2E2D29; line-height: 1.2; font-weight: normal;">
+                    <span class="d-md-none" style="font-size: 2.25rem;">Your Path to Healing</span>
+                    <span class="d-none d-md-inline d-lg-none" style="font-size: 3rem;">Your Path to Healing</span>
+                    <span class="d-none d-lg-inline" style="font-size: 3.75rem;">Your Path to Healing</span>
+                </h2>
+            </div>
+            
+            <!-- Subtext -->
+            <p class="text-center mb-0 mx-auto" style="color: #2E2D29; font-family: 'Roboto', sans-serif; max-width: 672px; line-height: 1.6;">
+                <span class="d-md-none" style="font-size: 0.875rem;">The Healer Network connects you with certified holistic healers who combine experience, compassion, and integrity to support your wellbeing.</span>
+                <span class="d-none d-md-inline" style="font-size: 1rem;">The Healer Network connects you with certified holistic healers who combine experience, compassion, and integrity to support your wellbeing.</span>
+            </p>
 
-        <div class="row gy-1">
-            <div class="col-md-4">
-                <div
-                    class="feature-box position-relative text-center d-flex flex-column justify-content-center align-items-center">
-                    <img :src="cardicon" alt="card icon" class="position-absolute"
-                        style="width: 180px; height: 180px; bottom: 0; left: 0;">
-                    <div class="position-relative" style="z-index: 2;">
-                        <h5 class="feature-title">Trusted Healers</h5>
-                        <p class="feature-content">
-                            Every healer is carefully verified for experience, professionalism, and genuine care.
-                        </p>
+            <!-- Cards Grid -->
+            <div class="row g-3 g-lg-4 mt-4 mt-md-6">
+                <!-- Card 1: Trusted Healers -->
+                <div class="col-12 col-md-4 d-flex">
+                    <div class="healing-card-bg healing-card-hover position-relative d-flex flex-column justify-content-center align-items-center text-center overflow-hidden w-100" :style="{ borderRadius: '40px', backgroundImage: `url(${cardicon})`, backgroundPosition: 'bottom left', backgroundRepeat: 'no-repeat', backgroundColor: '#EEE9E3', height: '352px' }">
+                        <div class="position-relative w-100 p-3" style="z-index: 10;">
+                            <h5 class="mb-4 mx-auto" style="font-family: 'Cormorant Garamond', serif; color: #2E2D29; line-height: 1.3; font-weight: normal; font-style: italic;">
+                                <span class="d-md-none" style="font-size: 1.5rem;">Trusted Healers</span>
+                                <span class="d-none d-md-inline" style="font-size: 1.875rem;">Trusted Healers</span>
+                            </h5>
+                            <p class="mx-auto mb-0" style="color: #2E2D29; font-family: 'Roboto', sans-serif; line-height: 1.6; font-size: 0.9375rem; max-width: 300px;">
+                                Every healer is carefully verified for experience, professionalism, and genuine care.
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="col-md-4">
-                <div class="feature-box position-relative text-center d-flex flex-column justify-content-center align-items-center"
-                    style="background: #C1B39D; overflow: hidden;">
-                    <img :src="cardicon2" alt="card icon" class="position-absolute"
-                        style="width: 180px; height: 180px; bottom: -20px; right: 0;">
-                    <div class="position-relative" style="z-index: 2;">
-                        <h5 class="feature-title text-white ">Personalised Search</h5>
-                        <p class="feature-content text-white " style="font-size: 14px;">
-                            Find healers who align with your goals and preferred healing methods.
-                        </p>
+                <!-- Card 2: Personalised Search -->
+                <div class="col-12 col-md-4 d-flex">
+                    <div class="healing-card-bgg healing-card-hover position-relative d-flex flex-column justify-content-center align-items-center text-center overflow-hidden w-100" :style="{ borderRadius: '40px', backgroundImage: `url(${cardicon2})`, backgroundPosition: 'right bottom', backgroundRepeat: 'no-repeat', backgroundColor: '#C1B39D', height: '352px' }">
+                        <div class="position-relative w-100 p-3" style="z-index: 10;">
+                            <h5 class="mb-4 mx-auto" style="font-family: 'Cormorant Garamond', serif; color: #FBF9F7; line-height: 1.3; font-weight: normal; font-style: italic;">
+                                <span class="d-md-none" style="font-size: 1.5rem;">Personalised Search</span>
+                                <span class="d-none d-md-inline" style="font-size: 1.875rem;">Personalised Search</span>
+                            </h5>
+                            <p class="mx-auto mb-0" style="color: #FBF9F7; font-family: 'Roboto', sans-serif; line-height: 1.6; font-size: 0.9375rem; max-width: 300px;">
+                                Find healers who align with your goals and preferred healing methods.
+                            </p>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="col-md-4">
-                <div
-                    class="feature-box position-relative text-center d-flex flex-column justify-content-center align-items-center">
-                    <img :src="cardicon3" alt="card icon" class="position-absolute"
-                        style="width: 180px; height: 180px; bottom: 0; left: 50%; transform: translateX(-50%);">
-                    <div class="position-relative" style="z-index: 2;">
-                        <h5 class="feature-title">Monthly Membership'</h5>
-                        <p class="feature-content">
-                            Gain access to exclusive resources and monthly healing ceremonies designed to support your
-                            ongoing wellbeing.
-                        </p>
+                <!-- Card 3: Monthly Membership -->
+                <div class="col-12 col-md-4 d-flex">
+                    <div class="healing-card-bg healing-card-hover position-relative d-flex flex-column justify-content-center align-items-center text-center overflow-hidden w-100" :style="{ borderRadius: '40px', backgroundImage: `url(${cardicon3})`, backgroundPosition: 'bottom center', backgroundRepeat: 'no-repeat', backgroundColor: '#EEE9E3', height: '352px' }">
+                        <div class="position-relative w-100 p-3" style="z-index: 10;">
+                            <h5 class="mb-4 mx-auto" style="font-family: 'Cormorant Garamond', serif; color: #2E2D29; line-height: 1.3; font-weight: normal; font-style: italic;">
+                                <span class="d-md-none" style="font-size: 1.5rem;">Monthly Membership</span>
+                                <span class="d-none d-md-inline" style="font-size: 1.875rem;">Monthly Membership</span>
+                            </h5>
+                            <p class="mx-auto mb-0" style="color: #2E2D29; font-family: 'Roboto', sans-serif; line-height: 1.6; font-size: 0.9375rem; max-width: 300px;">
+                                Gain access to exclusive resources and monthly healing ceremonies designed to support your ongoing wellbeing.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -111,13 +126,13 @@
             </p>
 
             <!-- Button and Navigation -->
-            <div class="d-flex justify-content-between align-items-center mb-14 mt-4">
+        <div class="d-flex justify-content-between align-items-center  mt-4" style="padding-left: 0px; padding-right: 0px; margin-left: 0px; margin-right: 0px;">
                 <div class="text-start">
-                    <router-link to="/Alldoctor" class="btn btn-outline-dark btn-outline-custome rounded-pill">
-                        View All Healar
+                    <router-link to="/Alldoctor" class="btn btn-outline-custome" style="background-color: #FBF9F7; border: 1px solid #C1B39D; border-radius: 30px; color: #2E2D29; font-family: 'TheSeasons', serif; padding: 10px 20px;">
+                        View All Practitioners
                     </router-link>
                 </div>
-                <div class="d-flex gap-2">
+                <div class="d-flex gap-2" style="margin-right: 0; padding-right: 0; margin-left: auto;">
                     <!-- Left Arrow Button -->
                     <button ref="prevEl"
                         class="btn btn-arrow-left rounded-circle d-flex align-items-center justify-content-center"
@@ -136,7 +151,7 @@
             </div>
 
             <!-- Cards -->
-            <div class="row g-4 px-3 px-md-0 py-3 py-md-0 ">
+            <div class="row g-4 px-3 px-md-2 py-3 py-md-0 mt-0">
                 <Swiper ref="swiperRef" :slides-per-view="3" :space-between="20" :loop="true" :navigation="{
                     nextEl: nextBtn,
                     prevEl: prevBtn,
@@ -214,8 +229,8 @@
                                         {{ truncatedSummary(doctor.about, index) }}
                                         <span v-if="isSummaryTruncated(doctor.about, index)">...</span>
                                     </span>
-                                    <a href="#" class="m-color doctor-card-toggle ms-2"
-                                        @click.prevent="toggleText(index)">
+                                    <a href="#" class="m-color doctor-card-toggle ms-2" style="font-size: 14px;"
+                                        @click.prevent="toggleText(index)" v-if="doctor.about && doctor.about.length > maxSummaryLength">
                                         {{ showFull[index] ? 'See less' : 'See more' }}
                                     </a>
                                 </p>
@@ -249,7 +264,7 @@
     <br>
 
     <section>
-        <div class="container py-0 blog-container mt-md-4 px-4 px-md-0 ">
+        <div class="container py- blog-container mt-md-4 px-4 px-md-0 ">
             <div class="blog-header d-flex justify-content-between align-items-center">
                 <div class="blog-header-text">
                     <small class="section-sub " style="font-family: 'Cormorant Garamond', serif; color: #8A7356;">Our
@@ -268,8 +283,8 @@
                 </router-link>
             </div>
 
-            <div class="row g-4 mt-3">
-                <Swiper ref="swiperRef2" :slides-per-view="3" :space-between="20" :loop="true"
+            <div class="row g-2 mt-3">
+                <Swiper ref="swiperRef2" :slides-per-view="3" :space-between="10" :loop="true"
                     :autoplay="{ delay: 3000 }" :breakpoints="{
                         0: { slidesPerView: 1 },      // Mobile
                         768: { slidesPerView: 2 },    // Tablet
@@ -277,7 +292,7 @@
                     }" class="mySwiper">
 
                     <!-- Blog Card -->
-                    <SwiperSlide class="col-lg-4 col-md-6 col-sm-12" v-for="(blog, index) in blogs" :key="blog.id">
+                    <SwiperSlide class="col-lg-4 col-md-6 col-sm-12 p-1 p-md-2" v-for="(blog, index) in blogs" :key="blog.id">
                         <div class="blog-card">
                             <img :src="blog?.image ? '/storage/' + blog.image : '/default-image.png'"
                                 class="blog-card-img" alt="Reiki">
@@ -304,6 +319,7 @@
             </div>
         </div>
     </section>
+    </div>
 </template>
 
 <script setup>
@@ -383,7 +399,7 @@ function limitWords(text, count) {
     return words.length > count ? words.slice(0, count).join(' ') + '...' : text
 }
 
-const maxSummaryLength = 40
+const maxSummaryLength = 30
 
 const truncatedSummary = (text, index) => {
     if (!text) return '-'
@@ -422,7 +438,7 @@ const isSummaryTruncated = (text, index) => {
     letter-spacing: 0.04em;
     text-transform: uppercase;
     text-decoration: none;
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+   
     transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 
@@ -444,6 +460,50 @@ const isSummaryTruncated = (text, index) => {
 .scroll-down__btn:focus {
     outline: none;
     box-shadow: 0 0 0 4px rgba(160, 112, 76, 0.25);
+}
+
+.healing-card-bg {
+    background-size: 150px 150px;
+}
+
+@media (min-width: 576px) {
+    .healing-card-bg {
+        background-size: 180px 180px;
+    }
+}
+
+@media (min-width: 768px) {
+    .healing-card-bg {
+        background-size: 200px 200px;
+    }
+}
+
+@media (min-width: 992px) {
+    .healing-card-bg {
+        background-size: 220px 220px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .healing-card-bg {
+        background-size: 250px 250px;
+    }
+}
+
+@media (min-width: 1400px) {
+    .healing-card-bg {
+        background-size: 280px 280px;
+    }
+}
+
+.healing-card-hover {
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.healing-card-hover:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
 .scroll-down__icon {
@@ -555,12 +615,14 @@ const isSummaryTruncated = (text, index) => {
     height: 450px;
     display: flex;
     flex-direction: column;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(91, 76, 58, 0.08);
 }
 
 .blog-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 .blog-card-img {
@@ -570,6 +632,7 @@ const isSummaryTruncated = (text, index) => {
     border-radius: 20px;
     margin: 10px auto;
     display: block;
+    transition: filter 0.3s ease;
 }
 
 .blog-card-body {
@@ -589,6 +652,11 @@ const isSummaryTruncated = (text, index) => {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    transition: color 0.3s ease;
+}
+
+.blog-card:hover .blog-card-title {
+    color: #4A3E2E;
 }
 
 .blog-card-text {
@@ -615,12 +683,15 @@ const isSummaryTruncated = (text, index) => {
     font-size: 12px;
     text-decoration: none;
     font-family: 'Cormorant Garamond', serif;
-    transition: background-color 0.3s ease;
+    transition: all 0.3s ease;
+    display: inline-block;
 }
 
 .blog-membership-btn:hover {
     background-color: #5B4C3A;
     color: #F5F0E8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(91, 76, 58, 0.2);
 }
 
 .blog-read-more {
@@ -628,12 +699,14 @@ const isSummaryTruncated = (text, index) => {
     text-decoration: none;
     font-family: 'Cormorant Garamond', serif;
     font-weight: 500;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
+    display: inline-block;
 }
 
 .blog-read-more:hover {
     color: #3d2f1f;
     text-decoration: underline;
+    transform: translateX(4px);
 }
 
 
@@ -649,7 +722,7 @@ const isSummaryTruncated = (text, index) => {
 
 /* Blog Section Header Responsive */
 .blog-container {
-    padding: 50px 0px;
+    padding: 40px 0px 90px 0px;
 }
 
 .blog-header {
@@ -854,5 +927,11 @@ const isSummaryTruncated = (text, index) => {
     .blog-read-more {
         font-size: 11px;
     }
+}
+
+.btn-outline-custome:hover {
+    background-color: #5B4C3A !important;
+    color: #FBF9F7 !important;
+    transition: all 0.3s ease;
 }
 </style>

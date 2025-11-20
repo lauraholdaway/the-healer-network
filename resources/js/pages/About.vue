@@ -1,4 +1,5 @@
 <template>
+    <div style="background-color: #FBF9F7; min-height: 100vh;">
     <section>
         <div class="bg-custome p-3 p-md-5">
             <div class="container p-3 p-md-5 position-relative text-center">
@@ -32,8 +33,8 @@
         </div>
         <div class="container-fluid bg-custome py-1" style="margin-top: -2px; margin-bottom: 0;">
             <div class="container py-4 py-md-5">
-                <div class="row align-items-start">
-                    <div class="col-md-6 text-start pt-3 p-md-0">
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-start p-3 p-md-5">
                         <div>
                             <h1 class="fw-bold section-heading text-start">
                                 About The Healer Network
@@ -52,8 +53,8 @@
                             </p>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <div class="p-3 p-md-4 m-1">
+                    <div class="col-md-6 d-flex align-items-center">
+                        <div class="p-3 p-md-5 w-100">
                             <img src="/public/asset/images/about2.png" class="img-fluid about-image" alt="">
 
                         </div>
@@ -65,19 +66,19 @@
             <img src="/public/asset/images/aboutbg-bt.png" class="w-100" alt="" style="display: block; margin: -2px;">
         </div>
         <div class="container px-3">
-            <div class="row">
-                <div class="col-md-6 p-3 p-md-5 order-2 order-md-1">
-                    <div>
+            <div class="row align-items-center">
+                <div class="col-md-6 p-3 p-md-5 order-2 order-md-1 d-flex align-items-center">
+                    <div class="w-100">
                         <img src="/public/asset/images/about3.png" class="img-fluid about-image" alt="">
 
                     </div>
                 </div>
-                <div class="col-md-6 p-3 p-md-5 order-1 order-md-2">
+                <div class="col-md-6 p-3  p-md-5 order-1 order-md-2">
                     <div>
                         <h1 class="section-heading mt-0 mt-md-4">
                             Our mission is <br> simple yet profound
                         </h1>
-                        <p class="section-text">To create Heaven on Earth by bridging the gap between those seeking
+                        <p class="section-textt">To create Heaven on Earth by bridging the gap between those seeking
                             healing and those here to offer it.<br><br>
                             As healers, we’ve each witnessed how challenging it can be to promote, grow, and sustain a
                             healing business, even when your work is deeply transformative. We wanted to change that.
@@ -102,8 +103,8 @@
             <div class="container">
                 <div class="row my-4 my-md-5 justify-content-center g-3 g-md-4">
                     <div class="col-md-5 col-lg-5">
-                        <div class="bg-white shadow-sm p-4"
-                            style="border-radius: 20px; min-height: 300px; display: flex; flex-direction: column;">
+                        <div class="bg-white p-4"
+                            style="border-radius: 32px; background-color: white; min-height: 300px; display: flex; flex-direction: column;">
                             <svg width="40" height="41" viewBox="0 0 40 41" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -121,8 +122,8 @@
                         </div>
                     </div>
                     <div class="col-md-5 col-lg-5">
-                        <div class="bg-white shadow-sm p-4"
-                            style="border-radius: 20px; min-height: 300px; display: flex; flex-direction: column;">
+                        <div class="bg-white p-4"
+                            style="border-radius: 32px; background-color: white; min-height: 300px; display: flex; flex-direction: column;">
                             <svg width="40" height="41" viewBox="0 0 40 41" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -134,7 +135,7 @@
                                 Accessible
                             </h3>
                             <p style="font-size: 13px; color: #2E2D29;">
-                                We believe that healing should be available to all. We’re dedicated to removing barriers
+                                We believe that healing should be available to all. We're dedicated to removing barriers
                                 so that everyone can access the support they need to live their best life
                             </p>
                         </div>
@@ -142,8 +143,8 @@
                     </div>
 
                     <div class="col-md-5 col-lg-5">
-                        <div class="bg-white shadow-sm p-4"
-                            style="border-radius: 20px; min-height: 300px; display: flex; flex-direction: column;">
+                        <div class="bg-white p-4"
+                            style="border-radius: 32px; background-color: white; min-height: 300px; display: flex; flex-direction: column;">
                             <svg width="40" height="41" viewBox="0 0 40 41" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -161,8 +162,8 @@
                         </div>
                     </div>
                     <div class="col-md-5 col-lg-5">
-                        <div class="bg-white shadow-sm p-4"
-                            style="border-radius: 20px; min-height: 300px; display: flex; flex-direction: column;">
+                        <div class="bg-white p-4"
+                            style="border-radius: 32px; background-color: white; min-height: 300px; display: flex; flex-direction: column;">
                             <svg width="40" height="41" viewBox="0 0 40 41" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -284,36 +285,36 @@
                         d="M30.9548 7.92254C31.1362 8.52154 31.3033 9.14525 31.4276 9.8431C31.8319 12.0536 32.2742 14.4837 34.5916 15.4922C36.4994 16.2971 38.4109 14.6987 39.7612 13.5012C43.7943 9.99728 48.4086 14.2759 46.8278 19.5252C45.2612 24.7497 40.6127 26.5803 38.5515 26.8401C36.4903 27.0999 35.4015 30.755 37.0751 32.4792C38.7488 34.2033 41.3623 37.0962 39.2406 39.0017C37.119 40.9071 32.7003 40.399 30.8089 35.913C28.9175 31.427 26.1237 36.4372 25.7922 38.5524C25.4607 40.6676 25.9191 49.0054 25.4678 50.9856C24.9918 52.9515 20.2822 61.337 14.5141 53.0641C12.3231 49.0971 13.6748 43.6167 13.696 42.8381C13.7172 42.0595 14.2172 36.2851 10.1934 34.5222C6.16971 32.7592 2.45167 32.2931 1.50136 31.0854C0.551046 29.8777 -0.491152 24.6628 4.96716 20.6308C10.4255 16.5987 16.8977 16.9744 18.1288 17.125C20.7821 17.4377 20.7878 14.5742 20.3748 12.7211C19.7853 9.97532 18.1517 8.01066 16.7178 5.7C15.7372 4.14529 15.6226 2.8599 17.4425 1.93355C19.9613 0.652819 22.8391 0.633771 25.4037 1.78494C28.3533 3.12542 30.0715 5.17188 30.9548 7.92254Z"
                         fill="#8A7356" />
                 </svg>
-                <h2 class="section-heading-footer mb-2 mt-5">
+                <h2 class="section-heading-footer mb-5 mt-5">
                     Together, we’re building the future of healing.<br>
                     Because when people rise, the whole world heals.</h2>
 
             </div>
         </div>
         <br>
-        <section class="joinUsAbout position-relative d-flex align-items-center"
-            style="overflow: hidden; min-height: 300px;">
-            <div class="container px-3">
-                <div class="d-flex justify-content-center align-items-center py-4 py-md-5">
-                    <div class="text-center mt-3 mt-md-4 mx-auto">
-                        <h1 class='text-white touch-heading'>Get In Touch With Us</h1>
-                        <p class="joinUs-p px-3" style="font-size: 14px; font-family:
-Cormorant Garamond; color: #F4EFE6; font-style: italic; ">Any questions? Check out our Practitioner <a href="#"
-                                class="text-decoration-underline" style="color: white;">FAQs</a> or <a href="#"
-                                class="text-decoration-underline" style="color: white;">get in touch</a>.</p>
-                        <router-link to="Contact" class="btn btn-light contact-btn px-4 mt-1">Contact Us</router-link>
-                    </div>
-
-                </div>
-            </div>
-            <!-- Touch With Us SVG positioned in bottom left -->
-            <div class="about-bg-image">
-                <img src="/public/asset/images/Touch With Us.svg" alt="Touch With Us"
-                    style="width: 500px; height: 500px; position: absolute; bottom: -50px; left: 0px; z-index: 10;">
-            </div>
-        </section>
-        <br>
     </section>
+    <section class="joinUsAbout position-relative d-flex align-items-center"
+        style="overflow: hidden; min-height: 300px;">
+        <div class="container px-3">
+            <div class="d-flex justify-content-center align-items-center py-4 py-md-5">
+                <div class="text-center mt-3 mt-md-4 mx-auto">
+                    <h1 class='text-white touch-heading'>Get In Touch With Us</h1>
+                    <p class="joinUs-p px-3" style="font-size: 14px; font-family:
+Cormorant Garamond; color: #F4EFE6; font-style: italic; ">Any questions? Check out our Practitioner <a href="#"
+                            class="text-decoration-underline" style="color: white;">FAQs</a> or <a href="#"
+                            class="text-decoration-underline" style="color: white;">get in touch</a>.</p>
+                    <router-link to="Contact" class="btn btn-light contact-btn px-4 mt-1">Contact Us</router-link>
+                </div>
+
+            </div>
+        </div>
+        <!-- Touch With Us SVG positioned in bottom left -->
+        <div class="about-bg-image">
+            <img src="/public/asset/images/Touch With Us.svg" alt="Touch With Us"
+                style="width: 500px; height: 500px; position: absolute; bottom: -50px; left: 0px; z-index: 10;">
+        </div>
+    </section>
+    </div>
 </template>
 <script setup>
 import Joinus from '../components/joinus.vue';
@@ -408,6 +409,12 @@ margin-bottom: 50px;
     color: #2E2D29;
     max-width: 450px;
 }
+.section-text2{
+    font-size: 13px;
+    color: #2E2D29;
+    max-width: 450px;
+    margin-top: 20px;
+}
 
 .founder-text {
     font-size: 13px;
@@ -481,7 +488,7 @@ margin-bottom: 50px;
     .section-text {
     font-size: 17px;
     color: #2E2D29;
-    max-width: 500px;
+    max-width: 550px;
 }
         .about-image {
             height: 500px;
@@ -489,7 +496,7 @@ margin-bottom: 50px;
     }
 
     .p-md-5 {
-        padding: 3rem !important;
+        padding: 3rem 3rem !important;
         margin-top: 0px;
     }
     .section-heading {
