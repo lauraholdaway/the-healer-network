@@ -1945,3 +1945,37 @@ footer ul li a:hover {
 
 
 
+/* container */
+
+
+/* each button wrapper */
+.signin-toggle .option {
+    position: relative;
+    cursor: pointer;
+    width: 100%;
+}
+
+/* hide the native radio */
+.signin-toggle input[type="radio"] {
+    display: none;
+}
+
+/* customize the clickable area */
+.signin-toggle span {
+    display: block;
+    padding: 12px 60px;
+    border: 1px solid #c9b39a;
+    border-radius: 10px;
+    font-size: 18px;
+    color: #876b52;
+    background: #fff;
+    transition: 0.25s ease;
+}
+
+/* selected style */
+.signin-toggle input[type="radio"]:checked+span {
+    background: #f7efe6;
+    border-color: #b89f85;
+    box-shadow: 0 0 4px rgba(184, 159, 133, 0.6);
+    font-weight: 600;
+}

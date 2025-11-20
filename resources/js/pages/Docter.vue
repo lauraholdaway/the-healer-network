@@ -685,178 +685,182 @@ body {
                                 <h6 class="fw-semibold fst-italic">Focus Areas</h6>
                                 <hr class="my-2 border-light">
                                 <div v-if="doctor && doctor.modalities">
-                                <span class="me-2 mb-2 d-inline-block" v-for="(sm, index1) in doctor.modalities"
-                                    :key="index1">
-                                    {{ sm?.title }},
-                                </span>
-                        </div>
-                    </div>
-
-                    <div class="col-md-3 col-6 mb-3 mb-md-0 border-end border-light">
-                        <h6 class="fw-semibold fst-italic">Location</h6>
-                        <hr class="my-2 border-light">
-                        <p class="mb-0 small">{{ doctor?.practice_location }},<br>{{ doctor?.address }}
-                        </p>
-                    </div>
-
-                    <div class="col-md-3 col-6 mb-3 mb-md-0 border-end border-light">
-                        <h6 class="fw-semibold fst-italic">Languages</h6>
-                        <hr class="my-2 border-light">
-                        <p class="mb-0 small">{{ doctor?.languages ?? '-' }}</p>
-                    </div>
-
-                    <div class="col-md-3 col-6">
-                        <h6 class="fw-semibold fst-italic">Certifications</h6>
-                        <hr class="my-2 border-light">
-                        <p class="mb-0 small" v-for="GetCer in GetCert">{{ GetCer?.title }}</p>
-                    </div>
-
-            </div>
-        </div>
-    </section>
-
-    </div>
-    <br>
-    <!-- Service cards -->
-    <div class="my-5">
-        <div class="row g-4">
-
-            <!-- Trauma therapy -->
-            <div class="col-md-6 col-12" v-for="s in services" :key="s.id">
-                <div class="service-card p-4 h-100 shadow-sm rounded-3">
-                    <div class="align-items-start">
-                        <div class="my-3 d-flex justify-content-between align-items-center">
-                            <!-- Example SVG -->
-                            <div>
-                                <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <g clip-path="url(#clip0_18_178)">
-                                        <path
-                                            d="M39.3094 19.3642C39.3094 30.0749 30.6353 38.6736 20 38.6736C12.4572 38.6736 5.97044 34.4496 2.72705 28.1892C2.95333 27.8875 3.10419 27.5857 3.25504 27.3595C3.4059 27.1332 3.55675 26.9069 3.63218 26.7561C5.81958 23.5127 8.45955 20.6465 11.5521 18.1573C11.5521 19.515 12.6081 20.571 13.9657 20.571C15.3235 20.571 16.3795 19.515 16.3795 18.1573C16.3795 17.1013 15.7006 16.1962 14.7201 15.8945C15.3988 15.4419 16.0777 15.0648 16.832 14.6122C17.8126 14.6122 18.8686 14.5368 19.9246 14.5368C26.2605 14.5368 32.2946 15.5173 38.0271 17.2522L39.1585 17.5538C39.234 18.1573 39.234 18.7607 39.234 19.3642H39.3094ZM14.1166 5.18377C11.3258 5.41004 8.53498 5.78718 5.74416 6.31518C9.28926 2.46837 14.3429 0.0546875 20 0.0546875C22.112 0.0546875 24.0731 0.431826 26.0342 1.03524C21.8102 1.86495 17.8126 3.29807 14.1166 5.18377ZM26.4114 30.0749C26.8639 30.5275 27.6181 30.452 28.0707 29.9995C28.5233 29.4715 28.5233 28.7171 27.9953 28.2646C26.4114 26.8315 23.9222 25.3984 20.6034 25.3984C19.3211 25.3984 18.1897 25.6246 17.2091 25.9264C16.5303 26.1526 16.2286 26.8315 16.3795 27.4349C16.6057 28.1137 17.2846 28.4155 17.888 28.2646C18.7177 28.0384 19.5474 27.8875 20.6034 27.8875C23.168 27.8875 25.1291 28.9435 26.4114 30.0749ZM26.0342 20.571C27.3919 20.571 28.4479 19.515 28.4479 18.1573C28.4479 16.8751 27.3919 15.7436 26.0342 15.7436C24.6765 15.7436 23.6205 16.8751 23.6205 18.1573C23.6205 19.515 24.6765 20.571 26.0342 20.571Z"
-                                            fill="#C1B39D" />
-                                        <path
-                                            d="M34.1804 6.31513C29.8811 5.48543 25.4308 4.95743 20.9051 4.95743C23.7714 3.97687 26.7885 3.2226 29.9564 2.84546C31.465 3.82601 32.8982 4.95743 34.1804 6.31513ZM36.4432 9.2568C37.4992 10.9916 38.2535 12.8773 38.7815 14.9139C32.8227 13.1036 26.4868 12.123 20 12.123C18.6423 12.123 17.36 12.1985 16.1533 12.2739C12.5326 12.5002 8.98759 12.9528 5.59334 13.7824C4.08479 14.0842 2.65167 14.4613 1.14312 14.9139C1.67111 12.8773 2.42539 10.9916 3.48138 9.2568C7.17732 8.4271 10.9487 7.82368 14.7955 7.52197C16.4549 7.37111 18.1898 7.29568 20 7.29568C23.0172 7.29568 25.9588 7.52197 28.825 7.89911C31.3896 8.20082 33.9542 8.65339 36.4432 9.2568ZM11.6275 15.1402C7.70532 17.931 4.31108 21.4761 1.59568 25.4737C0.992263 23.5127 0.690552 21.4761 0.690552 19.3642C0.690552 19.1378 0.690552 18.9115 0.690552 18.6853C1.14312 18.1573 1.59568 17.7047 2.04825 17.1767C5.14078 16.2715 8.30874 15.5928 11.6275 15.1402ZM14.7201 15.8944C15.7006 16.1962 16.3795 17.1013 16.3795 18.1573C16.3795 19.5149 15.3235 20.5709 13.9658 20.5709C12.6081 20.5709 11.5521 19.5149 11.5521 18.1573C12.6081 17.403 13.6641 16.5733 14.7201 15.8944ZM26.0343 20.5709C24.6765 20.5709 23.6205 19.5149 23.6205 18.1573C23.6205 16.875 24.6765 15.7435 26.0343 15.7435C27.3919 15.7435 28.4479 16.875 28.4479 18.1573C28.4479 19.5149 27.3919 20.5709 26.0343 20.5709Z"
-                                            fill="#A28F71" />
-                                    </g>
-                                    <defs>
-                                        <clipPath id="clip0_18_178">
-                                            <rect width="40" height="40" fill="white" />
-                                        </clipPath>
-                                    </defs>
-                                </svg>
-                            </div>
-                            <div>
-                                <span class="px-2" style="color: #8A7356;">Rate Per Session</span>
-                                <span class="px-2">$ {{ s.rate_per_session }}</span>
-                            </div>
-                        </div>
-                        <div>
-                            <h5 class="fw-bold">{{ s.title }}</h5>
-                            <p class="text-muted">
-                                {{ s.description }}
-                            </p>
-                        </div>
-                        <div class="text-center p-2 rounded-2" style="background-color: #F4EFE6;">
-                            <p>{{ s.ideal_for }}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-
-        </div>
-    </div>
-    </div>
-    <img src="/public/asset/images/d.png" alt="" class="mb--2 w-100 d-none d-md-block">
-
-    <section class="testimonial-section py-5">
-        <div class="container-fluid text-center">
-
-            <!-- Heading -->
-            <p class="subheading fw-bold" style="font-size: 28px;">Our mission is to help over 100,000 people
-                worldwide improve <br class="d-none d-md-block"> their mental health and wellbeing
-            </p>
-
-            <!-- Rating -->
-            <div class="d-flex justify-content-center align-items-center mb-3">
-                <div class="modern-rating-container" v-if="avg">
-
-                    <div class="rating-number">{{ avg.toFixed(1) }}</div>
-
-                    <div class="rating-stars">
-
-
-                        <i class="bi" v-for="star in 5" :key="star"
-                            :class="star <= avg ? 'bi-star-fill' : 'bi-star-fill text-secondary'"></i>
-                    </div>
-
-                </div>
-            </div>
-            <!-- <p class="text-muted">Excellent rating from 200 reviews</p> -->
-            <div class="container-fluid mt-5 py-5    d-flex justify-content-center" v-if="Ratings">
-                <Swiper :slides-per-view="'auto'" :space-between="20" :loop="true"
-                    class="mySwiper horizontal-scroll-swiper" :autoplay="{ delay: 3000 }" :free-mode="true"
-                    :grab-cursor="true" :mousewheel="{
-                        forceToAxis: true,
-                        sensitivity: 1,
-                        releaseOnEdges: true
-                    }" :keyboard="true" :resistance-ratio="0.85" :breakpoints="{
-                        320: { slidesPerView: 1.2, spaceBetween: 15 },
-                        576: { slidesPerView: 1.5, spaceBetween: 20 },
-                        768: { slidesPerView: 2.2, spaceBetween: 20 },
-                        992: { slidesPerView: 2.8, spaceBetween: 20 },
-                        1200: { slidesPerView: 3.2, spaceBetween: 20 }
-                    }">
-
-                    <SwiperSlide v-for="(Rating, index) in Ratings" :key="index" class="swiper-slide-auto">
-                        <div class="testimonial-card h-100">
-
-                            <!-- Alternate layout -->
-                            <div v-if="index % 2 === 0" class="testimonial-content">
-                                <!-- Image on top -->
-                                <div class="testimonial-image">
-                                    <img :src="Rating?.user?.image ? '/storage/' + Rating.user.image : '/default-image.png'"
-                                        alt="User" />
+                                    <span class="me-2 mb-2 d-inline-block" v-for="(sm, index1) in doctor.modalities"
+                                        :key="index1">
+                                        {{ sm?.title }},
+                                    </span>
                                 </div>
-                                <div class="testimonial-text">
-                                    <h6 class="testimonial-title">
-                                        {{ Rating?.user?.name }} {{
-                                            Rating?.user?.last_name
-                                        }}</h6>
-                                    <p class="testimonial-description">{{ Rating?.msg || "_" }}
+                            </div>
+
+                            <div class="col-md-3 col-6 mb-3 mb-md-0 border-end border-light">
+                                <h6 class="fw-semibold fst-italic">Location</h6>
+                                <hr class="my-2 border-light">
+                                <p class="mb-0 small">{{ doctor?.practice_location }},<br>{{ doctor?.address }}
+                                </p>
+                            </div>
+
+                            <div class="col-md-3 col-6 mb-3 mb-md-0 border-end border-light">
+                                <h6 class="fw-semibold fst-italic">Languages</h6>
+                                <hr class="my-2 border-light">
+                                <p class="mb-0 small">{{ doctor?.languages ?? '-' }}</p>
+                            </div>
+
+                            <div class="col-md-3 col-6">
+                                <h6 class="fw-semibold fst-italic">Certifications</h6>
+                                <hr class="my-2 border-light">
+                                <p class="mb-0 small" v-for="GetCer in GetCert">{{ GetCer?.title }}</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+            <br>
+            <!-- Service cards -->
+            <div class="my-5">
+                <div class="row g-4">
+
+                    <!-- Trauma therapy -->
+                    <div class="col-md-6 col-12" v-for="s in services" :key="s.id">
+                        <div class="service-card p-4 h-100 shadow-sm rounded-3">
+                            <div class="align-items-start">
+                                <div class="my-3 d-flex justify-content-between align-items-center">
+                                    <!-- Example SVG -->
+                                    <div>
+                                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <g clip-path="url(#clip0_18_178)">
+                                                <path
+                                                    d="M39.3094 19.3642C39.3094 30.0749 30.6353 38.6736 20 38.6736C12.4572 38.6736 5.97044 34.4496 2.72705 28.1892C2.95333 27.8875 3.10419 27.5857 3.25504 27.3595C3.4059 27.1332 3.55675 26.9069 3.63218 26.7561C5.81958 23.5127 8.45955 20.6465 11.5521 18.1573C11.5521 19.515 12.6081 20.571 13.9657 20.571C15.3235 20.571 16.3795 19.515 16.3795 18.1573C16.3795 17.1013 15.7006 16.1962 14.7201 15.8945C15.3988 15.4419 16.0777 15.0648 16.832 14.6122C17.8126 14.6122 18.8686 14.5368 19.9246 14.5368C26.2605 14.5368 32.2946 15.5173 38.0271 17.2522L39.1585 17.5538C39.234 18.1573 39.234 18.7607 39.234 19.3642H39.3094ZM14.1166 5.18377C11.3258 5.41004 8.53498 5.78718 5.74416 6.31518C9.28926 2.46837 14.3429 0.0546875 20 0.0546875C22.112 0.0546875 24.0731 0.431826 26.0342 1.03524C21.8102 1.86495 17.8126 3.29807 14.1166 5.18377ZM26.4114 30.0749C26.8639 30.5275 27.6181 30.452 28.0707 29.9995C28.5233 29.4715 28.5233 28.7171 27.9953 28.2646C26.4114 26.8315 23.9222 25.3984 20.6034 25.3984C19.3211 25.3984 18.1897 25.6246 17.2091 25.9264C16.5303 26.1526 16.2286 26.8315 16.3795 27.4349C16.6057 28.1137 17.2846 28.4155 17.888 28.2646C18.7177 28.0384 19.5474 27.8875 20.6034 27.8875C23.168 27.8875 25.1291 28.9435 26.4114 30.0749ZM26.0342 20.571C27.3919 20.571 28.4479 19.515 28.4479 18.1573C28.4479 16.8751 27.3919 15.7436 26.0342 15.7436C24.6765 15.7436 23.6205 16.8751 23.6205 18.1573C23.6205 19.515 24.6765 20.571 26.0342 20.571Z"
+                                                    fill="#C1B39D" />
+                                                <path
+                                                    d="M34.1804 6.31513C29.8811 5.48543 25.4308 4.95743 20.9051 4.95743C23.7714 3.97687 26.7885 3.2226 29.9564 2.84546C31.465 3.82601 32.8982 4.95743 34.1804 6.31513ZM36.4432 9.2568C37.4992 10.9916 38.2535 12.8773 38.7815 14.9139C32.8227 13.1036 26.4868 12.123 20 12.123C18.6423 12.123 17.36 12.1985 16.1533 12.2739C12.5326 12.5002 8.98759 12.9528 5.59334 13.7824C4.08479 14.0842 2.65167 14.4613 1.14312 14.9139C1.67111 12.8773 2.42539 10.9916 3.48138 9.2568C7.17732 8.4271 10.9487 7.82368 14.7955 7.52197C16.4549 7.37111 18.1898 7.29568 20 7.29568C23.0172 7.29568 25.9588 7.52197 28.825 7.89911C31.3896 8.20082 33.9542 8.65339 36.4432 9.2568ZM11.6275 15.1402C7.70532 17.931 4.31108 21.4761 1.59568 25.4737C0.992263 23.5127 0.690552 21.4761 0.690552 19.3642C0.690552 19.1378 0.690552 18.9115 0.690552 18.6853C1.14312 18.1573 1.59568 17.7047 2.04825 17.1767C5.14078 16.2715 8.30874 15.5928 11.6275 15.1402ZM14.7201 15.8944C15.7006 16.1962 16.3795 17.1013 16.3795 18.1573C16.3795 19.5149 15.3235 20.5709 13.9658 20.5709C12.6081 20.5709 11.5521 19.5149 11.5521 18.1573C12.6081 17.403 13.6641 16.5733 14.7201 15.8944ZM26.0343 20.5709C24.6765 20.5709 23.6205 19.5149 23.6205 18.1573C23.6205 16.875 24.6765 15.7435 26.0343 15.7435C27.3919 15.7435 28.4479 16.875 28.4479 18.1573C28.4479 19.5149 27.3919 20.5709 26.0343 20.5709Z"
+                                                    fill="#A28F71" />
+                                            </g>
+                                            <defs>
+                                                <clipPath id="clip0_18_178">
+                                                    <rect width="40" height="40" fill="white" />
+                                                </clipPath>
+                                            </defs>
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <span class="px-2" style="color: #8A7356;">Rate Per Session</span>
+                                        <span class="px-2">$ {{ s.rate_per_session }}</span>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h5 class="fw-bold">{{ s.title }}</h5>
+                                    <p class="text-muted">
+                                        {{ s.description }}
                                     </p>
-                                    <div class="testimonial-rating">
-                                        <i class="bi" v-for="star in 5" :key="star"
-                                            :class="star <= Rating.rating ? 'bi-star-fill' : 'bi-star-fill text-secondary'"></i>
-                                    </div>
                                 </div>
-                            </div>
-
-                            <div v-else class="testimonial-content">
-                                <!-- Text on top -->
-                                <div class="testimonial-text">
-                                    <p class="testimonial-description">{{ Rating?.msg || "_" }}</p>
-                                    <div class="testimonial-rating">
-
-                                        <i v-for="star in 5" :key="star" class="bi"
-                                            :class="star <= Rating.rating ? 'bi-star-fill ' : 'bi-star text-secondary'">
-                                        </i>
-                                    </div>
-                                </div>
-                                <div class="testimonial-image">
-                                    <img :src="Rating?.user?.image ? '/storage/' + Rating.user.image : '/default-image.png'"
-                                        alt="User" />
+                                <div class="text-center p-2 rounded-2" style="background-color: #F4EFE6;">
+                                    <p>{{ s.ideal_for }}</p>
                                 </div>
                             </div>
                         </div>
-                    </SwiperSlide>
-                </Swiper>
-            </div>
+                    </div>
 
+
+                </div>
+            </div>
+        </div>
+        <div v-if="Ratings && Ratings.length > 0">
+            <img src="/public/asset/images/d.png" alt="" class="mb--2 w-100 d-none d-md-block">
 
         </div>
-    </section>
-    <Joinus />
+        <section class="testimonial-section py-5" v-if="Ratings && Ratings.length > 0">
+
+            <div class="container-fluid text-center">
+
+                <!-- Heading -->
+                <p class="subheading fw-bold" style="font-size: 28px;">Our mission is to help over 100,000 people
+                    worldwide improve <br class="d-none d-md-block"> their mental health and wellbeing
+                </p>
+
+                <!-- Rating -->
+                <div class="d-flex justify-content-center align-items-center mb-3">
+                    <div class="modern-rating-container" v-if="avg">
+
+                        <div class="rating-number">{{ avg.toFixed(1) }}</div>
+
+                        <div class="rating-stars">
+
+
+                            <i class="bi" v-for="star in 5" :key="star"
+                                :class="star <= avg ? 'bi-star-fill' : 'bi-star-fill text-secondary'"></i>
+                        </div>
+
+                    </div>
+                </div>
+                <!-- <p class="text-muted">Excellent rating from 200 reviews</p> -->
+                <div class="container-fluid mt-5 py-5    d-flex justify-content-center" v-if="Ratings">
+                    <Swiper :slides-per-view="'auto'" :space-between="20" :loop="true"
+                        class="mySwiper horizontal-scroll-swiper" :autoplay="{ delay: 3000 }" :free-mode="true"
+                        :grab-cursor="true" :mousewheel="{
+                            forceToAxis: true,
+                            sensitivity: 1,
+                            releaseOnEdges: true
+                        }" :keyboard="true" :resistance-ratio="0.85" :breakpoints="{
+                            320: { slidesPerView: 1.2, spaceBetween: 15 },
+                            576: { slidesPerView: 1.5, spaceBetween: 20 },
+                            768: { slidesPerView: 2.2, spaceBetween: 20 },
+                            992: { slidesPerView: 2.8, spaceBetween: 20 },
+                            1200: { slidesPerView: 3.2, spaceBetween: 20 }
+                        }">
+
+                        <SwiperSlide v-for="(Rating, index) in Ratings" :key="index" class="swiper-slide-auto">
+                            <div class="testimonial-card h-100">
+
+                                <!-- Alternate layout -->
+                                <div v-if="index % 2 === 0" class="testimonial-content">
+                                    <!-- Image on top -->
+                                    <div class="testimonial-image">
+                                        <img :src="Rating?.user?.image ? '/storage/' + Rating.user.image : '/default-image.png'"
+                                            alt="User" />
+                                    </div>
+                                    <div class="testimonial-text">
+                                        <h6 class="testimonial-title">
+                                            {{ Rating?.user?.name }} {{
+                                            Rating?.user?.last_name
+                                            }}</h6>
+                                        <p class="testimonial-description">{{ Rating?.msg || "_" }}
+                                        </p>
+                                        <div class="testimonial-rating">
+                                            <i class="bi" v-for="star in 5" :key="star"
+                                                :class="star <= Rating.rating ? 'bi-star-fill' : 'bi-star-fill text-secondary'"></i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div v-else class="testimonial-content">
+                                    <!-- Text on top -->
+                                    <div class="testimonial-text">
+                                        <p class="testimonial-description">{{ Rating?.msg || "_" }}</p>
+                                        <div class="testimonial-rating">
+
+                                            <i v-for="star in 5" :key="star" class="bi"
+                                                :class="star <= Rating.rating ? 'bi-star-fill ' : 'bi-star text-secondary'">
+                                            </i>
+                                        </div>
+                                    </div>
+                                    <div class="testimonial-image">
+                                        <img :src="Rating?.user?.image ? '/storage/' + Rating.user.image : '/default-image.png'"
+                                            alt="User" />
+                                    </div>
+                                </div>
+                            </div>
+                        </SwiperSlide>
+                    </Swiper>
+                </div>
+
+
+            </div>
+        </section>
+
+        <Joinus />
     </section>
 </template>
 <script setup>
@@ -874,7 +878,7 @@ const route = useRoute();
 const router = useRouter();
 const doctors = ref(null);
 const GetCert = ref(null);
-const Ratings = ref(null);
+const Ratings = ref([]);
 const avg = ref(null);
 const count = ref(null);
 
