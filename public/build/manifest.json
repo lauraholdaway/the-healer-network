@@ -176,15 +176,7 @@
     "src": "public/asset/images/xicon.svg"
   },
   "resources/js/app.js": {
-<<<<<<< Updated upstream
-    "file": "assets/app-Bdh7_OpZ.js",
-=======
-<<<<<<< HEAD
-    "file": "assets/app-CFSafe9S.js",
-=======
-    "file": "assets/app-Bdh7_OpZ.js",
->>>>>>> 8c825d02d19e23912de31d9faffec7b3194ded6d
->>>>>>> Stashed changes
+    "file": "assets/app-BCuE4P00.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
@@ -194,15 +186,7 @@
       "_vendor-swiper-DoHUoWKH.js"
     ],
     "css": [
-<<<<<<< Updated upstream
-      "assets/app-smlzX5s5.css"
-=======
-<<<<<<< HEAD
-      "assets/app-D5cVvXpk.css"
-=======
-      "assets/app-smlzX5s5.css"
->>>>>>> 8c825d02d19e23912de31d9faffec7b3194ded6d
->>>>>>> Stashed changes
+      "assets/app-ts11URZQ.css"
     ],
     "assets": [
       "assets/arrowlift-jUjrU256.svg",
