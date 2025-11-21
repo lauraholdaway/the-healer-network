@@ -113,7 +113,7 @@ function formatTime(time) {
                                     stroke="#2E2D29" stroke-width="1.5" stroke-linecap="round"
                                     stroke-linejoin="round" />
                             </svg>
-                            <span class="tag">Online</span>
+                            <span class="tag" style="background-color: #C4B39A;">Online</span>
                         </div>
 
                         <div class="chip" v-else>
@@ -166,7 +166,7 @@ function formatTime(time) {
 
         <div class="empty-state">
             <div v-if="pastAppointments.length">
-                <div class="booking-card my-2" v-for="(appointment, index) in pastAppointments">
+                <div class="booking-card my-3 mx-3" v-for="(appointment, index) in pastAppointments">
                     <div class="booking-left">
                         <img :src="'/storage/' + appointment.doctor?.image || '/default-image.png'"
                             class="booking-thumb" alt="Natural Healing thumbnail">
