@@ -356,11 +356,6 @@ onMounted(() => {
                 </div>
                 <div class="row">
                     <div class="mb-3 col-md-4">
-                        <label class="form-label">Duration</label>
-                        <input v-model="duration" type="text" class="form-control" />
-                    </div>
-
-                    <div class="mb-3 col-md-4">
                         <label class="form-label ">Gender</label>
 
                         <select v-model="gender" class="form-control border-info">
@@ -371,6 +366,10 @@ onMounted(() => {
                                 Female
                             </option>
                         </select>
+                    </div>
+                    <div class="mb-3 col-md-4">
+                        <label class="form-label">Appointment Duration</label>
+                        <input v-model="duration" type="text" class="form-control" />
                     </div>
                     <div class="mb-3 col-md-4">
                         <label class="form-label ">Appointment Type</label>
@@ -402,8 +401,6 @@ onMounted(() => {
                     </select>
 
                 </div>
-
-
 
                 <div class="mb-3">
                     <label class="form-label">About</label>

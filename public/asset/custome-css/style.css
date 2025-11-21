@@ -6,14 +6,14 @@
         font-style: normal;
 }
 
-/* @font-face {
+  @font-face {
     font-family: 'FONTSPRING DEMO - The Seasons';
     src: url('/asset/fonts/the-seasons.woff2') format('woff2'),
             url('/asset/fonts/the-seasons.woff') format('woff');
         font-weight: normal;
         font-style: normal;
 }
-*/
+
 /* public/asset/fonts/Fontspring-DEMO-theseasons-reg.otf */
 
 @font-face {
@@ -22,6 +22,9 @@
         font-weight: 400;
     font-style: normal;
     font-display: swap;
+}
+.Avenir {
+    font-family: 'Avenir', serif !important;
 }
 .Seasons-fonts {
     font-family: 'TheSeasons', serif !important;

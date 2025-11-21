@@ -55,7 +55,7 @@
                 </thead>
                 <tbody>
                     <tr v-for="(tm, index) in timedata" :key="tm.id">
-                        <th scope="row">{{ index + 1 }}</th>
+                        <th scope="row" class="Avenir">{{ index + 1 }}</th>
                         <td>
                             {{ dayjs(tm.date).format("D MMM YYYY") }}
                         </td>
@@ -124,19 +124,43 @@ async function saveAvailability() {
             availability: availability.value,
         });
 
-        notify({
-            title: "Succes",
-            text: "save availability Successfuly",
-        });
+        const { saved, skipped } = res.data;
+
+        if (saved.length > 0 && skipped.length === 0) {
+            notify({
+                title: "Success",
+                text: `Saved: ${saved.join(", ")}`
+            });
+        }
+        else if (saved.length > 0 && skipped.length > 0) {
+            notify({
+                title: "Partial Success",
+                text: `Saved: ${saved.join(", ")} | Already exists: ${skipped.join(", ")}`
+            });
+        }
+        else if (saved.length === 0 && skipped.length > 0) {
+            notify({
+                title: "Already Exists",
+                text: `These dates already exist: ${skipped.join(", ")}`
+            });
+        }
+
+        // Empty inputs
         currentTime.value = "";
         currentDate.value = "";
-        getime()
+        availability.value = [];
+
+        getime();
 
     } catch (err) {
         console.error("Failed to save availability :", err);
-        alert("Failed to save availability");
+        notify({
+            title: "Error",
+            text: "Failed to save availability"
+        });
     }
 }
+
 
 
 const timedata = ref([]);
