@@ -120,7 +120,7 @@ b {
 .hero-section {
     min-height: 100vh;
     /* background-color: #F1DCC9; */
-    background-image: url('/build/assets/bg1.png');
+    background-image: url('/build/assets/background1.png');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
