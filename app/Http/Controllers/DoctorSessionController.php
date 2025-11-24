@@ -28,14 +28,31 @@ class DoctorSessionController extends Controller
 
     public function saveAvailability(Request $request)
     {
+        $skipped = [];
+        $saved   = [];
         foreach ($request->availability as $slot) {
-            DoctorAvailability::create([
+
+            $date = Carbon::parse($slot['date'])->format('Y-m-d');
+            // Find same date row for this doctor
+            $availability = DoctorAvailability::where('doctor_id', $request->doctor_id)
+                ->whereDate('date', $date)
+                ->first();
+            if ($availability) {
+                $skipped[] = $date;
+            } else {
+                DoctorAvailability::create([
                 'doctor_id' => $request->doctor_id,
                 'date' => $slot['date'],
                 'times' => $slot['times'],
-            ]);
+                ]);
+                $saved[] = $date;
+            }
         }
-        return response()->json(['message' => 'Availability saved successfully']);
+        return response()->json([
+            'message' => 'Process completed',
+            'saved'   => $saved,
+            'skipped' => $skipped,
+        ]);
     }
 
     public function Doctoravailable(Request $request, $doctor_id)

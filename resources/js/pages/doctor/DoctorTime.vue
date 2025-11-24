@@ -41,7 +41,7 @@
                 </thead>
                 <tbody>
                     <tr v-for="(pkg, index) in packagesdata" :key="pkg.id">
-                        <th scope="row">{{ index + 1 }}</th>
+                        <th scope="row" class="Avenir">{{ index + 1 }}</th>
                         <td>{{ pkg.price }}</td>
                         <td>{{ pkg.type }}</td>
                         <td>{{ pkg.time }}</td>
