@@ -3,7 +3,7 @@
     <section>
         <div class="bg-custome p-3 p-md-5">
             <div class="container p-3 p-md-5 position-relative text-center">
-                <img src="/public/asset/images/about.jpg" class="img-fluid rounded-4 mt-3 m-md-0" alt=""
+                <img src="/public/asset/images/about11.png" class="img-fluid rounded-4 mt-3 m-md-0" alt=""
                     style="max-height: 500px; object-fit: cover; width: 100%;">
                 <p class="position-absolute top-50 start-50 translate-middle text-white  hero-text">
                     We’re On A Mission To Make Holistic <br class="d-none d-md-inline">Healing Accessible For Everyone.
@@ -55,7 +55,7 @@
                     </div>
                     <div class="col-md-6 d-flex align-items-center">
                         <div class="p-3 p-md-5 w-100">
-                            <img src="/public/asset/images/about2.png" class="img-fluid about-image" alt="">
+                            <img src="/public/asset/images/aboutimage3.png" class="img-fluid about-image" alt="">
 
                         </div>
                     </div>
@@ -69,7 +69,7 @@
             <div class="row align-items-center">
                 <div class="col-md-6 p-3 p-md-5 order-2 order-md-1 d-flex align-items-center">
                     <div class="w-100">
-                        <img src="/public/asset/images/about3.png" class="img-fluid about-image" alt="">
+                        <img src="/public/asset/images/aboutimage2.png" class="img-fluid about-image" alt="">
 
                     </div>
                 </div>
@@ -78,7 +78,7 @@
                         <h1 class="section-heading mt-0 mt-md-4">
                             Our mission is <br> simple yet profound
                         </h1>
-                        <p class="section-textt">To create Heaven on Earth by bridging the gap between those seeking
+                        <p class="section-text">To create Heaven on Earth by bridging the gap between those seeking
                             healing and those here to offer it.<br><br>
                             As healers, we’ve each witnessed how challenging it can be to promote, grow, and sustain a
                             healing business, even when your work is deeply transformative. We wanted to change that.
@@ -104,7 +104,7 @@
                 <div class="row my-4 my-md-5 justify-content-center g-3 g-md-4">
                     <div class="col-md-5 col-lg-5">
                         <div class="bg-white p-4"
-                            style="border-radius: 32px; background-color: white; min-height: 300px; display: flex; flex-direction: column;">
+                            style="border-radius: 32px; background-color: white; min-height: 220px; display: flex; flex-direction: column; justify-content: center;">
                             <svg width="40" height="41" viewBox="0 0 40 41" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -114,7 +114,7 @@
                             <h3 class="my-3 m-color" style="font-size: 20px;">
                                 Connection
                             </h3>
-                            <p style="font-size: 13px; color: #2E2D29;">
+                            <p style="font-size: 14px; color: #2E2D29;">
                                 We believe healing begins with connection, to self, to others, and to the collective.
                                 Our platform is designed to foster meaningful, heart-centered relationships between
                                 healers and clients around the world.
@@ -123,7 +123,7 @@
                     </div>
                     <div class="col-md-5 col-lg-5">
                         <div class="bg-white p-4"
-                            style="border-radius: 32px; background-color: white; min-height: 300px; display: flex; flex-direction: column;">
+                            style="border-radius: 32px; background-color: white; min-height: 220px; display: flex; flex-direction: column; justify-content: center;">
                             <svg width="40" height="41" viewBox="0 0 40 41" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -134,7 +134,7 @@
                             <h3 class="my-3 m-color" style="font-size: 20px;">
                                 Accessible
                             </h3>
-                            <p style="font-size: 13px; color: #2E2D29;">
+                            <p style="font-size: 14px; color: #2E2D29;">
                                 We believe that healing should be available to all. We're dedicated to removing barriers
                                 so that everyone can access the support they need to live their best life
                             </p>
@@ -144,7 +144,7 @@
 
                     <div class="col-md-5 col-lg-5">
                         <div class="bg-white p-4"
-                            style="border-radius: 32px; background-color: white; min-height: 300px; display: flex; flex-direction: column;">
+                            style="border-radius: 32px; background-color: white; min-height: 220px; display: flex; flex-direction: column; justify-content: center;">
                             <svg width="40" height="41" viewBox="0 0 40 41" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -155,7 +155,7 @@
                             <h3 class="my-3 m-color" style="font-size: 20px;">
                                 Simplicity
                             </h3>
-                            <p style="font-size: 13px; color: #2E2D29;">
+                            <p style="font-size: 14px; color: #2E2D29;">
                                 We value ease and flow. From finding the right healer to offering your services, our
                                 mission is to make the entire process effortless and intuitive.
                             </p>
@@ -163,7 +163,7 @@
                     </div>
                     <div class="col-md-5 col-lg-5">
                         <div class="bg-white p-4"
-                            style="border-radius: 32px; background-color: white; min-height: 300px; display: flex; flex-direction: column;">
+                            style="border-radius: 32px; background-color: white; min-height: 220px; display: flex; flex-direction: column; justify-content: center;">
                             <svg width="40" height="41" viewBox="0 0 40 41" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -173,7 +173,7 @@
                             <h3 class="my-3 m-color" style="font-size: 20px;">
                                 Raising the Collective Consciousness
                             </h3>
-                            <p style="font-size: 13px; color: #2E2D29;">
+                            <p style="font-size: 14px; color: #2E2D29;">
                                 Every session, every connection, every act of healing contributes to the awakening of
                                 humanity.
                             </p>
@@ -186,7 +186,7 @@
             <div class="row justify-content-center">
                 <div class="col-md-12 col-lg-10">
                     <div class="bg-white shadow-sm p-4 mb-5"
-                        style="border-radius: 20px; margin-bottom: 20px; min-height: 200px; display: flex; flex-direction: column;">
+                        style="border-radius: 32px; margin-bottom: 20px; min-height: 200px; display: flex; flex-direction: column;">
                         <svg width="40" height="41" viewBox="0 0 40 41" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M20 28.2461C20.843 29.4161 24.5 32.7461 27.5 32.7461C27.5 32.7461 27.5 29.7461 26 27.4961C28.25 27.4961 29 26.7461 32 25.2461C32 25.2461 29.2415 23.1761 24.5 23.7461C27.1835 22.2911 29.4185 20.7011 32 14.7461C32 14.7461 26.0465 14.3411 22.25 19.9961C23.5835 16.9961 24.101 13.9511 20 5.74609C20 5.74609 14.324 12.6461 17.75 19.9961C13.97 14.2961 8 14.7461 8 14.7461C10.5815 20.7011 12.8165 22.2911 15.5 23.7461C10.7585 23.1761 8 25.2461 8 25.2461C11 26.7461 11.75 27.4961 14 27.4961C12.5 29.7461 12.5 32.7461 12.5 32.7461C15.5 32.7461 19.1555 29.4161 20 28.2461ZM20 28.2461V35.7461"
@@ -195,7 +195,7 @@
                         <h3 class="my-3 m-color" style="font-size: 20px;">
                             Community
                         </h3>
-                        <p style="font-size: 13px; color: #2E2D29;">
+                        <p style="font-size: 14px; color: #2E2D29;">
 
                             We are stronger together. The Healer Network is more than a platform, it’s a global
                             community of lightworkers, visionaries, and seekers supporting one another on the path of
@@ -214,54 +214,54 @@
             </h1>
 
             <!-- Susie -->
-            <div class="row mt-4 mb-5">
-                <div class="col-md-3 mb-3 mb-md-0">
+            <div class="row mt-4 mb-5  align-items-center" >
+                <div class="col-md-3 mb-3 mb-md-0 d-flex align-items-center">
                     <img src="/public/asset/images/CEO1.png" class="img-fluid founder-image" alt="Susie">
                 </div>
                 <div class="col-md-9">
-                    <div class="mb-4">
+                    <div class="">
                         <p class="founder-text">
                             Susie is a quantum energy healer who has worked with clients around the world. Living in
                             Bali, she runs transformational retreats and is passionate about helping people remember who
                             they truly are. A self-confessed crazy cat lady, Susie brings warmth, humour, and heart to
-                            everything she creates. Through The Healer Network, she’s devoted to making healing more
+                            everything she creates. Through The Healer Network, she's devoted to making healing more
                             visible, accessible, and joy-filled for all.
                         </p>
-                        <hr style="border: 1px solid #2E2D29; margin-top: 20px;">
+                     
                         <h3 class="founder-name">Susie</h3>
-                        <p style="font-size: 13px; color: #5B4C3A;">Founder THN</p>
+                        <p style="font-size: 14px; color: #5B4C3A;">Founder THN</p>
                     </div>
                 </div>
             </div>
 
             <!-- Pia -->
-            <div class="row mt-4 mb-5">
-                <div class="col-md-3 mb-3 mb-md-0">
+            <div class="row mt-4 mb-5 align-items-center">
+                <div class="col-md-3 mb-3 mb-md-0 d-flex align-items-center">
                     <img src="/public/asset/images/CEO2.png" class="img-fluid founder-image" alt="Pia">
                 </div>
                 <div class="col-md-9">
-                    <div class="mb-4">
+                    <div class="">
                         <p class="founder-text">
                             Pia is a trained hypnotherapist, energy healer, and counsellor, and the founder of a
-                            nationwide therapy company. While she’s long worked within traditional therapeutic
-                            frameworks, she’s felt the call to help the world embrace holistic approaches to healing. A
+                            nationwide therapy company. While she's long worked within traditional therapeutic
+                            frameworks, she's felt the call to help the world embrace holistic approaches to healing. A
                             free spirit who loves adventure, travel, and deep connection, Pia is passionate about making
                             holistic therapies more widely available and creating the kind of world where Heaven truly
-                            exists on Earth. She’s also mum to Max, her adorable Pomeranian sidekick </p>
-                        <hr style="border: 1px solid #2E2D29; margin-top: 20px;">
+                            exists on Earth. She's also mum to Max, her adorable Pomeranian sidekick </p>
+                     
                         <h3 class="founder-name">Pia</h3>
-                        <p style="font-size: 13px; color: #5B4C3A;">Founder THN</p>
+                        <p style="font-size: 14px; color: #5B4C3A;">Founder THN</p>
                     </div>
                 </div>
             </div>
 
             <!-- Laura -->
-            <div class="row mt-4 mb-5">
-                <div class="col-md-3 mb-3 mb-md-0">
-                    <img src="/public/asset/images/CEO.png" class="img-fluid founder-image" alt="Laura">
+            <div class="row mt-4 mb-5 align-items-center">
+                <div class="col-md-3 mb-3 mb-md-0 d-flex align-items-center">
+                    <img src="/public/asset/images/ceolaura.png" class="img-fluid founder-image" alt="Laura">
                 </div>
                 <div class="col-md-9">
-                    <div class="mb-4">
+                    <div class="">
                         <p class="founder-text">
                             Laura is a holistic healer, coach, and mental health expert with a background in psychology.
                             She empowers leaders in the wellness and NDIS space and is known for her compassionate
@@ -270,9 +270,9 @@
                             classes, and more, all designed to help people unlock their potential. As a mother, mentor,
                             and visionary, Laura brings love, leadership, and grounded wisdom to everything she touches
                         </p>
-                        <hr style="border: 1px solid #2E2D29; margin-top: 20px;">
+                      
                         <h3 class="founder-name">Laura</h3>
-                        <p style="font-size: 13px; color: #5B4C3A;">Founder THN</p>
+                        <p style="font-size: 14px; color: #5B4C3A;">Founder THN</p>
                     </div>
                 </div>
             </div>
@@ -406,38 +406,69 @@ font-weight: 400;
 }
 
 .section-text {
-    font-size: 13px;
+    font-size: 18px;
     color: #2E2D29;
-    max-width: 450px;
+    max-width: 540px;
 }
 .section-text2{
-    font-size: 13px;
+    font-size: 18px;
     color: #2E2D29;
-    max-width: 450px;
+    max-width: 540px;
     margin-top: 20px;
 }
 
 .founder-text {
-    font-size: 13px;
+    font-size: 14px;
     color: #2E2D29;
     max-width: 90%;
+    font-weight: 400;
+    margin-left: 0;
+    padding-left: 0;
 }
 
 /* Images */
 .about-image {
-    height: 400px;
+    height: 500px;
     object-fit: cover;
     border-radius: 25px;
 }
 
 .founder-image {
-    height: 280px;
+    height: 220px;
     object-fit: cover;
-    border-radius: 25px;
+    border-radius: 32px;
+    width: 220px;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding-left: 0px;
+    padding-right: 0px;
+    
+}
+
+.row.align-items-center .col-md-3 {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+}
+
+.row.align-items-center {
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+}
+
+.row.align-items-center .col-md-9 {
+    padding-left: 5px !important;
+}
+
+.row.align-items-center .col-md-3 {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+    margin-right: -5px !important;
 }
 
 .founder-name {
-    margin-top: 100px;
+    margin-top: 34px;
     font-size: 30px;
     color: #7D684E;
     font-weight: 300;
@@ -496,6 +527,8 @@ font-weight: 400;
     transform: scale(1.05);
     transition: all 0.3s ease;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+
+    
 }
 
 .bg-white {
@@ -530,7 +563,8 @@ font-weight: 400;
         font-size: 45px;
     }
     .section-heading-footer {
-        font-size: 45px;
+        font-size: 40px;
+        font-weight: 400;
     }                                                                                   
 
 

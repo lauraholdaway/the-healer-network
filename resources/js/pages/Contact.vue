@@ -50,7 +50,7 @@
 
                 <!-- Right: Image -->
                 <div class="col-md-6 text-center">
-                    <img src="/public/asset/images/contactpage.png" alt="Contact Phone"
+                    <img src="/public/asset/images/contactpage1.png" alt="Contact Phone"
                         class="contact-image rounded-4 shadow-sm" />
                 </div>
             </div>

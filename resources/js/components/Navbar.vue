@@ -21,11 +21,12 @@
                 <div class="navbar-nav-links" :class="{ 'mobile-menu-open': isMobileMenuOpen }">
                     <router-link to="/" class="nav-link" @click="closeMobileMenu">Home</router-link>
                     <router-link to="/about" class="nav-link" @click="closeMobileMenu">About</router-link>
+                    <router-link to="/Alldoctor" class="nav-link" @click="closeMobileMenu"> Find My Healer</router-link>
                       <!-- Find My Healer Dropdown -->
-                      <div class="dropdown">
+                      <!-- <div class="dropdown">
                         <a href="#" class="nav-link dropdown-toggle" @click.prevent="toggleDropdown('healer')">
                             Find My Healer
-                            <!-- <span class="dropdown-arrow">▼</span> -->
+                         
                         </a>
                         <div v-if="activeDropdown === 'healer'" class="dropdown-menu">
                             <router-link to="/Alldoctor" class="dropdown-item" @click="closeMobileMenu">All
@@ -35,14 +36,14 @@
                             <router-link to="/contact" class="dropdown-item" @click="closeMobileMenu">Contact
                                 Us</router-link>
                         </div>
-                    </div>
+                    </div> -->
                       <!-- Services Dropdown -->
-                      <div class="dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" @click.prevent="toggleDropdown('services')">
+                      <!-- <div class="dropdown"> -->
+                        <!-- <a href="#" class="nav-link dropdown-toggle" @click.prevent="toggleDropdown('services')">
                             Services
-                            <!-- <span class="dropdown-arrow">▼</span> -->
-                        </a>
-                        <div v-if="activeDropdown === 'services'" class="dropdown-menu">
+                          
+                        </a> -->
+                        <!-- <div v-if="activeDropdown === 'services'" class="dropdown-menu">
                             <router-link to="/services" class="dropdown-item" @click="closeMobileMenu">All
                                 Services</router-link>
                             <router-link to="/Quiz" class="dropdown-item" @click="closeMobileMenu">Health
@@ -50,11 +51,20 @@
                             <router-link to="/consultation" class="dropdown-item"
                                 @click="closeMobileMenu">Consultation</router-link>
 
+                        </div> -->
+                    
+                    <router-link to="/PractitionerIndex" class="nav-link" @click="closeMobileMenu">Join as a Healer</router-link>
+                    <div class="dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" @click.prevent="toggleDropdown('resources')">
+                            Resources
+                        </a>
+                        <div v-if="activeDropdown === 'resources'" class="dropdown-menu">
+                            <router-link to="/resources" class="dropdown-item" @click="closeMobileMenu">Free Resources</router-link>
+                            <router-link to="/membership" class="dropdown-item" @click="closeMobileMenu">Membership</router-link>
+                            <router-link to="/Allblog" class="dropdown-item" @click="closeMobileMenu">Blogs</router-link>
                         </div>
                     </div>
-                    <router-link to="/PractitionerIndex" class="nav-link" @click="closeMobileMenu">Join as a Healer</router-link>
 
-                    <router-link to="/resources" class="nav-link" @click="closeMobileMenu">Resources</router-link>
                     <router-link to="/corporate" class="nav-link" @click="closeMobileMenu">Corporate</router-link>
                     
                    
@@ -372,7 +382,7 @@ const handleMobileRedirect = async () => {
 .navbar-right {
     width: 250px;
     height: 100%;
-    background-color: #5B4C3A;
+    background-color: #C4B39A;
     border-left: 1px solid #DED1BA;
     display: flex;
     align-items: center;
@@ -596,7 +606,7 @@ const handleMobileRedirect = async () => {
     }
 
     .navbar-left {
-        padding: 0 20px;
+        padding: 0 35px;
     }
 
     .navbar-logo {
@@ -604,7 +614,7 @@ const handleMobileRedirect = async () => {
     }
 
     .navbar-nav-links {
-        gap: 15px;
+        gap: 35px;
     }
 
     .nav-link {

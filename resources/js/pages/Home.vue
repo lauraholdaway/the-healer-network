@@ -2,10 +2,10 @@
     <div style="background-color: #FBF9F7; min-height: 100vh;">
         <section
             class="hero-section d-flex align-items-center justify-content-center text-center text-white position-relative">
-            <div class="container">
+            <div class="container px-3 px-md-4">
                 <!-- Heading -->
-                <h1 class="display-4  my-2 text-[#A0704C] herotaxt mt-0 pt-11">
-                    BOOK A HOLISTIC HEALER <br />YOU LOVE
+                <h1 class="display-4 my-2 text-[#A0704C] herotaxt mt-0 pt-11 pt-md-5">
+                    BOOK A HOLISTIC HEALER <br class="d-none d-md-block" />YOU LOVE
                 </h1>
 
                 <!-- Buttons -->
@@ -16,9 +16,9 @@
             </div> -->
 
                 <!-- Subtext -->
-                <p class="mb-5 px-lg-8 hero-subtext">
+                <p class="mb-4 mb-md-5 px-2 px-md-4 px-lg-8 hero-subtext">
                     Whatever holistic therapy you are looking for, we are here to help. Whether its energy healing,
-                    counselling, hypnotherapy or another alternative therapy, we’ll find the perfect healer for you.
+                    counselling, hypnotherapy or another alternative therapy, we'll find the perfect healer for you.
                 </p>
 
                 <!-- Search Box -->
@@ -454,7 +454,7 @@ const isSummaryTruncated = (text, index) => {
     gap: 0.75rem;
     padding: 14px 28px;
     border-radius: 999px;
-    background: rgba(255, 248, 240, 0.92);
+    background: #DED1BA;
     color: #2D2013;
     font-weight: 600;
     font-size: 14px;
@@ -462,20 +462,24 @@ const isSummaryTruncated = (text, index) => {
     text-transform: uppercase;
     text-decoration: none;
     margin-bottom: 80px;
-
+    white-space: nowrap;
+    min-width: 220px;
+    justify-content: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
 @media (min-width: 1300px) and (max-width: 3200px) {
     .scroll-down__btn {
         padding: 16px 40px;
         font-size: 18px;
-        margin-bottom: 80px;
+        margin-bottom: 20px;
+        min-width: 280px;
     }
 }
 .scroll-down__label--display {
     font-family: 'TheSeasons', serif !important;
     font-weight: 400;
     letter-spacing: 0.08em;
+    white-space: nowrap;
 }
 
 .scroll-down__btn:hover,

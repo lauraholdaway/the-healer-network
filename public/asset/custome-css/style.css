@@ -118,7 +118,7 @@ b {
 }
 
 .hero-section {
-    min-height: 100vh;
+    min-height: 80vh;
     /* background-color: #F1DCC9; */
     background-image: url('/asset/images/background1.png');
     background-size: cover;
@@ -217,7 +217,7 @@ b {
     }
 
     .hero-section .container {
-        margin-top: 0 !important;
+        margin-top: 25px !important;
         padding-top: 0 !important;
     }
 
@@ -1775,32 +1775,42 @@ footer ul li a:hover {
 @media (max-width: 768px) {
     .hero-section {
         min-height: 100vh;
-        align-items: start;
-        padding-top: 20px;
-        background-size: cover;
-        background-position: center center;
-        padding: 0px;
-        margin: 0px;
+        align-items: flex-start !important;
+        padding-top: 40px !important;
+        background-size: cover !important;
+        background-position: center center !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        margin: 0 !important;
     }
 
     .hero-section .container {
-        padding: 0 15px;
+        padding: 0 20px !important;
+        width: 100% !important;
+        max-width: 100% !important;
     }
 
-    .herotaxt {
-        font-size: 1.8rem !important;
-        line-height: 1.3;
+    .hero-section h1.herotaxt {
+        font-size: 1.75rem !important;
+        line-height: 1.3 !important;
         color: #A0704C !important;
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+        margin-bottom: 1rem !important;
     }
 
-    .hero-subtext {
-        font-size: 0.9rem;
-        padding: 0 10px !important;
+    .hero-section .hero-subtext {
+        font-size: 0.875rem !important;
+        line-height: 1.5 !important;
+        padding: 0 5px !important;
+        margin-bottom: 1.5rem !important;
+        color: #A0704C !important;
     }
 
     .heroButtons {
         flex-wrap: wrap;
         gap: 8px !important;
+        margin-bottom: 1rem !important;
     }
 
     .heroButtons button {
@@ -1810,6 +1820,76 @@ footer ul li a:hover {
 
     .scroll-down {
         display: none !important;
+    }
+}
+
+/* Hero Section Small Mobile Responsive */
+@media (max-width: 576px) {
+    .hero-section {
+        min-height: 100vh;
+        padding-top: 30px !important;
+        background-size: cover !important;
+        background-position: center center !important;
+    }
+
+    .hero-section .container {
+        padding: 0 15px !important;
+    }
+
+    .hero-section h1.herotaxt {
+        font-size: 1.5rem !important;
+        line-height: 1.2 !important;
+        margin-bottom: 0.75rem !important;
+    }
+
+    .hero-section .hero-subtext {
+        font-size: 0.8rem !important;
+        line-height: 1.4 !important;
+        padding: 0 !important;
+        margin-bottom: 1.25rem !important;
+    }
+}
+
+/* Hero Section Extra Small Mobile Responsive */
+@media (max-width: 480px) {
+    .hero-section {
+        min-height: 100vh;
+        padding-top: 25px !important;
+    }
+
+    .hero-section .container {
+        padding: 0 12px !important;
+    }
+
+    .hero-section h1.herotaxt {
+        font-size: 1.35rem !important;
+        line-height: 1.2 !important;
+        margin-bottom: 0.5rem !important;
+    }
+
+    .hero-section .hero-subtext {
+        font-size: 0.75rem !important;
+        line-height: 1.4 !important;
+        margin-bottom: 1rem !important;
+    }
+}
+
+/* Hero Section Very Small Mobile Responsive */
+@media (max-width: 360px) {
+    .hero-section {
+        padding-top: 20px !important;
+    }
+
+    .hero-section .container {
+        padding: 0 10px !important;
+    }
+
+    .hero-section h1.herotaxt {
+        font-size: 1.2rem !important;
+    }
+
+    .hero-section .hero-subtext {
+        font-size: 0.7rem !important;
     }
 }
 
@@ -1842,13 +1922,13 @@ footer ul li a:hover {
 }
 
 /* Hero Section Desktop/Laptop Responsive */
-@media (min-width: 1025px) and (max-width: 1399px) {
+/* @media (min-width: 1025px) and (max-width: 1399px) {
     .hero-section {
-        background-size: 100% 100% !important;
+       max-height: 80vh !important;
         background-position: center center !important;
         background-attachment: scroll !important;
     }
-}
+} */
 
 /* Hero Section Laptop Specific (1366px - 1440px) */
 @media (min-width: 1366px) and (max-width: 1440px) {
@@ -1875,7 +1955,7 @@ footer ul li a:hover {
     .hero-section {
         background-size: cover !important;
         background-position: center center !important;
-        min-height: 100vh !important;
+        min-height: 80vh !important;
     }
 }
 
@@ -1893,7 +1973,7 @@ footer ul li a:hover {
     .hero-section {
         background-size: cover !important;
         background-position: center center !important;
-        min-height: 100vh !important;
+        min-height: 80vh !important;
     }
 }
 
