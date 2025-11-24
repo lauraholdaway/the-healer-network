@@ -125,6 +125,8 @@ b {
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: scroll;
+
+    /* dwd */
     position: relative;
     display: flex;
     align-items: center;
