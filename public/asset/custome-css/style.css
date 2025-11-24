@@ -167,7 +167,9 @@ b {
         background-size: cover !important;
         background-position: center center !important;
         min-height: 100vh !important;
-    }
+        padding: 0px;
+        margin: 0PX;
+    }   
     
     .hero-section h1 {
         font-size: 4.5rem !important;
@@ -208,6 +210,8 @@ b {
         margin-bottom: 10px;
         background-size: cover !important;
         background-position: center center !important;
+        padding: 0px;
+        margin: 0PX;
     }
 
     .hero-section .container {
