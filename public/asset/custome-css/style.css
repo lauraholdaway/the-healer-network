@@ -125,6 +125,8 @@ b {
     background-position: center center;
     background-repeat: no-repeat;
     background-attachment: scroll;
+    padding: 0px;
+    margin: 0px;
 
     /* dwd */
     position: relative;
@@ -166,7 +168,7 @@ b {
     .hero-section {
         background-size: cover !important;
         background-position: center center !important;
-        min-height: 100vh !important;
+        min-height: 80vh !important;
         padding: 0px;
         margin: 0PX;
     }   
@@ -206,7 +208,7 @@ b {
     .hero-section {
         align-items: flex-start !important;
         padding-top: 80px !important;
-        min-height: 100vh !important;
+        min-height: 80vh !important;
         margin-bottom: 10px;
         background-size: cover !important;
         background-position: center center !important;
@@ -1777,6 +1779,8 @@ footer ul li a:hover {
         padding-top: 20px;
         background-size: cover;
         background-position: center center;
+        padding: 0px;
+        margin: 0px;
     }
 
     .hero-section .container {
@@ -1851,16 +1855,18 @@ footer ul li a:hover {
     .hero-section {
         background-size: 100% 100% !important;
         background-position: center center !important;
-        min-height: 100vh !important;
+        min-height: 80vh !important;
+        padding: 0px;
+        margin: 0px;
     }
 }
 
 /* Hero Section Standard Laptop (1280px - 1365px) */
 @media (min-width: 1280px) and (max-width: 1365px) {
     .hero-section {
-        background-size: 100% 100% !important;
+       
         background-position: center center !important;
-        min-height: 100vh !important;
+        min-height: 80vh !important;
     }
 }
 
