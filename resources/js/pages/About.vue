@@ -464,11 +464,11 @@ font-weight: 400;
     padding-right: 0 !important;
     padding-left: 0 !important;
     margin-left: 0 !important;
-    margin-right: -5px !important;
+    margin-right: -45px !important;
 }
 
 .founder-name {
-    margin-top: 34px;
+    margin-top: 54px;
     font-size: 30px;
     color: #7D684E;
     font-weight: 300;

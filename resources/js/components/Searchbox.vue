@@ -1201,7 +1201,7 @@ const getCurrentLocation = () => {
 
 @media (min-width: 1700px) {
     .search-box {
-        width: 90%;
+        width: 93%;
     }
     .location-input-wrapper {
         gap: 6px !important;

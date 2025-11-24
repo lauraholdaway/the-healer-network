@@ -13,7 +13,7 @@
                     expertise, and testimonials from real clients.</p>
 
             </div>
-            <div class="my-0 my-md-0 py-0 py-md-0">
+            <div class="">
                 <Alldoctorsearchbox />
             </div>
 
@@ -68,13 +68,13 @@
                         </div>
                         <div class="col-12 col-md-8">
                             <div class="p-3 p-md-3 h-100">
-                                <h3 class=" mt-2 mt-md-4 fs-5 fs-md-3" style="font-family: 'TheSeasons', serif !important; font-weight: 400;">{{ doctor.user?.name }} {{
+                                <h3 class=" mt-2 mt-md-4  fs-md-3" style="font-family: 'TheSeasons', serif !important; font-weight: 400;font-size: 32px;">{{ doctor.user?.name }} {{
                                     doctor.user?.last_name }}</h3>
 
                                 <div
                                     class="d-flex flex-column flex-md-row justify-content-between align-items-start my-3">
                                     <div class="d-flex flex-wrap gap-1 mb-2 mb-md-0">
-                                        <p class="docter-type px-2 px-md-3 py-1 m-0" style="font-size: 12px;"
+                                        <p class="docter-type px-2 px-md-3 py-1 m-0" style="font-size: 12px; color: #F4EFE6;"
                                             v-for="(s, index) in doctor.modalities">
                                             {{ s?.title }}
                                         </p>

@@ -106,16 +106,16 @@
             <div class="navbar-right">
                 <!-- If not logged in -->
                 <button v-if="!isAuthenticated" @click="$router.push('/login')" class="book-now-btn">
-                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="person-icon">
-                        <circle cx="10" cy="10" r="9" stroke="white" stroke-width="1.5" fill="none"/>
-                        <circle cx="10" cy="7" r="3" stroke="white" stroke-width="1.5" fill="none"/>
-                        <path d="M4 16C4 13 6.5 11 10 11C13.5 11 16 13 16 16" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-                    </svg>
-                    <span class="separator-line"></span>
+                    <!-- <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" class="person-icon">
+                        <circle cx="10" cy="10" r="9" stroke="#2E2D29" stroke-width="1.5" fill="none"/>
+                        <circle cx="10" cy="7" r="3" stroke="#2E2D29" stroke-width="1.5" fill="none"/>
+                        <path d="M4 16C4 13 6.5 11 10 11C13.5 11 16 13 16 16" stroke="#2E2D29" stroke-width="1.5" stroke-linecap="round"/>
+                    </svg> -->
+                    <!-- <span class="separator-line"></span> -->
                     <span class="book-now-text">Sign In</span>
                     <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg" class="arrow-icon">
-                        <path d="M11.5 1.5L19 9L11.5 1.5ZM19 9L11.5 16.5L19 9ZM19 9L1 9L19 9Z" fill="white" />
-                        <path d="M11.5 1.5L19 9M19 9L11.5 16.5M19 9L1 9" stroke="white" stroke-width="1.5"
+                        <path d="M11.5 1.5L19 9L11.5 1.5ZM19 9L11.5 16.5L19 9ZM19 9L1 9L19 9Z" fill="#2E2D29" />
+                        <path d="M11.5 1.5L19 9M19 9L11.5 16.5M19 9L1 9" stroke="#2E2D29" stroke-width="1.5"
                             stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                 </button>
@@ -271,7 +271,7 @@ const handleMobileRedirect = async () => {
 
 .navbar-logo {
     height: auto;
-    max-width: 330px;
+    max-width: 350px;
     width: auto;
     display: block;
     object-fit: contain;
@@ -395,9 +395,9 @@ const handleMobileRedirect = async () => {
     background: transparent;
     border: none;
     font-family: 'TheSeasons', serif !important;
-    font-size: 24px;
+    font-size: 17px;
     font-weight: 400;
-    color: white !important;
+    color: #2E2D29 !important;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -413,42 +413,47 @@ const handleMobileRedirect = async () => {
     width: 20px;
     height: 20px;
     flex-shrink: 0;
-    color: white;
+    color: #2E2D29;
 }
 
 .person-icon circle,
 .person-icon path {
-    stroke: white !important;
+    stroke: #2E2D29 !important;
     fill: none;
 }
 
 .separator-line {
     width: 1px;
     height: 24px;
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: #2E2D29;
     flex-shrink: 0;
 }
 
 .book-now-text {
-    flex: 1;
     text-align: center;
     font-family: 'TheSeasons', serif !important;
     font-weight: 400;
     letter-spacing: 0.5px;
+    font-size: 17px;
     white-space: nowrap;
-    color: white !important;
+    color: #2E2D29 !important;
+    line-height: 1.2;
+    display: inline-block;
 }
 
 .arrow-icon {
     width: 20px;
     height: 18px;
     flex-shrink: 0;
-    color: white;
+    color: #2E2D29;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .arrow-icon path {
-    fill: white !important;
-    stroke: white !important;
+    fill: #2E2D29 !important;
+    stroke: #2E2D29 !important;
 }
 
 .book-now-btn:hover {
@@ -571,7 +576,7 @@ const handleMobileRedirect = async () => {
     }
 
     .navbar-right {
-        width: 200px;
+        width: 240px;
         padding: 0 22px;
         display: flex !important;
     }
@@ -610,7 +615,7 @@ const handleMobileRedirect = async () => {
     }
 
     .navbar-logo {
-        max-width: 240px;
+        max-width: 340px;
     }
 
     .navbar-nav-links {
@@ -622,7 +627,7 @@ const handleMobileRedirect = async () => {
     }
 
     .navbar-right {
-        width: 170px;
+        width: 250px;
         padding: 0 15px;
         display: flex !important;
     }
@@ -731,15 +736,15 @@ const handleMobileRedirect = async () => {
         justify-content: center;
         background: #5B4C3A !important;
         background-color: #5B4C3A !important;
-        color: white !important;
+        color: #2E2D29 !important;
         border-radius: 8px;
         padding: 12px 18px;
         font-size: 15px;
     }
 
     .book-now-btn.mobile svg path {
-        fill: white !important;
-        stroke: white !important;
+        fill: #2E2D29 !important;
+        stroke: #2E2D29 !important;
     }
 
     .book-now-btn.mobile svg {
