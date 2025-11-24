@@ -40,9 +40,9 @@
 
 
         <!-- Hero Section 2 -->
-        <section class="hero-section-2 d-flex align-items-center justify-content-center text-center">
+        <!-- <section class="hero-section-2 d-flex align-items-center justify-content-center text-center">
 
-        </section>
+        </section> -->
 
 
 
@@ -461,6 +461,7 @@ const isSummaryTruncated = (text, index) => {
     letter-spacing: 0.04em;
     text-transform: uppercase;
     text-decoration: none;
+    margin-bottom: 80px;
 
     transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
@@ -468,6 +469,7 @@ const isSummaryTruncated = (text, index) => {
     .scroll-down__btn {
         padding: 16px 40px;
         font-size: 18px;
+        margin-bottom: 80px;
     }
 }
 .scroll-down__label--display {

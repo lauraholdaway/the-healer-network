@@ -86,15 +86,6 @@ b {
 }
 
 /* Extra styling for hero background */
-.hero-section {
-    background: url('https://via.placeholder.com/1920x800') center/cover no-repeat;
-    color: white;
-    min-height: 90vh;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    position: relative;
-}
 
 .hero-overlay {
     position: absolute;
@@ -124,17 +115,28 @@ b {
 }
 
 .hero-section {
-    /* min-height: 100vh; */
-    background: #F1DCC9;
+    min-height: 100vh;
+    /* background-color: #F1DCC9; */
+    background-image: url('/build/assets/bg1.png');
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: scroll;
     position: relative;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    
+    
 }
 
-.hero-section-2 {
+/* .hero-section-2 {
 
     min-height: 10vh;
     background: url('/asset/images/hero2.png') center center/cover no-repeat;
     position: relative;
-}
+} */
 
 .search-box {
     max-width: 1000px;
@@ -156,6 +158,12 @@ b {
 
 /* Large screens - 1920x1080 and similar */
 @media (min-width: 1700px) {
+    .hero-section {
+        background-size: cover !important;
+        background-position: center center !important;
+        min-height: 100vh !important;
+    }
+    
     .hero-section h1 {
         font-size: 4.5rem !important;
         line-height: 1.2 !important;
@@ -191,8 +199,10 @@ b {
     .hero-section {
         align-items: flex-start !important;
         padding-top: 80px !important;
-        min-height: 77vh !important;
-
+        min-height: 100vh !important;
+        margin-bottom: 10px;
+        background-size: cover !important;
+        background-position: center center !important;
     }
 
     .hero-section .container {
@@ -1753,9 +1763,11 @@ footer ul li a:hover {
 /* Hero Section Mobile Responsive */
 @media (max-width: 768px) {
     .hero-section {
-        min-height: 70vh;
+        min-height: 100vh;
         align-items: start;
         padding-top: 20px;
+        background-size: cover;
+        background-position: center center;
     }
 
     .hero-section .container {
@@ -1785,6 +1797,88 @@ footer ul li a:hover {
 
     .scroll-down {
         display: none !important;
+    }
+}
+
+/* Hero Section Small Mobile Responsive */
+@media (max-width: 576px) {
+    .hero-section {
+        min-height: 100vh;
+        background-size: cover !important;
+        background-position: center center !important;
+        align-items: start;
+        padding-top: 20px;
+    }
+}
+
+/* Hero Section Extra Small Mobile Responsive */
+@media (max-width: 480px) {
+    .hero-section {
+        min-height: 100vh;
+        background-size: cover !important;
+        background-position: center center !important;
+    }
+}
+
+/* Hero Section Tablet Responsive */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .hero-section {
+        background-size: cover !important;
+        background-position: center center !important;
+    }
+}
+
+/* Hero Section Desktop/Laptop Responsive */
+@media (min-width: 1025px) and (max-width: 1399px) {
+    .hero-section {
+        background-size: 100% 100% !important;
+        background-position: center center !important;
+        background-attachment: scroll !important;
+    }
+}
+
+/* Hero Section Laptop Specific (1366px - 1440px) */
+@media (min-width: 1366px) and (max-width: 1440px) {
+    .hero-section {
+        background-size: 100% 100% !important;
+        background-position: center center !important;
+        min-height: 100vh !important;
+    }
+}
+
+/* Hero Section Standard Laptop (1280px - 1365px) */
+@media (min-width: 1280px) and (max-width: 1365px) {
+    .hero-section {
+        background-size: 100% 100% !important;
+        background-position: center center !important;
+        min-height: 100vh !important;
+    }
+}
+
+/* Hero Section Large Laptop (1441px - 1600px) */
+@media (min-width: 1441px) and (max-width: 1600px) {
+    .hero-section {
+        background-size: cover !important;
+        background-position: center center !important;
+        min-height: 100vh !important;
+    }
+}
+
+/* Hero Section Extra Large Screens (1601px - 1699px) */
+@media (min-width: 1601px) and (max-width: 1699px) {
+    .hero-section {
+        background-size: cover !important;
+        background-position: center center !important;
+        min-height: 100vh !important;
+    }
+}
+
+/* Hero Section Ultra Large Screens (2431px and above) */
+@media (min-width: 2431px) {
+    .hero-section {
+        background-size: cover !important;
+        background-position: center center !important;
+        min-height: 100vh !important;
     }
 }
 
