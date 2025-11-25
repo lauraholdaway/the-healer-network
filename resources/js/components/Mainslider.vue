@@ -307,7 +307,7 @@ const swiperModules = [];
   }
   
 .slide-titlee {
-    font-size: 1.8rem;
+    font-size: 45px;
     font-weight: 400;
     font-family: 'FONTSPRING DEMO - The Seasons', serif;
     color: #2E2D29;
@@ -604,7 +604,7 @@ const swiperModules = [];
   }
 
   .slide-titlee {
-    font-size: 3.6rem;
+    font-size: 45px;
     font-weight: 400;
     font-family: 'FONTSPRING DEMO - The Seasons', serif;
     color: #2E2D29;

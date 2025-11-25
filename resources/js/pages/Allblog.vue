@@ -277,7 +277,7 @@ onMounted(async () => {
 
 .blog-hero-title {
     font-family: 'TheSeasons', serif !important;
-    font-size: 48px;
+    font-size: 45px;
     font-weight: 400;
     color: #7D684E;
     margin-bottom: 20px;

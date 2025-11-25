@@ -208,7 +208,7 @@ h1 {
 
 @media (min-width: 1500px) {
     h1 {
-        font-size: 3.5rem !important;
+        font-size: 45px !important;
     }
 
 }

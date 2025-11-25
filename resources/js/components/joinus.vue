@@ -5,7 +5,7 @@
             <div class="row d-flex align-items-center">
                 <div class="col-md-8 mt-4">
                     <h1 class='text-white TheSeasons'
-                        style="font-size: 34px; font-weight: 100; font-family: 'TheSeasons', serif !important;">Join Our
+                        style="font-size: 45px; font-weight: 100; font-family: 'TheSeasons', serif !important;">Join Our
                         Healer Community</h1>
                     <p class="joinUs-p">If you’re a holistic healer, The Healer Network helps you grow your reach and
                         connect with new clients, easily and effortlessly. Relax and let us do the hard work for you.
@@ -39,7 +39,7 @@ import JoinUsicon from '/public/asset/images/JoinUsicon.svg';
 <style scoped>
 @media (min-width: 1300px) {
   .joinUs h1 {
-    font-size: 68px !important;
+    font-size: 45px !important;
   }
 
 

@@ -202,6 +202,20 @@ async function onSubmit() {
 </script>
 
 <style scoped>
+.option {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+}
+
+.option span {
+    text-align: center;
+    width: 100%;
+    display: block;
+}
+
 .logo-container {
     display: inline-block;
     background: transparent;

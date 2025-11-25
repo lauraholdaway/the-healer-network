@@ -2166,13 +2166,16 @@ footer ul li a:hover {
     background: #fff;
     transition: 0.25s ease;
 }
+.signin-toggle:hover span {
+    background: #f7efe6;
+    border-color: #b89f85;
+}
 
 /* selected style */
 .signin-toggle input[type="radio"]:checked+span {
-    background: #f7efe6;
+    /* background: #f7efe6; */
     border-color: #b89f85;
-    /* box-shadow: 0 0 4px rgba(184, 159, 133, 0.6); */
-    /* font-weight: 600; */
+   
 }
 
 .healer-network-title-link {

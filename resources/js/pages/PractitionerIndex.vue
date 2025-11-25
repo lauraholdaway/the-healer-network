@@ -65,7 +65,7 @@
                                 fill="#EFE3D6" />
                         </svg>
                     </p>
-                    <b style="font-family: 'TheSeasons', serif !important; font-weight: 400; color: #5B4C3A;">Who we are</b>
+                    <b style="font-family: 'TheSeasons', serif !important; font-weight: 400; color: #5B4C3A; font-size: 45px;">Who we are</b>
                     <p class="" style="color: #5B4C3A; font-size: 14; margin-bottom: 40px;">
                         A trusted community connecting the most skilled and heart-led healers with people seeking
                         support.
@@ -102,7 +102,7 @@
                                 fill="#B3A288" />
                         </svg>
                     </p>
-                    <b style="font-family: 'TheSeasons', serif !important; font-weight: 400; color: #5B4C3A;">Who we are looking for</b>
+                    <b style="font-family: 'TheSeasons', serif !important; font-weight: 400; color: #5B4C3A; font-size: 45px;">Who we are looking for</b>
                     <p class="m-color" style="margin-bottom: 40px;">
                         Healers who share our vision, those who are passionate about guiding others with compassion,
                         authenticity, and skill. Whether you’re an energy worker, counsellor, herbalist, or meditation
@@ -186,7 +186,7 @@
                 <br><br>
                 <!-- How It Works Section -->
                 <div class="text-center my-5">
-                    <h3 class="how-it-works-title" style="font-size: 50px;color:#7D684E; font-family: 'TheSeasons', serif !important; font-weight: 400;">How it works</h3>
+                    <h3 class="how-it-works-title" style="font-size: 45px;color:#7D684E; font-family: 'TheSeasons', serif !important; font-weight: 400;">How it works</h3>
                 </div>
 
                 <div class="how-it-works-container">
@@ -325,7 +325,7 @@
 /* Big Screen Enhancements */
 @media (min-width: 1200px) {
     .practitionerindextext {
-        font-size: 65px !important;
+        font-size: 45px !important;
         line-height: 1.1 !important;
     }
 
@@ -344,12 +344,12 @@
 
 @media (min-width: 1400px) {
     .practitionerindextext {
-        font-size: 75px !important;
+        font-size: 45px !important;
         line-height: 1.1 !important;
     }
 
     .practitionerindextext + p {
-        font-size: 31px !important;
+        font-size: 28px !important;
         max-width: 500px !important;
         margin-top: 50px !important;
     }
@@ -368,7 +368,7 @@
     }
     
     .card-heading {
-        font-size: 1.5rem !important;
+        font-size: 26px !important;
         margin-bottom: 1.5rem !important;
         margin-top: 0 !important;
         padding-top: 0.8rem !important;
@@ -598,7 +598,7 @@
 
 .cta-title {
     font-family: 'TheSeasons', serif !important;
-    font-size: 3.5rem;
+    font-size: 45px;
     font-weight: 400;
     color: #F7F4EF;
     margin-bottom: 2.5rem;
@@ -753,9 +753,9 @@
     display: flex;
     align-items: center;
     background: white;
-    padding: 1rem 2rem;
+    padding: 1.5rem 2.5rem;
     border-radius: 32px;
-   
+    min-height: 100px;
     transition: all 0.3s ease;
     border: 1px solid #f0f0f0;
     width: 100%;
@@ -768,7 +768,7 @@
 
 .benefit-icon {
     margin-right: 1.5rem;
-    min-width: 3rem;
+    min-width: 4rem;
     text-align: center;
     display: flex;
     align-items: center;
@@ -777,12 +777,12 @@
 
 /* SVG Icon Styling */
 .benefit-svg-icon {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
 }
 
 .benefit-main-text {
-    font-size: 1rem;
+    font-size: 26px;
     color: #2E2D29;
     font-weight: 500;
     line-height: 1.5;
@@ -790,7 +790,7 @@
 }
 
 .benefit-sub-text {
-    font-size: 0.9rem;
+    font-size: 26px;
     color: #2E2D29;
     font-weight: 400;
     line-height: 1.4;
@@ -799,7 +799,7 @@
 }
 
 .benefit-text {
-    font-size: 1rem;
+    font-size: 26px;
     color: #2E2D29;
     font-weight: 500;
     line-height: 1.5;
@@ -814,13 +814,19 @@
     }
 
     .benefit-card {
-        padding: 1.2rem 1.5rem;
+        padding: 1.5rem 2rem;
+        min-height: 90px;
     }
 
     .benefit-icon {
         font-size: 1.8rem;
         margin-right: 1.2rem;
-        min-width: 2.5rem;
+        min-width: 3.5rem;
+    }
+    
+    .benefit-svg-icon {
+        width: 45px;
+        height: 45px;
     }
 
     .benefit-text {
@@ -831,15 +837,22 @@
 
 @media (max-width: 576px) {
     .benefit-card {
-        padding: 1rem 1.2rem;
+        padding: 1.2rem 1.5rem;
         flex-direction: column;
         text-align: center;
+        min-height: 120px;
     }
 
     .benefit-icon {
         margin-right: 0;
         margin-bottom: 0.8rem;
         font-size: 1.6rem;
+        min-width: 3rem;
+    }
+    
+    .benefit-svg-icon {
+        width: 45px;
+        height: 45px;
     }
 
     .benefit-text {
@@ -848,7 +861,7 @@
 }
 @media (min-width: 1300px) {
     .practitioner-text-content {
-        font-size: 47px;
+        font-size: 45px;
     }
 }
 

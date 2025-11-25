@@ -509,14 +509,14 @@ font-weight: 400;
 /* Touch Section */
 .touch-heading {
     font-family: 'TheSeasons', serif !important;
-    font-size: 50px;
+    font-size: 45px;
     font-weight: 300;
     margin-top: 20px;
 }
 @media (min-width: 1300px) and (max-width: 3200px) {
     .touch-heading {
     font-family: 'TheSeasons', serif !important;
-    font-size: 60px;
+    font-size: 45px;
     font-weight: 300;
     margin-top: 20px;
 }
