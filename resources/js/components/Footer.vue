@@ -108,7 +108,7 @@ function limitWords(text, count) {
 .footer-container {
   background-color: #F5F1E8;
   color: #4A4A4A;
-  padding: 80px 0 30px;
+  padding: 130px 0 30px;
   font-family: 'Inter', sans-serif;
   margin-top: 0px;
 }

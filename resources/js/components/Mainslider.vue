@@ -482,7 +482,7 @@ const swiperModules = [];
   @media (min-width: 1300px) {
     .book-now {
     position: absolute;
-    bottom: 40px;
+    bottom: 70px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;
@@ -507,7 +507,57 @@ const swiperModules = [];
       margin-left: 6px !important;
     }
   }
-  
+  @media (min-width: 1600px) {
+    .book-now {
+    position: absolute;
+    bottom: 95px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    background: #fbf7f1;
+    color: #2E2D29;
+    padding: 16px 30px;
+    border-radius: 16px;
+    border: 1px solid transparent;
+    font-weight: 600;
+    font-size: 0.9rem;
+    font-family: 'TheSeasons', serif !important;
+    font-size: 22px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    }
+    .book-now svg {
+      width: 24px !important;
+      height: 24px !important;
+      margin-left: 6px !important;
+    }
+  }
+  @media (max-width: 1300px) {
+    .book-now {
+    position: absolute;
+    bottom: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+    background: #fbf7f1;
+    color: #2E2D29;
+    padding: 16px 30px;
+    border-radius: 16px;
+    border: 1px solid transparent;
+    font-weight: 600;
+    font-size: 0.9rem;
+    font-family: 'TheSeasons', serif !important;
+    font-size: 22px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    }
+  }
   .book-now:hover {
     background: #E8E0D3;
     border: 1px solid #C1B39D;

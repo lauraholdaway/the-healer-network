@@ -7,8 +7,14 @@
 
         <div class="cards shadow p-4 my-5 rounded-5"
             style="max-width: 650px; width: 100%; position: relative; z-index: 10; background-color: white;">
-            <div class="text-center mb-3">
-                <router-link to="/" class="healer-network-title-link" style="text-decoration: none !important; border-bottom: none !important;">
+            <div class="mb-3 d-flex align-items-center justify-content-between" style="margin-left: -1rem; margin-right: -1rem; padding-left: 1rem; padding-right: 1rem;">
+                <router-link to="/" class="back-btn" style="text-decoration: none; color: #5B4C3A; display: flex; align-items: center; margin-right: auto; padding-left: 0;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
+                        <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Back To Home</span>
+                </router-link>
+                <router-link to="/" class="healer-network-title-link" style="text-decoration: none !important; border-bottom: none !important; margin-left: auto;">
                     <div class="logo-container">
                         <img src="/public/asset/images/logo.svg" alt="Logo" class="login-logo">
                     </div>
@@ -202,6 +208,17 @@ async function onSubmit() {
 </script>
 
 <style scoped>
+.back-btn {
+    transition: all 0.3s ease;
+    padding: 8px 12px;
+    border-radius: 8px;
+}
+
+.back-btn:hover {
+    background-color: #F4EFE6;
+    color: #5B4C3A;
+}
+
 .option {
     display: flex;
     align-items: center;
