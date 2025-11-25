@@ -40,20 +40,44 @@ p.m-color {
     }
 }
 
+.card {
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.card-body {
+    overflow: hidden;
+    max-width: 100%;
+}
+
+.doctor-image-container {
+    flex-shrink: 0;
+    padding: 6px;
+}
+
+.doctor-content-wrapper {
+    padding: 1.5rem;
+    min-height: 370px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    word-wrap: break-word;
+    max-width: 100%;
+}
+
 .doctor-image-wrapper {
     background-color: #C1B39D;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    min-height: 220px;
+    width: 358px !important;
+    height: 370px !important;
+    border-radius: 24px;
+    opacity: 1;
+    transform: rotate(0deg);
     overflow: hidden;
     position: relative;
-}
-
-@media (min-width: 1500px) {
-    .doctor-image-wrapper {
-        min-height: 280px;
-    }
+    flex-shrink: 0;
 }
 
 .doctorImages {
@@ -65,6 +89,33 @@ p.m-color {
     position: absolute;
     top: 0;
     left: 0;
+    border-radius: 24px;
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .card-body {
+        flex-direction: column !important;
+    }
+    
+    .doctor-image-container {
+        width: 100%;
+        padding: 1rem;
+    }
+    
+    .doctor-image-wrapper {
+        width: 100% !important;
+        height: auto;
+        aspect-ratio: 358 / 370;
+        max-width: 358px;
+        margin: 0 auto;
+    }
+    
+    .doctor-content-wrapper {
+        width: 100%;
+        padding: 1rem;
+        min-height: auto;
+    }
 }
 </style>
 
@@ -91,14 +142,14 @@ p.m-color {
                     </div>
                     <p class="loading-text">Loading Healar...</p>
                 </div>
-                <div class="card mx-2 mx-md-5 mb-3" v-for="(doctor, index) in doctors" :key="index">
-                    <div class="row g-0 align-items-stretch">
-                        <div class="col-12 col-md-3 d-flex">
-                            <div class="position-relative rounded-4 p-3 p-md-4 w-100 h-100 doctor-image-wrapper">
+                <div class="card mb-3" v-for="(doctor, index) in doctors" :key="index">
+                    <div class="card-body d-flex flex-row align-items-center p-0">
+                        <div class="doctor-image-container">
+                            <div class="position-relative doctor-image-wrapper">
                                 <img :src="doctor?.user?.image ? '/storage/' + doctor.user.image : '/default-image.png'"
-                                    class="card-img-top doctorImages rounded-4 img-fluid" alt="practitioner">
+                                    class="doctorImages" alt="practitioner">
                                 <div class="position-absolute top-0 end-0 p-2">
-                                    <svg width="30" height="30" viewBox="0 0 46 46" fill="none"
+                                    <svg width="40" height="40" viewBox="0 0 46 46" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <rect width="46" height="46" rx="23" fill="#5B4C3A" />
                                         <path
@@ -107,28 +158,27 @@ p.m-color {
                                             stroke-linejoin="round" />
                                     </svg>
                                 </div>
-                                <div class="position-absolute bottom-0 mb-3" style="left: 5%;">
+                                <div class="position-absolute bottom-0 mb-3" style="left: 50%; transform: translateX(-50%);">
                                     <DoctorTage :doctor="doctor" />
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 col-md-8">
-                            <div class="p-3 p-md-3 h-100">
-                                <h3 class="mt-2 mt-md-4 fs-5 fs-md-3" style="font-family: 'TheSeasons', serif !important; font-weight: 400;">{{ doctor.user?.name }} {{ doctor.user?.last_name
-                                }}</h3>
-                                <div
-                                    class="d-flex flex-column flex-md-row justify-content-between align-items-start my-3">
-                                    <div class="d-flex flex-wrap gap-1 mb-2 mb-md-0">
-                                        <p class="docter-type px-2 px-md-3 py-1 m-0" style="font-size: 12px;"
+                        <div class="doctor-content-wrapper flex-grow-1 d-flex align-items-center">
+                            <div class="w-100" style="overflow: hidden; word-wrap: break-word; max-width: 100%;">
+                                <h3 class="mb-4" style="font-family: 'TheSeasons', serif !important; font-weight: 400; font-size: 32px; text-align: left; word-wrap: break-word; overflow-wrap: break-word; max-width: 100%;">{{ doctor.user?.name }} {{
+                                    doctor.user?.last_name }}</h3>
+                                <div class="d-flex flex-column flex-md-row justify-content-between align-items-start mb-4 gap-2">
+                                    <div class="d-flex flex-wrap gap-1">
+                                        <p class="docter-type px-2 px-md-3 py-1 m-0" style="font-size: 14px; color: #F4EFE6;"
                                             v-for="(s, index) in doctor.modalities">
                                             {{ s?.title }}
                                         </p>
                                     </div>
-                                    <p class="price fw-bold mb-0 mt-2 mt-md-0">${{ doctor.price }}</p>
+                                    <p class="price fw-bold mb-0"><span style="font-family: 'Roboto', sans-serif !important; padding-right: 7px;">$</span>{{ doctor.price }}</p>
                                 </div>
-                                <p class="mb-2 doctor-card-summary" :class="{ 'expanded': showFull[index] }"
-                                    :style="showFull[index] ? 'margin-top: -8px; font-size: 14px; color: #5B4C3A;' : 'margin-top: -8px; font-size: 14px; color: #5B4C3A; padding: 10px 0px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;'">
-                                    <span v-if="!showFull[index]">{{ limitWords(doctor.about, 13) }}</span>
+                                <p class="mb-4 doctor-card-summary text-start" :class="{ 'expanded': showFull[index] }"
+                                    :style="showFull[index] ? 'font-size: 18px; color: #5B4C3A; word-wrap: break-word; overflow-wrap: break-word; max-width: 100%;' : 'font-size: 18px; color: #5B4C3A; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%;'">
+                                    <span v-if="!showFull[index]">{{ limitWords(doctor.about, 14) }}</span>
                                     <span v-else style="white-space: normal;">{{ doctor.about }}</span>
                                     <a href="#" class="m-color ms-2" @click.prevent="toggleText(index)"
                                         v-if="doctor.about && doctor.about.split(' ').length > 20"
@@ -136,23 +186,20 @@ p.m-color {
                                         {{ showFull[index] ? 'See less' : 'See more' }}
                                     </a>
                                 </p>
-
-                                <div class="d-flex flex-column flex-md-row gap-2 mb-3">
-                                    <router-link :to="`/booksession/${doctor.user?.id}`" class="btn main-btn2 w-100"
-                                        style="padding: 10px 8px; font-family: 'TheSeasons', serif !important; font-weight: 400; color: #2E2D29; align-self: flex-start; font-size: 14px; max-width: 160px; background-color: #C1B39D; text-align: center; transition: all 0.3s ease;"
+                                <div class="d-flex flex-column flex-md-row gap-2 mb-4">
+                                    <router-link :to="`/booksession/${doctor.user?.id}`" class="btn "
+                                        style="padding: 12px 20px; font-family: 'TheSeasons', serif !important; font-weight: 400; color: #2E2D29; font-size: 18px; min-width: 200px; background-color: #C1B39D; text-align: center; transition: all 0.3s ease; border-radius: 12px;"
                                         @mouseover="$event.target.style.backgroundColor = '#5B4C3A'; $event.target.style.color = 'white'"
                                         @mouseout="$event.target.style.backgroundColor = '#C1B39D'; $event.target.style.color = '#2E2D29'">Book
                                         Session Now
-
                                     </router-link>
-                                    <router-link :to="`/docter/${doctor.user?.id}`" class="btn main-btn3 w-100"
-                                        style="padding: 6px 12px; font-family: 'TheSeasons', serif !important; font-weight: 400; font-size: 14px; max-width: 120px; text-align: center; display: flex; align-items: center; justify-content: center;">View
+                                    <router-link :to="`/docter/${doctor.user?.id}`" class="btn main-btn3"
+                                        style="padding: 12px 20px; font-family: 'TheSeasons', serif !important; font-weight: 400; font-size: 18px; min-width: 160px; text-align: center; display: flex; align-items: center; justify-content: center; border-radius: 12px;">View
                                         Profile</router-link>
                                 </div>
-                                <div class="mt-2">
-                                    <span class="d-flex align-items-center">
-                                        <svg width="14" height="17" viewBox="0 0 18 21" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
+                                <div class="mt-3 d-flex">
+                                    <span class="d-flex align-items-center"><svg width="14" height="17"
+                                            viewBox="0 0 18 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                                             <path
                                                 d="M6 9.25763C6 10.0533 6.31607 10.8163 6.87868 11.379C7.44129 11.9416 8.20435 12.2576 9 12.2576C9.79565 12.2576 10.5587 11.9416 11.1213 11.379C11.6839 10.8163 12 10.0533 12 9.25763C12 8.46198 11.6839 7.69892 11.1213 7.13631C10.5587 6.5737 9.79565 6.25763 9 6.25763C8.20435 6.25763 7.44129 6.5737 6.87868 7.13631C6.31607 7.69892 6 8.46198 6 9.25763Z"
                                                 stroke="#2E2D29" stroke-width="2" stroke-linecap="round"
@@ -162,7 +209,7 @@ p.m-color {
                                                 stroke="#2E2D29" stroke-width="2" stroke-linecap="round"
                                                 stroke-linejoin="round" />
                                         </svg>
-                                        <span class="ms-2" style="color: #8A7356; font-size: 12px;">{{
+                                        <span class="ms-2" style="color: #8A7356; font-size: 16px;">{{
                                             doctor.practice_location }}</span>
                                     </span>
                                 </div>

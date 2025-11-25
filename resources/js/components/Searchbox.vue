@@ -102,9 +102,9 @@ const getCurrentLocation = () => {
 }
 
 .search-box {
-    width: 95%;
-    max-width: 1500px;
-    margin: 0 auto;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
     padding-top: 15px !important;
     padding-bottom: 15px !important;
 }
@@ -382,7 +382,7 @@ const getCurrentLocation = () => {
 
 @media (min-width: 1400px) {
     .search-box {
-        width: 93%;
+        width: 100%;
     }
     .search-box-section {
         padding: 0.5rem 1rem;
@@ -1201,7 +1201,7 @@ const getCurrentLocation = () => {
 
 @media (min-width: 1700px) {
     .search-box {
-        width: 93%;
+        width: 100%;
     }
     .location-input-wrapper {
         gap: 6px !important;

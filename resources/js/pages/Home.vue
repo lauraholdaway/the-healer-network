@@ -461,7 +461,7 @@ const isSummaryTruncated = (text, index) => {
     letter-spacing: 0.04em;
     text-transform: uppercase;
     text-decoration: none;
-    margin-bottom: 80px;
+    margin-bottom: 10px;
     white-space: nowrap;
     min-width: 220px;
     justify-content: center;

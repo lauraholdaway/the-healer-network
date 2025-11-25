@@ -3,33 +3,10 @@
 .filter-toggle-wrapper {
     margin-bottom: 0;
     margin-top: -15px;
-    margin-left: 50px;
+    margin-left: 0;
     position: relative;
     z-index: 5;
-}
-
-@media (min-width: 769px) and (max-width: 992px) {
-    .filter-toggle-wrapper {
-        margin-left: 20px;
-    }
-}
-
-@media (min-width: 993px) and (max-width: 1199px) {
-    .filter-toggle-wrapper {
-        margin-left: 40px;
-    }
-}
-
-@media (min-width: 1200px) and (max-width: 1399px) {
-    .filter-toggle-wrapper {
-        margin-left: 45px;
-    }
-}
-
-@media (min-width: 1400px) {
-    .filter-toggle-wrapper {
-        margin-left: 50px;
-    }
+    width: 100%;
 }
 
 .filter-toggle-btn {
@@ -118,7 +95,7 @@
     max-width: 100%;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
     border: 1px solid #DED1BA;
-    margin: 12px auto 0;
+    margin: 12px 0 0;
 }
 
 .filters-grid-wrapper {
@@ -365,23 +342,6 @@
 }
 
 /* Responsive Styles for Filters */
-@media (min-width: 993px) and (max-width: 1199px) {
-    .filters-container {
-        width: 95%;
-    }
-}
-
-@media (min-width: 1200px) and (max-width: 1399px) {
-    .filters-container {
-        width: 94%;
-    }
-}
-
-@media (min-width: 1400px) {
-    .filters-container {
-        width: 93%;
-    }
-}
 
 @media (max-width: 992px) {
     .filters-container {
@@ -494,7 +454,7 @@
 </style>
    
 <template>
-    <div>
+    <div style="width: 100%;">
         <Searchbox />
 
         <!-- Filter Toggle Button -->
