@@ -315,7 +315,8 @@ const getCurrentLocation = () => {
 
 @media (min-width: 1200px) and (max-width: 1399px) {
     .search-box {
-        width: 94%;
+        width: 80%;
+        margin: 0 auto;
     }
     .search-box-section {
         padding: 0.5rem 0.9rem;

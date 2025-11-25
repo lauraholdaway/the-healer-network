@@ -224,7 +224,7 @@
                 <h1 class="cta-title">Ready to start growing your business?</h1>
                 <div class="cta-buttons">
                     <router-link to="practitor_register" class="cta-btn cta-btn-primary" style="font-family: 'TheSeasons', serif !important; font-weight: 400;   border: 1px solid transparent; transition: all 0.3s ease;">Apply Now</router-link>
-                    <router-link to="PractitionerIndex" class="cta-btn cta-btn-secondary" style="font-family: 'TheSeasons', serif !important; font-weight: 400;   border: 1px solid transparent; transition: all 0.3s ease;">Book A Demo</router-link>
+                    <!-- <router-link to="PractitionerIndex" class="cta-btn cta-btn-secondary" style="font-family: 'TheSeasons', serif !important; font-weight: 400;   border: 1px solid transparent; transition: all 0.3s ease;">Book A Demo</router-link> -->
                 </div>
                 <p class="cta-subtext" style="font-family: 'TheSeasons', serif !important; font-weight: 400; ">Any questions? Check out our <a href="#" class="cta-link">Practitioner FAQs</a>
                     or <a href="#" class="cta-link">get in touch</a>.</p>

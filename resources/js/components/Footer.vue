@@ -160,8 +160,8 @@ function limitWords(text, count) {
 }
 
 .footer-logo img {
-  max-width: 380px;
-  width: 325px;
+  max-width: 425px;
+  width: 425px;
   height: auto;
   border: none;
   outline: none;
@@ -375,7 +375,7 @@ function limitWords(text, count) {
   }
 
   .footer-logo img {
-  max-width: 100px;
+  max-width: 240px;
   height: auto;
   border: none;
   outline: none;

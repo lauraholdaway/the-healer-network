@@ -235,7 +235,7 @@
                                                 {{ s?.title }}
                                             </p>
                                         </div>
-                                        <p class="price">${{ doctor?.price }}</p>
+                                        <p class="price"><span style="font-family: 'Roboto', sans-serif !important; padding-right: 7px;">$</span>{{ doctor?.price }}</p>
                                     </div>
 
                                     <h5 class="card-title fw-bold" style="font-size: 24px;  font-weight: 600;">{{

@@ -62,6 +62,11 @@
                 </div>
             </div>
         </div>
+
+
+
+
+        
         <div class="w-100">
             <img src="/public/asset/images/aboutbg-bt.png" class="w-100" alt="" style="display: block; margin: -2px;">
         </div>
@@ -93,6 +98,85 @@
 
             </div>
         </div>
+
+
+        <br>
+        <div class="container px-3">
+
+            <h1 class="fw-bold section-heading mb-5 mt-2 mb-md-4 text-start">
+                Meet The Founders
+            </h1>
+
+            <!-- Susie -->
+            <div class="row mt-4 mb-5  align-items-center" >
+                <div class="col-md-3 mb-3 mb-md-0 d-flex align-items-center">
+                    <img src="/public/asset/images/CEO1.png" class="img-fluid founder-image" alt="Susie">
+                </div>
+                <div class="col-md-9">
+                    <div class="">
+                        <p class="founder-text">
+                            Susie is a quantum energy healer who has worked with clients around the world. Living in
+                            Bali, she runs transformational retreats and is passionate about helping people remember who
+                            they truly are. A self-confessed crazy cat lady, Susie brings warmth, humour, and heart to
+                            everything she creates. Through The Healer Network, she's devoted to making healing more
+                            visible, accessible, and joy-filled for all.
+                        </p>
+                     
+                        <h3 class="founder-name">Susie</h3>
+                        <p style="font-size: 14px; color: #5B4C3A;">Founder of The Healer Network</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pia -->
+            <div class="row mt-4 mb-5 align-items-center">
+                <div class="col-md-3 mb-3 mb-md-0 d-flex align-items-center">
+                    <img src="/public/asset/images/CEO2.png" class="img-fluid founder-image" alt="Pia">
+                </div>
+                <div class="col-md-9">
+                    <div class="">
+                        <p class="founder-text">
+                            Pia is a trained hypnotherapist, energy healer, and counsellor, and the founder of a
+                            nationwide therapy company. While she's long worked within traditional therapeutic
+                            frameworks, she's felt the call to help the world embrace holistic approaches to healing. A
+                            free spirit who loves adventure, travel, and deep connection, Pia is passionate about making
+                            holistic therapies more widely available and creating the kind of world where Heaven truly
+                            exists on Earth. She's also mum to Max, her adorable Pomeranian sidekick </p>
+                     
+                        <h3 class="founder-name">Pia</h3>
+                        <p style="font-size: 14px; color: #5B4C3A;">Founder of The Healer Network</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Laura -->
+            <div class="row mt-4 mb-5 align-items-center">
+                <div class="col-md-3 mb-3 mb-md-0 d-flex align-items-center">
+                    <img src="/public/asset/images/ceolaura.png" class="img-fluid founder-image" alt="Laura">
+                </div>
+                <div class="col-md-9">
+                    <div class="">
+                        <p class="founder-text">
+                            Laura is a holistic healer, coach, and mental health expert with a background in psychology.
+                            She empowers leaders in the wellness and NDIS space and is known for her compassionate
+                            approach and strong leadership. A gifted connector and community builder, she runs a
+                            beautiful holistic hub in Sydney where clients can explore art therapy, nutrition, wellness
+                            classes, and more, all designed to help people unlock their potential. As a mother, mentor,
+                            and visionary, Laura brings love, leadership, and grounded wisdom to everything she touches
+                        </p>
+                      
+                        <h3 class="founder-name">Laura</h3>
+                        <p style="font-size: 14px; color: #5B4C3A;">Founder of The Healer Network</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Concluding Statement -->
+           
+        </div>
+
+
+
         <br>
         <div class="container px-3">
             <div class="text-center mb-4">
@@ -206,78 +290,12 @@
                 </div>
             </div>
         </div>
-        <br>
-        <div class="container px-3">
+       
 
-            <h1 class="fw-bold section-heading mb-5 mt-2 mb-md-4 text-start">
-                Meet The Founders
-            </h1>
 
-            <!-- Susie -->
-            <div class="row mt-4 mb-5  align-items-center" >
-                <div class="col-md-3 mb-3 mb-md-0 d-flex align-items-center">
-                    <img src="/public/asset/images/CEO1.png" class="img-fluid founder-image" alt="Susie">
-                </div>
-                <div class="col-md-9">
-                    <div class="">
-                        <p class="founder-text">
-                            Susie is a quantum energy healer who has worked with clients around the world. Living in
-                            Bali, she runs transformational retreats and is passionate about helping people remember who
-                            they truly are. A self-confessed crazy cat lady, Susie brings warmth, humour, and heart to
-                            everything she creates. Through The Healer Network, she's devoted to making healing more
-                            visible, accessible, and joy-filled for all.
-                        </p>
-                     
-                        <h3 class="founder-name">Susie</h3>
-                        <p style="font-size: 14px; color: #5B4C3A;">Founder THN</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Pia -->
-            <div class="row mt-4 mb-5 align-items-center">
-                <div class="col-md-3 mb-3 mb-md-0 d-flex align-items-center">
-                    <img src="/public/asset/images/CEO2.png" class="img-fluid founder-image" alt="Pia">
-                </div>
-                <div class="col-md-9">
-                    <div class="">
-                        <p class="founder-text">
-                            Pia is a trained hypnotherapist, energy healer, and counsellor, and the founder of a
-                            nationwide therapy company. While she's long worked within traditional therapeutic
-                            frameworks, she's felt the call to help the world embrace holistic approaches to healing. A
-                            free spirit who loves adventure, travel, and deep connection, Pia is passionate about making
-                            holistic therapies more widely available and creating the kind of world where Heaven truly
-                            exists on Earth. She's also mum to Max, her adorable Pomeranian sidekick </p>
-                     
-                        <h3 class="founder-name">Pia</h3>
-                        <p style="font-size: 14px; color: #5B4C3A;">Founder THN</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Laura -->
-            <div class="row mt-4 mb-5 align-items-center">
-                <div class="col-md-3 mb-3 mb-md-0 d-flex align-items-center">
-                    <img src="/public/asset/images/ceolaura.png" class="img-fluid founder-image" alt="Laura">
-                </div>
-                <div class="col-md-9">
-                    <div class="">
-                        <p class="founder-text">
-                            Laura is a holistic healer, coach, and mental health expert with a background in psychology.
-                            She empowers leaders in the wellness and NDIS space and is known for her compassionate
-                            approach and strong leadership. A gifted connector and community builder, she runs a
-                            beautiful holistic hub in Sydney where clients can explore art therapy, nutrition, wellness
-                            classes, and more, all designed to help people unlock their potential. As a mother, mentor,
-                            and visionary, Laura brings love, leadership, and grounded wisdom to everything she touches
-                        </p>
-                      
-                        <h3 class="founder-name">Laura</h3>
-                        <p style="font-size: 14px; color: #5B4C3A;">Founder THN</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Concluding Statement -->
+    </section>
+    <section class="py-5">
+        <div class="container">
             <div class="text-center mt-5 mb-4">
                 <svg style="opacity: 0.5;" width="48" height="57" viewBox="0 0 48 57" fill="none"
                     xmlns="http://www.w3.org/2000/svg" class="mb-3">
@@ -285,13 +303,11 @@
                         d="M30.9548 7.92254C31.1362 8.52154 31.3033 9.14525 31.4276 9.8431C31.8319 12.0536 32.2742 14.4837 34.5916 15.4922C36.4994 16.2971 38.4109 14.6987 39.7612 13.5012C43.7943 9.99728 48.4086 14.2759 46.8278 19.5252C45.2612 24.7497 40.6127 26.5803 38.5515 26.8401C36.4903 27.0999 35.4015 30.755 37.0751 32.4792C38.7488 34.2033 41.3623 37.0962 39.2406 39.0017C37.119 40.9071 32.7003 40.399 30.8089 35.913C28.9175 31.427 26.1237 36.4372 25.7922 38.5524C25.4607 40.6676 25.9191 49.0054 25.4678 50.9856C24.9918 52.9515 20.2822 61.337 14.5141 53.0641C12.3231 49.0971 13.6748 43.6167 13.696 42.8381C13.7172 42.0595 14.2172 36.2851 10.1934 34.5222C6.16971 32.7592 2.45167 32.2931 1.50136 31.0854C0.551046 29.8777 -0.491152 24.6628 4.96716 20.6308C10.4255 16.5987 16.8977 16.9744 18.1288 17.125C20.7821 17.4377 20.7878 14.5742 20.3748 12.7211C19.7853 9.97532 18.1517 8.01066 16.7178 5.7C15.7372 4.14529 15.6226 2.8599 17.4425 1.93355C19.9613 0.652819 22.8391 0.633771 25.4037 1.78494C28.3533 3.12542 30.0715 5.17188 30.9548 7.92254Z"
                         fill="#8A7356" />
                 </svg>
-                <h2 class="section-heading-footer mb-5 mt-5">
-                    Together, we’re building the future of healing.<br>
+                <h2 class="section-heading-footer mb-5 ">
+                    Together, were building the future of healing.<br>
                     Because when people rise, the whole world heals.</h2>
-
             </div>
         </div>
-        <br>
     </section>
     <section class="joinUsAbout position-relative d-flex align-items-center"
         style="overflow: hidden; min-height: 300px;">
@@ -307,6 +323,9 @@ Cormorant Garamond; color: #F4EFE6; font-style: italic; ">Any questions? Check o
                 </div>
 
             </div>
+
+
+            
         </div>
         <!-- Touch With Us SVG positioned in bottom left -->
         <div class="about-bg-image">
@@ -372,7 +391,11 @@ margin-bottom: 50px;
     line-height: 1.2;
     color: #2E2D29;
 }
-
+@media screen and (max-width: 1400px) {
+    .section-title {
+        font-size: 20px;
+    }
+}
 .section-heading {
     align-items: start;
     text-align: start;
@@ -398,10 +421,11 @@ font-weight: 400;
 .section-heading-footer {
     align-items: center;
     text-align: center;
-    justify-content: start;
+    justify-content: center;
     font-family: 'TheSeasons', serif !important;
     font-size: 40px;
     max-width: 1200px;
+    margin: 0 auto;
     color: #7D684E;
 }
 
@@ -466,7 +490,15 @@ font-weight: 400;
     margin-left: 0 !important;
     margin-right: -45px !important;
 }
-
+@media screen and (max-width: 1500px) {
+   
+.row.align-items-center .col-md-3 {
+    padding-right: 0 !important;
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+    margin-right: -25px !important;
+}
+}
 .founder-name {
     margin-top: 54px;
     font-size: 30px;
@@ -557,14 +589,16 @@ font-weight: 400;
         font-size: 45px;
     }
     .section-title {
-        font-size: 45px;
+        font-size: 36px;
     }
     .section-heading-center {
         font-size: 45px;
     }
     .section-heading-footer {
-        font-size: 40px;
+        font-size: 36px;
         font-weight: 400;
+        
+
     }                                                                                   
 
 

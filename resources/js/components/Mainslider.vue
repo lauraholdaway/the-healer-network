@@ -84,7 +84,7 @@ const slides = [
       title: "Discover the Right Healing for You",
       subtitle:
         "Explore holistic approaches that enhance your mind, body, and soul.",
-      cardTitle: "Energy Therapy",
+      cardTitle: "Energy Healing",
       cardDescription:
         "Explore transformative healing techniques like Reiki, Kinesiology, and EFT to restore harmony and balance to your body’s energy systems.",
       image: "/asset/images/slider1.jpg",
@@ -283,9 +283,15 @@ const swiperModules = [];
   min-height: 70vh;
   height: 87vh;
   }
+  @media screen and (max-width: 1400px) {
+    .slide-wrapper {
+      min-height: 90vh;
+      height: 90vh;
+    }
+  }
   
 .copy-block {
-    padding: 1.5rem;
+    padding: 2.5rem;
     background:#DED1BA;
     display: flex;
     flex-direction: column;
@@ -476,13 +482,13 @@ const swiperModules = [];
   @media (min-width: 1300px) {
     .book-now {
     position: absolute;
-    bottom: 170px;
+    bottom: 40px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;
     background: #fbf7f1;
     color: #2E2D29;
-    padding: 20px 40px;
+    padding: 16px 30px;
     border-radius: 16px;
     border: 1px solid transparent;
     font-weight: 600;
