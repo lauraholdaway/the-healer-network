@@ -25,7 +25,7 @@
                     <ul class="footer-links">
                         <li><a href="#">Client FAQs</a></li>
                         <li><a href="#">Healer FAQs</a></li>
-                        <li><a href="#">Get In Touch</a></li>
+                        <li><a href="contact">Get In Touch</a></li>
                     </ul>
                 </div>
 

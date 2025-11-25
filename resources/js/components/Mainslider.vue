@@ -600,7 +600,7 @@ const swiperModules = [];
   }
   .copy-block {
     padding: 4.5rem 7.5rem;
-    gap: 2.4rem;
+    gap: 25px;
   }
 
   .slide-titlee {

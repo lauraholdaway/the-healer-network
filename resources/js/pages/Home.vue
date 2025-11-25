@@ -54,7 +54,7 @@
                         style="font-family: 'Cormorant Garamond', serif; color: #7D684E !important; line-height: 1.2; font-weight: 400;">
                         <span class="d-md-none" style="font-size: 2.25rem;">Your Path to Healing</span>
                         <span class="d-none d-md-inline d-lg-none" style="font-size: 3rem;">Your Path to Healing</span>
-                        <span class="d-none d-lg-inline" style="font-size: 3.75rem;">Your Path to Healing</span>
+                        <span class="d-none d-lg-inline" style="font-size: 45px;">Your Path to Healing</span>
                     </h2>
                 </div>
 

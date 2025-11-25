@@ -101,6 +101,13 @@ const getCurrentLocation = () => {
     font-family: 'Avenir', sans-serif !important;
 }
 
+/* Prevent button size changes on zoom */
+.search-submit-btn,
+.my-current-location-btn {
+    zoom: 1 !important;
+    transform: scale(1) !important;
+}
+
 .search-box {
     width: 100%;
     max-width: 100%;
@@ -201,6 +208,8 @@ const getCurrentLocation = () => {
     min-height: 26px;
     flex-shrink: 0;
     transition: all 0.3s ease;
+    zoom: 1;
+    transform: scale(1);
 }
 
 .my-current-location-btn:hover {
@@ -232,6 +241,10 @@ const getCurrentLocation = () => {
     width: 200px;
     white-space: nowrap;
     transition: all 0.3s ease;
+    zoom: 1;
+    transform: scale(1);
+    min-width: 200px;
+    max-width: 200px;
 }
 
 .search-submit-btn:hover {
