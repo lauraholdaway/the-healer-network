@@ -34,9 +34,9 @@
         <div class="container-fluid bg-custome py-1" style="margin-top: -2px; margin-bottom: 0;">
             <div class="container py-4 py-md-5">
                 <div class="row align-items-center">
-                    <div class="col-md-6 text-start p-3 p-md-5">
+                    <div class="col-md-6 text-center text-md-start p-3 p-md-5">
                         <div>
-                            <h1 class="fw-bold section-heading text-start">
+                            <h1 class="fw-bold section-heading text-center text-md-start">
                                 About The Healer <br></br> Network
                             </h1>
                             <p class="section-text">A global platform born from divine intervention..<br><br>
@@ -78,12 +78,12 @@
 
                     </div>
                 </div>
-                <div class="col-md-6 p-3  p-md-5 order-1 order-md-2">
+                <div class="col-md-6 p-3  p-md-5 order-1 order-md-2 text-center text-md-start">
                     <div>
-                        <h1 class="section-heading mt-0 mt-md-4">
+                        <h1 class="section-heading mt-0 mt-md-4 text-center text-md-start">
                             Our mission is <br> simple yet profound
                         </h1>
-                        <p class="section-text">To create Heaven on Earth by bridging the gap between those seeking
+                        <p class="section-text text-center text-md-start">To create Heaven on Earth by bridging the gap between those seeking
                             healing and those here to offer it.<br><br>
                             As healers, we’ve each witnessed how challenging it can be to promote, grow, and sustain a
                             healing business, even when your work is deeply transformative. We wanted to change that.
@@ -103,7 +103,7 @@
         <br>
         <div class="container px-3">
 
-            <h1 class="fw-bold section-heading mb-5 mt-2 mb-md-4 text-start">
+            <h1 class="fw-bold section-heading mb-5 mt-2 mb-md-4 text-center text-md-start">
                 Meet The Founders
             </h1>
 
@@ -112,7 +112,7 @@
                 <div class="col-md-3 mb-3 mb-md-0 d-flex align-items-center">
                     <img src="/public/asset/images/CEO1.png" class="img-fluid founder-image" alt="Susie">
                 </div>
-                <div class="col-md-9">
+                <div class="col-md-9 text-center text-md-start">
                     <div class="">
                         <p class="founder-text">
                             Susie is a quantum energy healer who has worked with clients around the world. Living in
@@ -133,7 +133,7 @@
                 <div class="col-md-3 mb-3 mb-md-0 d-flex align-items-center">
                     <img src="/public/asset/images/CEO2.png" class="img-fluid founder-image" alt="Pia">
                 </div>
-                <div class="col-md-9">
+                <div class="col-md-9 text-center text-md-start">
                     <div class="">
                         <p class="founder-text">
                             Pia is a trained hypnotherapist, energy healer, and counsellor, and the founder of a
@@ -154,7 +154,7 @@
                 <div class="col-md-3 mb-3 mb-md-0 d-flex align-items-center">
                     <img src="/public/asset/images/ceolaura.png" class="img-fluid founder-image" alt="Laura">
                 </div>
-                <div class="col-md-9">
+                <div class="col-md-9 text-center text-md-start">
                     <div class="">
                         <p class="founder-text">
                             Laura is a holistic healer, coach, and mental health expert with a background in psychology.
@@ -605,8 +605,29 @@ font-weight: 400;
 
 /* Mobile Responsive Styles */
 @media (max-width: 768px) {
+    .bg-custome {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .bg-custome .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .bg-custome img {
+        max-height: 600px !important;
+        min-height: 400px;
+        width: 400px !important;
+        max-width: 400px !important;
+        display: block;
+        margin: 0 auto;
+    }
+
     .hero-text {
-        font-size: 28px;
+        font-size: 38px;
         width: 90%;
         margin-top: 15px;
     }
@@ -618,29 +639,49 @@ font-weight: 400;
 
     .section-title {
         font-size: 24px;
+        text-align: center !important;
     }
 
     .section-heading {
         font-size: 32px;
+        text-align: center !important;
+    }
+
+    .section-heading-center {
+        text-align: center !important;
     }
 
     .section-text {
         font-size: 13px;
         max-width: 100%;
+        text-align: center !important;
+        margin: 0 auto;
     }
 
     .about-image {
         height: 250px;
+        margin: 0 auto;
+        display: block;
     }
 
     .founder-image {
         height: auto;
         max-height: 300px;
         width: 100%;
+        max-width: 250px;
+        margin: 0 auto;
+        display: block;
     }
 
     .founder-name {
         font-size: 24px;
+        text-align: center !important;
+    }
+
+    .founder-text {
+        max-width: 100%;
+        text-align: center !important;
+        margin: 0 auto;
     }
 
     .touch-heading {
@@ -652,7 +693,7 @@ font-weight: 400;
     .joinUs-p {
         font-family: 'TheSeasons', serif !important;
         font-style: italic;
-    color: #F4EFE6;
+        color: #F4EFE6;
         font-size: 13px !important;
         padding: 0 15px !important;
     }
@@ -671,22 +712,106 @@ font-weight: 400;
         min-height: auto !important;
     }
 
-    .founder-text {
-        max-width: 100%;
+    .row.align-items-center {
+        text-align: center !important;
+    }
+
+    .row.align-items-center .col-md-6 {
+        text-align: center !important;
+    }
+
+    .row.align-items-center .col-md-3 {
+        margin-right: 0 !important;
+        display: flex;
+        justify-content: center;
+    }
+
+    .row.align-items-center .col-md-9 {
+        text-align: center !important;
+        padding-left: 0 !important;
+    }
+
+    .text-start {
+        text-align: center !important;
+    }
+
+    .about-bg-image {
+        display: none;
+    }
+
+    .col-md-6.text-center.text-md-start {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .col-md-6.text-center.text-md-start .section-text {
+        text-align: center;
+    }
+
+    .col-md-6.text-center.text-md-start .section-heading {
+        text-align: center;
+    }
+
+    .col-md-9.text-center.text-md-start {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .col-md-9.text-center.text-md-start .founder-text {
+        text-align: center;
+    }
+
+    .col-md-9.text-center.text-md-start .founder-name {
+        text-align: center;
     }
 }
 
 @media (max-width: 576px) {
+    .bg-custome {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .bg-custome .container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .bg-custome img {
+        max-height: 500px !important;
+        min-height: 350px;
+        width: 400px !important;
+        max-width: 400px !important;
+        display: block;
+        margin: 0 auto;
+    }
+
     .hero-text {
-        font-size: 22px;
+        font-size: 24px;
     }
 
     .section-heading {
         font-size: 28px;
+        text-align: center !important;
+    }
+
+    .section-heading-center {
+        font-size: 28px;
+        text-align: center !important;
     }
 
     .section-title {
         font-size: 20px;
+        text-align: center !important;
+    }
+
+    .section-text {
+        text-align: center !important;
+        margin: 0 auto;
     }
 
     .touch-heading {
@@ -713,6 +838,45 @@ font-weight: 400;
 
     .about-image {
         height: 200px;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .founder-image {
+        max-width: 200px;
+        margin: 0 auto;
+        display: block;
+    }
+
+    .founder-text {
+        text-align: center !important;
+    }
+
+    .founder-name {
+        text-align: center !important;
+    }
+
+    .row.align-items-center .col-md-6 {
+        text-align: center !important;
+    }
+
+    .row.align-items-center .col-md-3 {
+        margin-right: 0 !important;
+        display: flex;
+        justify-content: center;
+    }
+
+    .row.align-items-center .col-md-9 {
+        text-align: center !important;
+        padding-left: 0 !important;
+    }
+
+    .text-start {
+        text-align: center !important;
+    }
+
+    .about-bg-image {
+        display: none;
     }
 }
 </style>

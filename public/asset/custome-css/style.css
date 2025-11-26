@@ -1182,7 +1182,7 @@ b {
     }
     .joinUsAbout {
         background-color: #8A7356;
-        height: 70vh;
+        height: 30vh;
     }
     .joinUs-p {
         width: 20rem;
@@ -1868,15 +1868,16 @@ footer ul li a:hover {
     }
 
     .hero-section h1.herotaxt {
-        font-size: 1.35rem !important;
+        font-size: 2.35rem !important;
+        margin-top: 10px !important;
         line-height: 1.2 !important;
-        margin-bottom: 0.5rem !important;
+        margin-bottom: 10px !important;
     }
 
     .hero-section .hero-subtext {
-        font-size: 0.75rem !important;
+        font-size: 14px !important;
         line-height: 1.4 !important;
-        margin-bottom: 1rem !important;
+        margin-bottom: 30px !important;
     }
 }
 

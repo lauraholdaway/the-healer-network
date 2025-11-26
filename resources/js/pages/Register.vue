@@ -4,15 +4,20 @@
         <img src="/public/asset/images/Sign.svg" alt="" class="d-none d-lg-block" style="position: absolute; bottom: 0; left: 0; width: 440px; height: auto; z-index: 0;" />
 
         <div class="cards shadow p-4 my-5 rounded-5" style="max-width: 650px; width: 100%; position: relative; z-index: 10; background-color: white;">
-            <div class="row mb-0 align-items-center">
-                <!-- Logo (show first on mobile) -->
-                <div class="text-center mb-3">
-                <router-link to="/" class="healer-network-title-link" style="text-decoration: none !important; border-bottom: none !important;">
+            <div class="mb-3 d-flex align-items-center justify-content-between" style="margin-left: -1rem; margin-right: -1rem; padding-left: 1rem; padding-right: 1rem;">
+                <router-link to="/" class="back-btn" style="text-decoration: none; color: #5B4C3A; display: flex; align-items: center; margin-right: auto; padding-left: 0;">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 8px;">
+                        <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <span>Back To Home</span>
+                </router-link>
+                <router-link to="/" class="healer-network-title-link" style="text-decoration: none !important; border-bottom: none !important; margin-left: auto;">
                     <div class="logo-container">
                         <img src="/public/asset/images/logo.svg" alt="Logo" class="login-logo">
                     </div>
                 </router-link>
             </div>
+            <div class="row mb-0 align-items-center">
 
                 <!-- Sign Up text (show after logo on mobile) -->
                 <div class="col-md-9 order-2 order-md-1 text-center text-md-start">
@@ -155,6 +160,17 @@ async function onSubmit() {
 </script>
 
 <style scoped>
+.back-btn {
+    transition: all 0.3s ease;
+    padding: 8px 12px;
+    border-radius: 8px;
+}
+
+.back-btn:hover {
+    background-color: #F4EFE6;
+    color: #5B4C3A;
+}
+
 .logo-container {
     display: inline-block;
     background: transparent;
@@ -175,20 +191,146 @@ async function onSubmit() {
 
 /* Mobile responsive - keeping exact same UI design */
 @media (max-width: 768px) {
+    .cards {
+        max-width: 100% !important;
+        padding: 1.5rem !important;
+        margin: 1rem 0 !important;
+    }
+
+    .back-btn {
+        font-size: 14px;
+        padding: 6px 10px;
+    }
+
+    .back-btn svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .login-logo {
+        height: 50px;
+        max-width: 200px;
+    }
+
+    h3.m-color {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .text-center.text-md-start p {
+        text-align: center !important;
+        margin: 0 auto !important;
+        max-width: 100% !important;
+        font-size: 12px !important;
+    }
+
     .form-control {
         font-size: 16px; /* Prevents zoom on iOS */
+        padding: 10px 12px;
     }
-    .btn {
+
+    .form-label {
+        font-size: 12px !important;
+    }
+
+    .btn.main-btn {
         font-size: 16px; /* Prevents zoom on iOS */
+        padding: 10px 20px !important;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .d-flex.justify-content-between.align-items-center.mt-4 {
+        flex-direction: column;
+        align-items: stretch !important;
+        gap: 15px;
+    }
+
+    .text-end {
+        text-align: center !important;
+        width: 100%;
+    }
+
+    .row .col-md-6 {
+        margin-bottom: 1rem;
     }
 }
 
 @media (max-width: 576px) {
+    .cards {
+        max-width: 100% !important;
+        padding: 1.25rem !important;
+        margin: 0.5rem 0 !important;
+        border-radius: 20px !important;
+    }
+
+    .back-btn {
+        font-size: 13px;
+        padding: 5px 8px;
+    }
+
+    .back-btn svg {
+        width: 16px;
+        height: 16px;
+        margin-right: 6px !important;
+    }
+
+    .login-logo {
+        height: 45px;
+        max-width: 180px;
+    }
+
+    h3.m-color {
+        font-size: 22px;
+        text-align: center;
+    }
+
+    .text-center.text-md-start p {
+        text-align: center !important;
+        margin: 0 auto !important;
+        max-width: 100% !important;
+        font-size: 11px !important;
+        padding: 0 10px;
+    }
+
     .form-control {
         font-size: 16px; /* Prevents zoom on iOS */
+        padding: 10px 12px;
     }
-    .btn {
-        font-size: 16px; /* Prevents zoom on iOS */
+
+    .form-label {
+        font-size: 12px !important;
+    }
+
+    .btn.main-btn {
+        font-size: 15px; /* Prevents zoom on iOS */
+        padding: 10px 18px !important;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .d-flex.justify-content-between.align-items-center.mt-4 {
+        flex-direction: column;
+        align-items: stretch !important;
+        gap: 12px;
+    }
+
+    .text-end {
+        text-align: center !important;
+        width: 100%;
+    }
+
+    .text-end span,
+    .text-end a {
+        font-size: 12px !important;
+    }
+
+    hr {
+        margin-top: -5px !important;
+    }
+
+    .row .col-md-6 {
+        margin-bottom: 1rem;
     }
 }
 </style>

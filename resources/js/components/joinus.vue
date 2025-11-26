@@ -37,6 +37,86 @@ import JoinUsicon from '/public/asset/images/JoinUsicon.svg';
 </script>
 
 <style scoped>
+/* Mobile responsive styles */
+@media (max-width: 768px) {
+  .joinUs {
+    text-align: center;
+    padding: 2rem 1rem;
+    max-height: 300px;
+  }
+
+  .joinUs .row {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .joinUs .col-md-8 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .joinUs .col-md-4 {
+    justify-content: center !important;
+    width: 100%;
+  }
+
+  .joinUs h1 {
+    font-size: 28px !important;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .joinUs-p {
+    font-size: 14px !important;
+    text-align: center;
+    margin: 1rem auto 0;
+    max-width: 100%;
+  }
+
+  .btn-join-us {
+    position: relative !important;
+    left: auto !important;
+    transform: none !important;
+    margin: 0 auto;
+    padding: 12px 24px;
+    font-size: 16px !important;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .btn-join-us svg {
+    width: 18px !important;
+    height: 18px !important;
+    margin-left: 8px !important;
+  }
+
+  .joinus-bg-image {
+    display: none;
+  }
+}
+
+@media (max-width: 576px) {
+  .joinUs h1 {
+    font-size: 24px !important;
+  }
+
+  .joinUs-p {
+    font-size: 13px !important;
+  }
+
+  .btn-join-us {
+    padding: 10px 20px;
+    font-size: 14px !important;
+  }
+
+  .btn-join-us svg {
+    width: 16px !important;
+    height: 16px !important;
+  }
+}
+
 @media (min-width: 1300px) {
   .joinUs h1 {
     font-size: 45px !important;

@@ -129,6 +129,8 @@ function limitWords(text, count) {
 }
 .footer-container .container {
   text-align: left;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 .footer-main {
@@ -390,134 +392,332 @@ function limitWords(text, count) {
 
   .footer-section {
     padding-right: 20px;
+    padding-top: 40px;
+  }
+
+  .footer-logo {
+    padding-top: 20px;
   }
 
   .subscribe-description {
     font-size: 11px;
+  }
+}
+
+/* Medium Tablets */
+@media (min-width: 769px) and (max-width: 992px) {
+  .footer-container {
+    padding: 60px 20px 25px;
+  }
+
+  .footer-main {
+    flex-wrap: wrap;
+    gap: 25px;
+  }
+
+  .footer-logo {
+    flex: 0 0 100%;
+    border-right: none;
+    border-bottom: 2px solid #DED1BA;
+    padding-bottom: 25px;
+    text-align: center;
+    justify-content: center;
+  }
+
+  .footer-section {
+    flex: 0 0 calc(50% - 12.5px);
+    border-right: 1px solid #DED1BA;
+    padding-top: 0;
+  }
+
+  .subscribe-section {
+    flex: 0 0 100%;
+    border-right: none;
+    border-top: 2px solid #DED1BA;
+    padding-top: 25px;
+    margin-top: 0;
   }
 }
 
 /* Tablets */
 @media (max-width: 768px) {
   .footer-container {
-    padding: 50px 0 25px;
+    padding: 50px 15px 25px;
+  }
+
+  .footer-container .container {
+    padding: 0;
   }
 
   .footer-main {
     flex-direction: column;
     gap: 25px;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-logo {
+    border-right: none;
+    border-bottom: none;
+    padding-right: 0;
+    padding-left: 0;
+    padding-bottom: 25px;
+    padding-top: 0;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .footer-logo img {
+    max-width: 200px;
+    width: auto;
+    height: auto;
   }
 
   .footer-section {
     border-right: none;
-    border-bottom: 2px solid #DED1BA;
+    border-bottom: none;
     padding-right: 0;
+    padding-left: 0;
+    padding-top: 0;
     padding-bottom: 25px;
     flex: 1;
+    width: 100%;
+    text-align: center;
+  }
+
+  .first-section {
+    padding-top: 0;
+  }
+
+  .support-section {
+    border-right: none;
   }
 
   .subscribe-section {
     border-bottom: none;
     padding-bottom: 0;
+    text-align: center;
   }
 
   .section-title {
     font-size: 17px;
-  }
-
-  .footer-links a {
-    font-size: 13px;
-  }
-
-  .subscribe-description {
-    font-size: 12px;
-  }
-
-  .footer-bottom {
-    flex-direction: column;
-    gap: 20px;
     text-align: center;
+    margin-left: 0;
+    padding-left: 0;
   }
 
-  .social-section {
-    flex-direction: column;
-    gap: 12px;
+  .section-title::after {
+    display: none;
   }
 
-  .copyright {
-    font-size: 13px;
-  }
-}
-
-/* Mobile Devices */
-@media (max-width: 576px) {
-  .footer-container {
-    padding: 40px 0 20px;
-  }
-
-  .footer-main {
-    gap: 20px;
-  }
-
-  .footer-logo img {
-    max-width: 90px;
-  }
-
-  .footer-section {
-    padding-bottom: 20px;
-  }
-
-  .section-title {
-    font-size: 16px;
-    margin-bottom: 12px;
+  .footer-links {
+    text-align: center;
+    padding: 0;
+    margin: 0 auto;
+    display: inline-block;
   }
 
   .footer-links li {
-    margin-bottom: 10px;
+    text-align: center;
   }
 
   .footer-links a {
-    font-size: 12px;
+    font-size: 13px;
   }
 
   .subscribe-description {
-    font-size: 11px;
-    line-height: 1.5;
-    margin-bottom: 20px;
+    font-size: 12px;
+    text-align: center;
+    max-width: 100%;
   }
 
   .subscribe-form {
     flex-direction: column;
     align-items: stretch;
     gap: 12px;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .email-input {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .subscribe-btn {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+    align-items: center;
+  }
+
+  .social-section {
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    width: 100%;
+  }
+
+  .social-icons {
+    justify-content: center;
+  }
+
+  .copyright {
+    font-size: 13px;
+    text-align: center;
+    width: 100%;
+  }
+}
+
+/* Mobile Devices */
+@media (max-width: 576px) {
+  .footer-container {
+    padding: 40px 15px 20px;
+  }
+
+  .footer-container .container {
+    padding: 0;
+    max-width: 100%;
+  }
+
+  .footer-main {
+    gap: 20px;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+  }
+
+  .footer-logo {
+    padding-bottom: 20px;
+    padding-top: 0;
+    width: 100%;
+  }
+
+  .footer-logo img {
+    max-width: 180px;
+    width: auto;
+    height: auto;
+  }
+
+  .footer-section {
+    padding-bottom: 20px;
+    padding-top: 0;
+    text-align: center;
+    width: 100%;
+  }
+
+  .section-title {
+    font-size: 16px;
+    margin-bottom: 12px;
+    text-align: center;
+    margin-left: 0;
+    padding-left: 0;
+  }
+
+  .section-title::after {
+    display: none;
+  }
+
+  .footer-links {
+    text-align: center;
+    padding: 0;
+    margin: 0 auto;
+    display: inline-block;
+    list-style: none;
+  }
+
+  .footer-links li {
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .footer-links a {
+    font-size: 12px;
+    display: inline-block;
+  }
+
+  .subscribe-section {
+    text-align: center;
+    width: 100%;
+  }
+
+  .subscribe-description {
+    font-size: 11px;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    text-align: center;
+    max-width: 100%;
+    padding: 0 10px;
+  }
+
+  .subscribe-form {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
 
   .email-input {
     padding: 12px 18px;
     font-size: 13px;
+    width: 100%;
+    box-sizing: border-box;
   }
 
   .subscribe-btn {
     width: 100%;
     padding: 12px 24px;
     font-size: 13px;
+    box-sizing: border-box;
   }
 
   .footer-separator {
     margin: 25px 0;
+    display: block;
+    width: 100%;
   }
 
   .footer-bottom {
     padding-top: 15px;
     gap: 15px;
+    text-align: center;
+    align-items: center;
+    width: 100%;
+    flex-direction: column;
   }
 
   .copyright {
     font-size: 12px;
+    text-align: center;
+    width: 100%;
+    word-wrap: break-word;
+  }
+
+  .social-section {
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    flex-direction: column;
+    gap: 12px;
   }
 
   .social-text {
     font-size: 13px;
+    text-align: center;
+  }
+
+  .social-icons {
+    justify-content: center;
+    display: flex;
+    gap: 8px;
   }
 
   .social-icon {
@@ -534,15 +734,41 @@ function limitWords(text, count) {
 /* Extra Small Devices */
 @media (max-width: 380px) {
   .footer-container {
-    padding: 30px 0 15px;
+    padding: 30px 10px 15px;
+  }
+
+  .footer-container .container {
+    padding: 0;
   }
 
   .footer-logo img {
-    max-width: 75px;
+    max-width: 140px;
+    width: auto;
+  }
+
+  .footer-section {
+    text-align: center;
+    padding-bottom: 18px;
   }
 
   .section-title {
     font-size: 15px;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  .section-title::after {
+    display: none;
+  }
+
+  .footer-links {
+    text-align: center;
+    padding: 0;
+    margin: 0 auto;
+  }
+
+  .footer-links li {
+    margin-bottom: 8px;
   }
 
   .footer-links a {
@@ -551,17 +777,48 @@ function limitWords(text, count) {
 
   .subscribe-description {
     font-size: 10px;
+    text-align: center;
+    padding: 0 5px;
+    line-height: 1.4;
+  }
+
+  .subscribe-form {
+    gap: 10px;
   }
 
   .email-input,
   .subscribe-btn {
     font-size: 12px;
     padding: 10px 16px;
+    width: 100%;
+    box-sizing: border-box;
   }
 
-  .copyright,
+  .footer-separator {
+    margin: 20px 0;
+  }
+
+  .footer-bottom {
+    gap: 12px;
+    padding-top: 12px;
+  }
+
+  .copyright {
+    font-size: 11px;
+    text-align: center;
+    line-height: 1.4;
+    padding: 0 5px;
+  }
+
   .social-text {
     font-size: 11px;
+    text-align: center;
+  }
+
+  .social-section {
+    align-items: center;
+    text-align: center;
+    gap: 10px;
   }
 
   .social-icon {
@@ -569,8 +826,14 @@ function limitWords(text, count) {
     height: 28px;
   }
 
+  .social-icon img {
+    width: 12px;
+    height: 12px;
+  }
+
   .social-icons {
     gap: 6px;
+    justify-content: center;
   }
 }
 </style>

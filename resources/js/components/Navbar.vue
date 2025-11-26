@@ -734,8 +734,8 @@ const handleMobileRedirect = async () => {
     .book-now-btn.mobile {
         width: 100%;
         justify-content: center;
-        background: #5B4C3A !important;
-        background-color: #5B4C3A !important;
+        background: #C4B39A !important;
+        background-color: #C4B39A !important;
         color: #2E2D29 !important;
         border-radius: 8px;
         padding: 12px 18px;

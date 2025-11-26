@@ -160,9 +160,9 @@ function logout() {
         </div>
 
         <!-- Admin Verification Screen -->
-        <div v-else>
-            <div class="d-flex justify-content-center">
-                <div class="card" style="width: 30rem;">
+        <div v-else class="admin-verification-container">
+            <div class="d-flex justify-content-center align-items-center min-vh-100 p-3">
+                <div class="card admin-verification-card">
                     <div class="card-body">
                         <h5 class="card-title Seasons-fonts">Hi : {{ auth?.user?.name }} {{ auth?.user?.last_name }}
                         </h5>
@@ -474,7 +474,7 @@ function logout() {
 .mobile-menu-toggle {
     display: none;
     position: fixed;
-    top: 80px;
+    top: 20px;
     right: 20px;
     z-index: 1100;
     background: #F4EFE6;
@@ -545,8 +545,13 @@ function logout() {
         pointer-events: all;
     }
 
+    .userdashboard-container {
+        padding: 0;
+    }
+
     .userdashboard-container .row {
         min-height: auto;
+        margin: 0;
     }
 
     .userdashboard-container .col-md-3 {
@@ -558,6 +563,7 @@ function logout() {
         z-index: 1050;
         transition: left 0.3s ease;
         padding: 0;
+        overflow-y: auto;
     }
 
     .userdashboard-container .col-md-3.sidebar-wrapper.active {
@@ -567,19 +573,85 @@ function logout() {
     .userdashboard-card {
         height: 100vh;
         border-radius: 0;
+        padding: 20px 15px;
+        overflow-y: auto;
+    }
+
+    .userdashboard-menu {
+        margin-top: 15px;
+    }
+
+    .userdashboard-menu .btn {
+        font-size: 14px;
+        padding: 10px 12px;
+        margin-bottom: 8px;
+    }
+
+    .menu-icon {
+        width: 20px;
+        height: 20px;
     }
 
     .userdashboard-container .col-md-9 {
         width: 100%;
         max-width: 100%;
+        flex: 0 0 100%;
         padding: 80px 15px 20px 15px;
         max-height: none;
+        overflow-x: hidden;
+    }
+
+    .logout-modal {
+        width: 90vw;
+        max-width: 400px;
+        padding: 30px 20px;
+    }
+
+    .modal-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .cancel-btn,
+    .confirm-btn {
+        width: 100%;
+        min-width: auto;
+    }
+
+    .admin-verification-container {
+        min-height: 100vh;
+        background: #f5f0eb;
+        padding: 20px;
+    }
+
+    .admin-verification-card {
+        width: 100% !important;
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .card {
+        width: 100% !important;
+        max-width: 100%;
+        margin: 15px;
+    }
+
+    .card-body {
+        padding: 20px 15px;
+    }
+
+    .card-title {
+        font-size: 20px;
+    }
+
+    .card-text {
+        font-size: 14px;
     }
 }
 
 @media (max-width: 768px) {
     .mobile-menu-toggle {
-        top: 75px;
+        top: 15px;
         right: 15px;
         width: 40px;
         height: 40px;
@@ -598,20 +670,74 @@ function logout() {
         padding: 20px 15px;
     }
 
+    .userdashboard-menu {
+        margin-top: 10px;
+    }
+
     .userdashboard-menu .btn {
         padding: 10px 12px;
         font-size: 14px;
+        margin-bottom: 8px;
     }
 
     .menu-icon {
         width: 20px;
         height: 20px;
     }
+
+    .userdashboard-container .col-md-9 {
+        padding: 75px 12px 15px 12px;
+    }
+
+    .logout-modal {
+        width: 95vw;
+        padding: 25px 18px;
+    }
+
+    .modal-icon svg {
+        width: 60px;
+        height: 60px;
+    }
+
+    .modal-title,
+    .logout-modal h4 {
+        font-size: 20px;
+    }
+
+    .modal-message {
+        font-size: 14px;
+    }
+
+    .admin-verification-container {
+        padding: 15px;
+    }
+
+    .admin-verification-card {
+        width: 100% !important;
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .card {
+        margin: 10px;
+    }
+
+    .card-body {
+        padding: 15px 12px;
+    }
+
+    .card-title {
+        font-size: 18px;
+    }
+
+    .card-text {
+        font-size: 13px;
+    }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 576px) {
     .mobile-menu-toggle {
-        top: 70px;
+        top: 12px;
         right: 12px;
         width: 38px;
         height: 38px;
@@ -630,6 +756,10 @@ function logout() {
         padding: 15px 10px;
     }
 
+    .userdashboard-menu {
+        margin-top: 10px;
+    }
+
     .userdashboard-menu .btn {
         padding: 8px 10px;
         font-size: 13px;
@@ -643,6 +773,156 @@ function logout() {
 
     .userdashboard-container .col-md-9 {
         padding: 70px 10px 15px 10px;
+    }
+
+    .logout-modal {
+        width: 95vw;
+        padding: 20px 15px;
+        border-radius: 15px;
+    }
+
+    .close-btn {
+        top: 10px;
+        right: 15px;
+        width: 28px;
+        height: 28px;
+        font-size: 16px;
+    }
+
+    .modal-icon {
+        margin-bottom: 15px;
+    }
+
+    .modal-icon svg {
+        width: 50px;
+        height: 50px;
+    }
+
+    .logout-modal h4 {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .modal-message {
+        font-size: 13px;
+        margin-bottom: 20px;
+        padding: 0 5px;
+    }
+
+    .modal-buttons {
+        gap: 8px;
+        margin-top: 20px;
+    }
+
+    .cancel-btn,
+    .confirm-btn {
+        padding: 10px 20px;
+        font-size: 13px;
+    }
+
+    .admin-verification-container {
+        padding: 10px;
+    }
+
+    .admin-verification-card {
+        width: 100% !important;
+        max-width: 100%;
+        margin: 0;
+    }
+
+    .card {
+        margin: 10px 5px;
+        border-radius: 12px;
+    }
+
+    .card-body {
+        padding: 15px 10px;
+    }
+
+    .card-title {
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    .card-text {
+        font-size: 12px;
+        margin-bottom: 15px;
+    }
+
+    .card-body h4 {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    .card-body h1 {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+
+    .logout-btn {
+        font-size: 12px;
+        padding: 8px 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .mobile-menu-toggle {
+        top: 20px;
+        right: 10px;
+        width: 35px;
+        height: 35px;
+    }
+
+    .mobile-menu-toggle span {
+        width: 18px;
+        height: 2px;
+    }
+
+    .userdashboard-container .col-md-3 {
+        width: 220px;
+    }
+
+    .userdashboard-card {
+        padding: 12px 8px;
+    }
+
+    .userdashboard-menu .btn {
+        padding: 7px 8px;
+        font-size: 12px;
+        margin-bottom: 6px;
+    }
+
+    .menu-icon {
+        width: 16px;
+        height: 16px;
+    }
+
+    .userdashboard-container .col-md-9 {
+        padding: 65px 8px 12px 8px;
+    }
+
+    .logout-modal {
+        width: 98vw;
+        padding: 18px 12px;
+    }
+
+    .modal-icon svg {
+        width: 45px;
+        height: 45px;
+    }
+
+    .logout-modal h4 {
+        font-size: 16px;
+    }
+
+    .modal-message {
+        font-size: 12px;
+    }
+
+    .cancel-btn,
+    .confirm-btn {
+        padding: 9px 18px;
+        font-size: 12px;
     }
 }
 </style>

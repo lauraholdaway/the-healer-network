@@ -269,6 +269,13 @@ function formatTime(time) {
 @media (max-width: 768px) {
     .col-md-12 {
         padding: 15px;
+        margin-top: 1rem !important;
+    }
+
+    .section-header {
+        gap: 10px !important;
+        margin-bottom: 10px;
+        flex-wrap: wrap;
     }
 
     .section-header h5 {
@@ -278,63 +285,163 @@ function formatTime(time) {
     .section-header svg {
         width: 20px;
         height: 23px;
+        flex-shrink: 0;
     }
 
     .booking-card {
-        padding: 12px;
-        gap: 12px;
+        padding: 15px;
+        gap: 15px;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        width: 100%;
+        margin: 0.75rem 0;
+    }
+
+    .booking-left {
+        width: 100% !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .booking-thumb {
+        width: 100% !important;
+        max-width: 100%;
+        height: auto !important;
+        min-height: 200px;
+        max-height: 400px;
+        object-fit: contain;
+        border-radius: 10px;
+        display: block;
+    }
+
+    .booking-middle {
+        width: 100% !important;
+        flex: 1 1 auto;
     }
 
     .booking-title {
         font-size: 18px;
+        margin-bottom: 12px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+    }
+
+    .practitioner {
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+    }
+
+    .practitioner .ms-3 {
+        margin-left: 0 !important;
+        flex: 1;
     }
 
     .practitioner-avatar {
         width: 35px;
         height: 35px;
+        flex-shrink: 0;
     }
 
     .practitioner-name {
         font-size: 14px;
         font-weight: 500;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
 
     .rating {
         font-size: 13px;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+    }
+
+    .booking-right {
+        width: 100% !important;
+        text-align: left !important;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
     }
 
     .date-chip {
-        font-size: 10px;
-        padding: 6px 10px;
+        font-size: 11px;
+        padding: 8px 12px;
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
     }
 
     .date-chip svg {
         width: 14px;
         height: 16px;
+        flex-shrink: 0;
+    }
+
+    .chips {
+        justify-content: flex-start !important;
+        margin-top: 12px;
+        flex-wrap: wrap;
+        gap: 8px;
+        width: 100%;
     }
 
     .chip {
-        padding: 3px 8px;
+        padding: 4px 10px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        flex-shrink: 0;
     }
 
     .chip svg {
         width: 28px;
         height: 28px;
+        flex-shrink: 0;
     }
 
     .tag {
         font-size: 11px;
+        white-space: nowrap;
+    }
+
+    .empty-state {
+        margin: 0 !important;
+        width: 100%;
+    }
+
+    .empty-state .booking-card {
+        margin: 0.75rem 0 !important;
+    }
+
+    hr {
+        margin: 15px 0 !important;
+    }
+
+    .loading-container {
+        padding: 20px;
+        text-align: center;
     }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 576px) {
     .col-md-12 {
         padding: 10px;
         margin-top: 10px !important;
     }
 
     .section-header {
-        gap: 10px !important;
+        gap: 8px !important;
+        margin-bottom: 8px;
+        flex-wrap: wrap;
     }
 
     .section-header h5 {
@@ -344,44 +451,110 @@ function formatTime(time) {
     .section-header svg {
         width: 18px;
         height: 20px;
+        flex-shrink: 0;
     }
 
     .booking-card {
-        padding: 10px;
-        gap: 10px;
+        padding: 12px;
+        gap: 12px;
+        flex-direction: column !important;
+        align-items: stretch !important;
+        width: 100%;
+        margin: 0.5rem 0;
+    }
+
+    .booking-left {
+        width: 100% !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
 
     .booking-thumb {
-        height: 150px;
+        width: 100% !important;
+        max-width: 100%;
+        height: auto !important;
+        min-height: 180px;
+        max-height: 350px;
+        object-fit: contain;
+        border-radius: 10px;
+        display: block;
+    }
+
+    .booking-middle {
+        width: 100% !important;
+        flex: 1 1 auto;
     }
 
     .booking-title {
         font-size: 16px;
+        margin-bottom: 10px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        line-height: 1.3;
     }
 
     .practitioner {
+        flex-direction: row;
+        align-items: center;
         gap: 8px;
+        flex-wrap: wrap;
+    }
+
+    .practitioner .ms-3 {
+        margin-left: 0 !important;
+        flex: 1;
+        min-width: 0;
     }
 
     .practitioner-avatar {
         width: 32px;
         height: 32px;
+        flex-shrink: 0;
     }
 
     .practitioner-name {
         font-size: 13px;
         font-weight: 500;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        line-height: 1.4;
     }
 
     .rating {
         font-size: 12px;
+        display: flex;
+        align-items: center;
+        gap: 3px;
+        margin-top: 4px;
+    }
+
+    .rating svg {
+        width: 12px;
+        height: 11px;
+    }
+
+    .booking-right {
+        width: 100% !important;
+        text-align: left !important;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
     }
 
     .date-chip {
-        font-size: 9px;
-        padding: 5px 8px;
+        font-size: 10px;
+        padding: 6px 10px;
         white-space: normal;
         text-align: center;
+        width: 100%;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        line-height: 1.3;
     }
 
     .date-chip svg {
@@ -391,21 +564,30 @@ function formatTime(time) {
     }
 
     .chips {
-        gap: 8px;
+        gap: 6px;
         flex-wrap: wrap;
+        justify-content: flex-start !important;
+        margin-top: 10px;
+        width: 100%;
     }
 
     .chip {
-        padding: 2px 6px;
+        padding: 3px 8px;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        flex-shrink: 0;
     }
 
     .chip svg {
         width: 24px;
         height: 24px;
+        flex-shrink: 0;
     }
 
     .tag {
         font-size: 10px;
+        white-space: nowrap;
     }
 
     .empty-card {
@@ -418,6 +600,28 @@ function formatTime(time) {
     }
 
     .empty-card .text-muted {
+        font-size: 14px;
+    }
+
+    .empty-state {
+        margin: 0 !important;
+        width: 100%;
+    }
+
+    .empty-state .booking-card {
+        margin: 0.5rem 0 !important;
+    }
+
+    hr {
+        margin: 12px 0 !important;
+    }
+
+    .loading-container {
+        padding: 15px;
+        text-align: center;
+    }
+
+    .loading-text {
         font-size: 14px;
     }
 }

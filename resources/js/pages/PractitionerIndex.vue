@@ -4,7 +4,7 @@
         <div class="container-fluid practitionerindex">
             <div class="container p-5">
                 <div class="row mt-md-5">
-                    <div class="col-md-6">
+                    <div class="col-md-6 text-center text-md-start">
                         <p class="  practitionerindextext mt-md-3"
                             style="font-size: 50px; line-height: 1.2; font-family: 'TheSeasons', serif !important; font-weight: 400; color: #7D684E;">
                             Join Us as a <br> Healer
@@ -57,7 +57,7 @@
         <div class="container">
             <div class="row my-5">
                 <div
-                    class="col-md-6  practitionerabout d-flex flex-column justify-content-center align-items-start p-4">
+                    class="col-md-6  practitionerabout d-flex flex-column justify-content-center align-items-start align-items-md-start align-items-center p-4 text-center text-md-start">
 
                     <p><svg width="48" height="57" viewBox="0 0 48 57" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -309,16 +309,155 @@
 
 /* Responsive height adjustments */
 @media (max-width: 768px) {
+    .practitionerindex {
+        padding: 1rem 0;
+    }
+
+    .practitionerindex .container {
+        padding: 2rem 1rem !important;
+    }
+
+    .practitionerindextext {
+        font-size: 32px !important;
+        text-align: center;
+        line-height: 1.3 !important;
+    }
+
+    .practitionerindextext + p {
+        font-size: 18px !important;
+        max-width: 100% !important;
+        margin-top: 20px !important;
+        text-align: center;
+    }
+
+    .apply-now-btn {
+        width: 100% !important;
+        max-width: 270px;
+        margin: 20px auto 0 !important;
+        display: block;
+    }
+
     .practitionerindeximage1 {
         height: 400px;
         margin-top: 2rem;
     }
+
+    .practitionerabout {
+        text-align: center !important;
+        align-items: center !important;
+        padding: 2rem 1rem !important;
+    }
+
+    .practitionerabout b {
+        font-size: 32px !important;
+        text-align: center;
+    }
+
+    .practitionerabout p {
+        font-size: 14px !important;
+        text-align: center;
+        max-width: 100%;
+    }
+
+    .practitioneraboutimage {
+        margin-bottom: 2rem;
+    }
+
+    .practitioneraboutimage img {
+        width: 100%;
+        height: auto;
+        border-radius: 15px;
+    }
+
+    .cta-bg-image {
+        display: none;
+    }
 }
 
 @media (max-width: 576px) {
+    .practitionerindex {
+        padding: 0.5rem 0;
+    }
+
+    .practitionerindex .container {
+        padding: 1.5rem 0.75rem !important;
+    }
+
+    .practitionerindextext {
+        font-size: 28px !important;
+        text-align: center;
+        line-height: 1.3 !important;
+        margin-top: 1rem !important;
+    }
+
+    .practitionerindextext + p {
+        font-size: 16px !important;
+        max-width: 100% !important;
+        margin-top: 15px !important;
+        text-align: center;
+        padding: 0 10px;
+    }
+
+    .apply-now-btn {
+        width: 100% !important;
+        max-width: 250px;
+        margin: 15px auto 0 !important;
+        display: block;
+        font-size: 14px !important;
+        padding: 10px 25px !important;
+    }
+
     .practitionerindeximage1 {
         height: 300px;
         margin-top: 1.5rem;
+    }
+
+    .practitionerabout {
+        text-align: center !important;
+        align-items: center !important;
+        padding: 1.5rem 0.75rem !important;
+    }
+
+    .practitionerabout b {
+        font-size: 28px !important;
+        text-align: center;
+    }
+
+    .practitionerabout p {
+        font-size: 13px !important;
+        text-align: center;
+        max-width: 100%;
+        margin-bottom: 30px !important;
+    }
+
+    .practitionerabout button {
+        width: 100%;
+        max-width: 200px;
+        margin: 0 auto;
+    }
+
+    .practitioneraboutimage {
+        margin-bottom: 1.5rem;
+    }
+
+    .practitioneraboutimage img {
+        width: 100%;
+        height: auto;
+        border-radius: 15px;
+    }
+
+    .benefits-container {
+        max-width: 100% !important;
+        width: 100% !important;
+        padding: 0 0.5rem;
+    }
+
+    .how-it-works-container {
+        padding: 1rem 0.5rem !important;
+    }
+
+    .cta-bg-image {
+        display: none;
     }
 }
 
@@ -439,6 +578,12 @@
     .practitioner-text-content {
         font-size: 1.2rem;
         font-family: 'TheSeasons', serif !important;
+        text-align: center;
+    }
+
+    .practitionerindexBox {
+        padding: 2.5rem 1.5rem !important;
+        margin: 1.5rem 0 !important;
     }
     
     .leaf-icon {
@@ -456,6 +601,7 @@
         font-size: 1rem;
         line-height: 1.5;
         font-family: 'TheSeasons', serif !important;
+        text-align: center;
     }
     
     .leaf-icon {
@@ -468,7 +614,8 @@
     }
     
     .practitionerindexBox {
-        padding: 2rem 1.5rem;
+        padding: 2rem 1rem !important;
+        margin: 1rem 0 !important;
     }
 }
 
@@ -707,6 +854,7 @@
     .cta-title {
         font-size: 2rem;
         margin-bottom: 2rem;
+        padding: 0 1rem;
     }
 
     .cta-buttons {
@@ -725,16 +873,30 @@
         font-size: 0.9rem;
         padding: 0 1rem;
     }
+
+    .cta-bg-image {
+        display: none;
+    }
 }
 
 @media (max-width: 576px) {
     .cta-title {
         font-size: 1.8rem;
+        padding: 0 0.75rem;
     }
 
     .cta-btn {
         width: 180px;
         padding: 0.8rem 1.5rem;
+    }
+
+    .cta-subtext {
+        font-size: 0.85rem;
+        padding: 0 0.75rem;
+    }
+
+    .cta-bg-image {
+        display: none;
     }
 }
 

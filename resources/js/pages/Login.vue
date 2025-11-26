@@ -253,22 +253,164 @@ async function onSubmit() {
 
 /* Mobile responsive - keeping exact same UI design */
 @media (max-width: 768px) {
-    .form-control {
-        font-size: 16px; /* Prevents zoom on iOS */
+    .cards {
+        max-width: 100% !important;
+        padding: 1.5rem !important;
+        margin: 1rem 0 !important;
     }
 
-    .btn {
+    .back-btn {
+        font-size: 14px;
+        padding: 6px 10px;
+    }
+
+    .back-btn svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .login-logo {
+        height: 50px;
+        max-width: 200px;
+    }
+
+    h3.m-color {
+        font-size: 24px;
+        text-align: center;
+    }
+
+    .text-center.text-md-start p {
+        text-align: center !important;
+        margin: 0 auto !important;
+        max-width: 100% !important;
+        font-size: 12px !important;
+    }
+
+    .signin-toggle {
+        margin-bottom: 10px;
+    }
+
+    .option {
+        padding: 10px 15px;
+        font-size: 14px;
+    }
+
+    .form-control {
         font-size: 16px; /* Prevents zoom on iOS */
+        padding: 10px 12px;
+    }
+
+    .form-label {
+        font-size: 12px !important;
+    }
+
+    .btn.main-btn {
+        font-size: 16px; /* Prevents zoom on iOS */
+        padding: 10px 20px !important;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .d-flex.justify-content-between.align-items-center.mt-4 {
+        flex-direction: column;
+        align-items: stretch !important;
+        gap: 15px;
+    }
+
+    .text-end {
+        text-align: center !important;
+        width: 100%;
     }
 }
 
 @media (max-width: 576px) {
-    .form-control {
-        font-size: 16px; /* Prevents zoom on iOS */
+    .cards {
+        max-width: 100% !important;
+        padding: 1.25rem !important;
+        margin: 0.5rem 0 !important;
+        border-radius: 20px !important;
     }
 
-    .btn {
+    .back-btn {
+        font-size: 13px;
+        padding: 5px 8px;
+    }
+
+    .back-btn svg {
+        width: 16px;
+        height: 16px;
+        margin-right: 6px !important;
+    }
+
+    .login-logo {
+        height: 45px;
+        max-width: 180px;
+    }
+
+    h3.m-color {
+        font-size: 22px;
+        text-align: center;
+    }
+
+    .text-center.text-md-start p {
+        text-align: center !important;
+        margin: 0 auto !important;
+        max-width: 100% !important;
+        font-size: 11px !important;
+        padding: 0 10px;
+    }
+
+    .signin-toggle {
+        margin-bottom: 8px;
+    }
+
+    .option {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+
+    .option span {
+        font-size: 13px;
+    }
+
+    .form-control {
         font-size: 16px; /* Prevents zoom on iOS */
+        padding: 10px 12px;
+    }
+
+    .form-label {
+        font-size: 12px !important;
+    }
+
+    .btn.main-btn {
+        font-size: 15px; /* Prevents zoom on iOS */
+        padding: 10px 18px !important;
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .d-flex.justify-content-between.align-items-center.mt-4 {
+        flex-direction: column;
+        align-items: stretch !important;
+        gap: 12px;
+    }
+
+    .text-end {
+        text-align: center !important;
+        width: 100%;
+    }
+
+    .text-end span,
+    .text-end a {
+        font-size: 12px !important;
+    }
+
+    .invalid-feedback {
+        font-size: 11px !important;
+    }
+
+    hr {
+        margin-top: -5px !important;
     }
 }
 </style>

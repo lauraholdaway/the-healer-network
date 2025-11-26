@@ -846,18 +846,30 @@ const isSummaryTruncated = (text, index) => {
 @media (max-width: 768px) {
     .blog-header {
         flex-direction: column;
-        align-items: flex-start !important;
+        align-items: center !important;
         gap: 15px;
+        text-align: center;
+    }
+
+    .blog-header-text {
+        text-align: center;
+        width: 100%;
     }
 
     .blog-section-title {
         font-size: 26px;
+        text-align: center;
+    }
+
+    .section-sub {
+        text-align: center;
+        display: block;
     }
 
     .btn-view {
         font-size: 12px;
         padding: 12px 24px;
-        align-self: flex-start;
+        align-self: center;
     }
 
     .btn-view svg {
@@ -898,10 +910,23 @@ const isSummaryTruncated = (text, index) => {
 @media (max-width: 576px) {
     .blog-header {
         margin-bottom: 15px;
+        align-items: center !important;
+        text-align: center;
+    }
+
+    .blog-header-text {
+        text-align: center;
+        width: 100%;
     }
 
     .blog-section-title {
         font-size: 22px;
+        text-align: center;
+    }
+
+    .section-sub {
+        text-align: center;
+        display: block;
     }
 
     .btn-view {
@@ -1054,5 +1079,22 @@ const isSummaryTruncated = (text, index) => {
     background-color: #5B4C3A !important;
     color: #FBF9F7 !important;
     transition: all 0.3s ease;
+}
+
+/* Mobile view - Remove background image and add background color */
+@media (max-width: 768px) {
+    .hero-section {
+        background-image: none !important;
+        background-color: #DED1BA !important;
+        min-height: 60vh !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-section {
+        background-image: none !important;
+        background-color: #DED1BA !important;
+        min-height: 50vh !important;
+    }
 }
 </style>

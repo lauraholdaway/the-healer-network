@@ -289,6 +289,52 @@ const swiperModules = [];
       height: 90vh;
     }
   }
+
+  /* Tablet landscape (993px - 1199px) */
+  @media (min-width: 993px) and (max-width: 1199px) {
+    .copy-block {
+      padding: 2rem 2rem;
+    }
+
+    .slide-titlee {
+      font-size: 38px;
+      margin-left: 30px;
+    }
+
+    .slide-subtitle {
+      font-size: 0.95rem;
+      margin-left: 30px;
+    }
+
+    .slide-indicator {
+      margin-left: 30px;
+    }
+
+    .healing-card {
+      max-width: 280px;
+      height: 240px;
+      padding: 1.5rem;
+    }
+
+    .card-title {
+      font-size: 1.3rem;
+    }
+
+    .card-copy {
+      font-size: 11px;
+    }
+
+    .book-now {
+      bottom: 40px;
+      padding: 14px 26px;
+      font-size: 16px;
+    }
+
+    .book-now svg {
+      width: 20px;
+      height: 20px;
+    }
+  }
   
 .copy-block {
     padding: 2.5rem;
@@ -579,24 +625,51 @@ const swiperModules = [];
     opacity: 0;
   }
   
+  /* Tablet and below (992px and below) */
   @media (max-width: 992px) {
     .slide-wrapper {
       grid-template-columns: 1fr;
+      min-height: auto;
+      height: auto;
     }
   
     .image-block {
       order: -1;
-      min-height: 200px;
+      min-height: 300px;
+      height: 50vh;
     }
   
     .healing-card {
       max-width: 100%;
+      height: auto;
+      min-height: 200px;
+    }
+
+    .copy-block {
+      padding: 2rem 1.5rem;
+      gap: 1rem;
+    }
+
+    .slide-titlee {
+      font-size: 32px;
+      margin-left: 0;
+      max-width: 100%;
+      text-align: center;
+    }
+
+    .slide-subtitle {
+      font-size: 0.85rem;
+      margin-left: 0;
+      max-width: 100%;
+      text-align: center;
     }
 
   .card-area {
     flex-direction: column;
     align-items: center;
     gap: 1.5rem;
+    max-width: 100%;
+    margin-top: 1.5rem;
   }
 
   .slide-indicator {
@@ -604,15 +677,18 @@ const swiperModules = [];
     align-items: center;
     justify-content: center;
     text-align: center;
-   
+    margin-left: 0;
   }
 
   .indicator-stem {
-    height: 80px;
+    height: 60px;
+    width: 60px;
+    transform: rotate(90deg);
   }
 
   .card-nav {
     gap: 1.1rem;
+    justify-content: center;
   }
 
   .nav-button {
@@ -621,9 +697,227 @@ const swiperModules = [];
   }
 
   .arrow-icon {
-    width: 26px;
-    height: 26px;
+    width: 18px;
+    height: 18px;
   }
+
+  .book-now {
+    bottom: 30px;
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+
+  .book-now svg {
+    width: 18px;
+    height: 18px;
+  }
+  }
+
+  /* Mobile devices (768px and below) */
+  @media (max-width: 768px) {
+    .healing-slider-container {
+      margin-top: 0;
+    }
+
+    .slide-wrapper {
+      min-height: auto;
+      height: auto;
+    }
+
+    .copy-block {
+      padding: 1.5rem 1rem;
+      gap: 1rem;
+    }
+
+    .slide-titlee {
+      font-size: 28px;
+      line-height: 1.3;
+      margin-left: 0;
+    }
+
+    .slide-subtitle {
+      font-size: 0.8rem;
+      margin-left: 0;
+    }
+
+    .image-block {
+      min-height: 250px;
+      height: 40vh;
+    }
+
+    .healing-card {
+      padding: 1rem;
+      height: auto;
+      min-height: 180px;
+    }
+
+    .card-title {
+      font-size: 1.1rem;
+    }
+
+    .card-copy {
+      font-size: 9px;
+    }
+
+    .card-area {
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .slide-indicator {
+      gap: 0.5rem;
+    }
+
+    .indicator-count {
+      font-size: 1rem;
+    }
+
+    .indicator-total {
+      font-size: 0.9rem;
+    }
+
+    .indicator-stem {
+      height: 50px;
+      width: 50px;
+    }
+
+    .nav-button {
+      width: 32px;
+      height: 32px;
+    }
+
+    .arrow-icon {
+      width: 16px;
+      height: 16px;
+    }
+
+    .book-now {
+      bottom: 20px;
+      padding: 8px 16px;
+      font-size: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    .book-now svg {
+      width: 16px;
+      height: 16px;
+      margin-left: 4px;
+    }
+  }
+
+  /* Small mobile devices (576px and below) */
+  @media (max-width: 576px) {
+    .healing-center-overlay,
+    .healing-bottom-overlay {
+      display: none;
+    }
+
+    .copy-block {
+      padding: 1rem 0.75rem;
+      gap: 0.75rem;
+    }
+
+    .slide-titlee {
+      font-size: 24px;
+      line-height: 1.2;
+    }
+
+    .slide-subtitle {
+      font-size: 0.75rem;
+    }
+
+    .image-block {
+      min-height: 200px;
+      height: 35vh;
+    }
+
+    .healing-card {
+      padding: 0.75rem;
+      min-height: 160px;
+    }
+
+    .card-title {
+      font-size: 1rem;
+    }
+
+    .card-copy {
+      font-size: 8px;
+    }
+
+    .card-area {
+      gap: 0.75rem;
+      margin-top: 0.75rem;
+    }
+
+    .slide-indicator {
+      gap: 0.4rem;
+    }
+
+    .indicator-count {
+      font-size: 0.9rem;
+    }
+
+    .indicator-total {
+      font-size: 0.8rem;
+    }
+
+    .indicator-stem {
+      height: 40px;
+      width: 40px;
+    }
+
+    .nav-button {
+      width: 28px;
+      height: 28px;
+    }
+
+    .arrow-icon {
+      width: 14px;
+      height: 14px;
+    }
+
+    .book-now {
+      bottom: 15px;
+      padding: 6px 12px;
+      font-size: 11px;
+    }
+
+    .book-now svg {
+      width: 14px;
+      height: 14px;
+      margin-left: 3px;
+    }
+  }
+
+  /* Extra small devices (480px and below) */
+  @media (max-width: 480px) {
+    .slide-titlee {
+      font-size: 20px;
+    }
+
+    .slide-subtitle {
+      font-size: 0.7rem;
+    }
+
+    .healing-card {
+      padding: 0.6rem;
+      min-height: 140px;
+    }
+
+    .card-title {
+      font-size: 0.9rem;
+    }
+
+    .card-copy {
+      font-size: 7px;
+    }
+
+    .book-now {
+      bottom: 10px;
+      padding: 5px 10px;
+      font-size: 10px;
+    }
   }
 
 @media (min-width: 1400px) {
