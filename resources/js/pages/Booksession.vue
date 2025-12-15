@@ -1250,6 +1250,12 @@ watch(step, async (newStep) => {
             step.value-- // 🚫 stop here — do not move to next step
         }
     }
+    if (newStep === 3) {
+        if (!selectedTime.value || selectedTime.value.length === 0) {
+            alert("⚠️ First Select time !");
+            step.value-- // 🚫 stop here — do not move to next step
+        }
+    }
 });
 async function loaddoctor() {
     try {

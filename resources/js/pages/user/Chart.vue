@@ -2,7 +2,9 @@
 
 import { onMounted, ref, computed } from 'vue';
 import dayjs from "dayjs";
+import { useAuthStore } from '../../stores/auth';
 
+const authStore = useAuthStore();
 
 import axios from 'axios';
 // Use runtime strings to public assets to avoid Vite import resolution
@@ -37,8 +39,6 @@ const pastAppointments = computed(() =>
 
 
 onMounted(fetchAppointments);
-
-
 function formatTime(time) {
     return new Date(`1970-01-01T${time}`).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
 }
@@ -78,6 +78,9 @@ function formatTime(time) {
                         <div class="ms-3">
                             <span class="practitioner-name">{{ appointment.doctor?.name }}{{
                                 appointment.doctor?.last_name
+                                }}</span><br>
+                            <span class="practitioner-name">{{
+                                authStore.user?.email
                                 }}</span><br>
                             <span class="rating">
                                 <svg width="13" height="12" viewBox="0 0 13 12" fill="none"
@@ -179,6 +182,9 @@ function formatTime(time) {
                             <div class="ms-3">
                                 <span class="practitioner-name">{{ appointment.doctor?.name }}{{
                                     appointment.doctor?.last_name
+                                }}</span><br>
+                                <span class="practitioner-name">{{
+                                authStore.user?.email
                                 }}</span><br>
                                 <span class="rating">
                                     <svg width="13" height="12" viewBox="0 0 13 12" fill="none"

@@ -101,7 +101,7 @@
 
 
         <br>
-        <div class="container px-3">
+        <div class="container px-3 d-none">
 
             <h1 class="fw-bold section-heading mb-5 mt-2 mb-md-4 text-center text-md-start">
                 Meet The Founders
@@ -314,8 +314,8 @@
         <div class="container px-3">
             <div class="d-flex justify-content-center align-items-center py-4 py-md-5">
                 <div class="text-center mt-3 mt-md-4 mx-auto">
-                    <h1 class='text-white touch-heading'>Get In Touch With Us</h1>
-                    <p class="joinUs-p px-3" style="font-size: 14px; font-family:
+                    <h1 class='text-white touch-heading d-none'>Contact Us</h1>
+                    <p class="joinUs-p px-3 d-none" style="font-size: 14px; font-family:
 Cormorant Garamond; color: #F4EFE6; font-style: italic; ">Any questions? Check out our Practitioner <a href="#"
                             class="text-decoration-underline" style="color: white;">FAQs</a> or <a href="#"
                             class="text-decoration-underline" style="color: white;">get in touch</a>.</p>

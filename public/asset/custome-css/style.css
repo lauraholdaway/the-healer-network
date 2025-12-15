@@ -2224,3 +2224,67 @@ footer ul li a:hover {
     text-decoration: none !important;
     border-bottom: none !important;
 }
+
+/* Main container */
+.form-group {
+    max-width: 520px;
+    margin: 0 auto;
+    font-family: Inter, system-ui, Arial, sans-serif;
+}
+
+/* Label styling */
+.form-label-custom {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+/* Card input area */
+#card-element {
+    padding: 14px 16px;
+    min-height: 52px;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+    background-color: #ffffff;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    transition: all 0.2s ease-in-out;
+    font-size: 16px;
+}
+
+/* Focus style */
+#card-element:focus,
+#card-element:focus-within {
+    border-color: #6366f1;
+    box-shadow: 0 0 0 3px rgba(99,102,241,0.15);
+}
+
+/* Hover effect */
+#card-element:hover {
+    border-color: #c7d2fe;
+}
+
+/* Error state (add this class by JS if needed) */
+#card-element.error {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 3px rgba(239,68,68,0.15);
+}
+
+/* Success state (add this class by JS if needed) */
+#card-element.success {
+    border-color: #22c55e;
+    box-shadow: 0 0 0 3px rgba(34,197,94,0.15);
+}
+
+/* Mobile responsive */
+@media (max-width: 576px) {
+    #card-element {
+        padding: 12px 14px;
+        min-height: 48px;
+    }
+
+    .form-label-custom {
+        font-size: 14px;
+    }
+}

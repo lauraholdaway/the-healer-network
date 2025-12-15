@@ -132,7 +132,7 @@ import JoinUsicon from '/public/asset/images/JoinUsicon.svg';
   .btn-join-us {
     position: absolute;
        
-        left: 50%;
+        left: 30%;
         transform: translateX(-50%);
         z-index: 10;
         background: #fbf7f1;

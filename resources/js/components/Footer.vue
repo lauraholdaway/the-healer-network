@@ -45,7 +45,7 @@
             <!-- Footer Bottom -->
             <hr class="footer-separator">
             <div class="footer-bottom">
-                <div class="copyright">© All copyrights reserved - The Healar Network 2025</div>
+                <div class="copyright">© All copyrights reserved - The Healar Network 2025 </div>
                 <div class="social-section">
                     <span class="social-text">Follow Us On Socials</span>
                     <div class="social-icons">

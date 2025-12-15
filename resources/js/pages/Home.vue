@@ -329,9 +329,9 @@
                                     </div>
 
                                     <div class="blog-card-footer">
-                                        <a href="#" class="blog-membership-btn">
-                                            {{ blog.subscription }}
-                                        </a>
+                                        <router-link :to="'Membership'" class="blog-membership-btn">
+                                            {{ blog.subscription }} kk
+                                        </router-link>
                                         <router-link :to="`/blog/${blog.id}`" class="blog-read-more">Read
                                             More</router-link>
                                     </div>
@@ -441,7 +441,7 @@ const isSummaryTruncated = (text, index) => {
 <style scoped>
 .scroll-down {
     position: absolute;
-    bottom: -25px;
+    bottom: -42px;
     left: 50%;
     transform: translateX(-50%);
     z-index: 10;

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use App\Mail\NewsletterSubscribed;
 use App\Models\Subscription;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class SubscriptionController extends Controller
 {
@@ -12,28 +14,30 @@ class SubscriptionController extends Controller
     {
         // fetch all subscriptions; can add pagination or filtering
         $subscriptions = Subscription::orderBy('created_at', 'desc')->get();
+
         return view('admin.subscribe.index', compact('subscriptions'));
 
     }
 
-  public function store(Request $request)
-{
-    // Validate input
-    $validated = $request->validate([
-        'email' => 'required|email|unique:subscriptions,email',
-    ]);
+    public function store(Request $request)
+    {
+        $validated = $request->validate([
+            'email' => 'required|email|unique:subscriptions,email',
+        ]);
 
-    // Create subscription
-    $subscription = Subscription::create([
-        'email' => $validated['email'],
-    ]);
+        $subscription = Subscription::create([
+            'email' => $validated['email'],
+        ]);
 
-    // Return success response
-    return response()->json([
-        'message' => 'Email registration successful!',
-        'data' => $subscription
-    ], 201);
-}
+        // Send confirmation email
+        Mail::to($subscription->email)
+            ->send(new NewsletterSubscribed($subscription->email));
+
+        return response()->json([
+            'message' => 'Email registration successful! You are subscribed to the newsletter.',
+            'data' => $subscription,
+        ], 201);
+    }
 
     public function update(Request $request, string $id)
     {

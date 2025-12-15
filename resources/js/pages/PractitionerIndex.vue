@@ -70,13 +70,13 @@
                         A trusted community connecting the most skilled and heart-led healers with people seeking
                         support.
                     </p>
-                    <button class="btn-light main-btn2 px-3 about-us-btn"
+                    <router-link class="btn-light main-btn2 px-3 about-us-btn text-decoration-none" to="about"
                         style="font-family: 'TheSeasons', serif !important; font-weight: 400; color: #4F3C1E; background:#C1B39D; border: 1px solid transparent; transition: all 0.3s ease;">
                         About Us <svg style="margin-left: 4px; display: inline-block; vertical-align: middle;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
                             stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path d="M5 12h14M12 5l7 7-7 7" />
                         </svg>
-                    </button>
+                    </router-link>
                 </div>
 
                 <div class="col-md-6 ">
@@ -108,13 +108,13 @@
                         authenticity, and skill. Whether you’re an energy worker, counsellor, herbalist, or meditation
                         teacher, this is your space to grow.
                     </p>
-                    <button class=" btn-light main-btn2 px-3"
+                    <router-link class=" btn-light main-btn2 px-3 text-decoration-none"  to="practitor_register"
                         style="font-family: 'TheSeasons', serif !important; font-weight: 400; color: #4F3C1E; background:#C1B39D;">
                         Join Us <svg style="margin-left: 4px; display: inline-block; vertical-align: middle;" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
                             stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path d="M5 12h14M12 5l7 7-7 7" />
                         </svg>
-                    </button>
+                    </router-link>
                 </div>
             </div>
             <br><br>
@@ -208,7 +208,7 @@
 
                     <div class="how-it-works-card">
                         <h4 class="card-heading">Add client notes</h4>
-                        <p class="card-text">keep track of all your clients in one centralised place</p>
+                        <p class="card-text">Keep track of all your clients in one centralised place</p>
                     </div>
                 </div>
 

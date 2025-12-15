@@ -22,6 +22,7 @@ import Allblog from '../pages/Allblog.vue';
 import Corporate from '../pages/Corporate.vue';
 import Resources from '../pages/Resources.vue';
 import Consultation from '../pages/Consultation.vue';
+import Membership from '../pages/Membership.vue';
 
 
 import Docter from '../pages/docter.vue'
@@ -82,6 +83,7 @@ const routes = [
     { path: '/corporate', name: 'Corporate', component: Corporate, },
     { path: '/resources', name: 'Resources', component: Resources, },
     { path: '/consultation', name: 'Consultation', component: Consultation, },
+    { path: '/Membership', name: 'Membership', component: Membership, },
 
 
 
