@@ -174,6 +174,9 @@ function formatTime(time) {
                         <img :src="'/storage/' + appointment.doctor?.image || '/default-image.png'"
                             class="booking-thumb" alt="Natural Healing thumbnail">
                     </div>
+
+
+                    
                     <div class="booking-middle">
                         <h4 class="booking-title Seasons-fonts">{{ appointment.doctorpackage?.type }}</h4>
                         <div class="practitioner">

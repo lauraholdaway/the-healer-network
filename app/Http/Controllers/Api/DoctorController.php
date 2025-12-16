@@ -276,6 +276,8 @@ class DoctorController extends Controller
         $certification = $request->query('certification');
         $rating = $request->query('rating');
         $duration = $request->query('duration');
+        $currencytype = $request->query('currencytype');
+
 
         // 🔹 Get all modality IDs that match the search
         $modalityIds = Modality::where('title', 'like', "%{$modality}%")->pluck('id');
@@ -296,6 +298,9 @@ class DoctorController extends Controller
 
             ->when($price, function ($query) use ($price) {
                 $query->where('price', 'like', "%{$price}%");
+            })
+            ->when($currencytype, function ($query) use ($currencytype) {
+                $query->where('currency', 'like', "%{$currencytype}%");
             })
             ->when($language, function ($query) use ($language) {
                 $query->where('languages', 'like', "%{$language}%");

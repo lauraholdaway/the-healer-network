@@ -135,7 +135,8 @@ p.m-color {
             <div class="my-0 my-md-0 py-0 py-md-0">
                 <Alldoctorsearchbox />
             </div>
-            <div v-if="doctors">
+            <br>
+            <div v-if="doctors.length > 0">
                 <div v-if="loading" class="loading-container">
                     <div class="loading-bar">
                         <div class="loading-progress"></div>
@@ -174,7 +175,7 @@ p.m-color {
                                             {{ s?.title }}
                                         </p>
                                     </div>
-                                    <p class="price fw-bold mb-0"><span style="font-family: 'Roboto', sans-serif !important; padding-right: 7px;">$</span>{{ doctor.price }}</p>
+                                    <p class="price fw-bold mb-0"><span style="font-family: 'Roboto', sans-serif !important; padding-right: 7px;">$</span>{{ doctor.price }} {{ doctor.currency }}</p>
                                 </div>
                                 <p class="mb-4 doctor-card-summary text-start" :class="{ 'expanded': showFull[index] }"
                                     :style="showFull[index] ? 'font-size: 18px; color: #5B4C3A; word-wrap: break-word; overflow-wrap: break-word; max-width: 100%;' : 'font-size: 18px; color: #5B4C3A; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%;'">
@@ -219,7 +220,10 @@ p.m-color {
                 </div>
             </div>
             <div v-else class="text-center">
-                <b class="main-color">No Have Healar</b>
+                <hr>
+                <b class="main-color my-5 py-5">No Have Healar Found </b>
+                <hr>
+<br>
             </div>
         </div>
     </section>
@@ -253,6 +257,7 @@ const loadDoctors = async () => {
                 certification: route.query.certification || "",
                 rating: route.query.rating || "",
                 duration: route.query.duration || "",
+                currencytype: route.query.currencytype || "",
             },
         });
         doctors.value = res.data;

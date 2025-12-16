@@ -591,6 +591,41 @@
                         </div>
                     </div>
 
+                     <!-- Gender -->
+                    <div class="filter-item-compact custom-dropdown"
+                        :class="{ 'dropdown-open': openDropdown === 'gender' }" @click.stop>
+                        <div class="filter-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </div>
+                        <div class="custom-dropdown-wrapper">
+                            <div class="custom-dropdown-trigger" @click="toggleDropdown('gender')">
+                                <span class="dropdown-text">{{ getDisplayText('gender') }}</span>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6"
+                                    class="dropdown-arrow" :class="{ 'rotated': openDropdown === 'gender' }">
+                                    <path d="M1 1L5 5L9 1" stroke="#5B4C3A" stroke-width="2" fill="none"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                </svg>
+                            </div>
+                            <transition name="dropdown-fade">
+                                <div v-show="openDropdown === 'gender'" class="custom-dropdown-menu">
+                                    <div class="dropdown-header">{{ filterOptions.gender.label }}</div>
+                                    <div class="dropdown-options">
+                                        <div v-for="option in filterOptions.gender.options" :key="option.value"
+                                            class="dropdown-option"
+                                            :class="{ 'selected': form.gender === option.value }"
+                                            @click="selectOption('gender', option.value)">
+                                            {{ option.label }}
+                                        </div>
+                                    </div>
+                                </div>
+                            </transition>
+                        </div>
+                    </div>
                     <!-- Price per session -->
                     <div class="filter-item-compact custom-dropdown"
                         :class="{ 'dropdown-open': openDropdown === 'price' }" @click.stop>
@@ -626,34 +661,33 @@
                         </div>
                     </div>
 
-                    <!-- Gender -->
+                     <!-- Currency type -->
                     <div class="filter-item-compact custom-dropdown"
-                        :class="{ 'dropdown-open': openDropdown === 'gender' }" @click.stop>
+                        :class="{ 'dropdown-open': openDropdown === 'currencytype' }" @click.stop>
                         <div class="filter-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
                                 fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
                                 stroke-linejoin="round">
-                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                                <circle cx="12" cy="7" r="4"></circle>
+                                <line x1="12" y1="1" x2="12" y2="23"></line>
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
                             </svg>
                         </div>
                         <div class="custom-dropdown-wrapper">
-                            <div class="custom-dropdown-trigger" @click="toggleDropdown('gender')">
-                                <span class="dropdown-text">{{ getDisplayText('gender') }}</span>
+                            <div class="custom-dropdown-trigger" @click="toggleDropdown('currencytype')">
+                                <span class="dropdown-text">{{ getDisplayText('currencytype') }}</span>
                                 <svg xmlns="http://www.w3.org/2000/svg" width="10" height="6" viewBox="0 0 10 6"
-                                    class="dropdown-arrow" :class="{ 'rotated': openDropdown === 'gender' }">
+                                    class="dropdown-arrow" :class="{ 'rotated': openDropdown === 'currencytype' }">
                                     <path d="M1 1L5 5L9 1" stroke="#5B4C3A" stroke-width="2" fill="none"
                                         stroke-linecap="round" stroke-linejoin="round" />
                                 </svg>
                             </div>
                             <transition name="dropdown-fade">
-                                <div v-show="openDropdown === 'gender'" class="custom-dropdown-menu">
-                                    <div class="dropdown-header">{{ filterOptions.gender.label }}</div>
+                                <div v-show="openDropdown === 'currencytype'" class="custom-dropdown-menu">
+                                    <div class="dropdown-header">{{ filterOptions.currencytype.label }}</div>
                                     <div class="dropdown-options">
-                                        <div v-for="option in filterOptions.gender.options" :key="option.value"
-                                            class="dropdown-option"
-                                            :class="{ 'selected': form.gender === option.value }"
-                                            @click="selectOption('gender', option.value)">
+                                        <div v-for="option in filterOptions.currencytype.options" :key="option.value"
+                                            class="dropdown-option" :class="{ 'selected': form.currencytype === option.value }"
+                                            @click="selectOption('currencytype', option.value)">
                                             {{ option.label }}
                                         </div>
                                     </div>
@@ -661,6 +695,8 @@
                             </transition>
                         </div>
                     </div>
+
+                   
 
                     <!-- Language -->
                     <div class="filter-item-compact custom-dropdown"
@@ -922,6 +958,16 @@ const filterOptions = {
             { value: "200+", label: "$200+" },
         ]
     },
+    currencytype: {
+        label: "Currency Type",
+        options: [
+            { value: "", label: "Type" },
+            { value: "USD", label: "USD" },
+            { value: "EUR", label: "EUR" },
+            { value: "GBP", label: "GBP" },
+            { value: "JPY", label: "JPY" },
+        ]
+    },
     gender: {
         label: "Gender",
         options: [
@@ -983,6 +1029,7 @@ const form = ref({
     duration: null,
     price: null,
     gender: null,
+    currencytype: null,
     language: null,
     accessibility: null,
     certification: null,
@@ -996,6 +1043,7 @@ const searchDoctor = () => {
     if (form.value.duration) query.duration = form.value.duration;
     if (form.value.price) query.price = form.value.price;
     if (form.value.gender) query.gender = form.value.gender;
+    if (form.value.currencytype) query.currencytype = form.value.currencytype;
     if (form.value.language) query.language = form.value.language;
     if (form.value.accessibility) query.accessibility = form.value.accessibility;
     if (form.value.certification) query.certification = form.value.certification;
@@ -1020,6 +1068,7 @@ const clearFilters = () => {
         duration: "",
         price: "",
         gender: "",
+        currencytype: "",
         language: "",
         accessibility: "",
         certification: "",

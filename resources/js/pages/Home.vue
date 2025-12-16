@@ -29,15 +29,15 @@
 
 
             <!-- Scroll Down -->
-            <div class="scroll-down">
+            
+
+
+        </section>
+<div class="d-flex justify-content-center">
                 <router-link to="/Alldoctor" class="scroll-down__btn">
                     <span class="scroll-down__label scroll-down__label--display">View All Healers</span>
                 </router-link>
             </div>
-
-
-        </section>
-
 
         <!-- Hero Section 2 -->
         <!-- <section class="hero-section-2 d-flex align-items-center justify-content-center text-center">
@@ -45,6 +45,8 @@
         </section> -->
 
 
+    
+    </br>
 
         <section class="w-100 bg-[#FBF9F7] py-5 py-md-8">
             <div class="container px-3">
