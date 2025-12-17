@@ -6,8 +6,8 @@
                     <img src="/public/asset/images/about11.png" class="img-fluid rounded-4 mt-3 m-md-0" alt=""
                         style="max-height: 500px; object-fit: cover; width: 100%;">
                     <p class="position-absolute top-50 start-50 translate-middle text-white  hero-text">
-                        We’re On A Mission To Make 
-                        <br class="d-none d-md-inline"> Holistic Healing  
+                        We’re On A Mission To Make
+                        <br class="d-none d-md-inline"> Holistic Healing
                         <br class="d-none d-md-inline">Accessible For
                         Everyone.
                         <br>
@@ -581,20 +581,7 @@ onMounted(async () => {
     opacity: 0.8;
 }
 
-.contact-btn {
-    background-color: white;
-    color: #2E2D29;
-    border-radius: 10px;
-    font-family: 'TheSeasons', serif !important;
-    transition: all 0.3s ease;
-}
 
-.contact-btn:hover {
-    background-color: #8A7356 !important;
-    color: white !important;
-    transform: scale(1.05);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-}
 
 /* Card Hover Effects */
 .bg-white:hover {

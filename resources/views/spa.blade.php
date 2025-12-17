@@ -13,7 +13,8 @@
   <!-- ✅ Custom CSS (after bootstrap so overrides work) -->
   <link rel="stylesheet" href="{{ asset('asset/custome-css/style.css') }}">
   <link rel="stylesheet" href="{{ asset('asset/custome-css/all.min.css') }}">
-
+<link href="https://fonts.cdnfonts.com/css/cormorant-garamond" rel="stylesheet">
+                
   <!-- ✅ Bootstrap Icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
