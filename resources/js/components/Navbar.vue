@@ -61,18 +61,12 @@
                         <div v-if="activeDropdown === 'resources'" class="dropdown-menu">
                             <router-link to="/resources" class="dropdown-item" @click="closeMobileMenu">Free Resources</router-link>
                             <router-link to="/membership" class="dropdown-item" @click="closeMobileMenu">Membership</router-link>
-                            <router-link to="/Allblog" class="dropdown-item" @click="closeMobileMenu">Blogs</router-link>
+                            <router-link to="/StaticBlogs" class="dropdown-item" @click="closeMobileMenu">Blogs</router-link>
                         </div>
                     </div>
 
                     <router-link to="/corporate" class="nav-link" @click="closeMobileMenu">Corporate</router-link>
                     
-                   
-
-                  
-
-                  
-
                     <!-- Mobile Book Now Button (Inside mobile menu) -->
                     <div class="mobile-book-now">
                         <button v-if="!isAuthenticated" @click="handleMobileLogin" class="book-now-btn mobile">

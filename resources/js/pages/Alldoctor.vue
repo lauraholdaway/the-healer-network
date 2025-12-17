@@ -29,7 +29,7 @@
                         class="btn btn-outline-success btn-outline-custome mb-2" style="transition: all 0.3s ease;"
                         onmouseover="this.style.backgroundColor='#5B4C3A'; this.style.color='white'; this.style.borderColor='#5B4C3A'"
                         onmouseout="this.style.backgroundColor='transparent'; this.style.color='#4B4032'; this.style.borderColor='#C1B39D'">{{
-    modalitie?.title }}</button>
+                        modalitie?.title }}</button>
                 </div>
             </div>
 
@@ -59,23 +59,30 @@
                                             stroke-linejoin="round" />
                                     </svg>
                                 </div>
-                                <div class="position-absolute bottom-0 mb-3" style="left: 50%; transform: translateX(-50%);">
+                                <div class="position-absolute bottom-0 mb-3"
+                                    style="left: 50%; transform: translateX(-50%);">
                                     <DoctorTage :doctor="doctor" />
                                 </div>
                             </div>
                         </div>
                         <div class="doctor-content-wrapper flex-grow-1 d-flex align-items-center">
                             <div class="w-100" style="overflow: hidden; word-wrap: break-word; max-width: 100%;">
-                                <h3 class="mb-4" style="font-family: 'TheSeasons', serif !important; font-weight: 400; font-size: 32px; text-align: left; word-wrap: break-word; overflow-wrap: break-word; max-width: 100%;">{{ doctor.user?.name }} {{
-                                    doctor.user?.last_name }}</h3>
-                                <div class="d-flex flex-column flex-md-row justify-content-between align-items-start mb-4 gap-2">
+                                <h3 class="mb-4"
+                                    style="font-family: 'TheSeasons', serif !important; font-weight: 400; font-size: 32px; text-align: left; word-wrap: break-word; overflow-wrap: break-word; max-width: 100%;">
+                                    {{ doctor.user?.name }} {{
+                                        doctor.user?.last_name }}</h3>
+                                <div
+                                    class="d-flex flex-column flex-md-row justify-content-between align-items-start mb-4 gap-2">
                                     <div class="d-flex flex-wrap gap-1">
-                                        <p class="docter-type px-2 px-md-3 py-1 m-0" style="font-size: 14px; color: #F4EFE6;"
+                                        <p class="docter-type px-2 px-md-3 py-1 m-0"
+                                            style="font-size: 14px; color: #F4EFE6;"
                                             v-for="(s, index) in doctor.modalities">
                                             {{ s?.title }}
                                         </p>
                                     </div>
-                                    <p class="price fw-bold mb-0"><span style="font-family: 'Roboto', sans-serif !important; padding-right: 7px;">$</span>{{ doctor.price }}</p>
+                                    <p class="price fw-bold mb-0"><span
+                                            style="font-family: 'Roboto', sans-serif !important; padding-right: 7px;">$</span>{{
+                                        doctor.price }}</p>
                                 </div>
                                 <p class="mb-4 doctor-card-summary text-start" :class="{ 'expanded': showFull[index] }"
                                     :style="showFull[index] ? 'font-size: 18px; color: #5B4C3A; word-wrap: break-word; overflow-wrap: break-word; max-width: 100%;' : 'font-size: 18px; color: #5B4C3A; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%;'">
@@ -310,12 +317,12 @@ p.m-color {
     .card-body {
         flex-direction: column !important;
     }
-    
+
     .doctor-image-container {
         width: 100%;
         padding: 1rem;
     }
-    
+
     .doctor-image-wrapper {
         width: 100% !important;
         height: auto;
@@ -323,7 +330,7 @@ p.m-color {
         max-width: 358px;
         margin: 0 auto;
     }
-    
+
     .doctor-content-wrapper {
         width: 100%;
         padding: 1rem;

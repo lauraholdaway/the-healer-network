@@ -29,15 +29,15 @@
 
 
             <!-- Scroll Down -->
-            
+
 
 
         </section>
-<div class="d-flex justify-content-center">
-                <router-link to="/Alldoctor" class="scroll-down__btn">
-                    <span class="scroll-down__label scroll-down__label--display">View All Healers</span>
-                </router-link>
-            </div>
+        <div class="d-flex justify-content-center">
+            <router-link to="/Alldoctor" class="scroll-down__btn">
+                <span class="scroll-down__label scroll-down__label--display">View All Healers</span>
+            </router-link>
+        </div>
 
         <!-- Hero Section 2 -->
         <!-- <section class="hero-section-2 d-flex align-items-center justify-content-center text-center">
@@ -45,8 +45,8 @@
         </section> -->
 
 
-    
-    </br>
+
+        </br>
 
         <section class="w-100 bg-[#FBF9F7] py-5 py-md-8">
             <div class="container px-3">
@@ -171,9 +171,9 @@
                 <!-- Cards -->
                 <div class="row g-4 px-3 px-md-2 py-3 py-md-0 mt-0">
                     <Swiper ref="swiperRef" :slides-per-view="3" :space-between="20" :loop="true" :navigation="{
-                    nextEl: nextBtn,
-                    prevEl: prevBtn,
-                }" :autoplay="{ delay: 3000 }" :breakpoints="{
+                        nextEl: nextBtn,
+                        prevEl: prevBtn,
+                    }" :autoplay="{ delay: 3000 }" :breakpoints="{
                     0: { slidesPerView: 1 },      // Mobile
                     768: { slidesPerView: 2 },    // Tablet
                     1024: { slidesPerView: 3 }    // Desktop
@@ -237,7 +237,9 @@
                                                 {{ s?.title }}
                                             </p>
                                         </div>
-                                        <p class="price"><span style="font-family: 'Roboto', sans-serif !important; padding-right: 7px;">$</span>{{ doctor?.price }}</p>
+                                        <p class="price"><span
+                                                style="font-family: 'Roboto', sans-serif !important; padding-right: 7px;">$</span>{{
+                                            doctor?.price }}</p>
                                     </div>
 
                                     <h5 class="card-title fw-bold" style="font-size: 24px;  font-weight: 600;">{{
@@ -263,8 +265,8 @@
                                                 <path d="M11.5 1.5L19 9L11.5 1.5ZM19 9L11.5 16.5L19 9ZM19 9L1 9L19 9Z"
                                                     fill="#2E2D29" />
                                                 <path d="M11.5 1.5L19 
-                                                9M19 9L11.5 16.5M19 9L1 9" stroke="#2E2D29"
-                                                    stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+                                                9M19 9L11.5 16.5M19 9L1 9" stroke="#2E2D29" stroke-width="1.5"
+                                                    stroke-linecap="round" stroke-linejoin="round" />
                                             </svg>
                                         </span>
                                     </router-link>
@@ -287,8 +289,7 @@
             <div class="container py- blog-container mt-md-4 px-4 px-md-0 ">
                 <div class="blog-header d-flex justify-content-between align-items-center">
                     <div class="blog-header-text">
-                        <small class="section-sub "
-                            style="font-family: 'TheSeasons', serif; color: #8A7356">Our
+                        <small class="section-sub " style="font-family: 'TheSeasons', serif; color: #8A7356">Our
                             Blogs</small>
                         <h1 class="blog-section-title  "
                             style="font-size: 40px; font-family: 'Courier New', Courier, monospace; color:#7D684E;">
@@ -308,10 +309,10 @@
                 <div class="row g-2 mt-3">
                     <Swiper ref="swiperRef2" :slides-per-view="3" :space-between="10" :loop="true"
                         :autoplay="{ delay: 3000 }" :breakpoints="{
-                        0: { slidesPerView: 1 },      // Mobile
-                        768: { slidesPerView: 2 },    // Tablet
-                        1024: { slidesPerView: 3 }    // Desktop
-                    }" class="mySwiper">
+                            0: { slidesPerView: 1 },      // Mobile
+                            768: { slidesPerView: 2 },    // Tablet
+                            1024: { slidesPerView: 3 }    // Desktop
+                        }" class="mySwiper">
 
                         <!-- Blog Card -->
                         <SwiperSlide class="col-lg-4 col-md-6 col-sm-12 p-1 p-md-2" v-for="(blog, index) in blogs"
@@ -469,6 +470,7 @@ const isSummaryTruncated = (text, index) => {
     justify-content: center;
     transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
 }
+
 @media (min-width: 1300px) and (max-width: 3200px) {
     .scroll-down__btn {
         padding: 16px 40px;
@@ -477,6 +479,7 @@ const isSummaryTruncated = (text, index) => {
         min-width: 280px;
     }
 }
+
 .scroll-down__label--display {
     font-family: 'TheSeasons', serif !important;
     font-weight: 400;
@@ -670,7 +673,7 @@ const isSummaryTruncated = (text, index) => {
     margin: 10px auto;
     display: block;
     transition: filter 0.3s ease;
-    
+
 }
 
 .blog-card-body {
@@ -1028,15 +1031,16 @@ const isSummaryTruncated = (text, index) => {
         font-size: 11px;
     }
 }
-@media (max-width: 1300px)  {
-.btn-view-all-practitioners {
-    background-color: #FBF9F7;
-    border: 1px solid #C1B39D;
-    border-radius: 30px;
-    color: #2E2D29;
-    font-family: 'TheSeasons', serif;
-    padding: 10px 20px;
-}
+
+@media (max-width: 1300px) {
+    .btn-view-all-practitioners {
+        background-color: #FBF9F7;
+        border: 1px solid #C1B39D;
+        border-radius: 30px;
+        color: #2E2D29;
+        font-family: 'TheSeasons', serif;
+        padding: 10px 20px;
+    }
 }
 
 @media (min-width: 1300px) {

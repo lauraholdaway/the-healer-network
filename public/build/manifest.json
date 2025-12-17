@@ -95,6 +95,18 @@
     "file": "assets/back-arrow-t1xPhXEN.svg",
     "src": "public/asset/images/back-arrow.svg"
   },
+  "public/asset/images/blogs-photo.png": {
+    "file": "assets/blogs-photo-VkGbJWhW.png",
+    "src": "public/asset/images/blogs-photo.png"
+  },
+  "public/asset/images/blogs2.png": {
+    "file": "assets/blogs2-Fj9NDs0c.png",
+    "src": "public/asset/images/blogs2.png"
+  },
+  "public/asset/images/blogs3.png": {
+    "file": "assets/blogs3-Bjjo7ZOX.png",
+    "src": "public/asset/images/blogs3.png"
+  },
   "public/asset/images/cardicon.svg": {
     "file": "assets/cardicon-BsIJ8Maw.svg",
     "src": "public/asset/images/cardicon.svg"
@@ -130,6 +142,10 @@
   "public/asset/images/coporate (4).png": {
     "file": "assets/coporate (4)-B18lgJmP.png",
     "src": "public/asset/images/coporate (4).png"
+  },
+  "public/asset/images/corporateMainImages.png": {
+    "file": "assets/corporateMainImages-Ctq1wHpH.png",
+    "src": "public/asset/images/corporateMainImages.png"
   },
   "public/asset/images/d.png": {
     "file": "assets/d-C5_a7i-z.png",
@@ -196,7 +212,7 @@
     "src": "public/asset/images/xicon.svg"
   },
   "resources/js/app.js": {
-    "file": "assets/app-CFhlNXhv.js",
+    "file": "assets/app-UG169AUM.js",
     "name": "app",
     "src": "resources/js/app.js",
     "isEntry": true,
@@ -206,7 +222,7 @@
       "_vendor-swiper-DoHUoWKH.js"
     ],
     "css": [
-      "assets/app-4-cuEON7.css"
+      "assets/app-BE8ltA1g.css"
     ],
     "assets": [
       "assets/arrowlift-jUjrU256.svg",
@@ -243,11 +259,15 @@
       "assets/quiz-WZI6A8r1.png",
       "assets/back-arrow-t1xPhXEN.svg",
       "assets/dark-logo-J4faPVfN.png",
+      "assets/corporateMainImages-Ctq1wHpH.png",
       "assets/coporate (4)-B18lgJmP.png",
       "assets/coporate (1)-CuLBmKuB.png",
       "assets/coporate (2)-BTf5i1p_.png",
       "assets/coporate (3)-Cp3sUBE7.png",
       "assets/svglogo-C3nP5fHI.svg",
+      "assets/blogs-photo-VkGbJWhW.png",
+      "assets/blogs2-Fj9NDs0c.png",
+      "assets/blogs3-Bjjo7ZOX.png",
       "assets/d-C5_a7i-z.png",
       "assets/facebookicon-CGUtrek3.svg",
       "assets/instagramicon-nuiD9KB1.svg",

@@ -23,6 +23,7 @@ import Corporate from '../pages/Corporate.vue';
 import Resources from '../pages/Resources.vue';
 import Consultation from '../pages/Consultation.vue';
 import Membership from '../pages/Membership.vue';
+import StaticBlogs from '../pages/StaticBlogs.vue'
 
 
 import Docter from '../pages/docter.vue'
@@ -84,6 +85,7 @@ const routes = [
     { path: '/resources', name: 'Resources', component: Resources, },
     { path: '/consultation', name: 'Consultation', component: Consultation, },
     { path: '/Membership', name: 'Membership', component: Membership, },
+    { path: '/StaticBlogs', name: 'StaticBlogs', component: StaticBlogs, },
 
 
 

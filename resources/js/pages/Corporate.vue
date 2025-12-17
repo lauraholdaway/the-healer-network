@@ -84,7 +84,7 @@
   <section style="background-color: #FBF9F7; min-height: 100vh;">
     <div class="bg-custome p-3 p-md-5">
       <div class="container p-3 p-md-5 position-relative text-center">
-        <img src="/public/asset/images/about11.png" class="img-fluid rounded-4 mt-3 m-md-0" alt=""
+        <img src="/public/asset/images/corporateMainImages.png" class="img-fluid rounded-4 mt-3 m-md-0" alt=""
           style="max-height: 700px; object-fit: cover; width: 100%;">
         <div class="position-absolute top-50 start-50 translate-middle text-white   w-75">
           <p class="hero-text">
@@ -155,7 +155,8 @@
             <img src="/public/asset/images/coporate (2).png" class="coprate-img img-fluid rounded-4" alt="">
             <p class="f-32 Seasons-fonts mt-4">One Day or Multi Day Immersions</p>
             <p>Bring in specialist practitioners for transformative wellbeing experiences that <br> leave your team
-              refreshed and reconnected.</p>
+              refreshed and  reconnected.</p>
+              <br>
           </div>
         </div>
         <div class="col-md-6 ">

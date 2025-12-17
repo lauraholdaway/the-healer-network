@@ -92,6 +92,9 @@ b {
 .f-48 {
     font-size: 48px !important;
 }
+.f-40 {
+    font-size: 40px !important;
+}
 .f-32 {
     font-size: 32px !important;
 }
@@ -2335,5 +2338,8 @@ footer ul li a:hover {
 }
 .f-24 {
     font-size: 12px !important;
+}
+.f-40 {
+    font-size: 20px !important;
 }
 }
