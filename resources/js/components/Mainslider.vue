@@ -910,7 +910,7 @@ const swiperModules = [];
     }
 
     .card-copy {
-      font-size: 7px;
+      font-size: 10px;
     }
 
     .book-now {

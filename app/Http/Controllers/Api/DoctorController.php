@@ -251,12 +251,13 @@ class DoctorController extends Controller
                 ->whereHas('modalities', function ($query) use ($id) {
                     $query->where('modalities.id', $id);
                 })
+                ->whereHas('user', function ($query) {
+                    $query->where('status', 1);
+                })
                 ->get();
         } else {
             $practitioners = Practitioner::with(['user', 'modalities'])->get();
         }
-
-
         return response()->json($practitioners);
     }
 

@@ -24,6 +24,10 @@ import Resources from '../pages/Resources.vue';
 import Consultation from '../pages/Consultation.vue';
 import Membership from '../pages/Membership.vue';
 import StaticBlogs from '../pages/StaticBlogs.vue'
+import HealarFAQ from '../pages/policy/HealarFAQ.vue';
+import UserFAQ from '../pages/policy/UserFAQ.vue';
+import Terms from '../pages/policy/Terms.vue';
+import Policy from '../pages/policy/Policy.vue';
 
 
 import Docter from '../pages/docter.vue'
@@ -86,6 +90,12 @@ const routes = [
     { path: '/consultation', name: 'Consultation', component: Consultation, },
     { path: '/Membership', name: 'Membership', component: Membership, },
     { path: '/StaticBlogs', name: 'StaticBlogs', component: StaticBlogs, },
+    { path: '/HealarFAQ', name: 'HealarFAQ', component: HealarFAQ, },
+    { path: '/UserFAQ', name: 'UserFAQ', component: UserFAQ, },
+    { path: '/Terms', name: 'Terms', component: Terms, },
+    { path: '/Terms', name: 'Terms', component: Terms, },
+    { path: '/Policy', name: 'Policy', component: Policy, },
+
 
 
 

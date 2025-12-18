@@ -1084,8 +1084,9 @@
 
                                 <!-- Terms and Privacy -->
                                 <div class="terms-text">
-                                    By clicking Pay, you agree to the <a href="#" class="terms-link">Terms</a> and <a
-                                        href="#" class="terms-link">Privacy Policy</a>.
+                                    By clicking Pay, you agree to the <router-link to="/Terms" class="terms-link">Terms</router-link>
+                                     and <router-link
+                                        to="/Policy" class="terms-link">Privacy Policy</router-link>.
                                 </div>
                             </div>
                         </div>

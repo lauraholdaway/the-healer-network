@@ -23,9 +23,9 @@
                 <div class="footer-section support-section">
                     <h6 class="section-title">Support</h6>
                     <ul class="footer-links">
-                        <li><a href="#">Client FAQs</a></li>
-                        <li><a href="#">Healer FAQs</a></li>
-                        <li><a href="contact">Get In Touch</a></li>
+                        <li><router-link to="/HealarFAQ">Client FAQs</router-link></li>
+                        <li><router-link to="/UserFAQ">Healer FAQs</router-link></li>
+                        <li><router-link to="/Contact">Get In Touch</router-link></li>
                     </ul>
                 </div>
 
@@ -45,7 +45,7 @@
             <!-- Footer Bottom -->
             <hr class="footer-separator">
             <div class="footer-bottom">
-                <div class="copyright">© All copyrights reserved - The Healar Network 2025 </div>
+                <div class="copyright">© All copyrights reserved - The Healar Network 2026 </div>
                 <div class="social-section">
                     <span class="social-text">Follow Us On Socials</span>
                     <div class="social-icons">

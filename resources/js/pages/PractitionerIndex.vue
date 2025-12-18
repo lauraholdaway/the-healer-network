@@ -226,8 +226,9 @@
                     <router-link to="practitor_register" class="cta-btn cta-btn-primary" style="font-family: 'TheSeasons', serif !important; font-weight: 400;   border: 1px solid transparent; transition: all 0.3s ease;">Apply Now</router-link>
                     <!-- <router-link to="PractitionerIndex" class="cta-btn cta-btn-secondary" style="font-family: 'TheSeasons', serif !important; font-weight: 400;   border: 1px solid transparent; transition: all 0.3s ease;">Book A Demo</router-link> -->
                 </div>
-                <p class="cta-subtext" style="font-family: 'TheSeasons', serif !important; font-weight: 400; ">Any questions? Check out our <a href="#" class="cta-link">Practitioner FAQs</a>
-                    or <a href="#" class="cta-link">get in touch</a>.</p>
+                <p class="cta-subtext" style="font-family: 'TheSeasons', serif !important; font-weight: 400; ">Any questions? Check out our
+                     <router-link to="HealarFAQ" class="cta-link">Healar FAQs</router-link>
+                    or <router-link to="/contact" class="cta-link">get in touch</router-link>.</p>
             </div>
         </div>
         <div class="cta-bg-image">

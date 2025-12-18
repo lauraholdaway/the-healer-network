@@ -275,7 +275,7 @@ b {
     .search-box input[placeholder*="Locations"] {
         width: 200px !important;
         height: 45px !important;
-        font-size: 0.9rem !important;
+        font-size: 1.2rem !important;
         padding: 10px 15px !important;
     }
 
@@ -1668,8 +1668,8 @@ footer ul li a:hover {
 }
 
 .form-control::placeholder {
-    color: #DED1BA !important;
-    font-size: 12px !important;
+    color: #000000 !important;
+    font-size: 13px !important;
     white-space: pre-line !important;
 }
 

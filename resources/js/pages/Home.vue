@@ -568,6 +568,7 @@ const isSummaryTruncated = (text, index) => {
         padding: 0.55rem 1.4rem;
         font-size: 0.8rem;
         gap: 0.6rem;
+        margin-top:10px;
     }
 
     .scroll-down__icon {
@@ -1103,4 +1104,9 @@ const isSummaryTruncated = (text, index) => {
         min-height: 50vh !important;
     }
 }
+::placeholder {
+  color: #000000 !important;
+  opacity: 1;       /* important for Firefox */
+}
+
 </style>

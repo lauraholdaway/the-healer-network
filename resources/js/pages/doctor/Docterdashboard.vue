@@ -171,7 +171,7 @@ function logout() {
                         </p>
                         <h4>Admin Verifying ..... </h4>
 
-                        <h1>{{ auth.user.status }}</h1>
+                        <!-- <h1>{{ auth.user.status }}</h1> -->
                         <div class="text-end">
                             <a href="#" @click="logout" class="logout-btn btn">Logout</a>
                         </div>
