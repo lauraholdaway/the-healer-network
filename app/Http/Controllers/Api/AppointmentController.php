@@ -97,17 +97,17 @@ class AppointmentController extends Controller
             }
 
 
-            // ✅ Step 6: Send email to user with meeting info
+             
             // Build the email message dynamically
             $messageBody = "
                 Dear {$appointment->name},
 
-                🎉 Your appointment has been successfully confirmed!
+                 Your appointment has been successfully confirmed!
 
                 Doctor: Dr. {$appointment->doctor->name}
-                📅 Date: {$appointment->date}
-                ⏰ Time: {$appointment->time}
-                🌐 Timezone: {$appointment->timezone}
+                 Date: {$appointment->date}
+                 Time: {$appointment->time}
+                 Timezone: {$appointment->timezone}
 
 ";
             // Add meeting link only if available
