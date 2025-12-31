@@ -194,8 +194,10 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from "vue";
 import axios from "axios";
+import { useNotification } from "@kyvg/vue3-notification";
 import dayjs from "dayjs";
 
+const { notify } = useNotification()
 const appointments = ref([]);
 const loading = ref(true);
 let intervalId = null;
@@ -278,26 +280,34 @@ const updateAppointment = async () => {
 }
 
 const ratingSave = async () => {
-    errorMessage.value = null // clear previous error
+    errorMessage.value = null
+
     try {
-        await axios.post(`/api/saverating`, ratingform.value)
-        const model = bootstrap.Modal.getInstance(document.getElementById('modelRating'))
-        model.hide()
-        alert('Save rating')
+        await axios.post('/api/saverating', ratingform.value)
+
+        bootstrap.Modal.getInstance(
+            document.getElementById('modelRating')
+        ).hide()
+
+        notify({
+            title: "Success",
+            text: "Rating saved and payment completed!",
+        })
+
     } catch (error) {
-        // Handle validation or server error
-        if (error.response && error.response.data && error.response.data.message) {
-            errorMessage.value = error.response.data.message
-        } else if (error.response && error.response.data && typeof error.response.data === 'object') {
-            // Laravel validation errors
-            const errors = Object.values(error.response.data.errors || {}).flat()
-            errorMessage.value = errors.join(', ')
-        } else {
-            errorMessage.value = 'Something went wrong while saving the rating.'
-        }
-        console.error('Error saving rating:', error)
+        const msg =
+            error?.response?.data?.message ||
+            'Something went wrong while saving rating'
+
+        notify({
+            type: "error",
+            text: msg,
+        })
+
+        errorMessage.value = msg
     }
 }
+
 
 // Format time display
 function formatTime(time) {

@@ -142,6 +142,14 @@ function logout() {
                                     <span>Settings</span>
                                 </span>
                             </router-link>
+                            <router-link to="/Docterdashboard/Strip" exact
+                                class="btn menu-btn d-flex align-items-center justify-content-between"
+                                @click="closeSidebar">
+                                <span class="d-flex align-items-center gap-2">
+                                    <img :src="ICONS.settings" alt="My Profile" class="menu-icon" />
+                                    <span>Account</span>
+                                </span>
+                            </router-link>
                             <button @click="showModal = true; closeSidebar()"
                                 class="btn menu-btn logout-btn d-flex align-items-center justify-content-between">
                                 <span class="d-flex align-items-center gap-2">

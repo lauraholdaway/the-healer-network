@@ -18,6 +18,8 @@ use Illuminate\Auth\Events\Verified;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Cache;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
+
 
 Route::post('/email/verification-notification', function (Request $request) {
     $request->user()->sendEmailVerificationNotification();
@@ -139,6 +141,15 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::post('/doctor/createZoomMeeting/{id}', [AppointmentController::class, 'createZoomMeeting'])->name('doctor.createZoomMeeting');
 
     Route::apiResource('services', ServiceController::class);
+    Route::post('/stripe/create-account-link', [DoctorController::class, 'createStripeAccountLink']);
+    Route::get('/stripe/status', [DoctorController::class, 'stripeStatus']);
+
+        Route::get('/stripe/success', function() {
+            $user =  Auth::user();
+            $user->stripe_account_connected = true;
+            $user->save();
+            return redirect('/')->with('success', 'Stripe account connected!');
+        })->name('stripe.success');
 });
 
 Route::get('/GetAllDoctor', [DoctorController::class, 'GetAllDoctor']);
@@ -168,3 +179,11 @@ Route::get('/blog/{id?}', [BlogsController::class, 'blogone']);
 Route::post('/saverating', [DoctorController::class, 'saverating']);
 Route::get('/getRating/{id}', [DoctorController::class, 'getRating']);
 Route::post('/saveEmail', [SubscriptionController::class, 'store']);
+
+
+
+Route::get('/stripe/refresh', function() {
+    return redirect('/')->with('success', 'Stripe account connected!');
+})->name('stripe.refresh');
+
+ 

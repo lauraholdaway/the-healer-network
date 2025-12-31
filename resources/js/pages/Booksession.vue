@@ -1164,62 +1164,72 @@ const validateForm = () => {
 };
 
 // ✅ Submit handler
-const payNow = async () => {
-    const stripe = await stripePromise;
-    const { token, error } = await stripe.createToken(cardElement);
-    if (error) {
-        alert(error.message);
-        return;
-    }
+ const payNow = async () => {
     if (!validateForm()) return;
+
+    loading.value = true;
+
     try {
-        const payload = {
-            doctor_id: Doctor_id.value,
-            user_id: user_id.value,
-            doctortime: docterPackage.value,
-            currency: currency.value,
-            date: selectedDate.value,
-            time: selectedTime.value,
-            token: token.id,
-            email: email.value,
-            name: name.value,
-            country: setcountry.value,
-            type: type.value,
-            payment_method: paymenttype.value,
-            timezone: timezone.value,
-        };
-        loading.value = true;
         const response = await fetch("/api/userpayment", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(payload),
+            body: JSON.stringify({
+                doctor_id: Doctor_id.value,
+                user_id: user_id.value,
+                doctortime: docterPackage.value,
+                currency: currency.value,
+                date: selectedDate.value,
+                time: selectedTime.value,
+                email: email.value,
+                name: name.value,
+                country: setcountry.value,
+                type: type.value,
+                payment_method: paymenttype.value,
+                timezone: timezone.value,
+            }),
         });
+
         const data = await response.json();
 
-        if (response.ok) {
+        if (!response.ok) {
+            throw new Error(data.message || "Payment initialization failed");
+        }
 
-            alert("✅ Payment successful!");
+        const stripe = await stripePromise;
+
+        const result = await stripe.confirmCardPayment(
+            data.client_secret,
+            {
+                payment_method: {
+                    card: cardElement,
+                    billing_details: {
+                        name: name.value,
+                        email: email.value,
+                    },
+                },
+            }
+        );
+
+        if (result.error) {
+            throw new Error(result.error.message);
+        }
+
+        if (result.paymentIntent.status === "succeeded") {
             notify({
-                title: "Succes",
+                title: "Success",
                 text: "✅ Payment successful!",
             });
-            router.push("/");
 
-        } else {
-            cus_message.value = {
-                text: "❌ Payment failed: " + (data.message || "Unknown error"),
-                type: "alert-danger",
-            }; alert("❌ Payment failed: " + (data.message || "Unknown error"));
+            router.push("/");
         }
+
     } catch (error) {
-        cus_message.value = {
-            text: "⚠️ Network error. Please try again." + (error || "Unknown error"),
-            type: "alert-warning",
-        };
+        alert("❌ Payment failed: " + error.message);
     } finally {
         loading.value = false;
     }
 };
+
 
 
 

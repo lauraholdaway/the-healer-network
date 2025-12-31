@@ -9,11 +9,13 @@ use Stripe\Charge;
 use App\Models\Appointment;
 use App\Models\DoctorPackage;
 use App\Models\Note;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use App\Services\ZoomService;
 use Illuminate\Support\Facades\Mail;
 use Exception;
 use Carbon\Carbon;
+use Stripe\PaymentIntent;
 
 
 class AppointmentController extends Controller
@@ -25,14 +27,14 @@ class AppointmentController extends Controller
     public function store(Request $request)
     {
         // dd($request->all());
+       
         $request->validate([
-            'doctor_id' => 'required',
-            'user_id' => 'required',
-            'doctortime' => 'required',
-            'date' => 'required',
-            'time' => 'required',
-            'token' => 'required',
-        ]);
+    'doctor_id'  => 'required',
+    'user_id'    => 'required',
+    'doctortime' => 'required',
+    'date'       => 'required',
+    'time'       => 'required',
+]);
 
 
         $prices = DoctorPackage::where('id', $request->doctortime,)->first();
@@ -46,15 +48,48 @@ class AppointmentController extends Controller
         Stripe::setApiKey(env('STRIPE_SECRET'));
         try {
             // ✅ Step 1: Convert amount to cents for Stripe
-            $amountInCents = intval($amount * 100);
+ 
+            $doctor = User::findOrFail($request->doctor_id);
 
-            // ✅ Step 2: Charge the user via Stripe
-            $charge = Charge::create([
-                'amount'      => $amountInCents,
-                'currency'    => $request->currency ?? 'usd',
-                'description' => 'Doctor Appointment Booking',
-                'source'      => $request->token, // Stripe token
-            ]);
+            if (!$doctor->stripe_account_id) {
+                return response()->json([
+                    'message' => 'Doctor not connected to Stripe'
+                ], 400);
+            }
+ 
+        $amountInCents = intval($prices->price * 100);
+        $platformFee   = intval($amountInCents * 0.10);
+
+        $paymentIntent = PaymentIntent::create([
+            'amount'   => $amountInCents,
+            'currency' => 'usd',
+
+            'on_behalf_of' => $doctor->stripe_account_id,
+            'transfer_data' => [
+                'destination' => $doctor->stripe_account_id,
+            ],
+
+            'application_fee_amount' => $platformFee,
+
+            'automatic_payment_methods' => [
+                'enabled' => true,
+            ],
+
+            'metadata' => [
+                'doctor_id' => $doctor->id,
+                'user_id'   => $request->user_id,
+                'date'      => $request->date,
+                'time'      => $request->time,
+                'session'   => $request->doctortime,
+                'type'      => $request->type,
+                'email'     => $request->email,
+                'name'      => $request->name,
+            ],
+        ]);
+
+         
+
+
 
             // ✅ Step 3: Save Appointment
             $appointment = Appointment::create([
@@ -65,7 +100,7 @@ class AppointmentController extends Controller
                 'payment'          => $amount,
                 'date'             => $request->date,
                 'time'             => $request->time,
-                'payment_id'       => $charge->id,
+                'payment_id'       => $paymentIntent->id,
                 'status'           => 'paid',
                 'name'             => $request->name,
                 'email'            => $request->email,
@@ -132,6 +167,7 @@ class AppointmentController extends Controller
                 'success'     => true,
                 'message'     => 'Appointment booked and Zoom meeting created successfully!',
             'appointment' => $appointment,
+            'client_secret' => $paymentIntent->client_secret
         ]);
         } catch (Exception $e) {
             return response()->json([

@@ -48,6 +48,7 @@ import EditService from '../pages/doctor/EditService.vue';
 import Inbox from '../pages/doctor/Inbox.vue';
 import ViewAppointment from '../pages/doctor/ViewAppointment.vue';
 import Seeting from '../pages/doctor/Seeting.vue';
+import Strip from '../pages/doctor/Strip.vue';
 
 
 // Update User
@@ -128,6 +129,7 @@ const routes = [
             { path: 'EditService/:id', name: 'EditService', component: EditService, meta: { hideNav: true, hideFooter: true, requiresAuth: true, props: true } },
             { path: 'Inbox', name: 'Inbox', component: Inbox, meta: { hideNav: true, hideFooter: true, requiresAuth: true, props: true } },
             { path: 'Seeting', name: 'Seeting', component: Seeting, meta: { hideNav: true, hideFooter: true, requiresAuth: true, props: true } },
+            { path: 'Strip', name: 'Strip', component: Strip, meta: { hideNav: true, hideFooter: true, requiresAuth: true, props: true } },
         ]
     }
 

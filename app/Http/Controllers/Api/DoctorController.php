@@ -14,7 +14,9 @@ use App\Models\User;
 use App\Models\Rating;
 use App\Models\Appointment;
 use App\Models\Modality;
-
+    use Stripe\Stripe;
+use Stripe\AccountLink;
+use Stripe\Account;
 
 class DoctorController extends Controller
 {
@@ -343,25 +345,37 @@ class DoctorController extends Controller
 
         return response()->json($practitioners);
     }
-    public function saverating(Request $request)
-    {
-        $rating = $request->validate([
-            'doctor_id' => 'required',
-            'user_id' => 'required',
-            'appt_id' => 'required',
-            'msg' => 'required',
-            'rating' => 'required',
-        ]);
-        $data = Appointment::find($request->appt_id);
-        if ($data) {
-            $data->rating = 1; // ✅ update rating value
-            $data->save();
-            Rating::create($rating);
-            return response()->json(['message' => 'Rating save successfully']);
-        } else {
-            return response()->json(['message' => 'Appointment not found'], 404);
-        }
+  public function saverating(Request $request)
+{
+    $appointment = Appointment::find($request->appt_id);
+
+    if (!$appointment) {
+        return response()->json(['message' => 'Appointment not found'], 404);
     }
+
+    if ($appointment->status !== 'paid') {
+        return response()->json([
+            'message' => 'Payment not completed. Please complete payment before rating.'
+        ], 400);
+    }
+
+    Rating::create([
+        'doctor_id' => $request->doctor_id,
+        'user_id' => $request->user_id,
+        'appt_id' => $request->appt_id,
+        'msg' => $request->msg,
+        'rating' => $request->rating,
+    ]);
+
+    return response()->json([
+        'success' => true,
+        'message' => 'Rating saved successfully'
+    ]);
+}
+
+
+
+
 
     public function getRating($id)
     {
@@ -372,4 +386,62 @@ class DoctorController extends Controller
         // dd($data);
         return response()->json($data);
     }
+
+
+
+
+public function createStripeAccountLink(Request $request)
+{
+
+    $user = User::find(Auth::id());
+
+    Stripe::setApiKey(env('STRIPE_SECRET'));
+
+    // Create Stripe Express account if not exists
+    if (!$user->stripe_account_id) {
+        $account = Account::create([
+    'type' => 'express',
+    'country' => 'US', // MUST be US for test
+    'email' => $user->email,
+    'capabilities' => [
+        'card_payments' => ['requested' => true],
+        'transfers' => ['requested' => true],
+    ],
+]);
+
+        $user->stripe_account_id = $account->id;
+        $user->save();
+    }
+
+    // Create account link for onboarding
+    $accountLink = AccountLink::create([
+        'account' => $user->stripe_account_id,
+        'refresh_url' => route('stripe.refresh'),
+        'return_url' => route('stripe.success'),
+        'type' => 'account_onboarding',
+    ]);
+
+    return response()->json([
+        'url' => $accountLink->url,
+    ]);
+}
+
+public function stripeStatus()
+{
+Stripe::setApiKey(env('STRIPE_SECRET'));
+    $doctor = Auth::user();
+
+    if (!$doctor->stripe_account_id) {
+        return response()->json(['status' => 'not_connected']);
+    }
+
+    $account = Account::retrieve($doctor->stripe_account_id);
+
+    if ($account->charges_enabled && $account->payouts_enabled) {
+        return response()->json(['status' => 'connected']);
+    }
+
+    return response()->json(['status' => 'pending']);
+}
+
 }
