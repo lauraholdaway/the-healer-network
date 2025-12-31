@@ -39,7 +39,10 @@
                         {{ dayjs(appt.date).format('D MMM YYYY') }}
                         <br> {{ formatTime(appt.time) }}
                     </td>
-                    <td>{{ appt.type }}</td>
+                    <td>{{ appt.type }}
+                         <br>
+                    {{ appt?.status }}
+                    </td>
                     <td>
                         <div v-if="appt.type === 'offline'">
                             <b>Healar Address</b> : {{ appt.doctor_details?.practice_location }} <br>
@@ -132,6 +135,7 @@
 
                 <div class="modal-body">
                     <form @submit.prevent="updateAppointment">
+
                         <div class="mb-3">
                             <label class="form-label">Status</label>
                             <select v-model="form.status" class="form-select">
@@ -273,9 +277,21 @@ const updateAppointment = async () => {
         const modal = bootstrap.Modal.getInstance(document.getElementById('changeModal'))
         modal.hide()
         fetchAppointments();
-        alert('Appointment time updated successfully!')
+        notify({
+            title: "Success",
+            text: "Appointment updated successfully!",
+        })
     } catch (error) {
-        console.error("Error updating appointment:", error)
+          const msg =
+            error?.response?.data?.message ||
+            'Something went wrong while saving rating'
+
+        notify({
+            type: "error",
+            text: msg,
+        })
+
+        errorMessage.value = msg
     }
 }
 

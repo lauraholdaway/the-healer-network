@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Mail;
 use Exception;
 use Carbon\Carbon;
 use Stripe\PaymentIntent;
+use Stripe\Refund;
 
 
 class AppointmentController extends Controller
@@ -196,7 +197,7 @@ class AppointmentController extends Controller
 
         $user = $request->user();
         // dd($user);
-        $appointments = Appointment::with(['user', 'doctorpackage', 'rating']) // eager load relations
+        $appointments = Appointment::with(['user', 'doctorpackage', 'rating'])  
             ->where('doctor_id', $user->id)
             ->latest()
             ->get();
@@ -206,12 +207,10 @@ class AppointmentController extends Controller
     public function oneappointment($id)
     {
 
-        // dd($user);
-        $appointments = Appointment::with(['user', 'doctorpackage', 'doctor']) // eager load relations
+        $appointments = Appointment::with(['user', 'doctorpackage', 'doctor'])  
             ->where('id', $id)
             ->latest()
             ->first();
-        // dd($appointments);
         return response()->json($appointments);
     }
 
@@ -224,10 +223,57 @@ class AppointmentController extends Controller
         return response()->json(['message' => 'Status updated', 'data' => $appointment]);
     }
 
-    public function updateAppStatus(Request $request,)
-    {
-        // dd($request->all());
-        $appointment = Appointment::findOrFail($request->id);
+ 
+
+public function updateAppStatus(Request $request)
+{
+    Stripe::setApiKey(env('STRIPE_SECRET'));
+    $appointment = Appointment::with('doctor')->findOrFail($request->id);
+
+    try {
+
+
+        if ($request->status === 'cancelled') {
+
+            if ($appointment->status === 'refunded') {
+                return response()->json(['message' => 'Already refunded'], 400);
+            }
+
+            $appointmentTime = Carbon::parse($appointment->date . ' ' . $appointment->time);
+            $hoursLeft = now()->diffInHours($appointmentTime, false);
+
+            if ($hoursLeft < 24) {
+                return response()->json([
+                    'message' => 'Refund not allowed less than 24 hours before appointment'
+                ], 403);
+            }
+
+            $refundAmount = intval($appointment->payment * 100);
+
+            Refund::create([
+                'payment_intent' => $appointment->payment_id,
+                'amount' => $refundAmount,
+                'reason' => 'requested_by_customer',
+            ]);
+
+            $appointment->update([
+                'status'        => 'refunded',
+                'payment' => '-'.$appointment->payment,
+                'created_at'   => now(),
+                'zoom_join_url' => '',
+                'zoom_start_url'=> '',
+                'rating'        => null,
+                'replay'        => $request->message,
+            ]);
+
+            return response()->json([
+                'success' => true,
+                'message' => 'Appointment cancelled and refunded successfully',
+                'data'    => $appointment
+            ]);
+        }
+
+       
         if ($request->filled('status')) {
             $appointment->status = $request->status;
         }
@@ -243,9 +289,22 @@ class AppointmentController extends Controller
         if ($request->filled('selectedDate')) {
             $appointment->date = $request->selectedDate;
         }
+
         $appointment->save();
-        return response()->json(['message' => 'Status updated', 'data' => $appointment]);
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Appointment updated successfully',
+            'data'    => $appointment
+        ]);
+
+    } catch (\Exception $e) {
+        return response()->json([
+            'error' => $e->getMessage()
+        ], 500);
     }
+}
+
 
     public function createZoomMeeting(Request $request, $id)
     {
