@@ -96,7 +96,7 @@
                         </div>
                     </div>
                     <a href="{{url('/Blogs')}}" class="nav-item nav-link"><i class=" fa fa-bold me-2"></i>Blogs</a>
-                    <a href="#" class="nav-item nav-link"><i class="fa fa-bar-chart me-2"></i>Charts</a>
+                    <a href="{{ url('/admin/settings/google') }}" class="nav-item nav-link"><i class="fa fa-bar-chart me-2"></i>Google Meet</a>
                 </div>
             </nav>
         </div>

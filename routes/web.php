@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\DoctorController;
 use App\Http\Controllers\Api\AppointmentController;
 use App\Http\Controllers\ModalityController;
 use App\Http\Controllers\BlogsController;
+use App\Http\Controllers\GoogleAuthController;
 use Illuminate\Support\Facades\Artisan;
 use App\Http\Controllers\Api\SubscriptionController;
 
@@ -38,7 +39,26 @@ Route::middleware(['auth'])->group(function () {
     Route::resource('modalities', ModalityController::class);
     Route::resource('/Blogs', BlogsController::class);
     Route::resource('/newsletter', SubscriptionController::class);
+
+
+    Route::get('/admin/settings/google', function () {
+    return view('admin.settings.googelMeet');
+})->name('admin.settings.google');
+
+Route::get('/admin/google/auth', [GoogleAuthController::class, 'redirectToGoogle'])->name('admin.google.auth');
+Route::get('/admin/google/callback', [GoogleAuthController::class, 'Callback'])->name('admin.google.callback');
+
+
 });
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/admin/google/connect', [GoogleAuthController::class, 'connect'])
+        ->name('admin.google.connect');
+
+    Route::get('/admin/google/callback', [GoogleAuthController::class, 'callback'])
+        ->name('admin.google.callback');
+});
+
 
 Route::get('/clear-cache', function () {
     Artisan::call('config:clear');
@@ -52,3 +72,5 @@ Route::get('/clear-cache', function () {
 Route::get('/{any?}', function () {
     return view('spa');
 })->where('any', '.*')->name('spa');
+
+

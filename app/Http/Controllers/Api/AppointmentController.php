@@ -12,6 +12,7 @@ use App\Models\Note;
 use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use App\Services\ZoomService;
+use App\Services\GoogleMeetService;
 use Illuminate\Support\Facades\Mail;
 use Exception;
 use Carbon\Carbon;
@@ -30,12 +31,12 @@ class AppointmentController extends Controller
         // dd($request->all());
        
         $request->validate([
-    'doctor_id'  => 'required',
-    'user_id'    => 'required',
-    'doctortime' => 'required',
-    'date'       => 'required',
-    'time'       => 'required',
-]);
+            'doctor_id'  => 'required',
+            'user_id'    => 'required',
+            'doctortime' => 'required',
+            'date'       => 'required',
+            'time'       => 'required',
+        ]);
 
 
         $prices = DoctorPackage::where('id', $request->doctortime,)->first();
@@ -116,6 +117,26 @@ class AppointmentController extends Controller
 
             $meetingUrl = '';
             if ($request->type === 'Online') {
+                    try {
+                    // 🟢 FIRST PRIORITY → GOOGLE MEET
+                    $googleMeet = new GoogleMeetService();
+
+                    $startTime = Carbon::parse($request->date . ' ' . $request->time);
+                    $endTime   = (clone $startTime)->addMinutes(60);
+
+                    $meetingUrl = $googleMeet->createMeeting(
+                        "Appointment with Dr. " . $appointment->doctor->name,
+                        $startTime->toIso8601String(),
+                        $endTime->toIso8601String()
+                    );
+                    $appointment->update([
+                        'Zomemeting' => 'google_meet',
+                        'zoom_join_url'  => $meetingUrl,
+                        'zoom_start_url'  => $meetingUrl,
+                        'status' => 'meeting_scheduled',
+                    ]);
+
+                } catch (\Exception $e) {
                 $zoom = new ZoomService();
                 $startTime = Carbon::parse($request->date . ' ' . $request->time)->toIso8601String();
                 $meeting = $zoom->createMeeting(
@@ -131,6 +152,7 @@ class AppointmentController extends Controller
             ]);
                 $meetingUrl = $meeting['join_url'] ?? null;
             }
+            }
 
 
              
@@ -143,9 +165,7 @@ class AppointmentController extends Controller
                 Doctor: Dr. {$appointment->doctor->name}
                  Date: {$appointment->date}
                  Time: {$appointment->time}
-                 Timezone: {$appointment->timezone}
-
-";
+                 Timezone: {$appointment->timezone}";
             // Add meeting link only if available
             if (!empty($meetingUrl)) {
                 $messageBody .= "Please join your Zoom meeting using this link:\n{$meetingUrl}\n\n";
@@ -177,9 +197,6 @@ class AppointmentController extends Controller
             ], 500);
         }
     }
-
-
-
 
     public function userBooking(Request $request)
     {
