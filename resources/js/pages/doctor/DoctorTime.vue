@@ -1,7 +1,7 @@
 <template>
     <div class="content flex-grow-1 p-4">
         <div class="card p-4 session-card">
-            <h3 class="mb-4 Seasons-fonts">💰 Healar Packages</h3>
+            <h3 class="mb-4 Seasons-fonts">💰 Healer Packages</h3>
             <!-- Packages -->
             <div v-for="(pkg, index) in packages" :key="index" class="row mb-3 border p-2 rounded">
                 <div class="col-md-3">

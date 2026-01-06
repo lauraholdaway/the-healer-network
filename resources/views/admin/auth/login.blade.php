@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>HealarNetwork</title>
+    <title>HealerNetwork</title>
     <link rel="icon" type="image/x-icon" href="{{ asset('assets/favicon.png') }}">
     <link type="text/css" rel="stylesheet" href="{{ asset('asset/css/bootstrap.min.css') }}" />
     <link type="text/css" rel="stylesheet" href="{{ asset('asset/custome-css/style.css') }}" />

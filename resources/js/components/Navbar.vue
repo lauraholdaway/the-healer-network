@@ -265,7 +265,7 @@ const handleMobileRedirect = async () => {
 
 .navbar-logo {
     height: auto;
-    max-width: 350px;
+    max-width: 360px;
     width: auto;
     display: block;
     object-fit: contain;
@@ -558,7 +558,7 @@ const handleMobileRedirect = async () => {
     }
 
     .navbar-logo {
-        max-width: 290px;
+        max-width: 300px;
     }
 
     .navbar-nav-links {
@@ -609,7 +609,7 @@ const handleMobileRedirect = async () => {
     }
 
     .navbar-logo {
-        max-width: 340px;
+        max-width: 350px;
     }
 
     .navbar-nav-links {
@@ -671,7 +671,7 @@ const handleMobileRedirect = async () => {
     }
 
     .navbar-logo {
-        max-width: 210px;
+        max-width: 220px;
     }
 
     /* Show hamburger menu */
@@ -789,7 +789,7 @@ const handleMobileRedirect = async () => {
     }
 
     .navbar-logo {
-        max-width: 200px;
+        max-width: 210px;
     }
 
     .navbar-nav-links {

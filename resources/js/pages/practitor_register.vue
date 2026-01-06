@@ -197,7 +197,7 @@ const onSubmit = async () => {
     error.value = null;
     try {
         await axios.post("/api/practitioners/register", form.value);
-        alert('Healar Registration successful!')
+        alert('Healer Registration successful!')
         router.push("/login");
     } catch (err) {
         error.value = err.response?.data?.message || "Registration failed.";

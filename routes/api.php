@@ -180,8 +180,6 @@ Route::post('/saverating', [DoctorController::class, 'saverating']);
 Route::get('/getRating/{id}', [DoctorController::class, 'getRating']);
 Route::post('/saveEmail', [SubscriptionController::class, 'store']);
 
-
-
 Route::get('/stripe/refresh', function() {
     return redirect('/')->with('success', 'Stripe account connected!');
 })->name('stripe.refresh');

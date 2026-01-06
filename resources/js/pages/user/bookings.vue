@@ -15,7 +15,7 @@
                 <tr>
                     <th class="Seasons-fonts">#</th>
                     <th class="Seasons-fonts">Image</th>
-                    <th class="Seasons-fonts">Healar</th>
+                    <th class="Seasons-fonts">Healer</th>
                     <th class="Seasons-fonts">Package</th>
                     <th class="Seasons-fonts">Payment</th>
                     <th class="Seasons-fonts">Date</th>
@@ -45,7 +45,7 @@
                     </td>
                     <td>
                         <div v-if="appt.type === 'offline'">
-                            <b>Healar Address</b> : {{ appt.doctor_details?.practice_location }} <br>
+                            <b>Healer Address</b> : {{ appt.doctor_details?.practice_location }} <br>
                             <b>Phone number</b> : {{ appt.doctor_details?.primary_contact_number }}
                         </div>
                         <div v-else>

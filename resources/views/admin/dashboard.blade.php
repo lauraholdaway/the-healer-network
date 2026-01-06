@@ -4,13 +4,13 @@
     <section>
         <div class="container my-5">
             <div class="user-dashboard">
-                <h1 class="mb-4 text-center">Healar & User Appointment Dashboard</h1>
+                <h1 class="mb-4 text-center">Healer & User Appointment Dashboard</h1>
 
                 <div class="row">
                     <!-- Cards Section -->
                     <div class="col-md-4 mb-4">
                         <div class="card shadow-sm text-center p-4">
-                            <h5>Total Healar</h5>
+                            <h5>Total Healer</h5>
                             <h2 class="text-primary">{{ $doctorCount }}</h2>
                         </div>
                     </div>
@@ -39,7 +39,7 @@
 
                     <div class="col-md-6 mb-4">
                         <div class="card shadow-sm p-3">
-                            <h5 class="mb-3">Healar vs User Count</h5>
+                            <h5 class="mb-3">Healer vs User Count</h5>
                             <canvas id="doctorUserChart"></canvas>
                         </div>
                     </div>
@@ -53,7 +53,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>User</th>
-                                <th>Healar</th>
+                                <th>Healer</th>
                                 <th>Date</th>
                                 <th>Status</th>
                             </tr>

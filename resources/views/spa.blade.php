@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Healarnetwork</title>
+  <title>Healernetwork</title>
 
   <!-- ✅ Bootstrap CSS -->
   <link rel="stylesheet" href="{{ asset('asset/css/bootstrap.min.css') }}">

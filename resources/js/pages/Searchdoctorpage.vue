@@ -141,7 +141,7 @@ p.m-color {
                     <div class="loading-bar">
                         <div class="loading-progress"></div>
                     </div>
-                    <p class="loading-text">Loading Healar...</p>
+                    <p class="loading-text">Loading Healer...</p>
                 </div>
                 <div class="card mb-3" v-for="(doctor, index) in doctors" :key="index">
                     <div class="card-body d-flex flex-row align-items-center p-0">
@@ -221,7 +221,7 @@ p.m-color {
             </div>
             <div v-else class="text-center">
                 <hr>
-                <b class="main-color my-5 py-5">No Have Healar Found </b>
+                <b class="main-color my-5 py-5">No Have Healer Found </b>
                 <hr>
 <br>
             </div>

@@ -1257,7 +1257,7 @@ watch(step, async (newStep) => {
     }
     if (newStep === 2) {
         if (!doctortime.value || doctortime.value.length === 0) {
-            alert("⚠️ This Healar has no available time slots!");
+            alert("⚠️ This Healer has no available time slots!");
             step.value-- // 🚫 stop here — do not move to next step
         }
     }
