@@ -213,14 +213,7 @@ const startMeeting = async (id) => {
 function makeNote(id) {
     form.value.app_id = id;
     form.value.message = '';
-
-    // Fetch notes from API
-
-
-    // Call the async function immediately
     GetNote(id);
-
-    // Then show the modal
     const modal = new bootstrap.Modal(document.getElementById('changeModal'));
     modal.show();
 }
