@@ -4,22 +4,32 @@
             <h3 class="mb-4 Seasons-fonts">📅Healer Availability</h3>
             <!-- Add Date & Time -->
             <div class="row mb-3">
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <label class="form-label">Date</label>
                     <input v-model="currentDate" type="date" class="form-control" />
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <label class="form-label">Time</label>
                     <input v-model="currentTime" type="time" class="form-control" />
                 </div>
-                <div class="col-md-4 mt-4">
-                    <button class="btn btn-outline-success w-100 main-btn2" @click="addSlot">+ Add Slot</button>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label class="form-label">Session Type</label>
+                        <select v-model="session_type" class="form-select form-control">
+                            <option>In a Day</option>
+                            <option>In a Week</option>
+                            <option>In a Month</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-md-3 mt-4">
+                    <button class="btn btn-outline-success w-100 main-btn2 mt-2" @click="addSlot">+ Add Slot</button>
                 </div>
             </div>
-
             <!-- Availability Preview -->
             <div v-for="(item, index) in availability" :key="index" class="mb-3">
                 <h6 class="fw-bold">{{ item.date }}</h6>
+                <h6 class="fw-bold">{{ item.session_type }}</h6>
                 <ul class="list-inline">
                     <li v-for="(t, i) in item.times" :key="i" class="list-inline-item bg-light p-2 rounded border">
                         ⏰ {{ t }}
@@ -90,6 +100,7 @@ const doctorId = ref("");
 const availability = ref([]);
 const currentDate = ref("");
 const currentTime = ref("");
+const session_type = ref("");
 const { notify } = useNotification();
 const auth = useAuthStore()
 
@@ -105,7 +116,7 @@ function addSlot() {
             existing.times.push(currentTime.value);
         }
     } else {
-        availability.value.push({ date: currentDate.value, times: [currentTime.value] });
+        availability.value.push({ date: currentDate.value, session_type:session_type, times: [currentTime.value] });
     }
 
     currentTime.value = "";

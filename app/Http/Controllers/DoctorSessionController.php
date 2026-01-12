@@ -9,6 +9,7 @@ use App\Models\DoctorAvailability;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Carbon\Carbon;
+use Carbon\CarbonPeriod;
 
 class DoctorSessionController extends Controller
 {
@@ -26,34 +27,67 @@ class DoctorSessionController extends Controller
         return response()->json(['message' => 'Packages saved successfully']);
     }
 
-    public function saveAvailability(Request $request)
-    {
-        $skipped = [];
-        $saved   = [];
-        foreach ($request->availability as $slot) {
 
-            $date = Carbon::parse($slot['date'])->format('Y-m-d');
-            // Find same date row for this doctor
-            $availability = DoctorAvailability::where('doctor_id', $request->doctor_id)
-                ->whereDate('date', $date)
-                ->first();
-            if ($availability) {
-                $skipped[] = $date;
-            } else {
-                DoctorAvailability::create([
-                'doctor_id' => $request->doctor_id,
-                'date' => $slot['date'],
-                'times' => $slot['times'],
-                ]);
-                $saved[] = $date;
-            }
+
+public function saveAvailability(Request $request)
+{
+    $saved = [];
+    $skipped = [];
+
+    foreach ($request->availability as $slot) {
+
+        $startDate = Carbon::parse($slot['date']);
+        $sessionType = $slot['session_type'];
+        $times = $slot['times'];
+
+        // Decide date range
+        if ($sessionType === 'In a Day') {
+            $period = CarbonPeriod::create($startDate, $startDate);
         }
-        return response()->json([
-            'message' => 'Process completed',
-            'saved'   => $saved,
-            'skipped' => $skipped,
-        ]);
+        elseif ($sessionType === 'In a Week') {
+            $period = CarbonPeriod::create($startDate, $startDate->copy()->addDays(6));
+        }
+        elseif ($sessionType === 'In a Month') {
+            // Full month
+            $period = CarbonPeriod::create(
+                $startDate->copy()->startOfMonth(),
+                $startDate->copy()->endOfMonth()
+            );
+        } 
+        else {
+            continue;
+        }
+
+        // Loop through all dates
+        foreach ($period as $date) {
+
+            $exists = DoctorAvailability::where('doctor_id', $request->doctor_id)
+                ->whereDate('date', $date->format('Y-m-d'))
+                ->exists();
+
+            if ($exists) {
+                $skipped[] = $date->format('Y-m-d');
+                continue;
+            }
+
+            DoctorAvailability::create([
+                'doctor_id' => $request->doctor_id,
+                'date' => $date->format('Y-m-d'),
+                'times' => $times,
+                'session_type' => $sessionType,
+            ]);
+
+            $saved[] = $date->format('Y-m-d');
+        }
     }
+
+    return response()->json([
+        'message' => 'Availability processed',
+        'saved' => array_unique($saved),
+        'skipped' => array_unique($skipped),
+    ]);
+}
+
 
     public function Doctoravailable(Request $request, $doctor_id)
     {
