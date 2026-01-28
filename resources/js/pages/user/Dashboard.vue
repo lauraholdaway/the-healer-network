@@ -139,7 +139,7 @@ function logout() {
                             </router-link>
 
                             <router-link to="/profile/help"
-                                class="btn menu-btn d-flex align-items-center justify-content-between"
+                                class="btn menu-btn d-flex align-items-center justify-content-between d-none"
                                 @click="closeSidebar">
                                 <span class="d-flex align-items-center gap-2">
                                     <img :src="ICONS.help" alt="Help Center" class="menu-icon" />
