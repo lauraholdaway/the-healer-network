@@ -122,6 +122,15 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::get('/doctor/getcertificate', [DoctorController::class, 'getCertificates']);
     Route::delete('/doctor/deletecertificate/{id}', [DoctorController::class, 'deleteCertificate']);
 
+
+    Route::post('/doctor/saveInsuranceCertificate', [DoctorController::class, 'saveInsuranceCertificate']);
+    Route::get('/doctor/GetInsuranceCertificates', [DoctorController::class, 'GetInsuranceCertificates']);
+    Route::delete('/doctor/DeleteinsuranceCertificate/{id}', [DoctorController::class, 'DeleteinsuranceCertificate']);
+
+    
+
+
+
     Route::post('/doctor/update-image', [DoctorController::class, 'updateImage']);
     Route::post('/update-password', [DoctorController::class, 'updatepassword']);
 

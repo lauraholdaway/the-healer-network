@@ -38,7 +38,9 @@ const freeTrialSessions = ref("");
 const happyToProvideFreeSession = ref(false);
 const referredBy = ref("");
 const Showmodel = ref(false);
+const InShowmodel = ref(false);
 const modalitiesdata = ref([]);
+const Insurancecertificates = ref([]);
 
 // image handling
 const image = ref(null);
@@ -225,6 +227,46 @@ const deleteCertificate = async (id) => {
         });
     }
 }
+const saveInsuranceCertificate = async () => {
+    try {
+        const formData = new FormData()
+        formData.append('title', form.value.title)
+        formData.append('certificate', form.value.certificate)
+
+        await axios.post('/api/doctor/saveInsuranceCertificate', formData, {
+            headers: { 'Content-Type': 'multipart/form-data' }
+        })
+
+        await GetInsurancecertificate()
+        form.value.title = ''
+        form.value.certificate = null
+        InShowmodel.value = false
+        notify({
+            title: "Succes",
+            text: "You have been Save Certificate",
+        });
+
+    } catch (error) {
+        notify({ type: "error", text: "" + error?.response?.data?.message || 'Unknown error' });
+
+    }
+}
+
+const GetInsurancecertificate = async () => {
+    const res = await axios.get('/api/doctor/GetInsuranceCertificates')
+    Insurancecertificates.value = res.data
+}
+
+const DeleteinsuranceCertificate = async (id) => {
+    if (confirm('Are you sure you want to delete this certificate?')) {
+        await axios.delete(`/api/doctor/DeleteinsuranceCertificate/${id}`)
+        await GetInsurancecertificate()
+        notify({
+            title: "Deleted",
+            text: "You have been Deleted Insurance Certificate",
+        });
+    }
+}
 onMounted(async () => {
     try {
         const res = await axios.get("/api/modalities");
@@ -237,6 +279,7 @@ onMounted(async () => {
 onMounted(() => {
     getProfile();
     fetchCertificates();
+    GetInsurancecertificate();
 });
 </script>
 
@@ -502,6 +545,78 @@ onMounted(() => {
 
                         <div class="d-flex justify-content-center gap-2 mt-3">
                             <button type="button" class="btn cancel-btn" @click="Showmodel = false">Cancel</button>
+                            <button type="submit" class="btn confirm-btn main-btn">Save</button>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Insurance certificate  -->
+
+        <div class="shadow-sm p-4">
+            <div class="d-flex justify-content-between">
+                <div>
+                    <h4 class="my-3">Insurance Certifications</h4>
+                </div>
+                <div>
+                    <button class="btn main-btn mt-3" @click="InShowmodel = true">Add New Certificate</button>
+                </div>
+            </div>
+            <hr>
+            <div>
+                <div class="mt-4">
+                    <div class="row bordere rounded-3">
+                        <div class="col-md-3" v-for="incert in Insurancecertificates" :key="incert.id">
+                            <div class="cards p-3">
+                                <img :src="'/storage/' + incert.certificate" alt="" class="image-fluid rounded-3"
+                                    style="width: 150px; height:160px;object-fit: cover;">
+                                <div class="row my-3">
+                                    <div class="col-md-9">
+                                        <p class="fs-6 fw-bold mt-2">{{ incert.title }}</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <button class="btn btn-sm border-0 bg-white"
+                                            @click="DeleteinsuranceCertificate(incert.id)">
+
+                                            <svg width="25" height="25" viewBox="0 0 40 40" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <rect x="0.5" y="0.5" width="39" height="39" rx="7.5"
+                                                    stroke="#DED1BA" />
+                                                <path
+                                                    d="M12 15H28M18 19V25M22 19V25M13 15L14 27C14 27.5304 14.2107 28.0391 14.5858 28.4142C14.9609 28.7893 15.4696 29 16 29H24C24.5304 29 25.0391 28.7893 25.4142 28.4142C25.7893 28.0391 26 27.5304 26 27L27 15M17 15V12C17 11.7348 17.1054 11.4804 17.2929 11.2929C17.4804 11.1054 17.7348 11 18 11H22C22.2652 11 22.5196 11.1054 22.7071 11.2929C22.8946 11.4804 23 11.7348 23 12V15"
+                                                    stroke="#8A7356" stroke-width="2" stroke-linecap="round"
+                                                    stroke-linejoin="round" />
+                                            </svg>
+
+                                        </button>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div v-if="InShowmodel" class="modal-overlay p-5">
+                <div class="logout-modal text-center">
+                    <button class="close-btn" @click="InShowmodel = false">×</button>
+                    <form @submit.prevent="saveInsuranceCertificate">
+                        <div class="col-md-12 mb-3">
+                            <label>Title</label>
+                            <input v-model="form.title" class="form-control" required />
+                        </div>
+
+                        <div class="col-md-12 mb-3">
+                            <label>Insurance Certificate</label>
+                            <input type="file" class="form-control" @change="handleFile" required />
+                        </div>
+
+                        <div class="d-flex justify-content-center gap-2 mt-3">
+                            <button type="button" class="btn cancel-btn" @click="InShowmodel = false">Cancel</button>
                             <button type="submit" class="btn confirm-btn main-btn">Save</button>
                         </div>
                     </form>

@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\Practitioner;
 use App\Models\Modalitypivot;
 use App\Models\doctorCerticate;
+use App\Models\Insurance_certificate;
 use App\Models\User;
 use App\Models\Rating;
 use App\Models\Appointment;
@@ -223,6 +224,7 @@ class DoctorController extends Controller
         return response()->json(['message' => 'Certificate saved successfully', 'data' => $certificate]);
     }
 
+
     public function getCertificates()
     {
         $doctor_id = Auth::id();
@@ -238,6 +240,7 @@ class DoctorController extends Controller
 
         return response()->json(['message' => 'Certificate deleted successfully']);
     }
+
     public function modalities(Request $request)
     {
 
@@ -443,5 +446,43 @@ Stripe::setApiKey(env('STRIPE_SECRET'));
 
     return response()->json(['status' => 'pending']);
 }
+
+
+    public function saveInsuranceCertificate(Request $request)
+    {
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'certificate' => 'required|file|mimes:jpg,jpeg,png,pdf|max:2048',
+        ]);
+
+        $doctor_id = Auth::id();
+
+        // store file
+        $path = $request->file('certificate')->store('certificates', 'public');
+
+        $certificate = Insurance_certificate::create([
+            'doctor_id' => $doctor_id,
+            'title' => $request->title,
+            'certificate' => $path,
+        ]);
+
+        return response()->json(['message' => 'Certificate saved successfully', 'data' => $certificate]);
+    }
+
+    
+    public function GetInsuranceCertificates()
+    {
+        $doctor_id = Auth::id();
+        $Incertificates = Insurance_certificate::where('doctor_id', $doctor_id)->get();
+        return response()->json($Incertificates);
+    }
+        public function DeleteinsuranceCertificate($id)
+    {
+        $certificate = Insurance_certificate::findOrFail($id);
+        Storage::disk('public')->delete($certificate->certificate);
+        $certificate->delete();
+
+        return response()->json(['message' => 'Insurance Certificate deleted successfully']);
+    }
 
 }
