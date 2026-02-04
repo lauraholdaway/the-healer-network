@@ -110,10 +110,15 @@
                         @mouseout="$event.target.style.backgroundColor='#8A7356'">
                         Sign In
                     </button>
-                    <div class="text-end">
+                    <div class="text-end" v-if="selected === 'client'">
                         <span style="color: #C4B39A; font-size: 13px;">Not registered yet? </span>
                         <router-link to="/register" class="text-decoration-none"
-                            style="color: #5B4C3A; font-size: 13px; font-weight: 500;">Sign Up</router-link>
+                            style="color: #5B4C3A; font-size: 13px; font-weight: 500;">User Sign Up</router-link>
+                    </div>
+                    <div class="text-end" v-if="selected === 'healer'">
+                        <span style="color: #C4B39A; font-size: 13px;">Not registered yet? </span>
+                        <router-link to="/practitor_register" class="text-decoration-none"
+                            style="color: #5B4C3A; font-size: 13px; font-weight: 500;">Healer Sign Up</router-link>
                     </div>
                 </div>
 
@@ -138,10 +143,13 @@ const emailFormatError = ref(false)
 const processing = ref(false)
 const showPassword = ref(false)
 
-const selected = ref('Client Email');
+const selected = ref("client");
+
+ 
 
 const message = computed(() => {
     if (selected.value === "client") return "Client Email";
+ 
     if (selected.value === "healer") return "Healer Email";
     return "";
 });

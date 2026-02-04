@@ -713,9 +713,9 @@
                                 <div class="d-flex justify-content-between my-1">
                                 </div>
                                 <!-- ✅ limit to 20 words -->
-                                <p class="card-text m-color fw-bold text-center mb-3">
+                                <!-- <p class="card-text m-color fw-bold text-center mb-3">
                                     Wednesday 8 October 2025 11:30 am
-                                </p>
+                                </p> -->
 
                                 <div
                                     style="background-color: #5B4C3A;border-radius: 10px; padding: 8px 8px;color:white; text-align: center; margin-bottom: 15px;">
