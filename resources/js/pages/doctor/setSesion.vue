@@ -40,7 +40,7 @@
 
             <!-- Save -->
             <div class="text-end">
-                <button class="btn btn-primary px-4 main-btn Seasons-fonts text-white" @click="saveAvailability">Save
+                <button class="btn btn-primary px-4 py-2 main-btn Seasons-fonts text-white" @click="saveAvailability">Save
                     Availability</button>
             </div>
         </div>

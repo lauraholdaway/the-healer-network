@@ -826,7 +826,7 @@
                                     <option v-for="(pkgata, index) in packagesdata" :key="index" :value="pkgata.id"
                                         :selected="index === 0"
                                         style="color: #7D684E; text-align: center; font-weight: bold;">
-                                        {{ pkgata.type }} ({{ pkgata.price }}, {{ pkgata.time }})
+                                        {{ pkgata.type }} (${{ pkgata.price }}, {{ pkgata.time }})
                                     </option>
                                 </select>
                             </div>

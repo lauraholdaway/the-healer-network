@@ -90,7 +90,7 @@ function logout() {
                                 @click="closeSidebar">
                                 <span class="d-flex align-items-center gap-2">
                                     <img :src="ICONS.manage" alt="Manage" class="menu-icon" />
-                                    <span>Dashboard</span>
+                                    <span>Appointment History</span>
                                 </span>
                             </router-link>
 
@@ -99,7 +99,7 @@ function logout() {
                                 @click="closeSidebar">
                                 <span class="d-flex align-items-center gap-2">
                                     <img :src="ICONS.package" alt="Package" class="menu-icon" />
-                                    <span>Manage Your Bookings</span>
+                                    <span>Upcoming Appointments</span>
                                 </span>
                             </router-link>
                             <!-- <router-link to="/profile/packages"

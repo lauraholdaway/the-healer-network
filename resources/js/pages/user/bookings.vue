@@ -1,12 +1,12 @@
 <template>
     <div class=" p-2 m-2">
-        <h4 class="Seasons-fonts">Practitioner Appointments</h4>
+        <h4 class="Seasons-fonts">Healer Appointments</h4>
         <hr>
         <div v-if="loading" class="loading-container">
             <div class="loading-bar">
                 <div class="loading-progress"></div>
             </div>
-            <p class="loading-text">Loading Practitioner...</p>
+            <p class="loading-text">Loading Healer...</p>
         </div>
         <div v-else-if="appointments.length === 0">No appointments found.</div>
 
@@ -55,7 +55,7 @@
                                 </a>
                             </p>
                             <p v-else>
-                                <span class="text-muted">Waiting for doctor to start...</span>
+                                <span class="text-muted">Some Thing Wrong</span>
                             </p>
                         </div>
                     </td>
