@@ -19,6 +19,7 @@ class DoctorSessionController extends Controller
         foreach ($request->packages as $pkg) {
             DoctorPackage::create([
                 'doctor_id' => $request->doctor_id,
+                'title' => $pkg['title'],
                 'price' => $pkg['price'],
                 'type' => $pkg['type'],
                 'time' => $pkg['time'],

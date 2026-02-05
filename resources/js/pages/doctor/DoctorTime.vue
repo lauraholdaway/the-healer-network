@@ -1,10 +1,14 @@
 <template>
     <div class="content flex-grow-1 p-4">
         <div class="card p-4 session-card">
-            <h3 class="mb-4 Seasons-fonts">💰 Healar Packages</h3>
+            <h3 class="mb-4 Seasons-fonts">💰 Healer Packages</h3>
             <!-- Packages -->
             <div v-for="(pkg, index) in packages" :key="index" class="row mb-3 border p-2 rounded">
                 <div class="col-md-3">
+                    <label class="form-label">Title</label>
+                    <input v-model="pkg.title" type="text" class="form-control" placeholder="Enter Title" />
+                </div>
+                <div class="col-md-2">
                     <label class="form-label">Price</label>
                     <input v-model="pkg.price" type="number" class="form-control" placeholder="Enter price" />
                 </div>
@@ -16,8 +20,9 @@
                     <label class="form-label">Time / Minutes</label>
                     <input v-model="pkg.time" type="text" class="form-control" placeholder="e.g. 60 Minutes" />
                 </div>
-                <div class="col-md-2 mt-4">
-                    <button class="btn btn-danger w-100" @click="removePackage(index)">Remove</button>
+                <div class="col-md-1 mt-4">
+                    <button class="btn btn-danger mt-2" @click="removePackage(index)">
+                        <i class="bi bi-x"></i></button>
                 </div>
             </div>
 
@@ -25,7 +30,7 @@
 
             <!-- Save -->
             <div class="text-end">
-                <button class="btn btn-success px-4 main-btn" @click="savePackages">Save Packages</button>
+                <button class="btn btn-success px-4 main-btn py-2" @click="savePackages">Save Packages</button>
             </div>
             <br>
             <hr>
@@ -33,6 +38,7 @@
                 <thead class="table-light">
                     <tr>
                         <th scope="col">#</th>
+                        <th scope="col">Title</th>
                         <th scope="col">Price</th>
                         <th scope="col">Type</th>
                         <th scope="col">Time</th>
@@ -42,7 +48,8 @@
                 <tbody>
                     <tr v-for="(pkg, index) in packagesdata" :key="pkg.id">
                         <th scope="row" class="Avenir">{{ index + 1 }}</th>
-                        <td>{{ pkg.price }}</td>
+                        <td>{{ pkg.title }}</td>
+                        <td>${{ pkg.price }}</td>
                         <td>{{ pkg.type }}</td>
                         <td>{{ pkg.time }}</td>
                         <td> <button class="btn btn-sm btn-danger" @click="deletePackage(pkg.id)"><i
@@ -70,11 +77,11 @@ const { notify } = useNotification();
 
 
 const doctorId = ref("");
-const packages = ref([{ price: "", type: "" ,time: "" }]);
+const packages = ref([{title:"", price: "", type: "" ,time: "" }]);
 const auth = useAuthStore();
 
 function addPackage() {
-    packages.value.push({ price: "", type: "" ,time: "" });
+    packages.value.push({title:"", price: "", type: "" ,time: "" });
 }
 
 function removePackage(index) {

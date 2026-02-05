@@ -33,7 +33,7 @@
                             style="width: 100px; border-radius: 50%" />
                     </td>
                     <td>{{ appt.doctor?.name }}</td>
-                    <td>{{ appt.doctorpackage?.type }}</td>
+                    <td>{{ appt.doctorpackage?.title}},{{ appt.doctorpackage?.type }}</td>
                     <td>{{ appt.doctorpackage?.price }} {{ appt?.currency }}</td>
                     <td>
                         {{ dayjs(appt.date).format('D MMM YYYY') }}
