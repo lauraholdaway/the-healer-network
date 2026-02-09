@@ -16,7 +16,7 @@
                     </h1>
                 </div>
                 <div class="header-right">
-                    <router-link to="/Docterdashboard/AddService" class="add-service-btn Seasons-fonts">
+                    <router-link to="/Docterdashboard/AddService" class="add-service-btn Seasons-fonts ">
                         Add New Service
                     </router-link>
                 </div>
@@ -179,7 +179,7 @@ onMounted(fetchServices)
 
 .add-service-btn {
     background: #8A7356;
-    color: white;
+    color: white !important;
     padding: 12px 24px;
     border-radius: 8px;
     text-decoration: none;

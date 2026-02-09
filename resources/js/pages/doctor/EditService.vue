@@ -2,51 +2,49 @@
     <section class="edit-service-page">
         <div class="content-card">
             <!-- Header Section -->
-            <div class="page-header">
-                <div class="header-top">
-                    <router-link to="/Docterdashboard/Myservice" class="back-btn">
-                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="#8A7356" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        Go Back
-                    </router-link>
-                </div>
+            <div class="page-header d-flex justify-content-between">
+
 
                 <div class="title-section">
-                    <svg width="21" height="26" viewBox="0 0 21 26" fill="none" xmlns="http://www.w3.org/2000/svg" class="title-icon">
+                    <svg width="21" height="26" viewBox="0 0 21 26" fill="none" xmlns="http://www.w3.org/2000/svg"
+                        class="title-icon">
                         <path
                             d="M6.42857 3.66667H3.71429C2.99441 3.66667 2.30402 3.94762 1.795 4.44772C1.28597 4.94781 1 5.62609 1 6.33333V22.3333C1 23.0406 1.28597 23.7189 1.795 24.219C2.30402 24.719 2.99441 25 3.71429 25H17.2857C18.0056 25 18.696 24.719 19.205 24.219C19.714 23.7189 20 23.0406 20 22.3333V6.33333C20 5.62609 19.714 4.94781 19.205 4.44772C18.696 3.94762 18.0056 3.66667 17.2857 3.66667H14.5714M6.42857 3.66667C6.42857 2.95942 6.71454 2.28115 7.22357 1.78105C7.73259 1.28095 8.42298 1 9.14286 1H11.8571C12.577 1 13.2674 1.28095 13.7764 1.78105C14.2855 2.28115 14.5714 2.95942 14.5714 3.66667M6.42857 3.66667C6.42857 4.37391 6.71454 5.05219 7.22357 5.55229C7.73259 6.05238 8.42298 6.33333 9.14286 6.33333H11.8571C12.577 6.33333 13.2674 6.05238 13.7764 5.55229C14.2855 5.05219 14.5714 4.37391 14.5714 3.66667M6.42857 13H6.44214M11.8571 13H14.5714M6.42857 18.3333H6.44214M11.8571 18.3333H14.5714"
                             stroke="#8A7356" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
                     </svg>
                     <h1 class="page-title Seasons-fonts">Update Service</h1>
                 </div>
+                <div class="header-top">
+                    <router-link to="/Docterdashboard/Myservice" class="back-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M19 12H5M5 12L12 19M5 12L12 5" stroke="#8A7356" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round" />
+                        </svg>
+                        Go Back
+                    </router-link>
+                </div>
             </div>
             <hr class="divider">
 
             <!-- Form Section -->
             <form @submit.prevent="updateService" class="service-form">
-                <div class="form-row">
-                    <div class="form-group form-group-large">
+                <div class="row">
+                    <!-- Service Title -->
+                    <div class="col-md-4 mb-3">
                         <label class="form-label">Service Title</label>
-                        <input
-                            v-model="form.title"
-                            type="text"
-                            class="form-input"
-                            placeholder="Enter service title"
-                            required
-                        >
+                        <input v-model="form.title" type="text" class="form-control" placeholder="Enter service title"
+                            required>
                     </div>
-                    <div class="form-group">
+
+                    <!-- Rate Per Session -->
+                    <div class="col-md-4 mb-3">
                         <label class="form-label">Rate Per Session</label>
-                        <input
-                            v-model="form.rate_per_session"
-                            type="number"
-                            class="form-input"
-                            placeholder="0"
-                            min="0"
-                        >
+                        <input v-model="form.rate_per_session" type="number" class="form-control" placeholder="0"
+                            min="0">
                     </div>
-                    <div class="form-group">
+
+                    <!-- Currency -->
+                    <div class="col-md-4 mb-3">
                         <label class="form-label">Currency</label>
                         <select v-model="form.currency" class="form-select">
                             <option value="USD">US Dollars</option>
@@ -56,27 +54,23 @@
                     </div>
                 </div>
 
-                <div class="form-group">
+
+                <!-- Description -->
+                <div class="mb-3">
                     <label class="form-label">Description</label>
-                    <textarea
-                        v-model="form.description"
-                        class="form-textarea"
-                        rows="5"
-                        placeholder="Describe your service in detail..."
-                    ></textarea>
+                    <textarea v-model="form.description" class="form-control" rows="5"
+                        placeholder="Describe your service in detail..."></textarea>
                 </div>
 
-                <div class="form-row">
-                    <div class="form-group">
+                <!-- Ideal For & Session Type -->
+                <div class="row">
+                    <div class="col-md-6 mb-3">
                         <label class="form-label">Ideal For</label>
-                        <input
-                            v-model="form.ideal_for"
-                            type="text"
-                            class="form-input"
-                            placeholder="Who is this service ideal for?"
-                        >
+                        <input v-model="form.ideal_for" type="text" class="form-control"
+                            placeholder="Who is this service ideal for?">
                     </div>
-                    <div class="form-group">
+
+                    <div class="col-md-6 mb-3">
                         <label class="form-label">Session Type</label>
                         <select v-model="form.session_type" class="form-select">
                             <option>In Person & Online</option>
@@ -85,7 +79,6 @@
                         </select>
                     </div>
                 </div>
-
                 <div class="form-actions">
                     <router-link to="/Docterdashboard/Myservice" class="cancel-btn">
                         Cancel
@@ -108,22 +101,22 @@ const route = useRoute()
 const router = useRouter()
 
 const form = ref({
-  title: '',
-  description: '',
-  rate_per_session: 0,
-  currency: 'USD',
-  ideal_for: '',
-  session_type: 'In Person & Online'
+    title: '',
+    description: '',
+    rate_per_session: 0,
+    currency: 'USD',
+    ideal_for: '',
+    session_type: 'In Person & Online'
 })
 
 const fetchService = async () => {
-  const res = await axios.get(`/api/services/${route.params.id}`)
-  form.value = res.data
+    const res = await axios.get(`/api/services/${route.params.id}`)
+    form.value = res.data
 }
 
 const updateService = async () => {
-  await axios.put(`/api/services/${route.params.id}`, form.value)
-  router.push({ name: 'Myservice' })
+    await axios.put(`/api/services/${route.params.id}`, form.value)
+    router.push({ name: 'Myservice' })
 }
 
 onMounted(fetchService)

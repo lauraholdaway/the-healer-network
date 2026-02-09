@@ -4,7 +4,7 @@
             <!-- Concern or Practice -->
             <div class="col-12 col-md-4 text-start search-box-section">
                 <div class="d-flex flex-column">
-                    <span class="mb- search-box-title">What support are you looking for?</span>
+                    <span class="mb- search-box-title text-dark-custom">What support are you looking for?</span>
                     <input type="text" v-model="form.modality" class="form-control border-0  shadow-none search-input"
                         placeholder="Find a healer near you or book online sessions from anywhere in the world." />
                 </div>
@@ -13,7 +13,7 @@
             <!-- Locations -->
             <div class="col-12 col-md-5 text-start search-box-section">
                 <div class="d-flex flex-column">
-                    <label class="form-label mb-0 text-start search-box-title">Locations</label>
+                    <label class="form-label mb-0 text-start search-box-title text-dark-custom">Locations</label>
                     <div class="d-flex align-items-center gap-2 location-input-wrapper">
                         <input type="text" v-model="form.location"
                             class="location-text form-control border-0 shadow-none" placeholder="Anywhere / Online" />

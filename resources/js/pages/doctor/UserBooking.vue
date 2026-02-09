@@ -8,7 +8,7 @@
                 <div class="loading-bar">
                     <div class="loading-progress"></div>
                 </div>
-                <p class="loading-text">Loading Practitioner...</p>
+                <p class="loading-text">Loading Appointments...</p>
             </div>
 
             <!-- Show when no data -->
@@ -34,7 +34,7 @@
                                     appointment.user?.email
                                     }} <br>
                                     {{ appointment.user?.number }}</span><br>
-                                <span>{{ appointment?.payment }} {{ appointment?.currency }}</span> <br>
+                                <span>${{ appointment?.payment }} {{ appointment?.currency }}</span> <br>
                                 <!-- <span class="rating">
                                     <svg width="13" height="12" viewBox="0 0 13 12" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
@@ -97,16 +97,14 @@
                                         stroke-linejoin="round" />
                                 </svg>
                                 <span class="tag">
-                                    {{ appointment.doctorpackage?.time }}
+                                    {{ appointment.doctorpackage?.time ?? '30 mint' }}
                                 </span>
                             </div>
 
                         </div>
                         </br>
                         <div class="mt-3" v-if="appointment.status === 'cancelled'">
-
                             <b class="badge bg-danger  p-1">Cancelled</b>
-
                         </div>
                         <div class="mt-3" v-else>
                             <div v-if="appointment.type === 'offline'">
@@ -132,7 +130,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
 
 
@@ -169,6 +166,8 @@
                 </div>
             </div>
         </div>
+
+        
     </div>
 </template>
 

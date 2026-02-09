@@ -918,6 +918,7 @@
                                                     </button>
                                                 </div>
                                                 <div class="calendar-grid">
+                                                
                                                     <div class="day-name" v-for="d in days" :key="d">{{ d }}</div>
 
                                                     <div v-for="(day, index) in m.daysArray" :key="index"
@@ -1342,13 +1343,14 @@ function getMonthData(monthOffset = 0) {
     const availableDates = computed(() => doctortime.value.map((t) => t.date));
     const daysArray = [];
 
+
     for (let i = 0; i < firstDayIndex; i++) {
         daysArray.push({ date: "", isAvailable: false });
     }
 
 
     for (let d = 1; d <= totalDays; d++) {
-        const fullDate = new Date(year, month, d).toISOString().split("T")[0];
+        const fullDate = formatDateLocal(year, month, d);
         daysArray.push({
             date: d,
             fullDate,
@@ -1371,6 +1373,12 @@ function selectDate(date) {
     selectedTime.value = null;
 }
 
+
+function formatDateLocal(year, month, day) {
+    const m = String(month + 1).padStart(2, '0');
+    const d = String(day).padStart(2, '0');
+    return `${year}-${m}-${d}`;
+}
 
 
 function formatDate(date) {
