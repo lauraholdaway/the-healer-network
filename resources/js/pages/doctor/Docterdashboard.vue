@@ -77,16 +77,15 @@ function logout() {
                                 @click="closeSidebar">
                                 <span class="d-flex align-items-center gap-2">
                                     <img :src="ICONS.manage" alt="Patient Bookings" class="menu-icon" />
-                                    <span>Patient Bookings</span>
+                                    <span>Time history</span>
                                 </span>
                             </router-link>
-
                             <router-link to="/Docterdashboard/UserBooking" exact
                                 class="btn menu-btn d-flex align-items-center justify-content-between"
                                 @click="closeSidebar">
                                 <span class="d-flex align-items-center gap-2">
                                     <img :src="ICONS.package" alt="My Services" class="menu-icon" />
-                                    <span>User Appointment </span>
+                                    <span>Upcoming Appointments</span>
                                 </span>
                             </router-link>
 

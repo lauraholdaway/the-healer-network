@@ -1,7 +1,7 @@
 <template>
     <div class="card p-4 ">
         <div class="overflow-auto">
-            <h3 class="Seasons-fonts">User Appointments</h3>
+            <h3 class="Seasons-fonts">Upcoming Appointments</h3>
 
             <!-- Show loading -->
             <div v-if="loading" class="loading-container">
